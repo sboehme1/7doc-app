@@ -1013,13 +1013,22 @@ body {
 .progress-upsell { text-align: center; padding: 0.3rem 0 0.1rem; }
 .progress-upsell-link {
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--terracotta);
   text-decoration: none;
   letter-spacing: 0.03em;
 }
 .progress-upsell-link:hover { text-decoration: underline; }
+.coaching-progress-wrap { text-align: center; padding: 0.2rem 0 0.4rem; }
+.coaching-progress-link {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  color: #c0845a;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.coaching-progress-link:hover { text-decoration: underline; }
 
 /* === UPSELL OVERLAY / POPUP === */
 .upsell-overlay {

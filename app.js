@@ -36,7 +36,7 @@ var T = {
     tightSub: "3 Schritte f\u00fcr unterwegs",
     safety: "Safety Box (gilt immer)",
     s1: "Du darfst jederzeit pausieren",
-    s2: "Die 5-Sinne-\u00dcbung bringt dich sofort zur\u00fcck in den Moment. Benenne der Reihe nach: was du siehst, h\u00f6rst, sp\u00fcrst, riechst, schmeckst.",
+    s2: "Die 5-Sinne-\u00dcbung bringt dich sofort zur\u00fcck in den Moment:<br>\u2192 was du siehst<br>\u2192 was du h\u00f6rst<br>\u2192 was du sp\u00fcrst<br>\u2192 was du riechst<br>\u2192 was du schmeckst",
     s3: "Dosierung vor Intensit\u00e4t",
     science: "Was dahinter steckt",
     benefit: "Was es dir bringt",
@@ -114,7 +114,7 @@ var T = {
     tightSub: "3 Steps for on-the-go",
     safety: "Safety Box (always applies)",
     s1: "You may pause at any time",
-    s2: "The 5-senses exercise brings you back to the present moment. Name in order: what you see, hear, feel, smell, taste.",
+    s2: "The 5-senses exercise brings you back to the present moment:<br>\u2192 what you see<br>\u2192 what you hear<br>\u2192 what you feel<br>\u2192 what you smell<br>\u2192 what you taste",
     s3: "Dosage over intensity",
     science: "Why this works",
     benefit: "What you gain",
@@ -167,7 +167,7 @@ var DAYS = {
     onthego:[["Halt","Bleib kurz stehen oder setz dich aufrecht. Sp\u00fcr den Boden unter deinen F\u00fc\u00dfen."],["Atem","Atme tief durch die Nase ein (z\u00e4hl bis 4). Atme lang durch den Mund aus (z\u00e4hl bis 6). Wiederhole 3-mal."],["Ausklang","Lass den Atem frei flie\u00dfen. Sag dir leise: \u201eIch bin hier.\u201c Geh langsam in deinen Tag zur\u00fcck."]],
     steps:[
       {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus (Flugmodus). <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden, Blick ruhig nach vorn. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch.",tips:["Das ist dein Startsignal: Kontakt zum K\u00f6rper, Pr\u00e4senz im Moment."]},
-      {t:"Atmen (4/6-Rhythmus)",c:"<strong class='step-key'>Ausatmen:</strong> Z\u00e4hle innerlich bis 6. Fokus: Warme Luft str\u00f6mt raus \u2013 Schultern fallen.\n\n<strong class='step-key'>Einatmen:</strong> Z\u00e4hle innerlich bis 4. Fokus: K\u00fchle Luft an der Nasenspitze.\n\n<strong class='step-key'>Wiederhole</strong> diesen Takt in deinem Tempo so oft wie es sich gut anf\u00fchlt.",tips:["Gedanken auf Reisen? Das ist v\u00f6llig okay. Komm einfach sanft zur\u00fcck zum Z\u00e4hlen.","Rhythmus verloren? Atme einmal tief durch. Fang ganz entspannt wieder bei 4 an."],opt:"Vagus-Impuls: Wenn du besonders viel Unruhe sp\u00fcrst \u2013 atme tief ein und setze am Ende noch einen winzigen, schnellen Nach-Einatmer oben drauf. Halte kurz. Atme dann lang aus. Das unterbricht die Stress-Reaktion direkt auf k\u00f6rperlicher Ebene."},
+      {t:"Atmen (4/6-Rhythmus)",c:"<strong class='step-key'>Ausatmen:</strong> Z\u00e4hle innerlich bis 6. Fokus: Warme Luft str\u00f6mt raus \u2013 Schultern fallen.\n\n<strong class='step-key'>Einatmen:</strong> Z\u00e4hle innerlich bis 4. Fokus: K\u00fchle Luft an der Nasenspitze.\n\n<strong class='step-key'>Wiederhole</strong> diesen Takt in deinem Tempo so oft wie es sich gut anf\u00fchlt.",tips:["Gedanken auf Reisen?<br>Das ist v\u00f6llig okay.<br>Komm einfach sanft zur\u00fcck zum Z\u00e4hlen.","Rhythmus verloren?<br>Atme einmal tief durch.<br>Fang ganz entspannt wieder bei 4 an.","<strong style='color:#c0845a'>Vagus-Impuls</strong><br>Wenn du besonders viel Unruhe sp\u00fcrst:<br>&middot; Atme tief ein<br>&middot; Setze einen winzigen schnellen Nach-Einatmer oben drauf<br>&middot; Halte kurz<br>&middot; Atme dann lang aus<br>Das unterbricht die Stress-Reaktion direkt auf k\u00f6rperlicher Ebene."]},
       {t:"Zur\u00fcckkehren",c:"<strong class='step-key'>Loslassen:</strong> Z\u00e4hlen beenden \u2013 der Atem flie\u00dft wieder frei. <strong class='step-key'>Sp\u00fcren:</strong> Deinen K\u00f6rper wahrnehmen. <strong class='step-key'>\u00d6ffnen:</strong> Augen auf, der Blick wird wieder klar."}
     ],
     science:"Stress ist keine reine Kopfsache, sondern eine körperliche Reaktion. Indem du bewusst ausatmest, aktivierst du über den Vagusnerv den Parasympathikus \u2013 den Teil deines Nervensystems, der für Ruhe sorgt. Das signalisiert deinem Gehirn: \u201eEs ist sicher.\u201c",
@@ -734,8 +734,6 @@ function renderDay(d){
   s+='</div>';
   for(var ri=0;ri<d.reflections.length;ri++){var nv=n["r"+ri]||"";s+='<div class="routine-field"><label>'+d.reflections[ri]+'</label><textarea placeholder="'+t("reflectionPlaceholder")+'" oninput="onN(this,'+d.num+','+ri+')">'+nv+'</textarea><div class="save-indicator" id="si'+d.num+'r'+ri+'">&#10003; Saved</div></div>';}
   s+='<div class="storage-notice">'+t("storageNote")+'</div></div>';
-  // Coaching-Link
-  s+='<div class="coaching-link-wrap"><a href="#" class="coaching-link">'+t("coachingBtn")+'</a></div>';
   // Complete
   var bc=done?"complete-btn done":"complete-btn";var bt=done?"&#10003; "+(LANG==="de"?"Tag ":"Day ")+d.num+t("completed"):(LANG==="de"?"Tag ":"Day ")+d.num+t("complete")+" &#10003;";
   s+='<button class="'+bc+'" id="cb'+d.num+'" onclick="cDay('+d.num+')">'+bt+'</button>';
@@ -802,7 +800,7 @@ function updProg(){
     /* Upsell nur zeigen wenn Nutzer NICHT vollen Zugang hat (kein HEIMKEHR/7DOC/CHANGE7+CHANGE10) */
     if(isUnlocked() && getUnlockLevel()!=="full" && isDayLocked(8)){
       var uUrl=LANG==="de"?"https://sashandventures.gumroad.com/l/7doc-erweiterung-de":"https://sashandventures.gumroad.com/l/7doc-extension-en";
-      var uLbl=LANG==="de"?"Tage 8\u201310 sind bereit \u2192":"Days 8\u201310 are ready \u2192";
+      var uLbl=LANG==="de"?"\u2728 Tage 8\u201310 sind bereit \u2192":"\u2728 Days 8\u201310 are ready \u2192";
       ub.innerHTML='<a href="'+uUrl+'" target="_blank" rel="noopener" class="progress-upsell-link">'+uLbl+'</a>';
       ub.style.display="block";
     } else {
@@ -903,6 +901,7 @@ function setLang(l){
   document.getElementById("header-sub").textContent=t("sub");
   document.getElementById("footer-disc").textContent=t("footerDisc");
   var fac=document.getElementById("footer-add-code");if(fac)fac.textContent=t("addCode");
+  var cpl=document.getElementById("coaching-progress-link");if(cpl)cpl.textContent=t("coachingBtn");
   /* Wenn noch nicht freigeschaltet, Gate-Screen neu rendern */
   if (!isUnlocked()) {
     showAccessGate();
@@ -993,7 +992,9 @@ function checkCode() {
       var codes = getCodes();
       if (codes.indexOf(hash) < 0) codes.push(hash);
       localStorage.setItem("7doc_codes", JSON.stringify(codes));
-      localStorage.setItem("7doc_access", "granted");
+      if (localStorage.getItem("7doc_access") !== "full") {
+        localStorage.setItem("7doc_access", "granted");
+      }
       go("welcome");
       updProg();
       updMot();
@@ -1057,7 +1058,7 @@ function submitAddCode(){
     if(valid){
       var codes=getCodes();if(codes.indexOf(hash)<0)codes.push(hash);
       localStorage.setItem("7doc_codes",JSON.stringify(codes));
-      localStorage.setItem("7doc_access","granted");
+      if(localStorage.getItem("7doc_access")!=="full"){localStorage.setItem("7doc_access","granted");}
       closeAddCodeModal();
       updProg();updMot();updNav();go(curPage);
     } else {
@@ -1072,6 +1073,7 @@ function submitAddCode(){
 function initApp(){
   document.getElementById("footer-disc").textContent=t("footerDisc");
   var fac=document.getElementById("footer-add-code");if(fac)fac.textContent=t("addCode");
+  var cpl=document.getElementById("coaching-progress-link");if(cpl)cpl.textContent=t("coachingBtn");
 
   /* Pruefen ob Zugang bereits freigeschaltet ist */
   if (isUnlocked()) {
