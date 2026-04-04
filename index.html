@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="7 Days of Change - A 7-day self-leadership program.">
+  <meta name="theme-color" content="#2C2824">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="7DOC">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="img/logo.png">
+  <title>7 Days of Change</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-row">
+      <h1>7 <span>Days of Change</span></h1>
+    </div>
+    <p class="header-subtitle" id="header-sub">Heimkehr zu dir selbst</p>
+    <div class="lang-switch">
+      <div class="lang-toggle">
+        <button class="lang-opt active" id="lang-de" onclick="setLang('de')" title="Deutsch">
+          <img src="img/flag-de.svg" alt="DE" class="flag-icon"> DE
+        </button>
+        <button class="lang-opt" id="lang-en" onclick="setLang('en')" title="English">
+          <img src="img/flag-en.svg" alt="EN" class="flag-icon"> EN
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="motivation-banner" id="motivation-banner"></div>
+
+  <div class="progress-container">
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-fill"></div>
+    </div>
+    <div class="progress-text" id="progress-text"></div>
+  </div>
+
+  <nav class="nav-container">
+    <div class="journey-bar">
+      <button class="journey-always-btn" id="journey-always-btn" onclick="go('journey')">
+        &#128200; <span id="journey-btn-label">Mein Fortschritt</span>
+      </button>
+    </div>
+    <div class="nav-scroll" id="nav-scroll"></div>
+  </nav>
+
+  <main class="main-content" id="main-content"></main>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">&#8593;</button>
+
+  <footer class="app-footer">
+    <div class="footer-logo">
+      <img src="img/logo.png" alt="Sash and Ventures" class="footer-logo-img">
+    </div>
+    <p>&copy; 2026 Sascha B&ouml;hme &middot; <a href="https://sashandventures.com" target="_blank" rel="noopener">sashandventures.com</a></p>
+    <p style="margin-top:6px;font-size:0.73rem;" id="footer-disc"></p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    /* Service Worker registrieren — ermöglicht Offline-Nutzung */
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js");
+    }
+  </script>
+</body>
+</html>

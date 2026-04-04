@@ -1,0 +1,954 @@
+/* 7 Days of Change - App v2 - Bilingual DE/EN */
+var LANG = "de";
+
+var T = {
+  de: {
+    sub: "Heimkehr zu dir selbst",
+    start: "Starte Tag 1",
+    startBottom: "Los geht's \u2013 Tag 1 starten",
+    overview: "\u00dcbersicht",
+    the7days: "Die 7 Tage",
+    dayOverview: "Dein Tag im \u00dcberblick",
+    rhythm: "T\u00e4glicher Rhythmus",
+    rhythmDesc: "Vorbereitung \u2192 Mini-Audio (3 Min) \u2192 Die Praxis (ca. 15 Min) \u2192 Notizen \u2192 Ausklang",
+    materials: "Materialien",
+    materialsDesc: "Stift & Papier oder Notiz-App \u2022 Wasser \u2022 Timer und Flugmodus",
+    shortTime: "Wenig Zeit?",
+    shortTimeDesc: "Nutze die 3-Schritte On-the-go Version wenn es eng wird.",
+    bonusDays: "Bonus Tage (8\u201310)",
+    prepOverviewLabel: "Was du brauchst",
+    prepOtgHint: "\u21b3 Wenn es eng wird: Nutze die 3 Schritte On-The-Go-Version bei jedem Tag.",
+    disc: "Dieses Programm ist Training f\u00fcr Selbstf\u00fchrung, kein Ersatz f\u00fcr therapeutische Arbeit.",
+    footerDisc: "Training f\u00fcr Selbstf\u00fchrung, kein Ersatz f\u00fcr therapeutische Arbeit.",
+    journeyBtn: "Verlauf",
+    journeyTitle: "Deine Reise",
+    journeySub: "Ein Blick auf das, was du dir gegeben hast.",
+    journeyMsg1: "Du hast dir diese Zeit genommen. Tag f\u00fcr Tag.",
+    journeyMsg2: "Ver\u00e4nderung ist geschehen \u2013 so wie sie geschehen sollte. Es gibt hier keine Wertung, kein Gut oder Schlecht. Nur deine Reise, genau so wie sie ist.",
+    journeyMsg3: "Sei stolz auf dich. Du hast begonnen.",
+    journeyLocked: "Noch nicht gestartet",
+    progText: " von 10 Tagen abgeschlossen",
+    prep: "Vorbereitung",
+    prep1: "W\u00e4hle einen Ort, an dem du dich sicher und pr\u00e4sent f\u00fchlst.",
+    prep2: "Lies den Ablauf einmal ganz durch.",
+    prep3: "Sag dir: \u201eIch schenke mir diesen Moment.\u201c",
+    tight: "Falls es heute eng wird",
+    tightSub: "3 Schritte f\u00fcr unterwegs",
+    safety: "Safety Box (gilt immer)",
+    s1: "Du darfst jederzeit pausieren",
+    s2: "Die 5-Sinne-\u00dcbung ist ein sicherer Anker",
+    s3: "Dosierung vor Intensit\u00e4t",
+    science: "Was dahinter steckt",
+    benefit: "Was es dir bringt",
+    reflection: "Deine Reflexion",
+    sheetHint: "Deine Notizen werden lokal auf diesem Ger\u00e4t gespeichert.",
+    storageNote: "\u2139 Notizen werden lokal gespeichert. Bei Ger\u00e4tewechsel gehen Daten verloren.",
+    complete: " abschlie\u00dfen",
+    completed: " abgeschlossen",
+    done: "geschafft!",
+    tomorrow: "Morgen: ",
+    allDone: "Du hast es getan.",
+    audioText: "Audio-Player \u2013 Tag ",
+    audioHint: "Audio nach Hosting verf\u00fcgbar.",
+    stepLabel: "Schritt",
+    optional: "Optional",
+    clarity: "Klarheit",
+    calm: "Ruhe",
+    energy: "Energie",
+    trust: "Selbstvertrauen",
+    placeholder: "Schreibe hier deine Gedanken \u2026",
+    welc1: "Du hast dich f\u00fcr diesen Weg entschieden \u2013 und das ist bereits der erste echte Schritt. Du wirst Techniken erleben, die sich spüren lassen – im Körper, im Kopf, im Alltag.",
+    welc2: "Jeder Tag hat seinen eigenen Fokus: Atmen. Ausrichten. Aktivieren. Erkennen. Verbinden. Gestalten. Bewahren. Offenheit und ein paar Minuten t\u00e4glich \u2013 das ist alles, was du mitbringst.",
+    welc3: "Eine Einladung zur Heimkehr \u2013 zu dir selbst. Und du hast dich bereits entschieden zu beginnen.",
+    msgs: [
+      "Nimm einen tiefen Atemzug. Du bist hier.",
+      "Tag 1 wartet auf dich: Ankommen & Atmen.",
+      "Tag 2 von 7. Weiter mit deinem inneren Kompass.",
+      "Tag 3 von 7. Heute kommt Energie ins Spiel.",
+      "Tag 4 von 7. Halbzeit \u2013 beobachte deine Gedanken.",
+      "Tag 5 von 7. Heute: Verbindung.",
+      "Tag 6 von 7. Gestalte dein Umfeld.",
+      "Tag 7 von 7. Entscheide, was dich begleitet.",
+      "7 Tage geschafft! Die Bonus-Tage vertiefen deine Reise.",
+      "Bonus 2: Dein Wort an dich.",
+      "Alle 10 Tage geschafft. Du tr\u00e4gst alles in dir."
+    ]
+  },
+  en: {
+    sub: "A gentle return to yourself",
+    start: "Start Day 1",
+    startBottom: "Let's go \u2013 Start Day 1",
+    overview: "Overview",
+    the7days: "The 7 Days",
+    dayOverview: "Your Day at a Glance",
+    rhythm: "Daily Rhythm",
+    rhythmDesc: "Preparation \u2192 Mini-Audio (3 min) \u2192 The Practice (~15 min) \u2192 Notes \u2192 Closing",
+    materials: "Essentials",
+    materialsDesc: "Pen & paper or note app \u2022 Water \u2022 Timer and flight mode",
+    shortTime: "Short on time?",
+    shortTimeDesc: "Use the 3-Step On-the-Go version when things get tight.",
+    bonusDays: "Bonus Days (8\u201310)",
+    prepOverviewLabel: "What you need",
+    prepOtgHint: "\u21b3 If things get tight: Use the 3-step On-The-Go version on each day.",
+    disc: "This program is self-leadership training, not a substitute for therapeutic work.",
+    footerDisc: "Self-leadership training, not a substitute for therapeutic work.",
+    journeyBtn: "Journey",
+    journeyTitle: "Your Journey",
+    journeySub: "A look at what you\u2019ve given yourself.",
+    journeyMsg1: "You took this time. Day by day.",
+    journeyMsg2: "Change has happened \u2013 exactly as it should. There is no judgment here, no good or bad. Only your journey, exactly as it is.",
+    journeyMsg3: "Be proud of yourself. You began.",
+    journeyLocked: "Not yet started",
+    progText: " of 10 days completed",
+    prep: "Preparation",
+    prep1: "Choose a place where you feel safe and present.",
+    prep2: "Read through the steps once for clarity.",
+    prep3: "Say to yourself: \u201cI give myself this moment.\u201d",
+    tight: "If things get tight today",
+    tightSub: "3 Steps for on-the-go",
+    safety: "Safety Box (always applies)",
+    s1: "You may pause at any time",
+    s2: "The 5-Senses Exercise is a safe anchor",
+    s3: "Dosage over intensity",
+    science: "Why this works",
+    benefit: "What you gain",
+    reflection: "Your Reflection",
+    sheetHint: "Your notes are stored locally on this device.",
+    storageNote: "\u2139 Notes are stored locally. Data is lost when switching devices.",
+    complete: " complete",
+    completed: " completed",
+    done: "done!",
+    tomorrow: "Tomorrow: ",
+    allDone: "You did it.",
+    audioText: "Audio Player \u2013 Day ",
+    audioHint: "Audio available after hosting.",
+    stepLabel: "Step",
+    optional: "Optional",
+    clarity: "Clarity",
+    calm: "Calm",
+    energy: "Energy",
+    trust: "Self-Trust",
+    placeholder: "Write your thoughts here \u2026",
+    welc1: "You\u2019ve chosen this path \u2013 and that\u2019s already the first real step. What awaits you isn\u2019t concepts to read, but experiences to live.",
+    welc2: "Each day has its own focus: Breathe. Align. Activate. Recognize. Connect. Shape. Sustain. Openness and a few minutes each day \u2013 that\u2019s all you bring.",
+    welc3: "An invitation to return \u2013 to yourself. And you\u2019ve already made the decision to begin.",
+    msgs: [
+      "Take a deep breath. You are here.",
+      "Day 1 awaits: Arriving & Breathing.",
+      "Day 2 of 7. Your inner compass.",
+      "Day 3 of 7. Energy comes into play.",
+      "Day 4 of 7. Halftime \u2013 observe your thoughts.",
+      "Day 5 of 7. Today: Connection.",
+      "Day 6 of 7. Shape your environment.",
+      "Day 7 of 7. Decide what stays with you.",
+      "7 days done! Bonus days deepen your journey.",
+      "Bonus 2: Your word to yourself.",
+      "All 10 days done. You carry everything within you."
+    ]
+  }
+};
+
+var DAYS = {
+  de: [
+    {num:1,title:"Ankommen & Atmen",subtitle:"Dein Startpunkt ist hier und jetzt",goal:"Bei dir einchecken & zur Ruhe kommen",time:"Ideal 20 Minuten",audio:"Audio zu Tag 1 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    intro:"Alles ist laut, alles ist schnell. Wir sind es gewohnt, st\u00e4ndig auf irgendetwas zu reagieren.\n\nDoch um dich selbst wieder zu sp\u00fcren, darfst du heute kurz anhalten. Dieser erste Tag ist deine Erlaubnis, f\u00fcr einen Moment nichts zu leisten und nichts zu \u201eerreichen\u201c.\n\nEs gibt jetzt keinen anderen Ort, an dem du dringender gebraucht wirst, als bei dir selbst. Du darfst einfach hier sein und atmen.",
+    onthego:[["Halt","Bleib kurz stehen oder setz dich aufrecht. Sp\u00fcr den Boden unter deinen F\u00fc\u00dfen."],["Atem","Atme tief durch die Nase ein (z\u00e4hl bis 4). Atme lang durch den Mund aus (z\u00e4hl bis 6). Wiederhole 3-mal."],["Ausklang","Lass den Atem frei flie\u00dfen. Sag dir leise: \u201eIch bin hier.\u201c Geh langsam in deinen Tag zur\u00fcck."]],
+    steps:[
+      {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus (Flugmodus). <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden, Blick ruhig nach vorn. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal: Kontakt zum K\u00f6rper, Pr\u00e4senz im Moment."},
+      {t:"Atmen (4/6-Rhythmus)",c:"<strong class='step-key'>Einatmen:</strong> Z\u00e4hle innerlich bis 4. Fokus: K\u00fchle Luft an der Nasenspitze.\n\n<strong class='step-key'>Ausatmen:</strong> Z\u00e4hle innerlich bis 6. Fokus: Warme Luft str\u00f6mt raus \u2013 Schultern fallen.\n\n<strong class='step-key'>Wiederhole</strong> diesen Takt in deinem Tempo so oft wie es sich gut anf\u00fchlt.",tips:["Gedanken auf Reisen? Das ist v\u00f6llig okay. Komm einfach sanft zur\u00fcck zum Z\u00e4hlen.","Rhythmus verloren? Atme einmal tief durch. Fang ganz entspannt wieder bei 4 an."],opt:"Vagus-Impuls: Wenn du besonders viel Unruhe sp\u00fcrst \u2013 atme tief ein und setze am Ende noch einen winzigen, schnellen Nach-Einatmer oben drauf. Halte kurz. Atme dann lang aus. Das unterbricht die Stress-Reaktion direkt auf k\u00f6rperlicher Ebene."},
+      {t:"Zur\u00fcckkehren",c:"<strong class='step-key'>Loslassen:</strong> Z\u00e4hlen beenden. Der Atem flie\u00dft wieder frei.\n\n<strong class='step-key'>Sp\u00fcren:</strong> Deinen K\u00f6rper wahrnehmen.\n\n<strong class='step-key'>\u00d6ffnen:</strong> Augen auf, der Blick wird wieder klar."}
+    ],
+    science:"Wenn du das Ausatmen verl\u00e4ngerst, aktivierst du \u00fcber den Vagusnerv den Parasympathikus \u2013 den Teil deines Nervensystems, der f\u00fcr Ruhe sorgt. Das signalisiert deinem Gehirn: \u201eEs ist sicher.\u201c",
+    benefit:"Puls und Blutdruck sinken messbar. Dein K\u00f6rper schaltet vom \u00dcberlebensmodus (Reagieren) in den Klarheitsmodus (Agieren). Du bekommst Kontrolle und Ruhe zur\u00fcck \u2013 nicht durch Denken, sondern durch Biologie.",
+    reflections:["Wie f\u00fchlt sich mein K\u00f6rper nach dem Atmen an?","Was habe ich wahrgenommen, als ich zur Ruhe kam?"]},
+
+    {num:2,title:"Werte & Richtung",subtitle:"Dein innerer Kompass",goal:"Dich innerlich ausrichten & deinen Kompass finden",time:"Ideal 20 Minuten",audio:"Audio zu Tag 2 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    intro:"Wer keinen eigenen Kurs hat, treibt oft dahin, wo andere ihn haben wollen. Deshalb richten wir heute deinen inneren Kompass neu aus.\n\nDie Ruhe von gestern bildet das Fundament. Denn erst wenn der Lärm im Kopf leiser wird, kannst du deine eigene Richtung wieder klar erkennen.",
+    onthego:[["Reset","Ver\u00e4ndere bewusst etwas im Au\u00dfen: Wechsle den Raum oder \u00e4ndere deine Haltung. Stell dich aufrecht hin, Blick nach vorn."],["Kompass","W\u00e4hle ein Wert-Wort f\u00fcr den Tag (z.B. Klarheit, Ruhe, Mut). Sprich: \u201eHeute f\u00fchre ich mit [Wert].\u201c"],["Im Tag","Wenn Druck auftaucht, frag dich: \u201eWas st\u00e4rkt meinen Wert jetzt?\u201c"]],
+    steps:[
+      {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Setz</strong> dich aufrecht hin, beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
+      {t:"Ausrichten (Dein innerer Kompass)",c:"<strong class='step-key'>Ankommen:</strong> Atme ein paar Mal ruhig ein und aus, bis du merkst, dass du wirklich hier sitzt.\n\n<strong class='step-key'>Fragen:</strong> Richte deine Aufmerksamkeit nach innen. „Wenn ich nur auf mich selbst höre – welcher Wert gibt mir heute die Richtung vor?“\n\n<strong class='step-key'>Lauschen:</strong> Lass die Antwort aufsteigen. Beobachte, welche Begriffe sich von allein zeigen. Achte auf körperliche Resonanz: ein tiefes Atmen, ein Nicken, ein Gefühl der Richtigkeit.\n\n<strong class='step-key'>Wählen:</strong> Nimm das eine Wort, das sich jetzt am hilfreichsten anfühlt.\n\n<strong class='step-key'>Form geben:</strong> Vervollständige: „[Diesen Wert] heute zu leben, sieht für mich so aus: …“\n\n<strong class='step-key'>Umsetzen:</strong> Notiere 1–3 kleine Handlungen, die diesen Wert heute beweisen.",tips:["Kein Wort kommt? Wähle „Offenheit“ oder „Ruhe“.","Zu viele Worte? Nimm das Erste. Dein erster Impuls ist der ehrlichste."],opt:"Mögliche Werte: Klarheit · Ruhe · Mut · Vertrauen · Verbundenheit · Gesundheit · Fokus · Respekt · Geduld · Präsenz · Stärke · Gelassenheit · Disziplin · Offenheit · Dankbarkeit\n\nBeispiele: „Verbindung zu leben, sieht heute so aus: Mir selbst kurz liebevoll zuzuhören.“ / „Klarheit zu leben, sieht heute so aus: Meinem ersten Impuls zu vertrauen.“"},
+      {t:"Stabilisieren",c:"<strong class='step-key'>Loslassen:</strong> Das Wort hat seinen festen Platz in dir gefunden. Locker den inneren Griff und lass das Wort einfach ruhen. Es bleibt bei dir.\n\n<strong class='step-key'>Spüren:</strong> Spüre dein ganzes Körpergewicht. Nimm die Stabilität wahr, auf der du ruhst.\n\n<strong class='step-key'>Öffnen:</strong> Nimm den Raum um dich herum wieder klar wahr. Dein Wort ist jetzt bei dir – du bist ausgerichtet."}
+    ],
+    science:"Oft orientieren wir uns an Zielen, die nicht unsere eigenen sind. Handlungen, die deinem Wert entsprechen, kosten nachweislich weniger Energie \u2013 die Forschung nennt das \u201eSelbstkonkordanz\u201c.",
+    benefit:"Du musst dich nicht mehr antreiben, sondern wirst von innerer \u00dcberzeugung getragen. Das f\u00fchlt sich leichter und stimmiger an.",
+    reflections:["Welches Wert-Wort hat sich heute gezeigt?","Welche 1\u20133 Handlungen beweisen meinen Wert?","Welche konkrete Handlung setze ich noch heute um?"]},
+
+    {num:3,title:"Aktivierung",subtitle:"Energie lenken",goal:"K\u00f6rper aktivieren, Kopf ausrichten, Schritt setzen",time:"Ideal 20 Minuten",audio:"Audio zu Tag 3 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    intro:"Die Ruhe aus Tag 1 und dein Wert aus Tag 2 bilden deine Basis. Doch Ver\u00e4nderung passiert erst, wenn du dich bewegst.\n\nWir bleiben oft im Kopf stecken \u2013 planen, gr\u00fcbeln und zweifeln statt einfach den ersten Schritt zu machen. Heute durchbrichst du dieses Z\u00f6gern.\n\nEs geht nicht um gro\u00dfe Leistung, sondern um eine sp\u00fcrbare Ausrichtung. Du beginnst mit einer einzigen, klaren Handlung, die dir beweist: Ich kann meine Richtung selbst bestimmen.",
+    onthego:[["Ansto\u00df","Steh auf, Power-Pose f\u00fcr 10 Sekunden (Arme hoch, Brust offen). Geh ein paar Schritte."],["Kleine Tat","10 Kniebeugen, 10 Wand-Liegest\u00fctze, 20 Sekunden Wandsitz, oder 5 Zeilen schreiben."],["Im Tag","Frag dich: \u201eWas kann ich jetzt tun, um meine Energie zu aktivieren?\u201c"]],
+    steps:[
+      {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Setz</strong> dich aufrecht hin, beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
+      {t:"Aktivierung w\u00e4hlen & lenken",c:"<strong class='step-key'>W\u00e4hle eine Power Pose</strong> und halte sie 1\u20132 Minuten. Dann w\u00e4hle eine <strong class='step-key'>Jetzt-Aktivierung</strong>. Sag laut: \u201eIch mache jetzt \u2026\u201c und beginne direkt.\n\n<strong class='step-key'>Wonder Woman / Superman:</strong> F\u00fc\u00dfe schulterbreit, H\u00e4nde in die H\u00fcften. Brust offen, Schultern zur\u00fcck, Blick nach vorn.\n\n<strong class='step-key'>Expansion Pose:</strong> Beine etwas breiter, Brust offen, Schultern locker. Arme leicht vom K\u00f6rper oder entspannt hinter dem R\u00fccken.\n\n<strong class='step-key'>Victory Pose:</strong> Steh stabil. Arme gro\u00df im \u201eV\u201c nach oben. Kinn leicht anheben, Blick nach oben \u2013 wie ein Olympia-Gewinner.",tips:["Beispiele Jetzt-Aktivierung: 8\u201312 Kniebeugen, 10 Wand-Liegest\u00fctze, 30 Sekunden aussch\u00fctteln"],opt:"Gib der Aktivierung eine Richtung: W\u00e4hle ein Wert-Wort und sprich: \u201eHeute aktiviere ich Richtung [Wert].\u201c"},
+      {t:"Wach werden",c:"<strong class='step-key'>Loslassen:</strong> Der Impuls ist gesetzt. Die Anstrengung darf weichen.\n\n<strong class='step-key'>Sp\u00fcren:</strong> Nimm das Nachklingen in deinem K\u00f6rper wahr. Sp\u00fcre die W\u00e4rme und deinen Puls als Zeichen deiner Energie.\n\n<strong class='step-key'>\u00d6ffnen:</strong> Weite deinen Blick f\u00fcr den Raum um dich herum. Nimm diese Wachheit mit und mach da weiter, wo du heute dran bist."}
+    ],
+    science:"Wir versuchen oft, Blockaden durch Nachdenken zu l\u00f6sen \u2013 was zu mehr Z\u00f6gern f\u00fchrt. Hier nutzt du den K\u00f6rper, um den Geist zu \u00fcberzeugen.",
+    benefit:"Dieser Tag r\u00fcckt deine Selbstwirksamkeit in den Fokus. Du machst die Erfahrung, dass du Situationen aktiv gestalten kannst.",
+    reflections:["Welche Aktivierung habe ich gew\u00e4hlt?","Wie hat sich mein K\u00f6rper danach angef\u00fchlt?","Welche drei gr\u00f6\u00dferen Aktivierungen lege ich bereit?"]},
+
+    {num:4,title:"Gedanken & Geschichten",subtitle:"Deine Worte f\u00e4rben deine Sicht",goal:"Deine inneren Geschichten erkennen & neu w\u00e4hlen",time:"Ideal 20 Minuten",audio:"Audio zu Tag 4 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    intro:"Du hast Ruhe gefunden, dich ausgerichtet und bist ins Tun gekommen. Heute \u00fcbst du den entscheidenden Schritt zur\u00fcck: wahrnehmen, was gedacht wird, ohne dich damit zu identifizieren.",
+    onthego:[["Bemerken","Achte auf den Moment, in dem dein Fokus eng wird oder dein Kopf S\u00e4tze in Dauerschleife abspielt. Stoppe dort."],["Enttarnen","Setze den Gedanken in Anf\u00fchrungszeichen. Aus \u201eDas schaffe ich nicht\u201c wird: \u201eIch habe den Gedanken: Das schaffe ich nicht.\u201c"],["Umschalten","Reibe deine Handfl\u00e4chen kr\u00e4ftig aneinander. Lege sie auf die Oberschenkel. Frage: \u201eWas ist hier und jetzt greifbar?\u201c"]],
+    steps:[
+      {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe am Boden, Blick nach vorn. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch."},
+      {t:"Was wirklich ist",c:"W\u00e4hle eine Situation. Nimm Stift und Papier. <strong class='step-key'>Das Aufschreiben ist entscheidend</strong> \u2013 es holt den Gedanken aus dem Kopf auf das Blatt.\n\n<strong class='step-key'>DIE KAMERA-PERSPEKTIVE</strong>\nBeschreibe den konkreten Ausl\u00f6ser (das Ereignis, die Mail, das Gespr\u00e4ch) so n\u00fcchtern, wie eine \u00dcberwachungskamera ihn aufzeichnen w\u00fcrde. Bleibe bei dem, was wirklich sichtbar und h\u00f6rbar ist.\n\n<strong class='step-key'>DIE GESCHICHTE</strong>\nWas erz\u00e4hlt dein Kopf dar\u00fcber? Schreib die Story vollkommen ehrlich auf.\n\n<strong class='step-key'>DIE HILFREICHE SICHT</strong>\nGibt es eine Sichtweise, die genauso wahr ist, aber weniger wehtut? Formuliere einen neuen Satz. <strong class='step-key'>Schreibe ihn gro\u00df auf.</strong> Lies ihn laut.",tips:["Ehrlichkeit ist dein wichtigstes Werkzeug."],box:"Dieser neue Satz ist keine Ausrede, um das Problem zu ignorieren. Er dient dazu, die Situation wieder handhabbar zu machen \u2013 damit du deinen inneren Widerstand verlierst und deine Kraft wieder f\u00fcr das Tun nutzen kannst.",noteField:{label:"Meine Situation (Kamera-Perspektive):",key:"s2note"}},
+      {t:"Entlasten",c:"<strong class='step-key'>Loslassen:</strong> Stift ablegen. Deine Gedanken sind sortiert und stehen sicher auf dem Papier. <strong class='step-key'>Sp\u00fcren:</strong> Wie antwortet dein K\u00f6rper auf diese Klarheit? Sp\u00fcre die Entlastung, vielleicht in den Schultern oder als Weite im Brustkorb. <strong class='step-key'>\u00d6ffnen:</strong> Nimm die neue Sicht mit und mach da weiter, wo du heute dran bist."}
+    ],
+    science:"Unser Gehirn f\u00fcllt Informationsl\u00fccken blitzschnell mit Annahmen \u2013 meist negativ. Entscheidend ist die aktive Neubewertung. Bewusstheit ist der T\u00fcr\u00f6ffner, die neue Bewertung der Weg hindurch.",
+    benefit:"Du gewinnst deine Handlungsf\u00e4higkeit zur\u00fcck. Du h\u00f6rst auf, gegen Annahmen zu k\u00e4mpfen, und siehst die Dinge in ihrer machbaren Gr\u00f6\u00dfe.",
+    reflections:["Was war die Kamera-Perspektive (nur Fakten)?","Was war die Geschichte meines Kopfes?","Wie lautet mein neuer, hilfreicher Satz?"]},
+
+    {num:5,title:"Verbundenheit",subtitle:"Gemeinsamen Takt finden",goal:"Vom Ich zum Wir \u2013 erleben, wie echte N\u00e4he stabilisiert",time:"Ideal 20 Minuten",audio:"Audio zu Tag 5 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    intro:"Du hast Ruhe gefunden, dich ausgerichtet, bist ins Tun gekommen und hast gelernt, deine Gedanken zu beobachten. Heute gehst du einen entscheidenden Schritt weiter \u2013 von \u201eIch\u201c zu \u201eWir\u201c.\n\nWir sind biologisch nicht daf\u00fcr gemacht, alles allein zu tragen. Echte St\u00e4rke entsteht oft erst im Austausch. Heute \u00f6ffnest du ganz bewusst den Raum f\u00fcr Kontakt.",
+    onthego:[["Signal","W\u00e4hle eine Person, die dir guttut. Schreibe ihr jetzt: \u201eIch musste gerade an dich denken und w\u00fcnsche dir einen sch\u00f6nen Tag.\u201c"],["Vor Ort","Mach ein ehrliches Kompliment oder schenke eine kurze Ber\u00fchrung an der Schulter mit Blickkontakt."],["Resonanz","Sp\u00fcr nach, wie sich das Absenden anf\u00fchlt. Du hast eine T\u00fcr ge\u00f6ffnet."]],
+    steps:[
+      {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
+      {t:"Verbindung schaffen",c:"<strong class='step-key'>W\u00e4hle</strong> eine der folgenden M\u00f6glichkeiten, um heute bewusst den Draht zu einem anderen Menschen zu finden.\n\n<strong class='step-key'>A) Die physische Ruhe</strong> (wenn jemand Vertrautes bei dir ist):\nBitte um eine Umarmung oder biete sie an \u2013 und halte sie 20 Sekunden und mehr. Atme dabei ruhig weiter und lass zu, dass ihr euch gegenseitig Halt gebt.\n\n<strong class='step-key'>B) Die pr\u00e4sente Begegnung</strong> (im Gespr\u00e4ch):\nSuche das direkte Gespr\u00e4ch mit einer Person. Stelle eine Frage, die dich wirklich interessiert. Halte den Blickkontakt einen Moment l\u00e4nger als gewohnt.\n\n<strong class='step-key'>C) Das stille Wohlwollen</strong> (unter Menschen):\nGeh an einen Ort, wo andere Menschen sind. W\u00e4hle eine Person und w\u00fcnsche ihr im Stillen ganz bewusst etwas Gutes: \u201eIch w\u00fcnsche dir, dass du heute einen leichten Tag hast.\u201c",tips:["Keine enge Bezugsperson im Sinn? Schau in deinen Alltag: ein Kollege, eine Vorgesetzte, jemand dem du regelm\u00e4\u00dfig begegnest. Wichtig ist, dass du dich dabei sicher f\u00fchlst."]},
+      {t:"Kontakt wirken lassen",c:"Setz dich noch einmal ruhig hin oder mach es dir im Liegen bequem. <strong class='step-key'>L\u00e4chen.</strong>\n\n<strong class='step-key'>Loslassen:</strong> Atme tief ein und aus. Lass alle Anspannung in den Schultern und im Bauch los. Der Tag ist vorbei. Du musst jetzt nichts mehr tun.\n\n<strong class='step-key'>Sp\u00fcren:</strong> Richte deine Aufmerksamkeit nach innen. Sp\u00fcrst du einen Nachhall der Verbindung? Egal, was jetzt da ist \u2013 nimm es einfach nur wahr.\n\n<strong class='step-key'>Sinken lassen:</strong> Erlaube diesem Gef\u00fchl, ganz da zu sein. Du bist sicher und verbunden."}
+    ],
+    science:"Wenn wir Raum teilen und uns wohlwollend zuwenden, gleichen wir uns an \u2013 ganz automatisch. Wie Pendeluhren an einer Wand, die von selbst in denselben Takt finden.",
+    benefit:"Du h\u00f6rst auf, gegen deine Biologie zu k\u00e4mpfen. In der Verbindung erlebst du: \u201eIch bin nicht allein.\u201c Deine Energie kehrt zur\u00fcck.",
+    reflections:["Welche Verbindungs-Handlung habe ich gew\u00e4hlt?","Wie hat sich mein K\u00f6rper dabei angef\u00fchlt?","Welche Person tut meinem Nervensystem besonders gut?"]},
+
+    {num:6,title:"Hebel im System",subtitle:"Gestalte dein Umfeld",goal:"Gestalte dein Umfeld, damit Ver\u00e4nderung flie\u00dfen kann",time:"Ideal 20 Minuten",audio:"Audio zu Tag 6 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    intro:"Heute wechseln wir die Perspektive: Wir schauen nicht in dich, sondern um dich herum.\n\nOft glauben wir, wir m\u00fcssten uns nur mehr anstrengen oder disziplinierter sein. Doch meistens liegt die Bremse nicht in deinem Willen, sondern in deinem Umfeld.\n\nHeute h\u00f6rst du auf, gegen den Strom zu schwimmen, und beginnst, die Bedingungen so zu ver\u00e4ndern, dass sie dich aktiv unterst\u00fctzen.",
+    onthego:[["Scan","Bio: Was kostet k\u00f6rperlich Kraft? Psycho: Was ist zu viel f\u00fcr deinen Kopf? Sozial: Sp\u00fcrst du Druck?"],["Hebel","Ver\u00e4ndere eine konkrete Sache. Nimm wahr, wie die Handlung auf dich zur\u00fcckwirkt."],["Innehalten","Atme tief ein und bewusst aus. Nimm den Raum um dich wahr."]],
+    steps:[
+      {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
+      {t:"Hebel ziehen",c:"Lies dir die drei Bereiche einmal in Ruhe durch. Nimm dir Stift und Papier oder dein Daily Routine Sheet. Notiere f\u00fcr jeden Bereich eine Sache, die dir auff\u00e4llt, und einen m\u00f6glichen Hebel.\n\n<strong class='step-key'>BIO (K\u00f6rper & Raum):</strong>\nWie f\u00fchlt sich dein K\u00f6rper gerade an? Was tut dir gut \u2013 was st\u00f6rt? Gibt es Orte, an denen du dich sofort wohler f\u00fchlst? Unterst\u00fctzt dein Alltag deinen K\u00f6rper?\nBeispiel-Hebel: \u201eIch l\u00fcfte jetzt durch\u201c (sofort) oder \u201eIch plane, wie ich meinen Arbeitsplatz ver\u00e4ndere\u201c (langfristig).\n\n<strong class='step-key'>PSYCHO (Kopf & Gedanken):</strong>\nWelche Gedanken tauchen immer wieder auf? Wann f\u00fchlt sich dein Kopf klar an? Was fehlt dir, um innerlich etwas leichter zu werden?\nBeispiel-Hebel: \u201eIch lege das Handy weg\u201c (sofort) oder \u201eIch schreibe die alte Erinnerung auf, um sie aus dem Kopf zu bekommen\u201c.\n\n<strong class='step-key'>SOZIAL (Verbindung & Atmosph\u00e4re):</strong>\nWie nimmst du die Stimmung mit anderen wahr? Gibt es Beziehungen, die Kraft geben oder auslaugen? Welche Verbindung w\u00fcrdest du dir w\u00fcnschen \u2013 mehr N\u00e4he, mehr Abstand oder mehr Klarheit?\nBeispiel-Hebel: \u201eIch antworte bewusst erst sp\u00e4ter auf die Nachricht\u201c oder \u201eIch sage das Treffen mit der Gruppe ab, die mir nicht gut tut\u201c.",tips:["Es ist in Ordnung, wenn sich manche Antworten schwer anf\u00fchlen. Diese Offenheit ist ein gro\u00dfer Schritt. Versuch heute in allen drei Bereichen etwas zu bewegen \u2013 oder nur einen. Das reicht."]},
+      {t:"Ausrichten & Einflie\u00dfen lassen",c:"<strong class='step-key'>Lass</strong> die Worte auf dich wirken. Jetzt stehen sie schwarz auf wei\u00df auf dem Papier und kreisen nicht mehr nur im Kopf. Das allein schafft oft schon den ersten Raum zum Atmen.\n\n<strong class='step-key'>Erkenne:</strong> Du f\u00e4ngst hier nicht bei Null an. Du hast in den letzten Tagen bereits alles gesammelt, was du f\u00fcr diesen Schritt brauchst.\n\n<strong class='step-key'>Handle:</strong> Was kannst du heute schon leicht ver\u00e4ndern? Was braucht einen langfristigen Plan? Wichtig ist nicht die Perfektion, sondern die Erfahrung, dass sich deine Situation ver\u00e4ndert, sobald du handelst."}
+    ],
+    science:"Das Bio-Psycho-Soziale Modell zeigt: K\u00f6rper, Gedanken und Umgebung beeinflussen sich gegenseitig. Deine Ersch\u00f6pfung ist vielleicht kein Zeichen pers\u00f6nlicher Schw\u00e4che, sondern eine Antwort auf dein Umfeld.",
+    benefit:"Du wirst wieder zum Gestalter. Statt mehr Kraft aufzuwenden, l\u00f6st du den Hebel. Du richtest deine Welt so ein, dass sie dir den R\u00fccken st\u00e4rkt.",
+    reflections:["Bio: Was ist mir aufgefallen? Welcher Hebel?","Psycho: Was ist mir aufgefallen? Welcher Hebel?","Sozial: Was ist mir aufgefallen? Welcher Hebel?","Was kann ich heute schon ver\u00e4ndern?"]},
+
+    {num:7,title:"Bewahren & Beginnen",subtitle:"Entscheide, was dich begleitet",goal:"W\u00e4hle die eine Sache, die ab heute fest zu dir geh\u00f6rt",time:"Ideal 20 Minuten",audio:"Audio zu Tag 7 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    intro:"Hinter dir liegen sechs Tage, in denen du dich auf dich selbst eingelassen hast. Vielleicht gab es Momente, in denen alles leicht wirkte \u2013 und andere, in denen du Widerstand oder M\u00fcdigkeit sp\u00fcrtest. Das ist nicht nur okay, das ist notwendig. Echte Ver\u00e4nderung braucht diese Reibung.\n\nHeute f\u00fcgen wir nichts Neues mehr hinzu. Wir wechseln vom Suchen zum Finden. Filtere die wenigen Goldst\u00fccke heraus, die in deinen echten Alltag passen \u2013 und lass den Rest ohne schlechtes Gewissen los.",
+    onthego:null,
+    steps:[
+      {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
+      {t:"Das Wertvolle sichern",c:"<strong class='step-key'>R\u00fcckblick:</strong> Nimm deine Notizen der letzten sechs Tage oder dein Daily Routine Sheet zur Hand. Bl\u00e4ttere langsam durch. Achte auf deine Impulse.\n\nFrage dich: Wo bleibst du h\u00e4ngen? Wo sp\u00fcrst du ein \u201eJa\u201c? Welcher Gedanke hat dich diese Woche wirklich erreicht?\n\n<strong class='step-key'>W\u00e4hlen:</strong> Wir suchen Qualit\u00e4t, nicht Quantit\u00e4t. W\u00e4hle maximal zwei Dinge, die du aktiv behalten m\u00f6chtest. Suche nach <strong class='step-key'>Handlungen</strong>, nicht nach Vors\u00e4tzen.\n\nDas kann sein: der 4/6-Atemrhythmus \u00b7 eine kurze Power-Pose mitten im Tag \u00b7 die Kamera-Perspektive f\u00fcr belastende Gedanken \u00b7 dein wichtigster Hebel im System.\n\n<strong class='step-key'>Verankern:</strong> Nimm Stift und Papier. Gib jeder Handlung einen Titel (als T\u00e4tigkeit formuliert). Formuliere direkt darunter einen Satz als Tatsache, nicht als Wunsch.",tips:["Beispiel: \u201eDen Druck wegatmen\u201c \u2013 Satz: \u201eWenn ich Stress sp\u00fcre, atme ich tief ein, packe noch einen kurzen Einatmer obendrauf, halte kurz \u2013 und atme dann lang aus.\u201c","Beispiel: \u201eDie Stille w\u00e4hlen\u201c \u2013 Satz: \u201eSobald ich merke, dass die Welt zu laut wird, lege ich mein Handy bewusst in einen anderen Raum.\u201c"]},
+      {t:"Den Kreis schlie\u00dfen",c:"<strong class='step-key'>Bedanke</strong> dich innerlich bei dir selbst f\u00fcr den Einsatz.\n\n<strong class='step-key'>Leg</strong> den Stift weg. Lehn dich zur\u00fcck. Atme einmal tief durch die Nase ein und lange durch den Mund aus.\n\nSieben Tage liegen hinter dir. Du hast hingesehen, wo es oft Mut kostet, und dir dadurch neue Klarheit verschafft.\n\n<strong class='step-key'>Sp\u00fcr</strong> in dich hinein: Wie f\u00fchlt es sich an, diesen Weg gegangen zu sein? Alles darf da sein.\n\nSieh nach vorn und laufe weiter. Auch wenn er noch so klein erscheint: Nimm den n\u00e4chsten Schritt."}
+    ],
+    science:"Pers\u00f6nliches Wachstum geschieht durch leise, stetige Integration. Nicht Intensit\u00e4t z\u00e4hlt, sondern Best\u00e4ndigkeit. Bewusste Reduktion gibt deinem Gehirn ein klares Signal.",
+    benefit:"Du beendest die Woche mit einem konkreten Werkzeug. Du beweist dir, dass auf dein Wort Verlass ist, und st\u00e4rkst dein Selbstvertrauen.",
+    reflections:["Mein erstes Werkzeug (Titel + Satz):","Mein zweites Werkzeug (Titel + Satz):","Wie f\u00fchlt es sich an, diesen Weg gegangen zu sein?"]},
+
+    {num:8,title:"Grenzen & Energie",subtitle:"H\u00fcte deine Mitte",isBonus:true,goal:"Ein ehrliches \u201eNein\u201c finden und ein klares \u201eJa\u201c, das st\u00e4rkt",time:"Ideal 20 Minuten",audio:"Audio zu Tag 8 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    intro:"Manchmal verschwimmen die Konturen so stark, dass man kaum sp\u00fcrt, wo die Erwartungen anderer aufh\u00f6ren und man selbst anf\u00e4ngt. Alles str\u00f6mt ungefiltert hindurch und die Energie flie\u00dft einfach nach au\u00dfen ab.\n\nEine Grenze ist keine Mauer. Sie ist eine notwendige Zeichnung deiner selbst \u2013 sie macht sichtbar, wo dein Raum liegt und wo der des anderen beginnt.\n\nHeute nimmst du den Schl\u00fcssel zu deinem inneren Raum wieder selbst in die Hand.",
+    onthego:null,
+    steps:[
+      {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
+      {t:"Deine Reserven pr\u00fcfen",c:"<strong class='step-key'>Autopiloten bemerken:</strong> Wir suchen einen Moment, in dem du schnell und automatisch reagiert hast \u2013 fast so, als h\u00e4tte jemand einen Knopf bei dir gedr\u00fcckt. Gehe die letzten 48 Stunden durch.\n\n<strong class='step-key'>Der Anpasser (Ja-Sager):</strong> Wo ist dir ein \u201eJa\u201c herausgerutscht, obwohl dein Bauch Ruhe wollte? Wo hast du dich hinten angestellt, um die Harmonie nicht zu gef\u00e4hrden?\n\n<strong class='step-key'>Der Vermeider (Nein-Sager):</strong> Wo hast du eine Einladung oder einen Impuls sofort abgeblockt? Wo war das \u201eNein\u201c eigentlich nur Angst, die Kontrolle zu verlieren?\n\n<strong class='step-key'>Verstehen:</strong> Wovor hat dich der Reflex abgeschirmt? Beispiele: Davor, jemanden zu entt\u00e4uschen \u00b7 Davor, in einen Konflikt zu geraten \u00b7 Davor, unsicher zu wirken.\n\n<strong class='step-key'>Welche andere M\u00f6glichkeit ist da?</strong>\nAnpasser: Welcher Satz sorgt f\u00fcr Klarheit? Beispiele: \u201eIch schaffe das heute leider nicht.\u201c oder \u201eIch muss da erst mal eine Nacht dr\u00fcber schlafen.\u201c\nVermeider: Welcher erste Schritt schafft Verbindung? Beispiele: \u201eDer Einladung zustimmen.\u201c oder \u201eMich auf das Gespr\u00e4ch einlassen.\u201c\n\n<strong class='step-key'>Formuliere</strong> einen neuen Satz, der dir hilft, in Zukunft bewusster zu w\u00e4hlen.",tips:["Beispiel: \u201eIch erkenne an, dass mein Schutzmechanismus reagiert hat. Gleichzeitig sehe ich nun klar, dass mir auch der Weg [dein Satz] zur Verf\u00fcgung steht.\u201c"]},
+      {t:"Haltung festigen",c:"<strong class='step-key'>Nimm</strong> den Satz, den du gerade aufgeschrieben hast, mit in die Stille. Schlie\u00dfe die Augen.\n\n<strong class='step-key'>Sp\u00fcr</strong> nach, was diese Worte in deinem K\u00f6rper ausl\u00f6sen.\nWenn du Klarheit gesucht hast: Vielleicht sp\u00fcrst du eine Ruhe im Brustkorb oder wie deine Schultern leichter werden.\nWenn du \u00d6ffnung gesucht hast: Vielleicht sp\u00fcrst du ein feines Kribbeln oder eine neue Weite.\n\n<strong class='step-key'>\u00d6ffne</strong> deinen Blick wieder f\u00fcr den Raum um dich herum. Nimm diese neue Sicht mit und mach da weiter, wo du heute dran bist."}
+    ],
+    science:"Hinter jedem schnellen \u201eJa\u201c oder \u201eNein\u201c steckt ein alter Sicherheitsmechanismus. Gesunde Grenzen funktionieren wie eine Zellmembran: stabil genug um Stress drau\u00dfen zu halten, durchl\u00e4ssig genug f\u00fcr Lebendigkeit.",
+    benefit:"Du wechselst vom Reagieren ins bewusste Agieren. Deine Beziehungen werden ehrlicher.",
+    reflections:["Welche Situation habe ich erkannt?","Wovor hat mich der Reflex abgeschirmt?","Mein neuer Satz f\u00fcr bewusstere Wahl:"]},
+
+    {num:9,title:"Dein Wort an dich",subtitle:"Wie du dir selbst Raum gibst",isBonus:true,goal:"Wahrnehmen, was einengt, und Worte finden, die befreien",time:"Ideal 20 Minuten",audio:"Audio zu Tag 9 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    intro:"Oft bewegen wir uns durch den Tag, als s\u00e4\u00dfen wir auf dem Beifahrersitz unseres eigenen Lebens. Ein inneres Radio l\u00e4uft ununterbrochen: \u201eIch muss das noch erledigen\u201c, \u201eDa habe ich eh keine Wahl\u201c, \u201eIch bin einfach zu unorganisiert\u201c.\n\nDiese S\u00e4tze klingen harmlos, aber sie wirken wie unsichtbare W\u00e4nde. Heute dr\u00fccken wir die Pause-Taste. Wir schauen, wie du mit dir selbst sprichst \u2013 und verwandeln den strengen Richter in einen g\u00fctigen Freund.",
+    onthego:null,
+    steps:[
+      {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
+      {t:"Den Ton ver\u00e4ndern",c:"<strong class='step-key'>Kritiker bemerken:</strong> Denk an eine Situation der letzten 24 Stunden, in der du dich klein, gehetzt oder unsicher gef\u00fchlt hast. Nimm Stift und Papier. Schreib ein oder zwei S\u00e4tze auf, die dein Kopf in solchen Momenten sagt.\n\nLies sie durch und sp\u00fcr kurz nach. Wie f\u00fchlt sich das im K\u00f6rper an?\n\n<strong class='step-key'>Gestalter wecken:</strong> W\u00e4hle einen schweren Satz und verwandle ihn in eine Aussage, die freundlich und aktiv ist.\n\n<strong class='step-key'>Sichtbar machen:</strong> Schreibe deinen neuen Leitsatz gro\u00df auf. W\u00e4hle einen Ort, wo du ihn oft siehst: als Handyhintergrundbild, als Zettel am Spiegel, oder in deinen Kalender.",tips:["Aus \u201eIch bin zu dumm daf\u00fcr\u201c wird \u201eIch lerne gerade, wie diese Aufgabe funktioniert\u201c.","Aus \u201eIch bin nicht gut genug\u201c wird \u201eIch bin gut genug\u201c.","Aus \u201eIch muss es allen recht machen\u201c wird \u201eIch entscheide mich, auch gut f\u00fcr mich selbst zu sorgen\u201c.","Aus \u201eIch schaffe das nie\u201c wird \u201eIch gehe einen Schritt nach dem anderen\u201c."]},
+      {t:"Verankern",c:"Nimm den Leitsatz mit in den Tag. Wenn du streng \u00fcber dich denkst, hol ihn hervor. Atme aus. Sag ihn dir vor."}
+    ],
+    science:"Wie du mit dir redest, bestimmt, was du dir zutraust. Selbstabwertung l\u00e4sst unser Inneres zur\u00fcckziehen.",
+    benefit:"Du l\u00f6st dich aus der Hilflosigkeit. Dein Vertrauen w\u00e4chst. Du wirst unabh\u00e4ngig von Best\u00e4tigung im Au\u00dfen.",
+    reflections:["Welche strengen S\u00e4tze habe ich erkannt?","Wie lautet mein neuer Leitsatz?","Wo mache ich ihn sichtbar?"]},
+
+    {num:10,title:"Identit\u00e4t & Disziplin",subtitle:"Vom Werden zum Sein",isBonus:true,goal:"Verankere Ver\u00e4nderung in deiner Identit\u00e4t",time:"Ideal 20 Minuten",audio:"Audio zu Tag 10 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    intro:"Motivation ist ein launischer Begleiter. Sie ist laut und voller Tatendrang, wenn wir aufbrechen. Sie wird still, sobald der Alltag grau wird oder die Müdigkeit einsetzt.\n\nHeute sorgen wir dafür, dass Veränderung auch dann in Bewegung bleibt, wenn der erste Schwung verflogen ist. Das Prinzip: Wir trennen das Entscheiden vom Handeln. Du triffst deine Wahl jetzt – in einem Moment der Ruhe.",
+    onthego:null,
+    steps:[
+      {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
+      {t:"Brief aus der Zukunft",c:"<strong class='step-key'>Die Szene:</strong> Stell dir vor, es ist heute in genau sechs Monaten. Du blickst auf die heutige Woche zurück. Wo bist du? Was tust du gerade? Was fällt dir heute leichter?\n\nNimm wahr, wie du dich dort fühlst. <strong class='step-key'>Halte</strong> dieses Gefühl fest.\n\n<strong class='step-key'>Die Botschaft:</strong> Nimm Stift und Papier. Schreib eine kurze Notiz aus dieser Zukunft an dein heutiges Ich. Schreibe darüber, was du bereits geschafft hast. Frage dich: Welcher Schritt war der wichtigste? Was möchtest du dir als Ermutigung sagen?",tips:["Nutze den warmen Ton, den du an Tag 9 geübt hast.","Betrachte diesen Brief nicht als strengen Vertrag."]},
+      {t:"Fundament",c:"<strong class='step-key'>Loslassen:</strong> Leg den Stift beiseite.\n\n<strong class='step-key'>Spüren:</strong> Lies deine Worte noch einmal durch. Spüre, dass diese Weisheit aus deinem eigenen Inneren kommt. Du verankerst eine innere Verbindlichkeit, die ganz auf Vertrauen beruht.\n\n<strong class='step-key'>Öffnen:</strong> Unser Kopf füllt die Zukunft automatisch mit Sorgen. Heute hast du sie bewusst mit Stolz und Dankbarkeit gefüllt. Das formt deine Gegenwart neu. Wichtig ist, dass dieses Gefühl dir die Kraft gibt, heute den ersten Schritt zu tun."}
+    ],
+    science:"Wenn du dir die Zukunft lebendig vorstellst, nimmt dein Kopf das Gef\u00fchl als echte Erfahrung an. So wird dir dein Weg vertraut.",
+    benefit:"Du findest festen Boden. Z\u00f6gern weicht klarer Tatkraft. Vor allem schlie\u00dft du Frieden mit dir selbst.",
+    reflections:["Wo bin ich in sechs Monaten?","Welcher Schritt war der wichtigste?","Was sage ich meinem heutigen Ich?"]}
+  ],
+  en: [
+    {num:1,title:"Arriving & Breathing",subtitle:"Your starting point is here and now",goal:"Check in with yourself & settle",time:"Ideally 20 minutes",audio:"Day 1 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    intro:"Everything is loud, everything is fast. We are used to constantly reacting.\n\nBut to feel yourself again, today you may pause. This first day is your permission not to perform or “achieve” anything.\n\nThere is no place right now where you are more urgently needed than by yourself. You may simply be here and breathe.",
+    onthego:[["Pause","Stop for a moment or sit up straight. Feel the ground beneath your feet."],["Breath","Inhale through your nose (count to 4). Exhale slowly through your mouth (count to 6). Repeat 3 times."],["Closing","Let your breath flow freely. Say quietly: \u201cI am here.\u201d Return to your day."]],
+    steps:[
+      {t:"Presence",c:"<strong class='step-key'>Turn off</strong> distractions (flight mode). <strong class='step-key'>Sit up straight</strong>, both feet stable on the ground, gaze calmly forward. <strong class='step-key'>Feel</strong> the pressure of your hand on heart or belly for a few breaths. This is your start signal: contact with the body, presence in the moment."},
+      {t:"Breathing (4/6 Rhythm)",c:"<strong class='step-key'>Inhale:</strong> Count silently to 4. Focus: cool air at the tip of your nose.\n\n<strong class='step-key'>Exhale:</strong> Count silently to 6. Focus: warm air flows out – shoulders drop.\n\n<strong class='step-key'>Repeat</strong> at your own pace as often as feels good.",tips:["Thoughts drifting? That’s completely fine. Gently return to counting.","Lost your rhythm? Take one deep breath and calmly start again from 4."],opt:"Vagus Impulse: If you feel particularly restless – inhale deeply and add a tiny extra breath on top. Hold briefly. Then exhale long. This interrupts the stress response on a physical level."},
+      {t:"Returning",c:"<strong class='step-key'>Release:</strong> Stop counting. The breath flows freely again.\n\n<strong class='step-key'>Sense:</strong> Become aware of your body.\n\n<strong class='step-key'>Open:</strong> Eyes open, vision becomes clear again."}
+    ],
+    science:"When you lengthen your exhale, you activate the parasympathetic nervous system through the vagus nerve \u2013 the part responsible for rest. This signals your brain: \u201cIt is safe.\u201d",
+    benefit:"Pulse and blood pressure drop measurably. Your body switches from survival mode (reacting) to clarity mode (acting). You regain control and calm \u2013 not through thinking, but through biology.",
+    reflections:["How does my body feel after the breathing?","What did I notice when I settled?"]},
+
+    {num:2,title:"Values & Direction",subtitle:"Your inner compass",goal:"Align yourself internally & find your compass",time:"Ideally 20 minutes",audio:"Day 2 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    intro:"Without a course of your own, you often drift where others want you. Today we realign your inner compass.\n\nYesterday’s calm forms the foundation. Because only when the noise in your head quiets down can you see your own direction clearly again.",
+    onthego:[["Reset","Change something in your environment: switch rooms or change your posture. Stand tall, gaze forward."],["Compass","Choose a value word for the day (e.g. Clarity, Calm, Courage). Say: \u201cToday I lead with [Value].\u201d"],["In your day","When pressure arises, ask: \u201cWhat strengthens my value now?\u201d"]],
+    steps:[
+      {t:"Presence",c:"<strong class='step-key'>Turn off</strong> distractions. <strong class='step-key'>Sit upright,</strong> both feet on the ground. <strong class='step-key'>Hand</strong> on heart or belly. <strong class='step-key'>Feel</strong> the pressure."},
+      {t:"Aligning (Your Inner Compass)",c:"<strong class='step-key'>Settle:</strong> Breathe in and out a few times calmly until you feel fully present.\n\n<strong class='step-key'>Ask:</strong> Turn your attention inward. “If I listen only to myself – which value sets the direction for today?”\n\n<strong class='step-key'>Listen:</strong> Let the answer arise. Notice which words or feelings show up on their own. Pay attention to physical resonance: a deep breath, a nod, a feeling of rightness.\n\n<strong class='step-key'>Choose:</strong> Take the one word that feels most helpful right now.\n\n<strong class='step-key'>Shape it:</strong> Complete this sentence: “Living [this value] today looks like: …”\n\n<strong class='step-key'>Act:</strong> Note 1–3 small actions that prove this value today.",tips:["No word coming? Choose “Openness” or “Calm”.","Too many words? Take the first one. Your first impulse is the most honest."],opt:"Possible values: Clarity · Calm · Courage · Trust · Connection · Health · Focus · Respect · Patience · Presence · Strength · Ease · Discipline · Openness · Gratitude\n\nExamples: “Living connection looks like: giving myself a moment of kind attention before jumping into tasks.” / “Living clarity looks like: trusting my first impulse instead of thinking it through ten times.”"},
+      {t:"Stabilizing",c:"<strong class='step-key'>Release:</strong> The word has found its firm place in you. Loosen your inner grip and let it rest. It stays with you.\n\n<strong class='step-key'>Sense:</strong> Feel your whole body weight. Notice the stability you are resting on.\n\n<strong class='step-key'>Open:</strong> Take in the space around you clearly. Your word is with you now – you are aligned. Step back into your day, exactly as it is."}
+    ],
+    science:"We often orient ourselves by goals that aren\u2019t our own. Actions aligned with your value cost measurably less energy \u2013 research calls this \u201cself-concordance.\u201d",
+    benefit:"You no longer have to push yourself; you are carried by inner conviction. This feels lighter and more right.",
+    reflections:["Which value word showed up today?","Which 1\u20133 actions prove my value?","Which concrete action will I take today?"]},
+
+    {num:3,title:"Activation",subtitle:"Directing energy",goal:"Activate body, align mind, take the step",time:"Ideally 20 minutes",audio:"Day 3 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    intro:"The calm from Day 1 and your value from Day 2 form your foundation. Yet change only happens when you move.\n\nWe often get stuck in our heads – planning, worrying, doubting instead of simply taking the first step. Today you break through that hesitation.\n\nThis isn’t about great performance, but about a tangible alignment. You begin with one single clear action that proves: I can set my own direction.",
+    onthego:[["Kick-off","Stand up, Power Pose for 10 seconds (arms up, chest open). Take a few steps."],["Small act","10 squats, 10 wall push-ups, 20 seconds wall sit, or write 5 lines."],["In your day","Ask yourself: \u201cWhat can I do right now to activate my energy?\u201d"]],
+    steps:[
+      {t:"Presence",c:"<strong class='step-key'>Turn off</strong> distractions so you can stay with yourself. <strong class='step-key'>Sit up straight</strong>, both feet stable on the ground, gaze calmly forward. <strong class='step-key'>Feel</strong> the pressure of your hand on heart or belly. This is your start signal."},
+      {t:"Choose & direct activation",c:"<strong class='step-key'>Choose a Power Pose</strong> and hold it for 1\u20132 minutes. Then choose a <strong class='step-key'>Now-Activation</strong>. Say aloud: \u201cI\u2019m doing \u2026 now\u201d and start immediately.\n\n<strong class='step-key'>Wonder Woman / Superman:</strong> Feet shoulder-width apart, hands on hips. Chest open, shoulders back, gaze forward.\n\n<strong class='step-key'>Expansion Pose:</strong> Legs slightly wider, chest open, shoulders relaxed. Arms slightly away from the body or loosely behind the back.\n\n<strong class='step-key'>Victory Pose:</strong> Stand firm. Arms in a wide \u201cV\u201d above your head. Chin slightly up, gaze upward \u2013 like an Olympic champion.",tips:["Now-Activation examples: 8\u201312 squats, 10 wall push-ups, 30 seconds shaking out"],opt:"Give the activation a direction: Choose a value word and say: \u201cToday I activate towards [Value].\u201d"},
+      {t:"Waking up",c:"<strong class='step-key'>Release:</strong> The impulse is set. Let the effort go. Trust that the activation continues to work on its own.\n\n<strong class='step-key'>Sense:</strong> Notice the echo in your body. Feel the warmth and your pulse as a sign of your energy.\n\n<strong class='step-key'>Open:</strong> Widen your gaze for the space around you. Take this aliveness with you and carry on where you left off."}
+    ],
+    science:"We often try to solve blocks by thinking more \u2013 which leads to more hesitation. Here you use the body to convince the mind.",
+    benefit:"This day focuses on your self-efficacy. You experience that you can actively shape situations.",
+    reflections:["Which activation did I choose?","How did my body feel afterwards?","Which three larger activations am I preparing?"]},
+
+    {num:4,title:"Thoughts & Stories",subtitle:"Your words color your view",goal:"Recognize your inner stories & choose new ones",time:"Ideally 20 minutes",audio:"Day 4 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    intro:"You\u2019ve found calm, aligned yourself, and taken action. Today you practice the crucial step back: observing what is being thought without identifying with it.",
+    onthego:[["Notice","Watch for the moment your focus narrows or your mind plays sentences on repeat. Stop there."],["Unmask","Put the thought in quotes. \u201cI can\u2019t do this\u201d becomes: \u201cI have the thought: I can\u2019t do this.\u201d"],["Switch","Rub your palms together vigorously. Place them on your thighs. Ask: \u201cWhat is tangible here and now?\u201d"]],
+    steps:[
+      {t:"Presence",c:"<strong class='step-key'>Turn off</strong> distractions so you can stay with yourself. <strong class='step-key'>Sit up straight</strong>, both feet stable on the ground, gaze calmly forward. <strong class='step-key'>Feel</strong> the pressure of your hand on heart or belly. This is your start signal."},
+      {t:"What is real",c:"Choose a situation. Grab pen and paper. <strong class='step-key'>Writing it down is essential</strong> \u2013 it moves the thought from your head onto the page.\n\n<strong class='step-key'>THE CAMERA VIEW</strong>\nDescribe the concrete trigger (the event, the email, the conversation) as neutrally as a surveillance camera would record it. Stay with what is actually visible and audible.\n\n<strong class='step-key'>THE STORY</strong>\nWhat does your mind say about it? Write the story down as honestly as you can.\n\n<strong class='step-key'>THE HELPFUL VIEW</strong>\nIs there an equally true perspective that hurts less? Formulate a new sentence. <strong class='step-key'>Write it large.</strong> Read it aloud.",tips:["Honesty is your most important tool."],box:"This new sentence is not an excuse to ignore the problem. It makes the situation manageable again \u2013 so you lose inner resistance and can use your energy for action.",noteField:{label:"My situation (camera view):",key:"s2note"}},
+      {t:"Relief",c:"<strong class='step-key'>Release:</strong> Put the pen down. Your thoughts are sorted and safely on the page. <strong class='step-key'>Sense:</strong> How does your body respond to this clarity? Feel the relief – perhaps in your shoulders or as a widening in your chest. <strong class='step-key'>Open:</strong> Widen your gaze. Take this new perspective with you and carry on where you left off today."}
+    ],
+    science:"Our brain fills information gaps instantly with assumptions \u2013 usually negative. The key is active reappraisal. Awareness opens the door; the new evaluation is the path through.",
+    benefit:"You regain your ability to act. You stop fighting assumptions and see things at their actual, manageable size.",
+    reflections:["What was the camera view (facts only)?","What was my mind\u2019s story?","What is my new, helpful sentence?"]},
+
+    {num:5,title:"Connection",subtitle:"Finding a shared rhythm",goal:"From I to We \u2013 experience how real closeness stabilizes",time:"Ideally 20 minutes",audio:"Day 5 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    intro:"You’ve found calm, aligned yourself, taken action, and learned to observe your thoughts. Today you take a decisive step further – from “I” to “We.”\n\nWe are not biologically built to carry everything alone. True strength often emerges in exchange. Today you consciously open the space for contact.",
+    onthego:[["Signal","Choose someone who is good for you. Text them now: \u201cI was just thinking of you and wish you a wonderful day.\u201d"],["In person","Give a sincere compliment or a brief touch on the shoulder with eye contact."],["Resonance","Notice how sending or giving feels. You\u2019ve opened a door."]],
+    steps:[
+      {t:"Presence",c:"<strong class='step-key'>Turn off</strong> distractions. <strong class='step-key'>Upright posture,</strong> hand on heart or belly."},
+      {t:"Creating connection",c:"<strong class='step-key'>Choose</strong> one of the following options to consciously find connection with another person today.\n\n<strong class='step-key'>A) Physical calm</strong> (if someone you trust is nearby):\nAsk for a hug or offer one – and hold it for 20 seconds or more. Keep breathing calmly and allow yourselves to support each other.\n\n<strong class='step-key'>B) Present encounter</strong> (in conversation):\nSeek out a direct conversation with someone. Ask a question that genuinely interests you. Hold eye contact a moment longer than usual.\n\n<strong class='step-key'>C) Silent goodwill</strong> (among people):\nGo somewhere with other people. Choose one person and silently wish them something good: “I wish you a light day today.”",tips:["No close person in mind? Look to your daily environment: a colleague, a manager, someone you meet regularly. What matters is that you feel safe."]},
+      {t:"Letting contact settle",c:"Sit down quietly once more or get comfortable lying down.\n\n<strong class='step-key'>Release:</strong> Breathe in and out deeply. Let all tension in your shoulders and belly go. The day is over. You don’t need to do anything more now.\n\n<strong class='step-key'>Sense:</strong> Turn your attention inward. Do you feel an echo of the connection? Whatever is there – simply notice it.\n\n<strong class='step-key'>Let it settle:</strong> Allow this feeling to be fully there. You are safe and connected."}
+    ],
+    science:"When we share space and turn towards each other with goodwill, we synchronize \u2013 automatically. Like pendulum clocks on a wall that find the same rhythm on their own.",
+    benefit:"You stop fighting your own biology. In connection you experience: \u201cI am not alone.\u201d Your energy returns.",
+    reflections:["Which connection action did I choose?","How did my body feel during it?","Which person is especially good for my nervous system?"]},
+
+    {num:6,title:"System Levers",subtitle:"Shape your environment",goal:"Shape your environment so change can flow",time:"Ideally 20 minutes",audio:"Day 6 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    intro:"Today we shift perspective: We look not inside you but around you.\n\nWe often think we just need to try harder or be more disciplined. But most of the time the brake isn’t in your willpower – it’s in your environment.\n\nToday you stop swimming against the current and start changing the conditions so they actively support you.",
+    onthego:[["Scan","Bio: What costs physical energy? Psycho: What\u2019s too much for your mind? Social: Do you feel pressure?"],["Lever","Change one concrete thing. Notice how that action reflects back on you."],["Pause","Breathe in deeply and out consciously. Notice the space around you."]],
+    steps:[
+      {t:"Presence",c:"<strong class='step-key'>Turn off</strong> distractions. <strong class='step-key'>Upright posture,</strong> hand on heart or belly."},
+      {t:"Pulling the lever",c:"Read through the three areas calmly. Grab pen and paper. Note one thing that stands out in each area, and one possible lever.\n\n<strong class='step-key'>BIO (Body & Space):</strong>\nHow does your body feel right now? What is good, what bothers you? Are there places where you feel immediately more comfortable? Does your daily life support your body?\nExample lever: “I’ll open the window now” (immediate) or “I’ll plan how to change my workspace” (long-term).\n\n<strong class='step-key'>PSYCHO (Mind & Thoughts):</strong>\nWhich thoughts keep surfacing? When does your mind feel clear? What would help you feel a little lighter inside?\nExample lever: “I’ll put my phone away” (immediate) or “I’ll write down the old memory to get it out of my head”.\n\n<strong class='step-key'>SOCIAL (Connection & Atmosphere):</strong>\nHow do you perceive the mood with others? Are there relationships that give or drain energy? What kind of connection would you wish for – more closeness, more distance, or more clarity?\nExample lever: “I’ll reply to that message consciously later” or “I’ll skip the gathering that doesn’t serve me”.",tips:["It’s fine if some answers feel heavy. This openness is a big step. Try to move something in all three areas today – or just one. That’s enough."]},
+      {t:"Aligning & letting flow",c:"<strong class='step-key'>Let</strong> the words settle. They are now on paper, no longer circling only in your head. That alone often creates the first breathing room.\n\n<strong class='step-key'>Recognise:</strong> You are not starting from zero. You have gathered everything you need for this step over the past days.\n\n<strong class='step-key'>Act:</strong> What can you change easily today? What needs a longer-term plan? What matters is not perfection, but the experience that your situation changes when you act."}
+    ],
+    science:"The Bio-Psycho-Social model shows: body, thoughts, and environment influence each other. Your exhaustion may not be personal weakness but a response to your environment.",
+    benefit:"You become the designer again. Instead of pushing harder, you release the brake. You arrange your world to support you.",
+    reflections:["Bio: What did I notice? Which lever?","Psycho: What did I notice? Which lever?","Social: What did I notice? Which lever?","What can I change today?"]},
+
+    {num:7,title:"Keeping & Beginning",subtitle:"Decide what stays with you",goal:"Choose the one thing that belongs to you from today",time:"Ideally 20 minutes",audio:"Day 7 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    intro:"Six days are behind you – days in which you engaged with yourself. Perhaps there were moments when everything felt clear and light, and others when you felt resistance or tiredness. That is not just okay – it is necessary. Real change needs this friction.\n\nToday we add nothing new. We switch from searching to finding. Filter out the few gold pieces that fit your real daily life – and let the rest go without guilt.",
+    onthego:null,
+    steps:[
+      {t:"Presence",c:"<strong class='step-key'>Turn off</strong> distractions. <strong class='step-key'>Upright posture,</strong> hand on heart or belly."},
+      {t:"Securing the valuable",c:"<strong class='step-key'>Review:</strong> Take your notes from the past six days or your Daily Routine Sheet. Browse slowly. Notice your impulses.\n\nAsk yourself: Where do you linger? Where do you feel a “yes”? Which thought truly reached you this week?\n\n<strong class='step-key'>Choose:</strong> We seek quality, not quantity. Choose at most two things you actively want to keep. Look for <strong class='step-key'>actions</strong>, not intentions.\n\nThis could be: the 4/6 breathing rhythm · a quick power pose mid-day · the camera view for burdening thoughts · your most important system lever.\n\n<strong class='step-key'>Anchor:</strong> Take pen and paper. Give each action a title (phrased as an activity). Write a sentence beneath it as fact, not as a wish.",tips:["Example: “Breathe away the pressure” – sentence: “When I feel stress, I breathe in deeply, add a quick extra breath on top, hold briefly – then exhale long.”","Example: “Choose the silence” – sentence: “As soon as I notice the world getting too loud, I consciously put my phone in another room.”"]},
+      {t:"Closing the circle",c:"<strong class='step-key'>Thank</strong> yourself inwardly for the effort.\n\n<strong class='step-key'>Put</strong> the pen down. Lean back. Breathe in once deeply through the nose and out long through the mouth.\n\nSeven days are behind you. You looked where it takes courage, and gained new clarity.\n\n<strong class='step-key'>Feel</strong> into yourself: how does it feel to have walked this path? Everything is allowed to be here.\n\nLook forward and keep walking. Even if it seems small: take the next step."}
+    ],
+    science:"Personal growth happens through quiet, steady integration. Not intensity counts, but consistency. Conscious reduction gives your brain a clear signal.",
+    benefit:"You end the week with a concrete tool in hand. You prove to yourself that your word is reliable, strengthening your self-trust.",
+    reflections:["My first tool (title + sentence):","My second tool (title + sentence):","How does it feel to have walked this path?"]},
+
+    {num:8,title:"Boundaries & Energy",subtitle:"Guard your center",isBonus:true,goal:"Find an honest \u201cno\u201d that protects and a clear \u201cyes\u201d that strengthens",time:"Ideally 20 minutes",audio:"Day 8 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    intro:"Sometimes the lines blur so much you can barely feel where others\u2019 expectations end and you begin. Today you take back the key to your inner space.",
+    onthego:null,
+    steps:[
+      {t:"Presence",c:"<strong class='step-key'>Turn off</strong> distractions. <strong class='step-key'>Upright posture,</strong> hand on heart or belly."},
+      {t:"Checking your reserves",c:"Go through the last 48 hours.\n\nThe Adapter (Yes-sayer): Where did a \u201cyes\u201d slip out though your gut wanted rest?\n\nThe Avoider (No-sayer): Where did you block an impulse to stay in your comfort zone?\n\nWhat did the reflex shield you from? What other option is there? Write a new sentence."},
+      {t:"Anchoring your stance",c:"<strong class='step-key'>Take</strong> your sentence into the silence. <strong class='step-key'>Notice</strong> what these words trigger in your body. <strong class='step-key'>Expand</strong> your gaze."}
+    ],
+    science:"Behind every quick \u201cyes\u201d or reflexive \u201cno\u201d lies an old safety mechanism. Healthy boundaries work like a cell membrane: stable enough to keep stress out, permeable enough for aliveness.",
+    benefit:"You switch from reacting to conscious acting. Your relationships become more honest.",
+    reflections:["Which situation did I recognize?","What did the reflex shield me from?","My new sentence for more conscious choices:"]},
+
+    {num:9,title:"Your Word to Yourself",subtitle:"How to give yourself space again",isBonus:true,goal:"Notice what constricts, and find words that free",time:"Ideally 20 minutes",audio:"Day 9 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    intro:"Often we move through the day as if sitting in the passenger seat. Today we press pause. We transform the strict judge into a kind friend.",
+    onthego:null,
+    steps:[
+      {t:"Presence",c:"<strong class='step-key'>Turn off</strong> distractions. <strong class='step-key'>Upright posture,</strong> hand on heart or belly."},
+      {t:"Changing the tone",c:"<strong class='step-key'>Notice the critic:</strong> Grab pen and paper. Think of a situation from the last 24 hours when you felt small, rushed, or insecure. Write one or two sentences your mind says in such moments.\n\nRead them through and sense how they feel in the body.\n\n<strong class='step-key'>Wake the designer:</strong> Choose one heavy sentence and transform it into a statement that is friendly and active.\n\n<strong class='step-key'>Make it visible:</strong> Write your new guiding sentence large. Choose a specific place where you’ll see it often: as your phone wallpaper, a note on the mirror, or the first line in your calendar.",tips:["From “I’m too dumb for this” becomes “I’m learning how this new task works.”","From “I’m not good enough” becomes “I am good enough.”","From “I have to please everyone” becomes “I choose to take care of myself too.”","From “I’ll never manage this” becomes “I take it one step at a time.”"]},
+      {t:"Anchoring",c:"<strong class='step-key'>Take</strong> the sentence with you. When you think harshly about yourself, <strong class='step-key'>bring it out.</strong> <strong class='step-key'>Exhale.</strong> <strong class='step-key'>Say</strong> it to yourself."}
+    ],
+    science:"How you talk to yourself determines what you believe you can do. Self-deprecation makes our inner self withdraw.",
+    benefit:"You break free from helplessness. Your trust grows. You become independent of external validation.",
+    reflections:["Which harsh sentences did I recognize?","What is my new guiding sentence?","Where am I making it visible?"]},
+
+    {num:10,title:"Identity & Discipline",subtitle:"From becoming to being",isBonus:true,goal:"Anchor change in your identity",time:"Ideally 20 minutes",audio:"Day 10 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    intro:"Motivation is a fickle companion. It is loud and full of energy when we set out. It grows quiet as soon as daily life turns grey or tiredness sets in.\n\nToday we make sure that change stays in motion even when that first surge has faded. The principle: we separate deciding from acting. You make your choice now – in a moment of calm and clarity.",
+    onthego:null,
+    steps:[
+      {t:"Presence",c:"<strong class='step-key'>Turn off</strong> distractions. <strong class='step-key'>Upright posture,</strong> hand on heart or belly."},
+      {t:"Letter from the future",c:"<strong class='step-key'>The scene:</strong> Imagine it is exactly six months from today. You look back at this week. Where are you? What are you doing? What feels easier now?\n\nNotice how you feel there. <strong class='step-key'>Hold</strong> that feeling.\n\n<strong class='step-key'>The message:</strong> Take pen and paper. Write a short note from that future to your present self. Skip to-do lists. Write about what you have already achieved. Ask: what was the most important step? What are you glad you followed through on? What encouragement do you want to give your present self?",tips:["Use the warm, respectful tone from Day 9.","Don't treat this as a strict contract. Life rarely sticks to our plans."]},
+      {t:"Foundation",c:"<strong class='step-key'>Read</strong> your words once more. <strong class='step-key'>Feel</strong> that this wisdom comes from within you. You are anchoring an inner commitment based on trust."}
+    ],
+    science:"When you vividly imagine your future, your brain takes that feeling as real experience. Your path becomes familiar.",
+    benefit:"You find solid ground. Hesitation gives way to clear resolve. Above all, you make peace with yourself.",
+    reflections:["Where am I in six months?","What was the most important step?","What do I say to my present self?"]}
+  ]
+};
+
+/* === STORAGE === */
+function getPr(){try{return JSON.parse(localStorage.getItem("7doc_p"))||[false,false,false,false,false,false,false,false,false,false]}catch(e){return[false,false,false,false,false,false,false,false,false,false]}}
+function setPr(p){localStorage.setItem("7doc_p",JSON.stringify(p))}
+function getN(d){try{return JSON.parse(localStorage.getItem("7doc_n"+d))||{}}catch(e){return{}}}
+function setN(d,n){localStorage.setItem("7doc_n"+d,JSON.stringify(n))}
+function getS(d){try{return JSON.parse(localStorage.getItem("7doc_s"+d))||{a:5,b:5,c:5,d:5}}catch(e){return{a:5,b:5,c:5,d:5}}}
+function setS(d,s){localStorage.setItem("7doc_s"+d,JSON.stringify(s))}
+
+/* === RENDER HELPERS === */
+function t(k){return T[LANG][k]||k}
+function days(){return DAYS[LANG]}
+
+function renderWelcome(){
+  var dd=days();var s="";
+  s+='<div class="welcome-hero">';
+  s+='<img src="img/logo.png" alt="Sash and Ventures" class="welcome-logo">';
+  s+='<div class="logo-text"><span class="logo-accent">7 Days of</span>Change</div>';
+  s+='<p class="tagline">'+t("sub")+'</p></div>';
+  s+='<div class="welcome-intro"><p>'+t("welc1")+'</p><p>'+t("welc2")+'</p><p>'+t("welc3")+'</p></div>';
+  s+='<div class="companion-note">'+(LANG==="de"?
+    '<p>&#128214; Diese App ist eine <strong>Begleitung zum Buch</strong> \u2013 kein Ersatz. Sie dient als \u00dcbersicht f\u00fcr unterwegs, zum Umsetzen der \u00dcbungen, f\u00fcr Notizen und Abschlussfragen.</p>':
+    '<p>&#128214; This app is a <strong>companion to the book</strong> \u2013 not a replacement. It serves as an overview on the go, for practising the exercises, taking notes and reflection.</p>')
+  +'</div>';
+  /* "Dein Tag im Überblick" direkt nach dem Intro */
+  s+='<div class="info-section"><h2>'+t("dayOverview")+'</h2>';
+  var itemsDE=["&#127911; Mini Audio","&#128221; Praxis-Notizen","&#127807; Ausklang","&#9998; Stift","&#128196; Papier","&#128241; Notiz-App","&#128167; Wasser","&#9201; Timer","&#9992;&#65039; Flugmodus"];
+  var itemsEN=["&#127911; Mini Audio","&#128221; Practice Notes","&#127807; Closing","&#9998; Pen","&#128196; Paper","&#128241; Note App","&#128167; Water","&#9201; Timer","&#9992;&#65039; Flight Mode"];
+  var items=LANG==="de"?itemsDE:itemsEN;
+  s+='<div class="prep-overview">';
+  s+='<div class="prep-overview-label">'+t("prepOverviewLabel")+'</div>';
+  s+='<div class="prep-tags">';
+  s+='<span class="prep-tag highlight">'+items[0]+'</span>';
+  s+='<span class="prep-tag highlight">'+items[1]+'</span>';
+  s+='<span class="prep-tag highlight">'+items[2]+'</span>';
+  for(var pi=3;pi<items.length;pi++){s+='<span class="prep-tag">'+items[pi]+'</span>';}
+  s+='</div>';
+  s+='<div class="prep-otg-hint">'+t("prepOtgHint")+'</div>';
+  s+='</div></div>';
+  s+='<button class="start-btn" onclick="go(\'day1\')">'+t("start")+' &rarr;</button>';
+  s+='<div class="info-section"><h2>'+t("the7days")+'</h2><div class="days-overview">';
+  for(var i=0;i<7;i++){var d=dd[i];s+='<div class="day-overview-item" onclick="go(\'day'+d.num+'\')"><div class="day-num">'+d.num+'</div><div class="day-info"><h4>'+d.title+'</h4><p>'+d.subtitle+'</p></div></div>';}
+  s+='</div></div>';
+  s+='<div class="info-section"><h2>'+t("bonusDays")+'</h2><div class="days-overview">';
+  for(var j=7;j<10;j++){var b=dd[j];s+='<div class="day-overview-item bonus-item" onclick="go(\'day'+b.num+'\')"><div class="day-num gold">'+b.num+'</div><div class="day-info"><h4>'+b.title+'</h4><p>'+b.subtitle+'</p></div></div>';}
+  s+='</div></div>';
+  s+='<button class="start-btn" onclick="go(\'day1\')">'+t("startBottom")+' &rarr;</button>';
+  s+='<div class="disclaimer">'+t("disc")+'</div>';
+  return s;
+}
+
+/* === END SUMMARY (nach Tag 7 / Tag 10) === */
+function buildSummaryBtn(num){
+  var lbl=LANG==="de"
+    ?(num===7?"Deine 7-Tage-Zusammenfassung ansehen &rarr;":"Deine vollst\u00e4ndige Zusammenfassung ansehen &rarr;")
+    :(num===7?"See your 7-day summary &rarr;":"See your full summary &rarr;");
+  return '<button class="summary-btn" onclick="go(\'summary'+num+'\')">'+lbl+'</button>';
+}
+
+function renderEndSummary(maxDay){
+  var dd=days(),pr=getPr();
+  var colors=["#9FE1CB","#AFA9EC","#FAC775","#F5C4B3"];
+  var labDE=["Klarheit","Ruhe","Energie","Selbstvertrauen"];
+  var labEN=["Clarity","Calm","Energy","Self-Trust"];
+  var labels=LANG==="de"?labDE:labEN;
+  var keys=["a","b","c","d"];
+  var s="";
+
+  /* Hero */
+  s+='<div class="es-hero"><div class="es-hero-num">'+maxDay+'</div>';
+  s+='<div class="es-hero-label">'+(LANG==="de"?"Tage gegangen":"Days completed")+'</div></div>';
+
+  /* Warme Botschaft */
+  s+='<div class="es-message">';
+  if(LANG==="de"){
+    s+='<p>Du hast dir diese Zeit gegeben. Tag f\u00fcr Tag, Schritt f\u00fcr Schritt.</p>';
+    s+='<p>Ver\u00e4nderung ist geschehen \u2013 so wie sie geschehen sollte. Es gibt hier keine Wertung, kein Gut oder Schlecht. Nur deine Reise, genau so wie sie ist.</p>';
+    s+='<p>Du hast deine Reise zu dir selbst begonnen und Ver\u00e4nderung geschehen lassen. Sei stolz auf dich.</p>';
+  } else {
+    s+='<p>You gave yourself this time. Day by day, step by step.</p>';
+    s+='<p>Change has happened \u2013 exactly as it should. There is no judgment here, no good or bad. Only your journey, exactly as it is.</p>';
+    s+='<p>You have begun your journey back to yourself and let change happen. Be proud of yourself.</p>';
+  }
+  s+='</div>';
+
+  /* Tag-Karten */
+  s+='<div class="es-days">';
+  for(var i=0;i<maxDay;i++){
+    var d=dd[i];
+    if(!pr[i])continue;
+    var st=getS(d.num);
+    var prevSt=d.num>1?getS(d.num-1):null;
+    var n=getN(d.num);
+    var numLabel=d.isBonus?"B"+(d.num-7):d.num;
+    var numCls=d.isBonus?"es-day-num es-bonus":"es-day-num";
+
+    s+='<div class="es-day-card">';
+
+    /* Header */
+    s+='<div class="es-day-head">';
+    s+='<div class="'+numCls+'">'+numLabel+'</div>';
+    s+='<div class="es-day-info"><h4>'+d.title+'</h4><p>'+d.subtitle+'</p></div>';
+    s+='<div class="es-check">&#10003;</div>';
+    s+='</div>';
+
+    /* Balken mit Deltas */
+    s+='<div class="es-bars">';
+    for(var qi=0;qi<4;qi++){
+      var v=st[keys[qi]]||5;
+      var pct=Math.round(v/10*100);
+      var dStr="",dCls="es-delta es-neutral";
+      if(prevSt){
+        var pv=prevSt[keys[qi]]||5;
+        var delta=v-pv;
+        if(delta>0){dStr="+"+delta+" \u2191";dCls="es-delta es-pos";}
+        else if(delta<0){dStr=delta+" \u2193";dCls="es-delta es-neg";}
+        else{dStr="=";dCls="es-delta es-neutral";}
+      }
+      var dim=prevSt&&(v<(prevSt[keys[qi]]||5))?";opacity:0.5":"";
+      s+='<div class="es-bar-row">';
+      s+='<div class="es-bar-label">'+labels[qi]+'</div>';
+      s+='<div class="es-bar-track"><div class="es-bar-fill" style="width:'+pct+'%;background:'+colors[qi]+dim+'"></div></div>';
+      s+='<div class="es-bar-val">'+v+'</div>';
+      if(dStr)s+='<div class="'+dCls+'">'+dStr+'</div>';
+      s+='</div>';
+    }
+    s+='</div>';
+
+    /* Reflexionen + Notizen */
+    var hasAnswers=false;
+    for(var ri=0;ri<d.reflections.length;ri++){if(n["r"+ri]&&n["r"+ri].trim().length>0){hasAnswers=true;break;}}
+    var esS3=n["step3note"]||"";
+    var esS2=n["s2note"]||"";
+    /* Weitere Step-Notizfelder aus den Steps ermitteln */
+    var esStepNotes=[];
+    for(var sni=0;sni<d.steps.length;sni++){if(d.steps[sni].noteField){var snk=d.steps[sni].noteField.key;var snv=n[snk]||"";if(snv.trim()&&snk!=="step3note")esStepNotes.push({label:d.steps[sni].noteField.label,val:snv});}}
+    if(hasAnswers||esS3.trim()||esStepNotes.length>0){
+      s+='<div class="es-reflections">';
+      for(var ri=0;ri<d.reflections.length;ri++){
+        var ans=n["r"+ri]||"";
+        if(!ans.trim())continue;
+        s+='<div class="es-reflect-item">';
+        s+='<div class="es-reflect-q">'+d.reflections[ri]+'</div>';
+        s+='<div class="es-reflect-a">'+ans+'</div>';
+        s+='</div>';
+      }
+      for(var sni2=0;sni2<esStepNotes.length;sni2++){
+        s+='<div class="es-reflect-item"><div class="es-reflect-q">'+esStepNotes[sni2].label+'</div><div class="es-reflect-a">'+esStepNotes[sni2].val+'</div></div>';
+      }
+      if(esS3.trim()){s+='<div class="es-reflect-item"><div class="es-reflect-q">'+(LANG==="de"?"Notizen:":"Notes:")+'</div><div class="es-reflect-a">'+esS3+'</div></div>';}
+      s+='</div>';
+    }
+    s+='</div>';
+  }
+  s+='</div>';
+
+  /* Navigation */
+  s+='<div class="day-nav" style="margin-top:2rem;">';
+  s+='<button class="day-nav-btn" onclick="go(\'day'+maxDay+'\')">&larr; '+(LANG==="de"?"Tag ":"Day ")+maxDay+'</button>';
+  s+='<button class="day-nav-btn next" onclick="go(\'journey\')">'+(LANG==="de"?"Verlauf":"Journey")+' &rarr;</button>';
+  s+='</div>';
+  s+='<div class="disclaimer">'+t("footerDisc")+'</div>';
+  return s;
+}
+
+
+function renderJourney(){
+  var dd=days(),pr=getPr();
+  var colors=["#9FE1CB","#AFA9EC","#FAC775","#F5C4B3"];
+  var labDE=["Klarheit","Ruhe","Energie","Selbstvertrauen"];
+  var labEN=["Clarity","Calm","Energy","Self-Trust"];
+  var labels=LANG==="de"?labDE:labEN;
+  var doneCnt=0;for(var i=0;i<pr.length;i++)if(pr[i])doneCnt++;
+  var s='<div class="journey-header"><h1>'+t("journeyTitle")+'</h1><p>'+t("journeySub")+'</p></div>';
+  /* Zusammenfassungs-Buttons wenn verfügbar */
+  if(pr[9])s+=buildSummaryBtn(10);
+  else if(pr[6])s+=buildSummaryBtn(7);
+  s+='<div class="journey-message"><p>'+t("journeyMsg1")+'</p><p>'+t("journeyMsg2")+'</p><p>'+t("journeyMsg3")+'</p></div>';
+  s+='<div class="journey-days">';
+  for(var i=0;i<dd.length;i++){
+    var d=dd[i],done=pr[i];
+    var numLabel=d.isBonus?"B"+(d.num-7):d.num;
+    var numCls=d.isBonus?"jdc-num bonus":"jdc-num";
+    s+='<div class="journey-day-card'+(done?'':' locked')+'">';
+    s+='<div class="jdc-header"><div class="'+numCls+'">'+numLabel+'</div><div class="jdc-info"><h4>'+d.title+'</h4><p>'+d.subtitle+'</p></div>';
+    if(done)s+='<div class="jdc-check">&#10003;</div>';
+    s+='</div>';
+    if(done){
+      var st=getS(d.num);var keys=["a","b","c","d"];
+      s+='<div class="jdc-bars">';
+      for(var qi=0;qi<4;qi++){var v=st[keys[qi]]||5;var pct=Math.round(v/10*100);
+        s+='<div class="jdc-bar-row"><div class="jdc-label">'+labels[qi]+'</div><div class="jdc-track"><div class="jdc-fill" style="width:'+pct+'%;background:'+colors[qi]+'"></div></div><div class="jdc-val">'+v+'</div></div>';}
+      s+='</div>';
+      /* Delta zum Vortag */
+      if(d.num>1){
+        var prevSt2=getS(d.num-1);var totalD=0;
+        for(var qd=0;qd<4;qd++){totalD+=(st[keys[qd]]||5)-(prevSt2[keys[qd]]||5);}
+        var dCls2=totalD>0?'jdc-delta-sum pos':totalD<0?'jdc-delta-sum neg':'jdc-delta-sum neu';
+        var dLbl2=totalD>0?'+'+totalD+' ↑':totalD<0?totalD+' ↓':'= '+(LANG==='de'?'gleich':'same');
+        s+='<div class="'+dCls2+'">'+(LANG==="de"?'Vs. Tag '+(d.num-1)+': ':'vs Day '+(d.num-1)+': ')+dLbl2+'</div>';
+      }
+      /* Reflexionen + Schritt-3-Notizen (für alle abgeschlossenen Tage, auch Tag 1) */
+      var jn=getN(d.num);var jHasAns=false;
+      for(var jri=0;jri<d.reflections.length;jri++){if(jn['r'+jri]&&jn['r'+jri].trim().length>0){jHasAns=true;break;}}
+      var jS3=jn['step3note']||'';
+      /* Weitere Step-Notizfelder (z.B. s2note in Tag 4) */
+      var jStepNotes=[];
+      for(var jsni=0;jsni<d.steps.length;jsni++){if(d.steps[jsni].noteField){var jsnk=d.steps[jsni].noteField.key;var jsnv=jn[jsnk]||'';if(jsnv.trim()&&jsnk!=='step3note')jStepNotes.push({label:d.steps[jsni].noteField.label,val:jsnv});}}
+      if(jHasAns||jS3.trim().length>0||jStepNotes.length>0){
+        s+='<div class="jdc-reflections">';
+        if(jHasAns){for(var jri=0;jri<d.reflections.length;jri++){var jans=jn['r'+jri]||'';if(!jans.trim())continue;
+          s+='<div class="jdc-reflect-item"><div class="jdc-reflect-q">'+d.reflections[jri]+'</div><div class="jdc-reflect-a">'+jans+'</div></div>';}}
+        for(var jsni2=0;jsni2<jStepNotes.length;jsni2++){s+='<div class="jdc-reflect-item"><div class="jdc-reflect-q">'+jStepNotes[jsni2].label+'</div><div class="jdc-reflect-a">'+jStepNotes[jsni2].val+'</div></div>';}
+        if(jS3.trim().length>0){s+='<div class="jdc-reflect-item"><div class="jdc-reflect-q">'+(LANG==="de"?'Notizen:':'Notes:')+'</div><div class="jdc-reflect-a">'+jS3+'</div></div>';}
+        s+='</div>';
+      }
+    } else {
+      s+='<div style="font-size:0.8rem;color:var(--warm-gray-light);font-style:italic;">'+t("journeyLocked")+'</div>';
+    }
+    s+='</div>';
+  }
+  s+='</div>';
+  s+='<div class="day-nav" style="margin-top:2rem;"><button class="day-nav-btn" onclick="go(\'welcome\')">&larr; Start</button></div>';
+  return s;
+}
+
+
+function renderDay(d){
+  var n=getN(d.num),st=getS(d.num),pr=getPr(),done=pr[d.num-1],dd=days(),next=d.num<10?dd[d.num]:null;
+  var s="";
+  s+='<div class="day-header"><div class="day-number">'+(d.isBonus?"B"+(d.num-7):d.num)+'</div>';
+  s+='<h1 class="day-title">'+d.title+'</h1><p class="day-subtitle">'+d.subtitle+'</p></div>';
+  // Meta
+  s+='<div class="meta-box"><div><div class="meta-label">'+(LANG==="de"?"Ziel":"Goal")+'</div><div class="meta-value">'+d.goal+'</div></div>';
+  s+='<div><div class="meta-label">'+("de"===LANG?"Zeit":"Time")+'</div><div class="meta-value">'+d.time+'</div></div>';
+  s+='<div><div class="meta-label">Start</div><div class="meta-value">'+d.audio+'</div></div>';
+  s+='<div><div class="meta-label">Material</div><div class="meta-value">'+d.material+'</div></div></div>';
+  // Audio
+  s+='<div class="audio-box"><div class="audio-icon">&#127911;</div><div class="audio-box-text"><p>'+t("audioText")+d.num+' &ndash; 3 min</p><p>'+t("audioHint")+'</p></div></div>';
+  // On-the-go (collapsible!)
+  if(d.onthego){
+    var otgId="otg"+d.num;
+    s+='<div class="collapsible onthego"><button class="collapsible-toggle" onclick="toggleC(\''+otgId+'\',this)">'+(LANG==="de"?"Wenn die Zeit heute knapp ist":"If time is short today")+' <span class="arrow">&#9660;</span></button>';
+    s+='<div class="collapsible-body" id="'+otgId+'"><div class="collapsible-body-inner">';
+    for(var i=0;i<d.onthego.length;i++){s+='<div class="onthego-step"><span class="step-label">'+d.onthego[i][0]+'</span><p>'+d.onthego[i][1]+'</p></div>';}
+    s+='</div></div></div>';
+  }
+  // Safety (right after on-the-go)
+  s+='<div class="safety-box"><h3>'+t("safety")+'</h3>';
+  s+='<div class="safety-item">&#9670; '+t("s1")+'</div>';
+  s+='<div class="safety-item">&#9670; '+t("s2")+'</div>';
+  s+='<div class="safety-item">&#9670; '+t("s3")+'</div></div>';
+  // Intro
+  /* Intro: Absätze bei \n\n trennen */
+  var introParts=d.intro.split("\n\n");s+='<div class="day-intro">';
+  for(var ip=0;ip<introParts.length;ip++){if(introParts[ip].trim().length>0)s+='<p>'+introParts[ip].trim()+'</p>';}
+  s+='</div>';
+  // Prep (numbered!)
+  s+='<div class="prep-box"><h3>'+t("prep")+'</h3>';
+  s+='<div class="prep-step"><div class="prep-num">1</div><p>'+t("prep1")+'</p></div>';
+  s+='<div class="prep-step"><div class="prep-num">2</div><p>'+t("prep2")+'</p></div>';
+  s+='<div class="prep-step"><div class="prep-num">3</div><p>'+t("prep3")+'</p></div>';
+  s+='</div>';
+  // Steps (structured instructions!)
+  for(var si=0;si<d.steps.length;si++){
+    var step=d.steps[si];
+    s+='<div class="step-section"><div class="step-header"><span class="step-badge">'+t("stepLabel")+' '+(si+1)+'</span><h3>'+step.t+'</h3></div>';
+    s+='<div class="step-body">';
+    // Split content into instruction lines by sentence endings
+    var sentences=step.c.split(". ");
+    for(var pi=0;pi<sentences.length;pi++){
+      var txt=sentences[pi];
+      if(pi<sentences.length-1)txt+=".";
+      if(txt.trim().length>0){
+        s+='<div class="step-instruction"><span class="inst-marker">&#9656;</span><p>'+txt.trim()+'</p></div>';
+      }
+    }
+    if(step.tips){s+='<div class="step-tip">';for(var ti=0;ti<step.tips.length;ti++){s+='<p><strong>&rarr;</strong> '+step.tips[ti]+'</p>';}s+='</div>';}
+    if(step.opt){s+='<div class="optional-box"><span class="optional-tag">'+t("optional")+'</span><p>'+step.opt+'</p></div>';}
+    if(step.box){s+='<div class="step-box"><p>'+step.box+'</p></div>';}
+    if(step.noteField){
+      var nfKey=step.noteField.key;
+      var nfv=getN(d.num)[nfKey]||"";
+      s+='<div class="step-note-field">';
+      s+='<label class="step-note-label">'+step.noteField.label+'</label>';
+      s+='<textarea class="step-note-textarea" placeholder="'+t("placeholder")+'" oninput="onN(this,'+d.num+',\''+nfKey+'\')">';
+      s+=nfv;
+      s+='</textarea>';
+      s+='<div class="save-indicator" id="si'+d.num+nfKey+'">&#10003; Saved</div>';
+      s+='</div>';
+    }
+    s+='</div></div>';
+  }
+  // Collapsible science
+  var sciId="sci"+d.num,benId="ben"+d.num;
+  /* Notiz-Feld nach Schritt 3 */
+  var s3nv=getN(d.num)["step3note"]||"";
+  s+='<div class="step3-note">';
+  s+='<label class="step3-note-label">\u270f\ufe0f '+(LANG==="de"?"Notizen":"Notes")+'</label>';
+  s+='<textarea class="step3-note-textarea" placeholder="'+t("placeholder")+'" oninput="onN(this,'+d.num+',\'step3note\')">'+s3nv+'</textarea>';
+  s+='<div class="save-indicator" id="si'+d.num+'step3note">&#10003; Saved</div>';
+  s+='</div>';
+  s+='<div class="divider"></div>';
+  s+='<div class="collapsible science"><button class="collapsible-toggle" onclick="toggleC(\''+sciId+'\',this)">'+t("science")+' <span class="arrow">&#9660;</span></button>';
+  s+='<div class="collapsible-body" id="'+sciId+'"><div class="collapsible-body-inner"><p>'+d.science+'</p></div></div></div>';
+  s+='<div class="collapsible benefit"><button class="collapsible-toggle" onclick="toggleC(\''+benId+'\',this)">'+t("benefit")+' <span class="arrow">&#9660;</span></button>';
+  s+='<div class="collapsible-body" id="'+benId+'"><div class="collapsible-body-inner"><p>'+d.benefit+'</p></div></div></div>';
+  s+='<div class="divider"></div>';
+  // Routine Sheet
+  s+='<div class="routine-sheet"><h3>&#128221; '+t("reflection")+' &ndash; '+(LANG==="de"?"Tag ":"Day ")+d.num+'</h3>';
+  s+='<p class="sheet-hint">'+t("sheetHint")+'</p>';
+  var labels=[t("clarity"),t("calm"),t("energy"),t("trust")],keys=["a","b","c","d"];
+  s+='<div class="state-check">';
+  for(var qi=0;qi<4;qi++){var val=st[keys[qi]]||5;s+='<div class="state-item"><label>'+labels[qi]+'</label><input type="range" min="0" max="10" value="'+val+'" oninput="onSt(this,'+d.num+',\''+keys[qi]+'\')"><div class="state-val" id="sv'+d.num+keys[qi]+'">'+val+'</div></div>';}
+  s+='</div>';
+  for(var ri=0;ri<d.reflections.length;ri++){var nv=n["r"+ri]||"";s+='<div class="routine-field"><label>'+d.reflections[ri]+'</label><textarea placeholder="'+t("placeholder")+'" oninput="onN(this,'+d.num+','+ri+')">'+nv+'</textarea><div class="save-indicator" id="si'+d.num+'r'+ri+'">&#10003; Saved</div></div>';}
+  s+='<div class="storage-notice">'+t("storageNote")+'</div></div>';
+  // Complete
+  var bc=done?"complete-btn done":"complete-btn";var bt=done?"&#10003; "+(LANG==="de"?"Tag ":"Day ")+d.num+t("completed"):(LANG==="de"?"Tag ":"Day ")+d.num+t("complete")+" &#10003;";
+  s+='<button class="'+bc+'" id="cb'+d.num+'" onclick="cDay('+d.num+')">'+bt+'</button>';
+  var mc=done?"completion-msg show":"completion-msg";var mt="&#127807; "+(LANG==="de"?"Tag ":"Day ")+d.num+" "+t("done");
+  if(next)mt+=' <span class="next-day-hint">'+t("tomorrow")+next.title+'</span>';
+  else mt+=" "+t("allDone");
+  s+='<div class="'+mc+'" id="cm'+d.num+'"><p>'+mt+'</p></div>';
+  s+='<div id="dc'+d.num+'">'+(done?buildDayCompare(d.num):'')+'</div>';
+  /* Zusammenfassungs-Button nach Tag 7 und Tag 10 */
+  if(d.num===7||d.num===10){
+    s+='<div id="summ-btn-'+d.num+'">'+(done?buildSummaryBtn(d.num):'')+'</div>';
+  }
+  // Nav
+  s+='<div class="day-nav">';
+  if(d.num>1)s+='<button class="day-nav-btn" onclick="go(\'day'+(d.num-1)+'\')">&larr; '+(LANG==="de"?"Tag ":"Day ")+(d.num-1)+'</button>';
+  else s+='<button class="day-nav-btn" onclick="go(\'welcome\')">&larr; '+t("overview")+'</button>';
+  if(d.num<10)s+='<button class="day-nav-btn next" onclick="go(\'day'+(d.num+1)+'\')">'+(LANG==="de"?"Tag ":"Day ")+(d.num+1)+' &rarr;</button>';
+  else s+='<button class="day-nav-btn next" onclick="go(\'welcome\')">'+t("overview")+' &rarr;</button>';
+  s+='</div>';
+  s+='<div class="disclaimer">'+t("footerDisc")+'</div>';
+  return s;
+}
+
+/* === NAV === */
+var curPage="welcome";
+function go(p){
+  curPage=p;var m=document.getElementById("main-content");
+  if(p==="welcome"){m.innerHTML='<div class="page active">'+renderWelcome()+'</div>';}
+  else if(p==="journey"){m.innerHTML='<div class="page active">'+renderJourney()+'</div>';}
+  else if(p==="summary7"){m.innerHTML='<div class="page active">'+renderEndSummary(7)+'</div>';}
+  else if(p==="summary10"){m.innerHTML='<div class="page active">'+renderEndSummary(10)+'</div>';}
+  else{var num=parseInt(p.replace("day",""));var dd=days();var d=null;for(var i=0;i<dd.length;i++){if(dd[i].num===num){d=dd[i];break;}}
+  if(d)m.innerHTML='<div class="page active">'+renderDay(d)+'</div>';}
+  updNav();window.scrollTo(0,0);
+}
+function updNav(){
+  var nav=document.getElementById("nav-scroll"),pr=getPr(),dd=days(),s="";
+  /* Inner-wrap für zuverlässige Zentrierung */
+  s+='<div class="nav-inner">';
+  var wc=curPage==="welcome"?"nav-btn active":"nav-btn";
+  s+='<button class="'+wc+'" onclick="go(\'welcome\')">Start</button>';
+  for(var i=0;i<dd.length;i++){var d=dd[i],cls="nav-btn";if(d.isBonus)cls+=" bonus-btn";if(curPage==="day"+d.num)cls+=" active";if(pr[i])cls+=" completed";
+  var lb=d.isBonus?"Bonus "+(d.num-7):(LANG==="de"?"Tag ":"Day ")+d.num;
+  s+='<button class="'+cls+'" onclick="go(\'day'+d.num+'\')">'+lb+'</button>';}
+  s+='</div>';
+  nav.innerHTML=s;
+  /* Journey-Button immer-sichtbar Zustand */
+  var jb=document.getElementById("journey-always-btn");
+  var jl=document.getElementById("journey-btn-label");
+  if(jb){jb.className=curPage==="journey"?"journey-always-btn on-journey":"journey-always-btn";}
+  if(jl){jl.textContent=LANG==="de"?"Mein Fortschritt":"My Progress";}
+}
+function updProg(){
+  var pr=getPr(),tot=0;for(var i=0;i<pr.length;i++)if(pr[i])tot++;
+  var f=document.getElementById("progress-fill");if(f)f.style.width=Math.round(tot/10*100)+"%";
+  var tx=document.getElementById("progress-text");if(tx)tx.textContent=tot+t("progText");
+}
+function updMot(){
+  var pr=getPr(),done=0;for(var i=0;i<pr.length;i++)if(pr[i])done++;
+  var idx=0;if(done>=10)idx=10;else{for(var j=0;j<pr.length;j++){if(!pr[j]){idx=j+1;break;}}}
+  var msgs=T[LANG].msgs;if(idx>=msgs.length)idx=msgs.length-1;
+  var el=document.getElementById("motivation-banner");if(el)el.textContent=msgs[idx];
+}
+
+/* === DAY COMPARE BUILD === */
+function buildDayCompare(num){
+  var cur=getS(num);
+  var keys=["a","b","c","d"];
+  var labDE=["Klarheit","Ruhe","Energie","Selbstvertrauen"];
+  var labEN=["Clarity","Calm","Energy","Self-Trust"];
+  var labels=LANG==="de"?labDE:labEN;
+  var colors=["#9FE1CB","#AFA9EC","#FAC775","#F5C4B3"];
+  var s='<div class="day-compare">';
+
+  /* Tag 1 — kein Vergleich, nur Startwerte */
+  if(num===1){
+    s+='<div class="dc-header"><div class="dc-title">'+(LANG==="de"?"Dein Start":"Your Start")+'</div></div>';
+    s+='<div class="dc-bars">';
+    for(var i=0;i<4;i++){var v=cur[keys[i]]||5;var pct=Math.round(v/10*100);
+      s+='<div class="dc-row"><div class="dc-name">'+labels[i]+'</div><div class="dc-track"><div class="dc-fill" style="width:'+pct+'%;background:'+colors[i]+'"></div></div><div class="dc-delta dc-neutral">'+v+'</div></div>';}
+    s+='</div>';
+    s+='<div class="dc-insight dc-up">'+(LANG==="de"?"Du bist gestartet. Dein Weg beginnt hier.":"You\u2019ve started. Your journey begins here.")+'</div>';
+    s+='</div>';
+    return s;
+  }
+
+  /* Tage 2–10 — Vergleich mit Vortag */
+  var prev=getS(num-1);
+  var totalDelta=0;
+  s+='<div class="dc-header"><div class="dc-title">'+(LANG==="de"?"Heute vs. Gestern":"Today vs. Yesterday")+'</div>';
+  s+='<div class="dc-sub">'+(LANG==="de"?"Tag "+num+" \u2014 Tag "+(num-1):"Day "+num+" \u2014 Day "+(num-1))+'</div></div>';
+  s+='<div class="dc-bars">';
+  for(var i=0;i<4;i++){
+    var curV=cur[keys[i]]||5;var prevV=prev[keys[i]]||5;var delta=curV-prevV;totalDelta+=delta;
+    var pct=Math.round(curV/10*100);
+    var dStr,dCls;
+    if(delta>0){dStr="+"+delta+" \u2191";dCls="dc-delta dc-pos";}
+    else if(delta<0){dStr=delta+" \u2193";dCls="dc-delta dc-neg";}
+    else{dStr="=";dCls="dc-delta dc-neutral";}
+    var opacity=delta<0?";opacity:0.55":"";
+    s+='<div class="dc-row"><div class="dc-name">'+labels[i]+'</div><div class="dc-track"><div class="dc-fill" style="width:'+pct+'%;background:'+colors[i]+opacity+'"></div></div><div class="'+dCls+'">'+dStr+'</div></div>';
+  }
+  s+='</div>';
+
+  /* Motivationssatz */
+  var msg;
+  if(LANG==="de"){
+    msg=totalDelta>=0
+      ?"Etwas \u00f6ffnet sich. Geh weiter, bleib dran."
+      :"Auch ruhigere Tage geh\u00f6ren zur Reise. Du bist auf deinem Weg.";
+  } else {
+    msg=totalDelta>=0
+      ?"Something is opening. Keep going, stay with it."
+      :"Quieter days belong to the journey too. You\u2019re on your way.";
+  }
+  var iCls=totalDelta>=0?"dc-insight dc-up":"dc-insight dc-down";
+  s+='<div class="'+iCls+'">'+msg+'</div>';
+  s+='</div>';
+  return s;
+}
+
+/* === INTERACTIONS === */
+function cDay(num){var pr=getPr();if(pr[num-1])return;pr[num-1]=true;setPr(pr);
+  var b=document.getElementById("cb"+num);if(b){b.className="complete-btn done";b.innerHTML="&#10003; "+(LANG==="de"?"Tag ":"Day ")+num+t("completed");}
+  var m=document.getElementById("cm"+num);if(m)m.className="completion-msg show";
+  var dc=document.getElementById("dc"+num);if(dc)dc.innerHTML=buildDayCompare(num);
+  if(num===7||num===10){var sb=document.getElementById("summ-btn-"+num);if(sb)sb.innerHTML=buildSummaryBtn(num);}
+  updProg();updMot();updNav();}
+
+var sT={};
+function onN(el,d,i){
+  var storeKey=typeof i==="number"?"r"+i:i;
+  var k=d+storeKey;clearTimeout(sT[k]);sT[k]=setTimeout(function(){var n=getN(d);n[storeKey]=el.value;setN(d,n);
+  var ind=document.getElementById("si"+d+storeKey);if(ind){ind.className="save-indicator show";setTimeout(function(){ind.className="save-indicator";},1500);}},500);}
+
+function onSt(el,d,k){var v=el.value;var disp=document.getElementById("sv"+d+k);if(disp)disp.textContent=v;var s=getS(d);s[k]=parseInt(v);setS(d,s);}
+
+function toggleC(id,btn){var el=document.getElementById(id);if(!el)return;
+  if(el.className.indexOf("open")>=0){el.className="collapsible-body";btn.className="collapsible-toggle";}
+  else{el.className="collapsible-body open";btn.className="collapsible-toggle open";}}
+
+function setLang(l){
+  LANG=l;
+  document.getElementById("lang-de").className=l==="de"?"lang-opt active":"lang-opt";
+  document.getElementById("lang-en").className=l==="en"?"lang-opt active":"lang-opt";
+  document.getElementById("header-sub").textContent=t("sub");
+  document.getElementById("footer-disc").textContent=t("footerDisc");
+  /* Wenn noch nicht freigeschaltet, Gate-Screen neu rendern */
+  if (!isUnlocked()) {
+    showAccessGate();
+  } else {
+    go(curPage);updProg();updMot();
+  }
+}
+
+/* === ACCESS GATE === */
+/* Codes werden als SHA-256 Hashes gespeichert.
+   Niemand kann sie im Quellcode lesen.
+   Eingabe ist case-insensitive (CHANGE7 = change7 = Change7) */
+var VALID_HASHES = [
+  "5c3ea39b0514cfe6ce5be98daa069f400454a4e9446bcf86766c63a79fb3ff19",
+  "e121da7bcf0d5b69776e17bb7ea0d9ccb8acb2fea7bc3dab7a792ebf1eaf1f64",
+  "de3b69c1ddc599d5a9c256fc16d29e76ea67453aef203a0e44f52865b04473e5",
+  "13c256b1f86a9487b721efbcf02ed3c5142eb41894abac6fdb9f559fcbf50833"
+];
+
+function sha256(str) {
+  var buf = new TextEncoder().encode(str);
+  return crypto.subtle.digest("SHA-256", buf).then(function(hash) {
+    var arr = Array.from(new Uint8Array(hash));
+    return arr.map(function(b) { return b.toString(16).padStart(2, "0"); }).join("");
+  });
+}
+
+function isUnlocked() {
+  return localStorage.getItem("7doc_access") === "granted";
+}
+
+function showAccessGate() {
+  var m = document.getElementById("main-content");
+  var s = "";
+  s += '<div class="access-gate">';
+  s += '<img src="img/logo.png" alt="Logo" class="gate-logo">';
+  s += '<div class="gate-title">7 Days of Change</div>';
+  s += '<p class="gate-subtitle" id="gate-sub">' + (LANG === "de" ? "Gib deinen Zugangscode ein" : "Enter your access code") + '</p>';
+  s += '<div class="gate-form">';
+  s += '<input type="text" id="access-input" class="gate-input" placeholder="' + (LANG === "de" ? "Zugangscode" : "Access code") + '" autocomplete="off" autocapitalize="none" spellcheck="false">';
+  s += '<button class="gate-btn" onclick="checkCode()">' + (LANG === "de" ? "Zugang freischalten" : "Unlock access") + '</button>';
+  s += '<p class="gate-error" id="gate-error"></p>';
+  s += '</div>';
+  s += '<p class="gate-hint">' + (LANG === "de" ? "Du findest den Code auf deinem Beileger oder in deiner Kaufbest\u00e4tigung." : "You\u2019ll find the code on your insert card or in your purchase confirmation.") + '</p>';
+  s += '</div>';
+  m.innerHTML = '<div class="page active">' + s + '</div>';
+}
+
+function checkCode() {
+  var input = document.getElementById("access-input");
+  var code = input.value.trim().toLowerCase();
+  if (code.length === 0) return;
+
+  sha256(code).then(function(hash) {
+    var valid = false;
+    for (var i = 0; i < VALID_HASHES.length; i++) {
+      if (VALID_HASHES[i] === hash) { valid = true; break; }
+    }
+    if (valid) {
+      localStorage.setItem("7doc_access", "granted");
+      go("welcome");
+      updProg();
+      updMot();
+    } else {
+      var err = document.getElementById("gate-error");
+      if (err) err.textContent = LANG === "de" ? "Ung\u00fcltiger Code. Bitte versuche es erneut." : "Invalid code. Please try again.";
+      input.value = "";
+      input.focus();
+    }
+  });
+}
+
+/* === INIT === */
+function initApp(){
+  document.getElementById("footer-disc").textContent=t("footerDisc");
+
+  /* Pruefen ob Zugang bereits freigeschaltet ist */
+  if (isUnlocked()) {
+    go("welcome");
+  } else {
+    showAccessGate();
+  }
+
+  updProg();updMot();
+  var sb=document.getElementById("scroll-top");
+  window.addEventListener("scroll",function(){sb.className=window.scrollY>400?"scroll-top visible":"scroll-top";});
+  sb.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});
+
+  /* Enter-Taste im Code-Feld */
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && document.getElementById("access-input")) {
+      checkCode();
+    }
+  });
+}
+document.addEventListener("DOMContentLoaded",initApp);
