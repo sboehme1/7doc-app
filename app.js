@@ -75,7 +75,9 @@ var T = {
     ],
     updateMsg: "Eine neue Version ist verf\u00fcgbar.",
     updateConfirm: "Jetzt aktualisieren",
-    updateDismiss: "Nicht jetzt"
+    updateDismiss: "Nicht jetzt",
+    addCode: "Weiteren Code eingeben",
+    coachingBtn: "Pers\u00f6nliche Begleitung entdecken \u2192"
   },
   en: {
     sub: "A gentle return to yourself",
@@ -150,7 +152,9 @@ var T = {
     ],
     updateMsg: "A new version is available.",
     updateConfirm: "Update now",
-    updateDismiss: "Not now"
+    updateDismiss: "Not now",
+    addCode: "Enter another code",
+    coachingBtn: "Discover personal coaching \u2192"
   }
 };
 
@@ -164,8 +168,8 @@ var DAYS = {
       {t:"Atmen (4/6-Rhythmus)",c:"<strong class='step-key'>Ausatmen:</strong> Z\u00e4hle innerlich bis 6. Fokus: Warme Luft str\u00f6mt raus \u2013 Schultern fallen.\n\n<strong class='step-key'>Einatmen:</strong> Z\u00e4hle innerlich bis 4. Fokus: K\u00fchle Luft an der Nasenspitze.\n\n<strong class='step-key'>Wiederhole</strong> diesen Takt in deinem Tempo so oft wie es sich gut anf\u00fchlt.",tips:["Gedanken auf Reisen? Das ist v\u00f6llig okay. Komm einfach sanft zur\u00fcck zum Z\u00e4hlen.","Rhythmus verloren? Atme einmal tief durch. Fang ganz entspannt wieder bei 4 an."],opt:"Vagus-Impuls: Wenn du besonders viel Unruhe sp\u00fcrst \u2013 atme tief ein und setze am Ende noch einen winzigen, schnellen Nach-Einatmer oben drauf. Halte kurz. Atme dann lang aus. Das unterbricht die Stress-Reaktion direkt auf k\u00f6rperlicher Ebene."},
       {t:"Zur\u00fcckkehren",c:"<strong class='step-key'>Loslassen:</strong> Z\u00e4hlen beenden \u2013 der Atem flie\u00dft wieder frei. <strong class='step-key'>Sp\u00fcren:</strong> Deinen K\u00f6rper wahrnehmen. <strong class='step-key'>\u00d6ffnen:</strong> Augen auf, der Blick wird wieder klar."}
     ],
-    science:"Wenn du das Ausatmen verl\u00e4ngerst, aktivierst du \u00fcber den Vagusnerv den Parasympathikus \u2013 den Teil deines Nervensystems, der f\u00fcr Ruhe sorgt. Das signalisiert deinem Gehirn: \u201eEs ist sicher.\u201c",
-    benefit:"Puls und Blutdruck sinken messbar. Dein K\u00f6rper schaltet vom \u00dcberlebensmodus (Reagieren) in den Klarheitsmodus (Agieren). Du bekommst Kontrolle und Ruhe zur\u00fcck \u2013 nicht durch Denken, sondern durch Biologie.",
+    science:"Stress ist keine reine Kopfsache, sondern eine körperliche Reaktion. Indem du bewusst ausatmest, aktivierst du über den Vagusnerv den Parasympathikus \u2013 den Teil deines Nervensystems, der für Ruhe sorgt. Das signalisiert deinem Gehirn: \u201eEs ist sicher.\u201c",
+    benefit:"Puls und Blutdruck sinken messbar. Dein Körper schaltet vom Überlebensmodus in den Klarheitsmodus. Du bekommst Kontrolle und Ruhe zurück \u2013 nicht durch Denken, sondern durch Biologie. \u2014 Die vollständige Erklärung findest du im Buch.",
     reflections:["Wie f\u00fchlt sich mein K\u00f6rper nach dem Atmen an?","Was habe ich wahrgenommen, als ich zur Ruhe kam?"]},
 
     {num:2,title:"Werte & Richtung",subtitle:"Dein innerer Kompass",goal:"Dich innerlich ausrichten & deinen Kompass finden",time:"Ideal 20 Minuten",audio:"Audio zu Tag 2 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
@@ -176,8 +180,8 @@ var DAYS = {
       {t:"Ausrichten (Dein innerer Kompass)",c:"<strong class='step-key'>Ankommen:</strong> Atme ein paar Mal ruhig ein und aus, bis du merkst, dass du wirklich hier sitzt.\n\n<strong class='step-key'>Fragen:</strong> Richte deine Aufmerksamkeit nach innen. „Wenn ich nur auf mich selbst höre – welcher Wert gibt mir heute die Richtung vor?“\n\n<strong class='step-key'>Lauschen:</strong> Lass die Antwort aufsteigen. Beobachte, welche Begriffe sich von allein zeigen. Achte auf körperliche Resonanz: ein tiefes Atmen, ein Nicken, ein Gefühl der Richtigkeit.\n\n<strong class='step-key'>Wählen:</strong> Nimm das eine Wort, das sich jetzt am hilfreichsten anfühlt.\n\n<strong class='step-key'>Form geben:</strong> Vervollständige: „[Diesen Wert] heute zu leben, sieht für mich so aus: …“\n\n<strong class='step-key'>Umsetzen:</strong> Notiere 1–3 kleine Handlungen, die diesen Wert heute beweisen.",tips:["Kein Wort kommt? Wähle „Offenheit“ oder „Ruhe“.","Zu viele Worte? Nimm das Erste. Dein erster Impuls ist der ehrlichste."],opt:"Mögliche Werte: Klarheit · Ruhe · Mut · Vertrauen · Verbundenheit · Gesundheit · Fokus · Respekt · Geduld · Präsenz · Stärke · Gelassenheit · Disziplin · Offenheit · Dankbarkeit\n\nBeispiele: „Verbindung zu leben, sieht heute so aus: Mir selbst kurz liebevoll zuzuhören.“ / „Klarheit zu leben, sieht heute so aus: Meinem ersten Impuls zu vertrauen.“"},
       {t:"Stabilisieren",c:"<strong class='step-key'>Loslassen:</strong> Das Wort hat seinen festen Platz in dir gefunden. Locker den inneren Griff und lass das Wort einfach ruhen. Es bleibt bei dir.\n\n<strong class='step-key'>Spüren:</strong> Spüre dein ganzes Körpergewicht. Nimm die Stabilität wahr, auf der du ruhst.\n\n<strong class='step-key'>Öffnen:</strong> Nimm den Raum um dich herum wieder klar wahr. Dein Wort ist jetzt bei dir – du bist ausgerichtet."}
     ],
-    science:"Oft orientieren wir uns an Zielen, die nicht unsere eigenen sind. Handlungen, die deinem Wert entsprechen, kosten nachweislich weniger Energie \u2013 die Forschung nennt das \u201eSelbstkonkordanz\u201c.",
-    benefit:"Du musst dich nicht mehr antreiben, sondern wirst von innerer \u00dcberzeugung getragen. Das f\u00fchlt sich leichter und stimmiger an.",
+    science:"Oft orientieren wir uns an Zielen, die nicht unsere eigenen sind \u2013 das kostet Energie. Handlungen, die deinem Wert entsprechen, kosten nachweislich weniger Kraft \u2013 ein Effekt, den die Forschung \u201eSelbstkonkordanz\u201c nennt.",
+    benefit:"Du musst dich nicht mehr antreiben, sondern wirst von innerer Überzeugung getragen. Das fühlt sich leichter an und stimmiger \u2013 weil du du selbst bist. \u2014 Die vollständige Erklärung findest du im Buch.",
     reflections:["Welches Wert-Wort hat sich heute gezeigt?","Welche 1\u20133 Handlungen beweisen meinen Wert?","Welche konkrete Handlung setze ich noch heute um?"]},
 
     {num:3,title:"Aktivierung",subtitle:"Energie lenken",goal:"K\u00f6rper aktivieren, Kopf ausrichten, Schritt setzen",time:"Ideal 20 Minuten",audio:"Audio zu Tag 3 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
@@ -188,8 +192,8 @@ var DAYS = {
       {t:"Aktivierung w\u00e4hlen & lenken",c:"<strong class='step-key'>W\u00e4hle eine Power Pose</strong> und halte sie 1\u20132 Minuten. Dann w\u00e4hle eine <strong class='step-key'>Jetzt-Aktivierung</strong>. Sag laut: \u201eIch mache jetzt \u2026\u201c und beginne direkt.\n\n<strong class='step-key'>Wonder Woman / Superman:</strong> F\u00fc\u00dfe schulterbreit, H\u00e4nde in die H\u00fcften. Brust offen, Schultern zur\u00fcck, Blick nach vorn.\n\n<strong class='step-key'>Expansion Pose:</strong> Beine etwas breiter, Brust offen, Schultern locker. Arme leicht vom K\u00f6rper oder entspannt hinter dem R\u00fccken.\n\n<strong class='step-key'>Victory Pose:</strong> Steh stabil. Arme gro\u00df im \u201eV\u201c nach oben. Kinn leicht anheben, Blick nach oben \u2013 wie ein Olympia-Gewinner.",tips:["Beispiele Jetzt-Aktivierung: 8\u201312 Kniebeugen, 10 Wand-Liegest\u00fctze, 30 Sekunden aussch\u00fctteln"],opt:"Gib der Aktivierung eine Richtung: W\u00e4hle ein Wert-Wort und sprich: \u201eHeute aktiviere ich Richtung [Wert].\u201c"},
       {t:"Wach werden",c:"<strong class='step-key'>Loslassen:</strong> Der Impuls ist gesetzt. Die Anstrengung darf weichen.\n\n<strong class='step-key'>Sp\u00fcren:</strong> Nimm das Nachklingen in deinem K\u00f6rper wahr. Sp\u00fcre die W\u00e4rme und deinen Puls als Zeichen deiner Energie.\n\n<strong class='step-key'>\u00d6ffnen:</strong> Weite deinen Blick f\u00fcr den Raum um dich herum. Nimm diese Wachheit mit und mach da weiter, wo du heute dran bist."}
     ],
-    science:"Wir versuchen oft, Blockaden durch Nachdenken zu l\u00f6sen \u2013 was zu mehr Z\u00f6gern f\u00fchrt. Hier nutzt du den K\u00f6rper, um den Geist zu \u00fcberzeugen.",
-    benefit:"Dieser Tag r\u00fcckt deine Selbstwirksamkeit in den Fokus. Du machst die Erfahrung, dass du Situationen aktiv gestalten kannst.",
+    science:"Blockaden durch noch mehr Nachdenken zu lösen führt meist zu noch mehr Zögern. Der Ansatz: Du nutzt den Körper, um den Geist zu überzeugen. Du wartest nicht auf Motivation, sondern erzeugst sie durch Bewegung selbst.",
+    benefit:"Du machst die Erfahrung, dass du Situationen aktiv gestalten kannst. Wenn der Körper in Bewegung kommt, folgt oft auch der Geist. Selbstwirksamkeit wächst durch kleine, selbst gemachte Erfahrungen. \u2014 Die vollständige Erklärung findest du im Buch.",
     reflections:["Welche Aktivierung habe ich gew\u00e4hlt?","Wie hat sich mein K\u00f6rper danach angef\u00fchlt?","Welche drei gr\u00f6\u00dferen Aktivierungen lege ich bereit?"]},
 
     {num:4,title:"Gedanken & Geschichten",subtitle:"Deine Worte f\u00e4rben deine Sicht",goal:"Deine inneren Geschichten erkennen & neu w\u00e4hlen",time:"Ideal 20 Minuten",audio:"Audio zu Tag 4 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
@@ -200,8 +204,8 @@ var DAYS = {
       {t:"Was wirklich ist",c:"W\u00e4hle eine Situation. Nimm Stift und Papier. <strong class='step-key'>Das Aufschreiben ist entscheidend</strong> \u2013 es holt den Gedanken aus dem Kopf auf das Blatt.\n\n<strong class='step-key'>DIE KAMERA-PERSPEKTIVE</strong>\nBeschreibe den konkreten Ausl\u00f6ser (das Ereignis, die Mail, das Gespr\u00e4ch) so n\u00fcchtern, wie eine \u00dcberwachungskamera ihn aufzeichnen w\u00fcrde. Bleibe bei dem, was wirklich sichtbar und h\u00f6rbar ist.\n\n<strong class='step-key'>DIE GESCHICHTE</strong>\nWas erz\u00e4hlt dein Kopf dar\u00fcber? Schreib die Story vollkommen ehrlich auf.\n\n<strong class='step-key'>DIE HILFREICHE SICHT</strong>\nGibt es eine Sichtweise, die genauso wahr ist, aber weniger wehtut? Formuliere einen neuen Satz. <strong class='step-key'>Schreibe ihn gro\u00df auf.</strong> Lies ihn laut.",tips:["Ehrlichkeit ist dein wichtigstes Werkzeug."],box:"Dieser neue Satz ist keine Ausrede, um das Problem zu ignorieren. Er dient dazu, die Situation wieder handhabbar zu machen \u2013 damit du deinen inneren Widerstand verlierst und deine Kraft wieder f\u00fcr das Tun nutzen kannst.",noteField:{label:"Meine Situation (Kamera-Perspektive):",key:"s2note"}},
       {t:"Entlasten",c:"<strong class='step-key'>Loslassen:</strong> Stift ablegen. Deine Gedanken sind sortiert und stehen sicher auf dem Papier. <strong class='step-key'>Sp\u00fcren:</strong> Wie antwortet dein K\u00f6rper auf diese Klarheit? Sp\u00fcre die Entlastung, vielleicht in den Schultern oder als Weite im Brustkorb. <strong class='step-key'>\u00d6ffnen:</strong> Nimm die neue Sicht mit und mach da weiter, wo du heute dran bist."}
     ],
-    science:"Unser Gehirn f\u00fcllt Informationsl\u00fccken blitzschnell mit Annahmen \u2013 meist negativ. Entscheidend ist die aktive Neubewertung. Bewusstheit ist der T\u00fcr\u00f6ffner, die neue Bewertung der Weg hindurch.",
-    benefit:"Du gewinnst deine Handlungsf\u00e4higkeit zur\u00fcck. Du h\u00f6rst auf, gegen Annahmen zu k\u00e4mpfen, und siehst die Dinge in ihrer machbaren Gr\u00f6\u00dfe.",
+    science:"Wir leiden oft weniger an den Dingen selbst als an der Bedeutung, die wir ihnen geben. Unser Gehirn füllt Informationslücken blitzschnell mit Annahmen \u2013 meist negativ. Erst die aktive Neubewertung beruhigt das emotionale Alarmzentrum.",
+    benefit:"Du gewinnst deine Handlungsfähigkeit zurück. Wenn du Situation und Bewertung trennst, löst sich die innere Starre. Du hörst auf, gegen bloße Annahmen zu kämpfen. \u2014 Die vollständige Erklärung findest du im Buch.",
     reflections:["Was war die Kamera-Perspektive (nur Fakten)?","Was war die Geschichte meines Kopfes?","Wie lautet mein neuer, hilfreicher Satz?"]},
 
     {num:5,title:"Verbundenheit",subtitle:"Gemeinsamen Takt finden",goal:"Vom Ich zum Wir \u2013 erleben, wie echte N\u00e4he stabilisiert",time:"Ideal 20 Minuten",audio:"Audio zu Tag 5 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
@@ -212,8 +216,8 @@ var DAYS = {
       {t:"Verbindung schaffen",c:"<strong class='step-key'>W\u00e4hle</strong> eine der folgenden M\u00f6glichkeiten, um heute bewusst den Draht zu einem anderen Menschen zu finden.\n\n<strong class='step-key'>A) Die physische Ruhe</strong> (wenn jemand Vertrautes bei dir ist):\nBitte um eine Umarmung oder biete sie an \u2013 und halte sie 20 Sekunden und mehr. Atme dabei ruhig weiter und lass zu, dass ihr euch gegenseitig Halt gebt.\n\n<strong class='step-key'>B) Die pr\u00e4sente Begegnung</strong> (im Gespr\u00e4ch):\nSuche das direkte Gespr\u00e4ch mit einer Person. Stelle eine Frage, die dich wirklich interessiert. Halte den Blickkontakt einen Moment l\u00e4nger als gewohnt.\n\n<strong class='step-key'>C) Das stille Wohlwollen</strong> (unter Menschen):\nGeh an einen Ort, wo andere Menschen sind. W\u00e4hle eine Person und w\u00fcnsche ihr im Stillen ganz bewusst etwas Gutes: \u201eIch w\u00fcnsche dir, dass du heute einen leichten Tag hast.\u201c",tips:["Keine enge Bezugsperson im Sinn? Schau in deinen Alltag: ein Kollege, eine Vorgesetzte, jemand dem du regelm\u00e4\u00dfig begegnest. Wichtig ist, dass du dich dabei sicher f\u00fchlst."]},
       {t:"Kontakt wirken lassen",c:"Setz dich noch einmal ruhig hin oder mach es dir im Liegen bequem. <strong class='step-key'>L\u00e4chen.</strong>\n\n<strong class='step-key'>Loslassen:</strong> Atme tief ein und aus. Lass alle Anspannung in den Schultern und im Bauch los. Der Tag ist vorbei. Du musst jetzt nichts mehr tun.\n\n<strong class='step-key'>Sp\u00fcren:</strong> Richte deine Aufmerksamkeit nach innen. Sp\u00fcrst du einen Nachhall der Verbindung? Egal, was jetzt da ist \u2013 nimm es einfach nur wahr.\n\n<strong class='step-key'>Sinken lassen:</strong> Erlaube diesem Gef\u00fchl, ganz da zu sein. Du bist sicher und verbunden."}
     ],
-    science:"Wenn wir Raum teilen und uns wohlwollend zuwenden, gleichen wir uns an \u2013 ganz automatisch. Wie Pendeluhren an einer Wand, die von selbst in denselben Takt finden.",
-    benefit:"Du h\u00f6rst auf, gegen deine Biologie zu k\u00e4mpfen. In der Verbindung erlebst du: \u201eIch bin nicht allein.\u201c Deine Energie kehrt zur\u00fcck.",
+    science:"Pendeluhren an einer Wand finden ganz von selbst in denselben Takt \u2013 weil das weniger Kraft kostet. Genau das passiert mit uns, wenn wir uns echt begegnen: Herzschlag und innere Unruhe legen sich. Wir schwingen uns aufeinander ein.",
+    benefit:"Du hörst auf, gegen deine eigene Biologie zu kämpfen. In echter Verbindung erleben wir körperlich: \u201eIch bin nicht allein.\u201c Deine Energie kehrt zurück, sobald du dich im echten Leben zeigst. \u2014 Die vollständige Erklärung findest du im Buch.",
     reflections:["Welche Verbindungs-Handlung habe ich gew\u00e4hlt?","Wie hat sich mein K\u00f6rper dabei angef\u00fchlt?","Welche Person tut meinem Nervensystem besonders gut?"]},
 
     {num:6,title:"Hebel im System",subtitle:"Gestalte dein Umfeld",goal:"Gestalte dein Umfeld, damit Ver\u00e4nderung flie\u00dfen kann",time:"Ideal 20 Minuten",audio:"Audio zu Tag 6 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
@@ -224,8 +228,8 @@ var DAYS = {
       {t:"Hebel ziehen",c:"Lies dir die drei Bereiche einmal in Ruhe durch. Nimm dir Stift und Papier oder dein Daily Routine Sheet. Notiere f\u00fcr jeden Bereich eine Sache, die dir auff\u00e4llt, und einen m\u00f6glichen Hebel.\n\n<strong class='step-key'>BIO (K\u00f6rper & Raum):</strong>\nWie f\u00fchlt sich dein K\u00f6rper gerade an? Was tut dir gut \u2013 was st\u00f6rt? Gibt es Orte, an denen du dich sofort wohler f\u00fchlst? Unterst\u00fctzt dein Alltag deinen K\u00f6rper?\nBeispiel-Hebel: \u201eIch l\u00fcfte jetzt durch\u201c (sofort) oder \u201eIch plane, wie ich meinen Arbeitsplatz ver\u00e4ndere\u201c (langfristig).\n\n<strong class='step-key'>PSYCHO (Kopf & Gedanken):</strong>\nWelche Gedanken tauchen immer wieder auf? Wann f\u00fchlt sich dein Kopf klar an? Was fehlt dir, um innerlich etwas leichter zu werden?\nBeispiel-Hebel: \u201eIch lege das Handy weg\u201c (sofort) oder \u201eIch schreibe die alte Erinnerung auf, um sie aus dem Kopf zu bekommen\u201c.\n\n<strong class='step-key'>SOZIAL (Verbindung & Atmosph\u00e4re):</strong>\nWie nimmst du die Stimmung mit anderen wahr? Gibt es Beziehungen, die Kraft geben oder auslaugen? Welche Verbindung w\u00fcrdest du dir w\u00fcnschen \u2013 mehr N\u00e4he, mehr Abstand oder mehr Klarheit?\nBeispiel-Hebel: \u201eIch antworte bewusst erst sp\u00e4ter auf die Nachricht\u201c oder \u201eIch sage das Treffen mit der Gruppe ab, die mir nicht gut tut\u201c.",tips:["Es ist in Ordnung, wenn sich manche Antworten schwer anf\u00fchlen. Diese Offenheit ist ein gro\u00dfer Schritt. Versuch heute in allen drei Bereichen etwas zu bewegen \u2013 oder nur einen. Das reicht."]},
       {t:"Ausrichten & Einflie\u00dfen lassen",c:"<strong class='step-key'>Lass</strong> die Worte auf dich wirken. Jetzt stehen sie schwarz auf wei\u00df auf dem Papier und kreisen nicht mehr nur im Kopf. Das allein schafft oft schon den ersten Raum zum Atmen.\n\n<strong class='step-key'>Erkenne:</strong> Du f\u00e4ngst hier nicht bei Null an. Du hast in den letzten Tagen bereits alles gesammelt, was du f\u00fcr diesen Schritt brauchst.\n\n<strong class='step-key'>Handle:</strong> Was kannst du heute schon leicht ver\u00e4ndern? Was braucht einen langfristigen Plan? Wichtig ist nicht die Perfektion, sondern die Erfahrung, dass sich deine Situation ver\u00e4ndert, sobald du handelst."}
     ],
-    science:"Das Bio-Psycho-Soziale Modell zeigt: K\u00f6rper, Gedanken und Umgebung beeinflussen sich gegenseitig. Deine Ersch\u00f6pfung ist vielleicht kein Zeichen pers\u00f6nlicher Schw\u00e4che, sondern eine Antwort auf dein Umfeld.",
-    benefit:"Du wirst wieder zum Gestalter. Statt mehr Kraft aufzuwenden, l\u00f6st du den Hebel. Du richtest deine Welt so ein, dass sie dir den R\u00fccken st\u00e4rkt.",
+    science:"Wir existieren nicht im Vakuum. Das Bio-Psycho-Soziale Modell zeigt: Körper, Gedanken und Umfeld beeinflussen sich ständig gegenseitig. Vielleicht ist deine Erschöpfung keine persönliche Schwäche \u2013 sondern eine natürliche Antwort auf dein Umfeld.",
+    benefit:"Diese Erkenntnis erweitert deinen Handlungsspielraum massiv. Stell dir vor, du löst die angezogene Handbremse. Du hörst auf, Energie zu verbrauchen, um widrige Umstände auszugleichen \u2013 und richtest deine Welt so ein, dass sie dir den Rücken stärkt. \u2014 Die vollständige Erklärung findest du im Buch.",
     reflections:["Bio: Was ist mir aufgefallen? Welcher Hebel?","Psycho: Was ist mir aufgefallen? Welcher Hebel?","Sozial: Was ist mir aufgefallen? Welcher Hebel?","Was kann ich heute schon ver\u00e4ndern?"]},
 
     {num:7,title:"Bewahren & Beginnen",subtitle:"Entscheide, was dich begleitet",goal:"W\u00e4hle die eine Sache, die ab heute fest zu dir geh\u00f6rt",time:"Ideal 20 Minuten",audio:"Audio zu Tag 7 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
@@ -236,8 +240,8 @@ var DAYS = {
       {t:"Das Wertvolle sichern",c:"<strong class='step-key'>R\u00fcckblick:</strong> Nimm deine Notizen der letzten sechs Tage oder dein Daily Routine Sheet zur Hand. Bl\u00e4ttere langsam durch. Achte auf deine Impulse.\n\nFrage dich: Wo bleibst du h\u00e4ngen? Wo sp\u00fcrst du ein \u201eJa\u201c? Welcher Gedanke hat dich diese Woche wirklich erreicht?\n\n<strong class='step-key'>W\u00e4hlen:</strong> Wir suchen Qualit\u00e4t, nicht Quantit\u00e4t. W\u00e4hle maximal zwei Dinge, die du aktiv behalten m\u00f6chtest. Suche nach <strong class='step-key'>Handlungen</strong>, nicht nach Vors\u00e4tzen.\n\nDas kann sein: der 4/6-Atemrhythmus \u00b7 eine kurze Power-Pose mitten im Tag \u00b7 die Kamera-Perspektive f\u00fcr belastende Gedanken \u00b7 dein wichtigster Hebel im System.\n\n<strong class='step-key'>Verankern:</strong> Nimm Stift und Papier. Gib jeder Handlung einen Titel (als T\u00e4tigkeit formuliert). Formuliere direkt darunter einen Satz als Tatsache, nicht als Wunsch.",tips:["Beispiel: \u201eDen Druck wegatmen\u201c \u2013 Satz: \u201eWenn ich Stress sp\u00fcre, atme ich tief ein, packe noch einen kurzen Einatmer obendrauf, halte kurz \u2013 und atme dann lang aus.\u201c","Beispiel: \u201eDie Stille w\u00e4hlen\u201c \u2013 Satz: \u201eSobald ich merke, dass die Welt zu laut wird, lege ich mein Handy bewusst in einen anderen Raum.\u201c"]},
       {t:"Den Kreis schlie\u00dfen",c:"<strong class='step-key'>Bedanke</strong> dich innerlich bei dir selbst f\u00fcr den Einsatz.\n\n<strong class='step-key'>Leg</strong> den Stift weg. Lehn dich zur\u00fcck. Atme einmal tief durch die Nase ein und lange durch den Mund aus.\n\nSieben Tage liegen hinter dir. Du hast hingesehen, wo es oft Mut kostet, und dir dadurch neue Klarheit verschafft.\n\n<strong class='step-key'>Sp\u00fcr</strong> in dich hinein: Wie f\u00fchlt es sich an, diesen Weg gegangen zu sein? Alles darf da sein.\n\nSieh nach vorn und laufe weiter. Auch wenn er noch so klein erscheint: Nimm den n\u00e4chsten Schritt."}
     ],
-    science:"Pers\u00f6nliches Wachstum geschieht durch leise, stetige Integration. Nicht Intensit\u00e4t z\u00e4hlt, sondern Best\u00e4ndigkeit. Bewusste Reduktion gibt deinem Gehirn ein klares Signal.",
-    benefit:"Du beendest die Woche mit einem konkreten Werkzeug. Du beweist dir, dass auf dein Wort Verlass ist, und st\u00e4rkst dein Selbstvertrauen.",
+    science:"Persönliches Wachstum geschieht durch leise, stetige Integration \u2013 nicht durch einen großen Knall. Ein neuer Gedanke muss im Alltag zur Handlung werden. Nicht Intensität zählt, sondern Beständigkeit.",
+    benefit:"Dieser Schritt nimmt die Schwere aus der Veränderung. Durch den Fokus auf Weniges steigt die Chance enorm, dass es wirklich bleibt. Du beweist dir selbst, dass auf dein Wort Verlass ist. \u2014 Die vollständige Erklärung findest du im Buch.",
     reflections:["Mein erstes Werkzeug (Titel + Satz):","Mein zweites Werkzeug (Titel + Satz):","Wie f\u00fchlt es sich an, diesen Weg gegangen zu sein?"]},
 
     {num:8,title:"Grenzen & Energie",subtitle:"H\u00fcte deine Mitte",isBonus:true,goal:"Ein ehrliches \u201eNein\u201c finden und ein klares \u201eJa\u201c, das st\u00e4rkt",time:"Ideal 20 Minuten",audio:"Audio zu Tag 8 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
@@ -248,8 +252,8 @@ var DAYS = {
       {t:"Deine Reserven pr\u00fcfen",c:"<strong class='step-key'>Autopiloten bemerken:</strong> Wir suchen einen Moment, in dem du schnell und automatisch reagiert hast \u2013 fast so, als h\u00e4tte jemand einen Knopf bei dir gedr\u00fcckt. Gehe die letzten 48 Stunden durch.\n\n<strong class='step-key'>Der Anpasser (Ja-Sager):</strong> Wo ist dir ein \u201eJa\u201c herausgerutscht, obwohl dein Bauch Ruhe wollte? Wo hast du dich hinten angestellt, um die Harmonie nicht zu gef\u00e4hrden?\n\n<strong class='step-key'>Der Vermeider (Nein-Sager):</strong> Wo hast du eine Einladung oder einen Impuls sofort abgeblockt? Wo war das \u201eNein\u201c eigentlich nur Angst, die Kontrolle zu verlieren?\n\n<strong class='step-key'>Verstehen:</strong> Wovor hat dich der Reflex abgeschirmt? Beispiele: Davor, jemanden zu entt\u00e4uschen \u00b7 Davor, in einen Konflikt zu geraten \u00b7 Davor, unsicher zu wirken.\n\n<strong class='step-key'>Welche andere M\u00f6glichkeit ist da?</strong>\nAnpasser: Welcher Satz sorgt f\u00fcr Klarheit? Beispiele: \u201eIch schaffe das heute leider nicht.\u201c oder \u201eIch muss da erst mal eine Nacht dr\u00fcber schlafen.\u201c\nVermeider: Welcher erste Schritt schafft Verbindung? Beispiele: \u201eDer Einladung zustimmen.\u201c oder \u201eMich auf das Gespr\u00e4ch einlassen.\u201c\n\n<strong class='step-key'>Formuliere</strong> einen neuen Satz, der dir hilft, in Zukunft bewusster zu w\u00e4hlen.",tips:["Beispiel: \u201eIch erkenne an, dass mein Schutzmechanismus reagiert hat. Gleichzeitig sehe ich nun klar, dass mir auch der Weg [dein Satz] zur Verf\u00fcgung steht.\u201c"]},
       {t:"Haltung festigen",c:"<strong class='step-key'>Nimm</strong> den Satz, den du gerade aufgeschrieben hast, mit in die Stille. Schlie\u00dfe die Augen.\n\n<strong class='step-key'>Sp\u00fcr</strong> nach, was diese Worte in deinem K\u00f6rper ausl\u00f6sen.\nWenn du Klarheit gesucht hast: Vielleicht sp\u00fcrst du eine Ruhe im Brustkorb oder wie deine Schultern leichter werden.\nWenn du \u00d6ffnung gesucht hast: Vielleicht sp\u00fcrst du ein feines Kribbeln oder eine neue Weite.\n\n<strong class='step-key'>\u00d6ffne</strong> deinen Blick wieder f\u00fcr den Raum um dich herum. Nimm diese neue Sicht mit und mach da weiter, wo du heute dran bist."}
     ],
-    science:"Hinter jedem schnellen \u201eJa\u201c oder \u201eNein\u201c steckt ein alter Sicherheitsmechanismus. Gesunde Grenzen funktionieren wie eine Zellmembran: stabil genug um Stress drau\u00dfen zu halten, durchl\u00e4ssig genug f\u00fcr Lebendigkeit.",
-    benefit:"Du wechselst vom Reagieren ins bewusste Agieren. Deine Beziehungen werden ehrlicher.",
+    science:"Hinter jedem schnellen \u201eJa\u201c und reflexartigen \u201eNein\u201c steckt meist ein alter Schutzmechanismus. Gesunde Grenzen sind keine starren Mauern \u2013 sie funktionieren wie eine Zellmembran: stabil genug für Schutz, durchlässig genug für Lebendigkeit.",
+    benefit:"Du wechselst vom bloßen Reagieren ins bewusste Agieren. Du entscheidest situationsabhängig \u2013 und deine Beziehungen werden ehrlicher, weil dein Gegenüber weiß, dass das, was du sagst, auch wirklich so gemeint ist. \u2014 Die vollständige Erklärung findest du im Buch.",
     reflections:["Welche Situation habe ich erkannt?","Wovor hat mich der Reflex abgeschirmt?","Mein neuer Satz f\u00fcr bewusstere Wahl:"]},
 
     {num:9,title:"Dein Wort an dich",subtitle:"Wie du dir selbst Raum gibst",isBonus:true,goal:"Wahrnehmen, was einengt, und Worte finden, die befreien",time:"Ideal 20 Minuten",audio:"Audio zu Tag 9 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
@@ -260,8 +264,8 @@ var DAYS = {
       {t:"Den Ton ver\u00e4ndern",c:"<strong class='step-key'>Kritiker bemerken:</strong> Denk an eine Situation der letzten 24 Stunden, in der du dich klein, gehetzt oder unsicher gef\u00fchlt hast. Nimm Stift und Papier. Schreib ein oder zwei S\u00e4tze auf, die dein Kopf in solchen Momenten sagt.\n\nLies sie durch und sp\u00fcr kurz nach. Wie f\u00fchlt sich das im K\u00f6rper an?\n\n<strong class='step-key'>Gestalter wecken:</strong> W\u00e4hle einen schweren Satz und verwandle ihn in eine Aussage, die freundlich und aktiv ist.\n\n<strong class='step-key'>Sichtbar machen:</strong> Schreibe deinen neuen Leitsatz gro\u00df auf. W\u00e4hle einen Ort, wo du ihn oft siehst: als Handyhintergrundbild, als Zettel am Spiegel, oder in deinen Kalender.",tips:["Aus \u201eIch bin zu dumm daf\u00fcr\u201c wird \u201eIch lerne gerade, wie diese Aufgabe funktioniert\u201c.","Aus \u201eIch bin nicht gut genug\u201c wird \u201eIch bin gut genug\u201c.","Aus \u201eIch muss es allen recht machen\u201c wird \u201eIch entscheide mich, auch gut f\u00fcr mich selbst zu sorgen\u201c.","Aus \u201eIch schaffe das nie\u201c wird \u201eIch gehe einen Schritt nach dem anderen\u201c."]},
       {t:"Verankern",c:"Nimm den Leitsatz mit in den Tag. Wenn du streng \u00fcber dich denkst, hol ihn hervor. Atme aus. Sag ihn dir vor."}
     ],
-    science:"Wie du mit dir redest, bestimmt, was du dir zutraust. Selbstabwertung l\u00e4sst unser Inneres zur\u00fcckziehen.",
-    benefit:"Du l\u00f6st dich aus der Hilflosigkeit. Dein Vertrauen w\u00e4chst. Du wirst unabh\u00e4ngig von Best\u00e4tigung im Au\u00dfen.",
+    science:"Das Gefühl, Einfluss auf das eigene Leben zu haben, ist lebenswichtig. Wenn wir uns selbst abwerten, fühlen wir uns klein und hilflos. Wenn du freundlich mit dir sprichst, verändert sich deine Wahrnehmung \u2013 und dein Vertrauen wächst.",
+    benefit:"Du löst dich aus der Hilflosigkeit. Dein Inneres reagiert mit Ruhe und Klarheit. Wie du mit dir redest, bestimmt, was du dir zutraust. Du nimmst deine Entwicklung selbst in die Hand. \u2014 Die vollständige Erklärung findest du im Buch.",
     reflections:["Welche strengen S\u00e4tze habe ich erkannt?","Wie lautet mein neuer Leitsatz?","Wo mache ich ihn sichtbar?"]},
 
     {num:10,title:"Identit\u00e4t & Disziplin",subtitle:"Vom Werden zum Sein",isBonus:true,goal:"Verankere Ver\u00e4nderung in deiner Identit\u00e4t",time:"Ideal 20 Minuten",audio:"Audio zu Tag 10 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
@@ -272,8 +276,8 @@ var DAYS = {
       {t:"Brief aus der Zukunft",c:"<strong class='step-key'>Die Szene:</strong> Stell dir vor, es ist heute in genau sechs Monaten. Du blickst auf die heutige Woche zurück. Wo bist du? Was tust du gerade? Was fällt dir heute leichter?\n\nNimm wahr, wie du dich dort fühlst. <strong class='step-key'>Halte</strong> dieses Gefühl fest.\n\n<strong class='step-key'>Die Botschaft:</strong> Nimm Stift und Papier. Schreib eine kurze Notiz aus dieser Zukunft an dein heutiges Ich. Schreibe darüber, was du bereits geschafft hast. Frage dich: Welcher Schritt war der wichtigste? Was möchtest du dir als Ermutigung sagen?",tips:["Nutze den warmen Ton, den du an Tag 9 geübt hast.","Betrachte diesen Brief nicht als strengen Vertrag."]},
       {t:"Fundament",c:"<strong class='step-key'>Loslassen:</strong> Leg den Stift beiseite.\n\n<strong class='step-key'>Spüren:</strong> Lies deine Worte noch einmal durch. Spüre, dass diese Weisheit aus deinem eigenen Inneren kommt. Du verankerst eine innere Verbindlichkeit, die ganz auf Vertrauen beruht.\n\n<strong class='step-key'>Öffnen:</strong> Unser Kopf füllt die Zukunft automatisch mit Sorgen. Heute hast du sie bewusst mit Stolz und Dankbarkeit gefüllt. Das formt deine Gegenwart neu. Wichtig ist, dass dieses Gefühl dir die Kraft gibt, heute den ersten Schritt zu tun."}
     ],
-    science:"Wenn du dir die Zukunft lebendig vorstellst, nimmt dein Kopf das Gef\u00fchl als echte Erfahrung an. So wird dir dein Weg vertraut.",
-    benefit:"Du findest festen Boden. Z\u00f6gern weicht klarer Tatkraft. Vor allem schlie\u00dft du Frieden mit dir selbst.",
+    science:"Wenn du dir deine Zukunft lebendig vorstellst, fühlt sich das für dein Inneres fast so an, als würdest du diesen Moment wirklich erleben. Dein Kopf nimmt dieses Gefühl als echte Erfahrung an \u2013 deine Zukunft wird dir vertraut.",
+    benefit:"Du findest festen Boden, der dir auch in stürmischen Zeiten Sicherheit schenkt. Das Zögern weicht einer klaren Tatkraft. Vor allem schließt du einen Frieden mit dir selbst. \u2014 Die vollständige Erklärung findest du im Buch.",
     reflections:["Wo bin ich in sechs Monaten?","Welcher Schritt war der wichtigste?","Was sage ich meinem heutigen Ich?"]}
   ],
   en: [
@@ -728,6 +732,8 @@ function renderDay(d){
   s+='</div>';
   for(var ri=0;ri<d.reflections.length;ri++){var nv=n["r"+ri]||"";s+='<div class="routine-field"><label>'+d.reflections[ri]+'</label><textarea placeholder="'+t("placeholder")+'" oninput="onN(this,'+d.num+','+ri+')">'+nv+'</textarea><div class="save-indicator" id="si'+d.num+'r'+ri+'">&#10003; Saved</div></div>';}
   s+='<div class="storage-notice">'+t("storageNote")+'</div></div>';
+  // Coaching-Link
+  s+='<div class="coaching-link-wrap"><a href="#" class="coaching-link">'+t("coachingBtn")+'</a></div>';
   // Complete
   var bc=done?"complete-btn done":"complete-btn";var bt=done?"&#10003; "+(LANG==="de"?"Tag ":"Day ")+d.num+t("completed"):(LANG==="de"?"Tag ":"Day ")+d.num+t("complete")+" &#10003;";
   s+='<button class="'+bc+'" id="cb'+d.num+'" onclick="cDay('+d.num+')">'+bt+'</button>';
@@ -795,7 +801,7 @@ function updProg(){
     if(isUnlocked() && getUnlockLevel()!=="full" && isDayLocked(8)){
       var uUrl=LANG==="de"?"https://sashandventures.gumroad.com/l/7doc-erweiterung-de":"https://sashandventures.gumroad.com/l/7doc-extension-en";
       var uLbl=LANG==="de"?"Tage 8\u201310 sind bereit \u2192":"Days 8\u201310 are ready \u2192";
-      ub.innerHTML='<a href="'+uUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="progress-upsell-link">'+uLbl+'</a>';
+      ub.innerHTML='<a href="'+uUrl+'" target="_blank" rel="noopener" class="progress-upsell-link">'+uLbl+'</a>';
       ub.style.display="block";
     } else {
       ub.style.display="none";
@@ -826,7 +832,7 @@ function buildDayCompare(num){
     for(var i=0;i<4;i++){var v=cur[keys[i]]||5;var pct=Math.round(v/10*100);
       s+='<div class="dc-row"><div class="dc-name">'+labels[i]+'</div><div class="dc-track"><div class="dc-fill" style="width:'+pct+'%;background:'+colors[i]+'"></div></div><div class="dc-delta dc-neutral">'+v+'</div></div>';}
     s+='</div>';
-    s+='<div class="dc-insight dc-up">'+(LANG==="de"?"Du bist gestartet. Dein Weg beginnt hier.":"You\u2019ve started. Your journey begins here.")+'</div>';
+    s+='<div class="dc-insight dc-up">'+(LANG==="de"?"Du hast den ersten Schritt gemacht \u2014 das ist, was z\u00e4hlt.":"You\u2019ve taken the first step \u2014 that\u2019s what counts.")+'</div>';
     s+='</div>';
     return s;
   }
@@ -894,6 +900,7 @@ function setLang(l){
   document.getElementById("lang-en").className=l==="en"?"lang-opt active":"lang-opt";
   document.getElementById("header-sub").textContent=t("sub");
   document.getElementById("footer-disc").textContent=t("footerDisc");
+  var fac=document.getElementById("footer-add-code");if(fac)fac.textContent=t("addCode");
   /* Wenn noch nicht freigeschaltet, Gate-Screen neu rendern */
   if (!isUnlocked()) {
     showAccessGate();
@@ -1021,9 +1028,48 @@ function closeUpsellPopup(){
   document.body.style.overflow="";
 }
 
+/* === ADD CODE MODAL === */
+function showAddCodeModal(){
+  var ov=document.getElementById("add-code-overlay");if(!ov)return;
+  ov.innerHTML='<div class="add-code-popup">'
+    +'<button class="upsell-close" onclick="closeAddCodeModal()">&#10005;</button>'
+    +'<p class="add-code-title">'+(LANG==="de"?"Weiteren Code eingeben":"Enter another code")+'</p>'
+    +'<input type="text" id="add-code-input" class="gate-input" placeholder="'+(LANG==="de"?"Zugangscode":"Access code")+'" autocomplete="off" autocapitalize="none" spellcheck="false">'
+    +'<button class="gate-btn" onclick="submitAddCode()">'+(LANG==="de"?"Code aktivieren":"Activate code")+'</button>'
+    +'<p class="gate-error" id="add-code-error"></p>'
+    +'</div>';
+  ov.style.display="flex";
+  document.body.style.overflow="hidden";
+  setTimeout(function(){var i=document.getElementById("add-code-input");if(i)i.focus();},50);
+}
+function closeAddCodeModal(){
+  var ov=document.getElementById("add-code-overlay");if(ov)ov.style.display="none";
+  document.body.style.overflow="";
+}
+function submitAddCode(){
+  var input=document.getElementById("add-code-input");if(!input)return;
+  var code=input.value.trim().toLowerCase();if(code.length===0)return;
+  sha256(code).then(function(hash){
+    var valid=false;
+    for(var i=0;i<VALID_HASHES.length;i++){if(VALID_HASHES[i]===hash){valid=true;break;}}
+    if(valid){
+      var codes=getCodes();if(codes.indexOf(hash)<0)codes.push(hash);
+      localStorage.setItem("7doc_codes",JSON.stringify(codes));
+      localStorage.setItem("7doc_access","granted");
+      closeAddCodeModal();
+      updProg();updMot();updNav();go(curPage);
+    } else {
+      var err=document.getElementById("add-code-error");
+      if(err)err.textContent=LANG==="de"?"Ungültiger Code. Bitte versuche es erneut.":"Invalid code. Please try again.";
+      input.value="";input.focus();
+    }
+  });
+}
+
 /* === INIT === */
 function initApp(){
   document.getElementById("footer-disc").textContent=t("footerDisc");
+  var fac=document.getElementById("footer-add-code");if(fac)fac.textContent=t("addCode");
 
   /* Pruefen ob Zugang bereits freigeschaltet ist */
   if (isUnlocked()) {

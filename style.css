@@ -1156,4 +1156,42 @@ body {
   padding: 0;
 }
 #update-dismiss:hover { color: var(--warm-black); }
+
+/* === COACHING LINK === */
+.coaching-link-wrap {
+  text-align: center;
+  margin: 1.25rem 0 0.5rem;
+}
+.coaching-link {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: #c0845a;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s ease;
+}
+.coaching-link:hover { opacity: 0.7; }
+
+/* === ADD CODE POPUP === */
+.add-code-popup {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem 1.5rem;
+  max-width: 340px;
+  width: calc(100% - 3rem);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  box-shadow: 0 8px 40px rgba(44,40,36,0.18);
+}
+.add-code-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--warm-black);
+  text-align: center;
+  margin: 0;
+}
 .upsell-card-btn:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
