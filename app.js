@@ -436,7 +436,10 @@ function renderWelcome(){
   for(var i=0;i<7;i++){var d=dd[i];s+='<div class="day-overview-item" onclick="go(\'day'+d.num+'\')"><div class="day-num">'+d.num+'</div><div class="day-info"><h4>'+d.title+'</h4><p>'+d.subtitle+'</p></div></div>';}
   s+='</div></div>';
   s+='<div class="info-section"><h2>'+t("bonusDays")+'</h2><div class="days-overview">';
-  for(var j=7;j<10;j++){var b=dd[j];s+='<div class="day-overview-item bonus-item" onclick="go(\'day'+b.num+'\')"><div class="day-num gold">'+b.num+'</div><div class="day-info"><h4>'+b.title+'</h4><p>'+b.subtitle+'</p></div></div>';}
+  for(var j=7;j<10;j++){var b=dd[j];
+    if(isDayLocked(b.num)){s+='<div class="day-overview-item bonus-item locked-day"><div class="day-num gold">&#128274;</div><div class="day-info"><h4>'+b.title+'</h4><p>'+b.subtitle+'</p></div></div>';}
+    else{s+='<div class="day-overview-item bonus-item" onclick="go(\'day'+b.num+'\')"><div class="day-num gold">'+b.num+'</div><div class="day-info"><h4>'+b.title+'</h4><p>'+b.subtitle+'</p></div></div>';}
+  }
   s+='</div></div>';
   s+='<button class="start-btn" onclick="go(\'day1\')">'+t("startBottom")+' &rarr;</button>';
   s+='<div class="disclaimer">'+t("disc")+'</div>';
@@ -553,6 +556,16 @@ function renderEndSummary(maxDay){
   s+='<button class="day-nav-btn" onclick="go(\'day'+maxDay+'\')">&larr; '+(LANG==="de"?"Tag ":"Day ")+maxDay+'</button>';
   s+='<button class="day-nav-btn next" onclick="go(\'journey\')">'+(LANG==="de"?"Verlauf":"Journey")+' &rarr;</button>';
   s+='</div>';
+  /* Upsell-Karte nach Tag 7 wenn Bonus-Tage noch gesperrt */
+  if(maxDay===7 && isDayLocked(8)){
+    var ucUrl=LANG==="de"?"https://sashandventures.gumroad.com/l/7doc-erweiterung-de":"https://sashandventures.gumroad.com/l/7doc-extension-en";
+    var ucBtn=LANG==="de"?"Bonus-Tage freischalten":"Unlock Bonus Days";
+    var ucTxt=LANG==="de"
+      ?"Du hast dein 7-Tage-Programm abgeschlossen. Bereit f\u00fcr mehr? Die Bonus-Tage 8\u201310 f\u00fchren dich tiefer \u2014 mit neuen Impulsen, die das Fundament dieser Woche festigen."
+      :"You\u2019ve completed your 7-day program. Ready for more? The bonus days 8\u201310 take you deeper \u2014 with new impulses that strengthen the foundation of this week.";
+    s+='<div class="upsell-card"><div class="upsell-card-text"><p>'+ucTxt+'</p></div>';
+    s+='<a href="'+ucUrl+'" target="_blank" rel="noopener" class="upsell-card-btn">'+ucBtn+' &rarr;</a></div>';
+  }
   s+='<div class="disclaimer">'+t("footerDisc")+'</div>';
   return s;
 }
@@ -735,6 +748,9 @@ function renderDay(d){
 /* === NAV === */
 var curPage="welcome";
 function go(p){
+  /* Gesperrte Tage blockieren */
+  var pNum=parseInt(p.replace("day",""));
+  if(!isNaN(pNum) && isDayLocked(pNum)) return;
   curPage=p;var m=document.getElementById("main-content");
   if(p==="welcome"){m.innerHTML='<div class="page active">'+renderWelcome()+'</div>';}
   else if(p==="journey"){m.innerHTML='<div class="page active">'+renderJourney()+'</div>';}
@@ -752,7 +768,8 @@ function updNav(){
   s+='<button class="'+wc+'" onclick="go(\'welcome\')">Start</button>';
   for(var i=0;i<dd.length;i++){var d=dd[i],cls="nav-btn";if(d.isBonus)cls+=" bonus-btn";if(curPage==="day"+d.num)cls+=" active";if(pr[i])cls+=" completed";
   var lb=d.isBonus?"Bonus "+(d.num-7):(LANG==="de"?"Tag ":"Day ")+d.num;
-  s+='<button class="'+cls+'" onclick="go(\'day'+d.num+'\')">'+lb+'</button>';}
+  if(isDayLocked(d.num)){cls+=" locked";s+='<button class="'+cls+'" disabled>&#128274; '+lb+'</button>';}
+  else{s+='<button class="'+cls+'" onclick="go(\'day'+d.num+'\')">'+lb+'</button>';}}
   s+='</div>';
   nav.innerHTML=s;
   /* Journey-Button immer-sichtbar Zustand */
@@ -765,6 +782,18 @@ function updProg(){
   var pr=getPr(),tot=0;for(var i=0;i<pr.length;i++)if(pr[i])tot++;
   var f=document.getElementById("progress-fill");if(f)f.style.width=Math.round(tot/10*100)+"%";
   var tx=document.getElementById("progress-text");if(tx)tx.textContent=tot+t("progText");
+  /* Upsell-Banner für CHANGE7-only Nutzer */
+  var ub=document.getElementById("progress-upsell");
+  if(ub){
+    if(isUnlocked() && getUnlockLevel()!=="full"){
+      var uUrl=LANG==="de"?"https://sashandventures.gumroad.com/l/7doc-erweiterung-de":"https://sashandventures.gumroad.com/l/7doc-extension-en";
+      var uLbl=LANG==="de"?"Bonus-Tage verf\u00fcgbar \u2192":"Bonus days available \u2192";
+      ub.innerHTML='<a href="'+uUrl+'" target="_blank" rel="noopener" class="progress-upsell-link">'+uLbl+'</a>';
+      ub.style.display="block";
+    } else {
+      ub.style.display="none";
+    }
+  }
 }
 function updMot(){
   var pr=getPr(),done=0;for(var i=0;i<pr.length;i++)if(pr[i])done++;
@@ -836,7 +865,10 @@ function cDay(num){var pr=getPr();if(pr[num-1])return;pr[num-1]=true;setPr(pr);
   var m=document.getElementById("cm"+num);if(m)m.className="completion-msg show";
   var dc=document.getElementById("dc"+num);if(dc)dc.innerHTML=buildDayCompare(num);
   if(num===7||num===10){var sb=document.getElementById("summ-btn-"+num);if(sb)sb.innerHTML=buildSummaryBtn(num);}
-  updProg();updMot();updNav();}
+  updProg();updMot();updNav();
+  /* Upsell-Popup nach Abschluss Tag 7 wenn Bonus-Tage noch gesperrt */
+  if(num===7 && isDayLocked(8)){showUpsellPopup();}
+}
 
 var sT={};
 function onN(el,d,i){
@@ -866,13 +898,19 @@ function setLang(l){
 
 /* === ACCESS GATE === */
 /* Codes werden als SHA-256 Hashes gespeichert.
-   Niemand kann sie im Quellcode lesen.
    Eingabe ist case-insensitive (CHANGE7 = change7 = Change7) */
+
+/* Hash-Konstanten für Freischalt-Logik */
+var HASH_CHANGE7  = "5c3ea39b0514cfe6ce5be98daa069f400454a4e9446bcf86766c63a79fb3ff19";
+var HASH_CHANGE10 = "4ab4bdc3c6a493bb635efce952ae9ef124750fdf99bf79f2cf499a7b85317a08";
+var HASH_HEIMKEHR = "de3b69c1ddc599d5a9c256fc16d29e76ea67453aef203a0e44f52865b04473e5";
+var HASH_7DOC     = "13c256b1f86a9487b721efbcf02ed3c5142eb41894abac6fdb9f559fcbf50833";
+
 var VALID_HASHES = [
-  "5c3ea39b0514cfe6ce5be98daa069f400454a4e9446bcf86766c63a79fb3ff19",
-  "e121da7bcf0d5b69776e17bb7ea0d9ccb8acb2fea7bc3dab7a792ebf1eaf1f64",
-  "de3b69c1ddc599d5a9c256fc16d29e76ea67453aef203a0e44f52865b04473e5",
-  "13c256b1f86a9487b721efbcf02ed3c5142eb41894abac6fdb9f559fcbf50833"
+  HASH_CHANGE7,
+  HASH_CHANGE10,
+  HASH_HEIMKEHR,
+  HASH_7DOC
 ];
 
 function sha256(str) {
@@ -883,8 +921,30 @@ function sha256(str) {
   });
 }
 
+function getCodes() {
+  try { return JSON.parse(localStorage.getItem("7doc_codes")) || []; }
+  catch(e) { return []; }
+}
+
 function isUnlocked() {
+  if (getCodes().length > 0) return true;
+  /* Legacy: alter "granted"-Flag ohne codes-Array */
   return localStorage.getItem("7doc_access") === "granted";
+}
+
+/* Gibt "full" zurück wenn alle 10 Tage freigeschaltet, sonst "7days" */
+function getUnlockLevel() {
+  var codes = getCodes();
+  /* Legacy-Nutzer ohne codes-Array → konservativ 7days */
+  if (codes.length === 0 && localStorage.getItem("7doc_access") === "granted") return "7days";
+  if (codes.indexOf(HASH_HEIMKEHR) >= 0) return "full";
+  if (codes.indexOf(HASH_7DOC) >= 0) return "full";
+  if (codes.indexOf(HASH_CHANGE7) >= 0 && codes.indexOf(HASH_CHANGE10) >= 0) return "full";
+  return "7days";
+}
+
+function isDayLocked(dayNum) {
+  return dayNum > 7 && getUnlockLevel() !== "full";
 }
 
 function showAccessGate() {
@@ -915,6 +975,9 @@ function checkCode() {
       if (VALID_HASHES[i] === hash) { valid = true; break; }
     }
     if (valid) {
+      var codes = getCodes();
+      if (codes.indexOf(hash) < 0) codes.push(hash);
+      localStorage.setItem("7doc_codes", JSON.stringify(codes));
       localStorage.setItem("7doc_access", "granted");
       go("welcome");
       updProg();
@@ -926,6 +989,30 @@ function checkCode() {
       input.focus();
     }
   });
+}
+
+/* === UPSELL POPUP === */
+function showUpsellPopup(){
+  var ov=document.getElementById("upsell-overlay");
+  if(!ov)return;
+  var url=LANG==="de"?"https://sashandventures.gumroad.com/l/7doc-erweiterung-de":"https://sashandventures.gumroad.com/l/7doc-extension-en";
+  var btnLabel=LANG==="de"?"Bonus-Tage freischalten":"Unlock Bonus Days";
+  var text=LANG==="de"
+    ?"Du hast dein 7-Tage-Programm abgeschlossen. Bereit f\u00fcr mehr? Die Bonus-Tage 8\u201310 f\u00fchren dich tiefer \u2014 mit neuen Impulsen, die das Fundament dieser Woche festigen."
+    :"You\u2019ve completed your 7-day program. Ready for more? The bonus days 8\u201310 take you deeper \u2014 with new impulses that strengthen the foundation of this week.";
+  ov.innerHTML='<div class="upsell-popup">'
+    +'<button class="upsell-close" onclick="closeUpsellPopup()">&#10005;</button>'
+    +'<div class="upsell-popup-icon">&#127775;</div>'
+    +'<p class="upsell-popup-text">'+text+'</p>'
+    +'<a href="'+url+'" target="_blank" rel="noopener" class="upsell-popup-btn">'+btnLabel+' &rarr;</a>'
+    +'</div>';
+  ov.style.display="flex";
+  document.body.style.overflow="hidden";
+}
+function closeUpsellPopup(){
+  var ov=document.getElementById("upsell-overlay");
+  if(ov)ov.style.display="none";
+  document.body.style.overflow="";
 }
 
 /* === INIT === */
