@@ -926,69 +926,6 @@ body {
   line-height: 1.65;
 }
 
-/* === DARK MODE ===
-   Alle Komponenten nutzen bereits CSS-Variablen —
-   hier werden nur die Variablen neu belegt.
-   Das System des Geräts entscheidet automatisch. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Hintergründe: warmes Dunkelbraun statt Sand */
-    --sand-light:  #1C1916;
-    --sand:        #272320;
-    --sand-dark:   #332E29;
-    --cream:       #211E1A;
-    --white:       #2A2520;
-
-    /* Text: helle Töne statt dunkel */
-    --warm-black:      #EDE8E0;
-    --warm-gray:       #B0A89F;
-    --warm-gray-light: #7A7268;
-
-    /* Akzentfarben bleiben warm, leicht aufgehellt */
-    --terracotta:       #D4825A;
-    --terracotta-dark:  #C4704B;
-    --terracotta-light: #E09A78;
-    --sage:        #9AAD8C;
-    --sage-light:  #2E3A29;
-    --gold:        #D4B47A;
-
-    /* Schatten angepasst */
-    --shadow-soft: rgba(0,0,0,0.25);
-    --shadow-med:  rgba(0,0,0,0.4);
-  }
-
-  /* Textarea & Input: dunkler Hintergrund */
-  textarea,
-  .gate-input {
-    background: var(--sand);
-    color: var(--warm-black);
-    border-color: var(--sand-dark);
-  }
-  textarea:focus,
-  .gate-input:focus { border-color: var(--terracotta); }
-
-  /* Range-Slider Thumbs (Webkit) */
-  input[type="range"]::-webkit-slider-thumb {
-    background: var(--terracotta);
-  }
-  input[type="range"]::-webkit-slider-runnable-track {
-    background: var(--sand-dark);
-  }
-  input[type="range"]::-moz-range-thumb {
-    background: var(--terracotta);
-  }
-  input[type="range"]::-moz-range-track {
-    background: var(--sand-dark);
-  }
-
-  /* Links */
-  a { color: var(--gold); }
-  a:hover { color: var(--terracotta-light); }
-
-  /* Fortschrittsbalken-Hintergrund */
-  .progress-bar-wrap { background: var(--sand-dark); }
-}
-
 /* === COMPANION NOTE (Willkommen-Seite) === */
 .companion-note {
   background: var(--cream);
@@ -1066,13 +1003,6 @@ body {
 
 /* === JOURNEY: STEP3 NOTIZ LABEL === */
 .jdc-s3note { margin-top: 0.6rem; }
-
-/* === DARK MODE: neue Elemente === */
-@media (prefers-color-scheme: dark) {
-  .step3-note { background: var(--sand); border-color: var(--sand-dark); }
-  .step3-note-textarea { background: var(--sand-dark); color: var(--warm-black); }
-  .companion-note { background: var(--sand); border-color: var(--gold); }
-}
 
 /* === LOCKED DAYS === */
 .nav-btn.locked { opacity: 0.42; cursor: not-allowed; pointer-events: none; }
