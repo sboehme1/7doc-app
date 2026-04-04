@@ -12,7 +12,7 @@
    neu heruntergeladen.
 */
 
-var CACHE_NAME = "7doc-v16";
+var CACHE_NAME = "7doc-v18";
 
 /* Alle Dateien, die offline verfügbar sein sollen */
 var FILES_TO_CACHE = [
@@ -34,8 +34,6 @@ self.addEventListener("install", function(event) {
       return cache.addAll(FILES_TO_CACHE);
     })
   );
-  /* Sofort aktiv werden, nicht auf Tab-Neustart warten */
-  self.skipWaiting();
 });
 
 /* ACTIVATE: Wird ausgeführt wenn eine neue Version bereitsteht.
@@ -55,6 +53,13 @@ self.addEventListener("activate", function(event) {
   );
   /* Sofort alle offenen Tabs übernehmen */
   self.clients.claim();
+});
+
+/* MESSAGE: Manuelle Aktivierung durch Update-Popup */
+self.addEventListener("message", function(event) {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
 });
 
 /* FETCH: Wird bei JEDER Netzwerk-Anfrage ausgeführt.

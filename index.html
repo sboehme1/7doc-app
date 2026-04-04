@@ -68,12 +68,12 @@
 
   <div id="upsell-overlay" class="upsell-overlay" style="display:none;"></div>
 
+  <div id="update-banner" style="display:none;">
+    <p id="update-text"></p>
+    <button id="update-confirm"></button>
+    <button id="update-dismiss"></button>
+  </div>
+
   <script src="app.js"></script>
-  <script>
-    /* Service Worker registrieren — ermöglicht Offline-Nutzung */
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("./sw.js");
-    }
-  </script>
 </body>
 </html>

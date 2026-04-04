@@ -56,7 +56,7 @@ var T = {
     calm: "Ruhe",
     energy: "Energie",
     trust: "Selbstvertrauen",
-    placeholder: "Schreibe hier deine Gedanken \u2026",
+    placeholder: "Schreibe hier deine Gedanken \u2026 (Alle Gedanken und Gef\u00fchle haben hier Platz. Alles bleibt f\u00fcr dich.)",
     welc1: "Du hast dich f\u00fcr diesen Weg entschieden \u2013 und das ist bereits der erste echte Schritt. Du wirst Techniken erleben, die sich spüren lassen – im Körper, im Kopf, im Alltag.",
     welc2: "Jeder Tag hat seinen eigenen Fokus: Atmen. Ausrichten. Aktivieren. Erkennen. Verbinden. Gestalten. Bewahren. Offenheit und ein paar Minuten t\u00e4glich \u2013 das ist alles, was du mitbringst.",
     welc3: "Eine Einladung zur Heimkehr \u2013 zu dir selbst. Und du hast dich bereits entschieden zu beginnen.",
@@ -72,7 +72,10 @@ var T = {
       "7 Tage geschafft! Die Bonus-Tage vertiefen deine Reise.",
       "Bonus 2: Dein Wort an dich.",
       "Alle 10 Tage geschafft. Du tr\u00e4gst alles in dir."
-    ]
+    ],
+    updateMsg: "Eine neue Version ist verf\u00fcgbar.",
+    updateConfirm: "Jetzt aktualisieren",
+    updateDismiss: "Nicht jetzt"
   },
   en: {
     sub: "A gentle return to yourself",
@@ -128,7 +131,7 @@ var T = {
     calm: "Calm",
     energy: "Energy",
     trust: "Self-Trust",
-    placeholder: "Write your thoughts here \u2026",
+    placeholder: "Write your thoughts here \u2026 (All thoughts and feelings have space here. Everything stays with you.)",
     welc1: "You\u2019ve chosen this path \u2013 and that\u2019s already the first real step. What awaits you isn\u2019t concepts to read, but experiences to live.",
     welc2: "Each day has its own focus: Breathe. Align. Activate. Recognize. Connect. Shape. Sustain. Openness and a few minutes each day \u2013 that\u2019s all you bring.",
     welc3: "An invitation to return \u2013 to yourself. And you\u2019ve already made the decision to begin.",
@@ -144,7 +147,10 @@ var T = {
       "7 days done! Bonus days deepen your journey.",
       "Bonus 2: Your word to yourself.",
       "All 10 days done. You carry everything within you."
-    ]
+    ],
+    updateMsg: "A new version is available.",
+    updateConfirm: "Update now",
+    updateDismiss: "Not now"
   }
 };
 
@@ -154,9 +160,9 @@ var DAYS = {
     intro:"Alles ist laut, alles ist schnell. Wir sind es gewohnt, st\u00e4ndig auf irgendetwas zu reagieren.\n\nDoch um dich selbst wieder zu sp\u00fcren, darfst du heute kurz anhalten. Dieser erste Tag ist deine Erlaubnis, f\u00fcr einen Moment nichts zu leisten und nichts zu \u201eerreichen\u201c.\n\nEs gibt jetzt keinen anderen Ort, an dem du dringender gebraucht wirst, als bei dir selbst. Du darfst einfach hier sein und atmen.",
     onthego:[["Halt","Bleib kurz stehen oder setz dich aufrecht. Sp\u00fcr den Boden unter deinen F\u00fc\u00dfen."],["Atem","Atme tief durch die Nase ein (z\u00e4hl bis 4). Atme lang durch den Mund aus (z\u00e4hl bis 6). Wiederhole 3-mal."],["Ausklang","Lass den Atem frei flie\u00dfen. Sag dir leise: \u201eIch bin hier.\u201c Geh langsam in deinen Tag zur\u00fcck."]],
     steps:[
-      {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus (Flugmodus). <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden, Blick ruhig nach vorn. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal: Kontakt zum K\u00f6rper, Pr\u00e4senz im Moment."},
-      {t:"Atmen (4/6-Rhythmus)",c:"<strong class='step-key'>Einatmen:</strong> Z\u00e4hle innerlich bis 4. Fokus: K\u00fchle Luft an der Nasenspitze.\n\n<strong class='step-key'>Ausatmen:</strong> Z\u00e4hle innerlich bis 6. Fokus: Warme Luft str\u00f6mt raus \u2013 Schultern fallen.\n\n<strong class='step-key'>Wiederhole</strong> diesen Takt in deinem Tempo so oft wie es sich gut anf\u00fchlt.",tips:["Gedanken auf Reisen? Das ist v\u00f6llig okay. Komm einfach sanft zur\u00fcck zum Z\u00e4hlen.","Rhythmus verloren? Atme einmal tief durch. Fang ganz entspannt wieder bei 4 an."],opt:"Vagus-Impuls: Wenn du besonders viel Unruhe sp\u00fcrst \u2013 atme tief ein und setze am Ende noch einen winzigen, schnellen Nach-Einatmer oben drauf. Halte kurz. Atme dann lang aus. Das unterbricht die Stress-Reaktion direkt auf k\u00f6rperlicher Ebene."},
-      {t:"Zur\u00fcckkehren",c:"<strong class='step-key'>Loslassen:</strong> Z\u00e4hlen beenden. Der Atem flie\u00dft wieder frei.\n\n<strong class='step-key'>Sp\u00fcren:</strong> Deinen K\u00f6rper wahrnehmen.\n\n<strong class='step-key'>\u00d6ffnen:</strong> Augen auf, der Blick wird wieder klar."}
+      {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus (Flugmodus). <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden, Blick ruhig nach vorn. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch.",opt:"Das ist dein Startsignal: Kontakt zum K\u00f6rper, Pr\u00e4senz im Moment."},
+      {t:"Atmen (4/6-Rhythmus)",c:"<strong class='step-key'>Ausatmen:</strong> Z\u00e4hle innerlich bis 6. Fokus: Warme Luft str\u00f6mt raus \u2013 Schultern fallen.\n\n<strong class='step-key'>Einatmen:</strong> Z\u00e4hle innerlich bis 4. Fokus: K\u00fchle Luft an der Nasenspitze.\n\n<strong class='step-key'>Wiederhole</strong> diesen Takt in deinem Tempo so oft wie es sich gut anf\u00fchlt.",tips:["Gedanken auf Reisen? Das ist v\u00f6llig okay. Komm einfach sanft zur\u00fcck zum Z\u00e4hlen.","Rhythmus verloren? Atme einmal tief durch. Fang ganz entspannt wieder bei 4 an."],opt:"Vagus-Impuls: Wenn du besonders viel Unruhe sp\u00fcrst \u2013 atme tief ein und setze am Ende noch einen winzigen, schnellen Nach-Einatmer oben drauf. Halte kurz. Atme dann lang aus. Das unterbricht die Stress-Reaktion direkt auf k\u00f6rperlicher Ebene."},
+      {t:"Zur\u00fcckkehren",c:"<strong class='step-key'>Loslassen:</strong> Z\u00e4hlen beenden \u2013 der Atem flie\u00dft wieder frei. <strong class='step-key'>Sp\u00fcren:</strong> Deinen K\u00f6rper wahrnehmen. <strong class='step-key'>\u00d6ffnen:</strong> Augen auf, der Blick wird wieder klar."}
     ],
     science:"Wenn du das Ausatmen verl\u00e4ngerst, aktivierst du \u00fcber den Vagusnerv den Parasympathikus \u2013 den Teil deines Nervensystems, der f\u00fcr Ruhe sorgt. Das signalisiert deinem Gehirn: \u201eEs ist sicher.\u201c",
     benefit:"Puls und Blutdruck sinken messbar. Dein K\u00f6rper schaltet vom \u00dcberlebensmodus (Reagieren) in den Klarheitsmodus (Agieren). Du bekommst Kontrolle und Ruhe zur\u00fcck \u2013 nicht durch Denken, sondern durch Biologie.",
@@ -785,10 +791,11 @@ function updProg(){
   /* Upsell-Banner für CHANGE7-only Nutzer */
   var ub=document.getElementById("progress-upsell");
   if(ub){
-    if(isUnlocked() && getUnlockLevel()!=="full"){
+    /* Upsell nur zeigen wenn Nutzer NICHT vollen Zugang hat (kein HEIMKEHR/7DOC/CHANGE7+CHANGE10) */
+    if(isUnlocked() && getUnlockLevel()!=="full" && isDayLocked(8)){
       var uUrl=LANG==="de"?"https://sashandventures.gumroad.com/l/7doc-erweiterung-de":"https://sashandventures.gumroad.com/l/7doc-extension-en";
-      var uLbl=LANG==="de"?"Bonus-Tage verf\u00fcgbar \u2192":"Bonus days available \u2192";
-      ub.innerHTML='<a href="'+uUrl+'" target="_blank" rel="noopener" class="progress-upsell-link">'+uLbl+'</a>';
+      var uLbl=LANG==="de"?"Tage 8\u201310 sind bereit \u2192":"Days 8\u201310 are ready \u2192";
+      ub.innerHTML='<a href="'+uUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="progress-upsell-link">'+uLbl+'</a>';
       ub.style.display="block";
     } else {
       ub.style.display="none";
@@ -827,8 +834,7 @@ function buildDayCompare(num){
   /* Tage 2–10 — Vergleich mit Vortag */
   var prev=getS(num-1);
   var totalDelta=0;
-  s+='<div class="dc-header"><div class="dc-title">'+(LANG==="de"?"Heute vs. Gestern":"Today vs. Yesterday")+'</div>';
-  s+='<div class="dc-sub">'+(LANG==="de"?"Tag "+num+" \u2014 Tag "+(num-1):"Day "+num+" \u2014 Day "+(num-1))+'</div></div>';
+  s+='<div class="dc-header"><div class="dc-title">'+(LANG==="de"?"Heute vs. Gestern":"Today vs. Yesterday")+'</div></div>';
   s+='<div class="dc-bars">';
   for(var i=0;i<4;i++){
     var curV=cur[keys[i]]||5;var prevV=prev[keys[i]]||5;var delta=curV-prevV;totalDelta+=delta;
@@ -838,7 +844,7 @@ function buildDayCompare(num){
     else if(delta<0){dStr=delta+" \u2193";dCls="dc-delta dc-neg";}
     else{dStr="=";dCls="dc-delta dc-neutral";}
     var opacity=delta<0?";opacity:0.55":"";
-    s+='<div class="dc-row"><div class="dc-name">'+labels[i]+'</div><div class="dc-track"><div class="dc-fill" style="width:'+pct+'%;background:'+colors[i]+opacity+'"></div></div><div class="'+dCls+'">'+dStr+'</div></div>';
+    s+='<div class="dc-row"><div class="dc-name">'+labels[i]+'</div><div class="dc-track"><div class="dc-fill" style="width:'+pct+'%;background:'+colors[i]+opacity+'"></div></div><div class="dc-abs">'+curV+'</div><div class="'+dCls+'">'+dStr+'</div></div>';
   }
   s+='</div>';
 
@@ -1039,3 +1045,38 @@ function initApp(){
   });
 }
 document.addEventListener("DOMContentLoaded",initApp);
+
+/* === SERVICE WORKER REGISTRATION + UPDATE BANNER === */
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js").then(function(reg) {
+    reg.addEventListener("updatefound", function() {
+      var newSW = reg.installing;
+      if (!newSW) return;
+      newSW.addEventListener("statechange", function() {
+        if (newSW.state === "installed" && navigator.serviceWorker.controller) {
+          /* Neuer SW wartet — Update-Banner anzeigen */
+          var banner = document.getElementById("update-banner");
+          var txt = document.getElementById("update-text");
+          var confirmBtn = document.getElementById("update-confirm");
+          var dismissBtn = document.getElementById("update-dismiss");
+          if (!banner) return;
+          if (txt) txt.textContent = t("updateMsg");
+          if (confirmBtn) confirmBtn.textContent = t("updateConfirm");
+          if (dismissBtn) dismissBtn.textContent = t("updateDismiss");
+          if (confirmBtn) confirmBtn.onclick = function() {
+            if (newSW) newSW.postMessage({ type: "SKIP_WAITING" });
+            banner.style.display = "none";
+          };
+          if (dismissBtn) dismissBtn.onclick = function() {
+            banner.style.display = "none";
+          };
+          banner.style.display = "flex";
+        }
+      });
+    });
+  });
+  /* Reload auslösen wenn neuer SW die Kontrolle übernimmt */
+  navigator.serviceWorker.addEventListener("controllerchange", function() {
+    window.location.reload();
+  });
+}
