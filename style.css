@@ -515,11 +515,11 @@ body {
 
 /* === TIPS === */
 .step-tip {
-  background: var(--sand);
+  background: #f0ebe2;
   border-radius: var(--radius-sm);
-  padding: 0.8rem 1rem;
+  padding: 0.9rem 1.1rem;
   margin-top: 0.8rem;
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: var(--warm-gray);
 }
 .step-tip strong { color: var(--terracotta); }
