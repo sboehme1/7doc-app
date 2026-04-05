@@ -1,4 +1,5 @@
 /* 7 Days of Change - App v2 - Bilingual DE/EN */
+history.scrollRestoration = 'manual';
 var LANG = "de";
 
 var T = {
