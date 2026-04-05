@@ -1072,7 +1072,6 @@ function submitAddCode(){
 
 /* === INIT === */
 function initApp(){
-  window.scrollTo(0,0);
   document.getElementById("footer-disc").textContent=t("footerDisc");
   var fac=document.getElementById("footer-add-code");if(fac)fac.textContent=t("addCode");
   var cpl=document.getElementById("coaching-progress-link");if(cpl)cpl.textContent=t("coachingBtn");
