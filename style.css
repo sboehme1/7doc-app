@@ -148,13 +148,14 @@ body {
   text-align: center;
   font-size: 0.72rem;
   color: var(--warm-gray);
-  margin-top: 3px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   font-weight: 500;
 }
 
 /* === JOURNEY BAR (immer sichtbar über der Nav) === */
 .journey-bar {
-  padding: 0.4rem 0.8rem 0;
+  padding: 0.6rem 0.8rem 0.4rem;
   display: flex;
   justify-content: center;
 }
@@ -1020,12 +1021,15 @@ body {
   letter-spacing: 0.03em;
 }
 .progress-upsell-link:hover { text-decoration: underline; }
-.coaching-progress-wrap { text-align: center; padding: 0.2rem 0 0.4rem; }
+.coaching-progress-wrap { text-align: center; padding: 0.3rem 0 0.5rem; }
 .coaching-progress-link {
   font-family: var(--font-body);
-  font-size: 0.76rem;
+  font-size: 0.85rem;
+  font-weight: 600;
   color: #c0845a;
-  text-decoration: none;
+  text-decoration: underline;
+  display: block;
+  padding: 4px 0;
   letter-spacing: 0.01em;
 }
 .coaching-progress-link:hover { text-decoration: underline; }
