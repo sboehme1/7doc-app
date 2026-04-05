@@ -443,7 +443,7 @@ function renderWelcome(){
   s+='</div>';
   s+='<div class="prep-otg-hint">'+t("prepOtgHint")+'</div>';
   s+='</div></div>';
-  s+='<button class="start-btn" onclick="go(\'day1\')">'+t("start")+' &rarr;</button>';
+  s+='<button class="start-btn" tabindex="-1" onclick="go(\'day1\')">'+t("start")+' &rarr;</button>';
   s+='<div class="info-section"><h2>'+t("the7days")+'</h2><div class="days-overview">';
   for(var i=0;i<7;i++){var d=dd[i];s+='<div class="day-overview-item" onclick="go(\'day'+d.num+'\')"><div class="day-num">'+d.num+'</div><div class="day-info"><h4>'+d.title+'</h4><p>'+d.subtitle+'</p></div></div>';}
   s+='</div></div>';
@@ -453,7 +453,7 @@ function renderWelcome(){
     else{s+='<div class="day-overview-item bonus-item" onclick="go(\'day'+b.num+'\')"><div class="day-num gold">'+b.num+'</div><div class="day-info"><h4>'+b.title+'</h4><p>'+b.subtitle+'</p></div></div>';}
   }
   s+='</div></div>';
-  s+='<button class="start-btn" onclick="go(\'day1\')">'+t("startBottom")+' &rarr;</button>';
+  s+='<button class="start-btn" tabindex="-1" onclick="go(\'day1\')">'+t("startBottom")+' &rarr;</button>';
   s+='<div class="disclaimer">'+t("disc")+'</div>';
   return s;
 }
