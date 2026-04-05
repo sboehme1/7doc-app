@@ -944,6 +944,16 @@ body {
 }
 .companion-note strong { color: var(--warm-black); }
 
+.book-hint-card {
+  background: #fdf0e8;
+  border: 1px solid #c0845a;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+
 /* === INTRO ABSÄTZE (Tagesseiten) === */
 .day-intro p {
   margin-bottom: 0.85rem;

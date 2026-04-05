@@ -419,15 +419,15 @@ function days(){return DAYS[LANG]}
 
 function renderWelcome(){
   var dd=days();var s="";
+  s+='<div class="book-hint-card">'+(LANG==="de"?
+    '<p>&#128214; Diese App ist eine <strong>Begleitung zum Buch</strong> \u2013 kein Ersatz. Sie dient als \u00dcbersicht f\u00fcr unterwegs, zum Umsetzen der \u00dcbungen, f\u00fcr Notizen und Abschlussfragen.</p>':
+    '<p>&#128214; This app is a <strong>companion to the book</strong> \u2013 not a replacement. It serves as an overview on the go, for practising the exercises, taking notes and reflection.</p>')
+  +'</div>';
   s+='<div class="welcome-hero">';
   s+='<img src="img/logo.png" alt="Sash and Ventures" class="welcome-logo">';
   s+='<div class="logo-text"><span class="logo-accent">7 Days of</span>Change</div>';
   s+='<p class="tagline">'+t("sub")+'</p></div>';
   s+='<div class="welcome-intro"><p>'+t("welc1")+'</p><p>'+t("welc2")+'</p><p>'+t("welc3")+'</p></div>';
-  s+='<div class="companion-note">'+(LANG==="de"?
-    '<p>&#128214; Diese App ist eine <strong>Begleitung zum Buch</strong> \u2013 kein Ersatz. Sie dient als \u00dcbersicht f\u00fcr unterwegs, zum Umsetzen der \u00dcbungen, f\u00fcr Notizen und Abschlussfragen.</p>':
-    '<p>&#128214; This app is a <strong>companion to the book</strong> \u2013 not a replacement. It serves as an overview on the go, for practising the exercises, taking notes and reflection.</p>')
-  +'</div>';
   /* "Dein Tag im Überblick" direkt nach dem Intro */
   s+='<div class="info-section"><h2>'+t("dayOverview")+'</h2>';
   var itemsDE=["&#127911; Mini Audio","&#128221; Praxis-Notizen","&#127807; Ausklang","&#9998; Stift","&#128196; Papier","&#128241; Notiz-App","&#128167; Wasser","&#9201; Timer","&#9992;&#65039; Flugmodus"];
