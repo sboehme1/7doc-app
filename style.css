@@ -1043,16 +1043,18 @@ body {
 .progress-upsell-link:hover { text-decoration: underline; }
 .coaching-progress-wrap { text-align: center; padding: 0.3rem 0 0.5rem; }
 .coaching-progress-link {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   color: #c0845a;
-  text-decoration: underline;
-  display: block;
-  padding: 4px 0;
-  letter-spacing: 0.01em;
+  text-decoration: none;
+  border: 1.5px solid #c0845a;
+  border-radius: 20px;
+  padding: 6px 18px;
+  display: inline-block;
+  margin-top: 6px;
+  transition: background 0.2s;
 }
-.coaching-progress-link:hover { text-decoration: underline; }
+.coaching-progress-link:hover { background: #fdf0e8; }
 
 /* === UPSELL OVERLAY / POPUP === */
 .upsell-overlay {
