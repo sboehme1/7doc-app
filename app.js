@@ -764,7 +764,7 @@ function go(p){
   /* Gesperrte Tage blockieren */
   var pNum=parseInt(p.replace("day",""));
   if(!isNaN(pNum) && isDayLocked(pNum)) return;
-  curPage=p;var m=document.getElementById("main-content");
+  curPage=p;sessionStorage.setItem('lastPage',p);var m=document.getElementById("main-content");
   if(p==="welcome"){m.innerHTML='<div class="page active">'+renderWelcome()+'</div>';}
   else if(p==="journey"){m.innerHTML='<div class="page active">'+renderJourney()+'</div>';}
   else if(p==="summary7"){m.innerHTML='<div class="page active">'+renderEndSummary(7)+'</div>';}
@@ -1079,7 +1079,8 @@ function initApp(){
 
   /* Pruefen ob Zugang bereits freigeschaltet ist */
   if (isUnlocked()) {
-    go("welcome");
+    var lastPage=sessionStorage.getItem('lastPage');
+    if(lastPage){go(lastPage);}else{go("welcome");}
   } else {
     showAccessGate();
   }
