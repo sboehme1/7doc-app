@@ -82,7 +82,8 @@ var T = {
     coachingBtn: "Pers\u00f6nliche Begleitung entdecken \u2192",
     exportBtn: "Reise exportieren",
     exportFileHeader: "7DOC \u2013 Meine Reise",
-    headerJourneyBtn: "Meine Reise"
+    headerJourneyBtn: "Meine Reise",
+    insightGrew: "In diesen {n} Tagen ist deine {dim} am st\u00e4rksten gewachsen. Dein st\u00e4rkster Tag war Tag {day}. Das sind keine Zuf\u00e4lle \u2014 das sind Signale."
   },
   en: {
     sub: "A gentle return to yourself",
@@ -163,7 +164,8 @@ var T = {
     coachingBtn: "Discover personal coaching \u2192",
     exportBtn: "Export Journey",
     exportFileHeader: "7DOC \u2013 My Journey",
-    headerJourneyBtn: "My Journey"
+    headerJourneyBtn: "My Journey",
+    insightGrew: "Over these {n} days, your {dim} grew the most. Your strongest day was Day {day}. These are not coincidences \u2014 they are signals."
   }
 };
 
@@ -473,6 +475,24 @@ function buildSummaryBtn(num){
   return '<button class="summary-btn" onclick="go(\'summary'+num+'\')">'+lbl+'</button>';
 }
 
+function calcInsights(maxDay){
+  var dd=days(),pr=getPr(),keys=["a","b","c","d"];
+  var firstSt=null,lastSt=null,bestDay=1,bestDaySum=0;
+  var sums=[0,0,0,0];
+  for(var i=0;i<maxDay;i++){
+    if(!pr[i])continue;
+    var d=dd[i],st=getS(d.num),daySum=0;
+    for(var qi=0;qi<4;qi++){var v=st[keys[qi]]||5;daySum+=v;sums[qi]+=v;}
+    if(!firstSt)firstSt=st;
+    lastSt=st;
+    if(daySum>bestDaySum){bestDaySum=daySum;bestDay=d.num;}
+  }
+  if(!firstSt||!lastSt)return{grewIdx:0,bestDay:1};
+  var grewIdx=0,maxGrowth=-999;
+  for(var qi=0;qi<4;qi++){var g=(lastSt[keys[qi]]||5)-(firstSt[keys[qi]]||5);if(g>maxGrowth){maxGrowth=g;grewIdx=qi;}}
+  return{grewIdx:grewIdx,bestDay:bestDay};
+}
+
 function renderEndSummary(maxDay){
   var dd=days(),pr=getPr();
   var colors=["#9FE1CB","#AFA9EC","#FAC775","#F5C4B3"];
@@ -498,6 +518,12 @@ function renderEndSummary(maxDay){
     s+='<p>You have begun your journey back to yourself and let change happen. Be proud of yourself.</p>';
   }
   s+='</div>';
+
+  /* Insight Block */
+  var ins=calcInsights(maxDay);
+  var insLabels=LANG==="de"?["Klarheit","Ruhe","Energie","Selbstvertrauen"]:["Clarity","Calm","Energy","Self-Trust"];
+  var insText=t("insightGrew").replace("{n}",maxDay).replace("{dim}",insLabels[ins.grewIdx]).replace("{day}",ins.bestDay);
+  s+='<div class="es-insight">'+insText+'</div>';
 
   /* Tag-Karten */
   s+='<div class="es-days">';
