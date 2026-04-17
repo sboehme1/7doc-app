@@ -529,11 +529,25 @@ function renderEndSummary(maxDay){
   var ins=calcInsights(maxDay);
   var insLabels=LANG==="de"?["Klarheit","Ruhe","Energie","Selbstvertrauen"]:["Clarity","Calm","Energy","Self-Trust"];
   var insBody=ins.equal?t("insightEqual"):t("insightGrowth")(insLabels[ins.grewIdx],ins.bestDay);
+  var dimLbl=LANG==="de"?"St\u00e4rkste Dimension":"Top Dimension";
+  var dayLbl=LANG==="de"?"St\u00e4rkster Tag":"Strongest Day";
   s+='<div class="es-insight">';
-  s+='<div style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9A7B4F;margin-bottom:0.6rem;">'+t("insightTitle")+'</div>';
-  s+='<p style="margin:0 0 0.85rem;line-height:1.7;">'+insBody+'</p>';
-  s+='<a href="https://sashandventures.com" target="_blank" rel="noopener" style="font-size:0.8rem;color:#9A7B4F;text-decoration:none;border-bottom:1px solid rgba(154,123,79,0.35);padding-bottom:1px;">'+t("insightLink")+'</a>';
-  s+='</div>';
+  if(!ins.equal){
+    var bdObj=null;for(var bdi=0;bdi<dd.length;bdi++){if(dd[bdi].num===ins.bestDay){bdObj=dd[bdi];break;}}
+    var bdTitle=bdObj?bdObj.title:"";
+    s+='<div class="es-insight-top">';
+    s+='<div class="es-insight-top-label">'+t("insightTitle")+'</div>';
+    s+='<div class="es-insight-metrics">';
+    s+='<div class="es-insight-metric"><div class="es-insight-m-label">'+dimLbl+'</div><div class="es-insight-m-val">'+insLabels[ins.grewIdx]+'</div></div>';
+    s+='<div class="es-insight-divider-v"></div>';
+    s+='<div class="es-insight-metric"><div class="es-insight-m-label">'+dayLbl+'</div><div class="es-insight-m-val">'+ins.bestDay+'</div><div class="es-insight-m-sub">'+bdTitle+'</div></div>';
+    s+='</div></div>';
+  }
+  s+='<div class="es-insight-body">';
+  if(ins.equal){s+='<div class="es-insight-top-label" style="margin-bottom:0.5rem;">'+t("insightTitle")+'</div>';}
+  s+='<p class="es-insight-text">'+insBody+'</p>';
+  s+='<a href="https://sashandventures.com" target="_blank" rel="noopener" class="es-insight-link">'+t("insightLink")+'</a>';
+  s+='</div></div>';
 
   /* Tag-Karten */
   s+='<div class="es-days">';
@@ -555,23 +569,13 @@ function renderEndSummary(maxDay){
     s+='<div class="es-check">&#10003;</div>';
     s+='</div>';
 
-    /* Balken mit Deltas */
-    s+='<div class="es-bars">';
+    var bestQi=0,bestQv=0;for(var qi=0;qi<4;qi++){var qv=st[keys[qi]]||5;if(qv>bestQv){bestQv=qv;bestQi=qi;}}
+    s+='<div class="es-chips-grid">';
     for(var qi=0;qi<4;qi++){
-      var v=st[keys[qi]]||5;
-      var pct=Math.round(v/10*100);
-      var arrES='';
-      if(prevSt){
-        var pv=prevSt[keys[qi]]||5;
-        var delta=v-pv;
-        if(delta>0)arrES='<span class="val-arrow up">+'+delta+' \u2191</span>';
-        else if(delta<0)arrES='<span class="val-arrow dn">'+delta+' \u2193</span>';
-      }
-      var dim=prevSt&&(v<(prevSt[keys[qi]]||5))?";opacity:0.5":"";
-      s+='<div class="es-bar-row">';
-      s+='<div class="es-bar-label">'+labels[qi]+'</div>';
-      s+='<div class="es-bar-track"><div class="es-bar-fill" style="width:'+pct+'%;background:'+colors[qi]+dim+'"></div></div>';
-      s+='<div class="es-bar-val">'+v+arrES+'</div>';
+      var v=st[keys[qi]]||5;var circ=87.9;var filled=(v/10*circ).toFixed(1);var dltES='';
+      if(prevSt){var pv2=prevSt[keys[qi]]||5;var dv=v-pv2;if(dv>0)dltES='<div class="chip-delta delta-up">+'+dv+' \u2191</div>';else if(dv<0)dltES='<div class="chip-delta delta-dn">'+dv+' \u2193</div>';else dltES='<div class="chip-delta" style="color:var(--warm-gray-light);">\u2014</div>';}else{dltES='<div class="chip-delta" style="color:var(--warm-gray-light);">\u2014</div>';}
+      s+='<div class="es-chip'+(qi===bestQi?' es-chip-best':'')+'"><div class="chip-left"><div class="chip-name">'+labels[qi]+'</div><div class="chip-val">'+v+'</div>'+dltES+'</div>';
+      s+='<svg class="chip-arc" viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" fill="none" stroke="#E8E4DE" stroke-width="3.5"/><circle cx="18" cy="18" r="14" fill="none" stroke="'+colors[qi]+'" stroke-width="3.5" stroke-dasharray="'+filled+' '+circ+'" stroke-dashoffset="22" stroke-linecap="round" transform="rotate(-90 18 18)"/></svg>';
       s+='</div>';
     }
     s+='</div>';
@@ -649,10 +653,13 @@ function renderJourney(){
     if(done){
       var st=getS(d.num);var keys=["a","b","c","d"];
       var prevStJ=d.num>1?getS(d.num-1):null;
-      s+='<div class="jdc-bars">';
-      for(var qi=0;qi<4;qi++){var v=st[keys[qi]]||5;var pct=Math.round(v/10*100);
-        var arrJ='';if(prevStJ){var dvJ=v-(prevStJ[keys[qi]]||5);if(dvJ>0)arrJ='<span class="val-arrow up">+'+dvJ+' \u2191</span>';else if(dvJ<0)arrJ='<span class="val-arrow dn">'+dvJ+' \u2193</span>';}
-        s+='<div class="jdc-bar-row"><div class="jdc-label">'+labels[qi]+'</div><div class="jdc-track"><div class="jdc-fill" style="width:'+pct+'%;background:'+colors[qi]+'"></div></div><div class="jdc-val">'+v+arrJ+'</div></div>';}
+      var bestQiJ=0,bestQvJ=0;for(var qi=0;qi<4;qi++){var qvJ=st[keys[qi]]||5;if(qvJ>bestQvJ){bestQvJ=qvJ;bestQiJ=qi;}}
+      s+='<div class="es-chips-grid">';
+      for(var qi=0;qi<4;qi++){var v=st[keys[qi]]||5;var circ=87.9;var filled=(v/10*circ).toFixed(1);var dltJ='';
+        if(prevStJ){var dvJ2=v-(prevStJ[keys[qi]]||5);if(dvJ2>0)dltJ='<div class="chip-delta delta-up">+'+dvJ2+' \u2191</div>';else if(dvJ2<0)dltJ='<div class="chip-delta delta-dn">'+dvJ2+' \u2193</div>';else dltJ='<div class="chip-delta" style="color:var(--warm-gray-light);">\u2014</div>';}else{dltJ='<div class="chip-delta" style="color:var(--warm-gray-light);">\u2014</div>';}
+        s+='<div class="es-chip'+(qi===bestQiJ?' es-chip-best':'')+'"><div class="chip-left"><div class="chip-name">'+labels[qi]+'</div><div class="chip-val">'+v+'</div>'+dltJ+'</div>';
+        s+='<svg class="chip-arc" viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" fill="none" stroke="#E8E4DE" stroke-width="3.5"/><circle cx="18" cy="18" r="14" fill="none" stroke="'+colors[qi]+'" stroke-width="3.5" stroke-dasharray="'+filled+' '+circ+'" stroke-dashoffset="22" stroke-linecap="round" transform="rotate(-90 18 18)"/></svg>';
+        s+='</div>';}
       s+='</div>';
       /* Reflexionen + Schritt-3-Notizen (für alle abgeschlossenen Tage, auch Tag 1) */
       var jn=getN(d.num);var jHasAns=false;
