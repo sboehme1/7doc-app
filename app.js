@@ -470,9 +470,9 @@ function renderWelcome(){
 /* === END SUMMARY (nach Tag 7 / Tag 10) === */
 function buildSummaryBtn(num){
   var lbl=LANG==="de"
-    ?(num===7?"Deine 7-Tage-Zusammenfassung ansehen &rarr;":"Deine vollst\u00e4ndige Zusammenfassung ansehen &rarr;")
-    :(num===7?"See your 7-day summary &rarr;":"See your full summary &rarr;");
-  return '<button class="summary-btn" onclick="go(\'summary'+num+'\')">'+lbl+'</button>';
+    ?(num===7?"Deine 7-Tage-Zusammenfassung ansehen":"Deine vollst\u00e4ndige Zusammenfassung ansehen")
+    :(num===7?"See your 7-day summary":"See your full summary");
+  return '<button class="summary-btn" onclick="go(\'summary'+num+'\')">'+'<span>'+lbl+'</span><span>&rarr;</span>'+'</button>';
 }
 
 function calcInsights(maxDay){
