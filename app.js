@@ -986,8 +986,8 @@ function cDay(num){var pr=getPr();if(pr[num-1])return;pr[num-1]=true;setPr(pr);
   var dc=document.getElementById("dc"+num);if(dc)dc.innerHTML=buildDayCompare(num);
   if(num===7||num===10){var sb=document.getElementById("summ-btn-"+num);if(sb)sb.innerHTML=buildSummaryBtn(num);}
   updProg();updMot();updNav();
-  /* Upsell-Popup nach Abschluss Tag 7 wenn Bonus-Tage noch gesperrt */
-  if(num===7 && isDayLocked(8)){showUpsellPopup();}
+  /* Coaching-Moment nach Abschluss Tag 7 wenn Bonus-Tage noch gesperrt */
+  if(num===7 && isDayLocked(8)){setTimeout(showCoachingMoment,400);}
 }
 
 var sT={};
@@ -1114,6 +1114,33 @@ function checkCode() {
       input.focus();
     }
   });
+}
+
+/* === COACHING MOMENT (nach Tag 7) === */
+function showCoachingMoment(){
+  var ov=document.getElementById("upsell-overlay");if(!ov)return;
+  var bonusUrl=LANG==="de"?"https://sashandventures.gumroad.com/l/7doc-erweiterung-de":"https://sashandventures.gumroad.com/l/7doc-extension-en";
+  var coachUrl="https://sashandventures.com";
+  var quoteDE="\u201eVerantwortung bedeutet nichts anderes als deine F\u00e4higkeit zu antworten.\u201c";
+  var quoteEN="\u201cResponsibility simply means your ability to respond.\u201d";
+  var titleDE="Was ist dein n\u00e4chster Schritt?";
+  var titleEN="What is your next step?";
+  ov.innerHTML='<div class="coaching-popup">'
+    +'<button class="coaching-close" onclick="closeUpsellPopup()">&#10005;</button>'
+    +'<div class="coaching-quote">'+(LANG==="de"?quoteDE:quoteEN)+'<span class="coaching-quote-author">\u2014 Osho</span></div>'
+    +'<div class="coaching-title">'+(LANG==="de"?titleDE:titleEN)+'</div>'
+    +'<div class="coaching-cards">'
+    +'<a href="'+bonusUrl+'" target="_blank" rel="noopener" class="coaching-card coaching-card-bonus">'
+    +'<div class="coaching-card-icon">&#10024;</div>'
+    +'<div class="coaching-card-title">'+(LANG==="de"?"Bonus-Tage":"Bonus Days")+'</div>'
+    +'<div class="coaching-card-sub">'+(LANG==="de"?"Tage 8\u201310 freischalten":"Unlock Days 8\u201310")+'</div></a>'
+    +'<a href="'+coachUrl+'" target="_blank" rel="noopener" class="coaching-card coaching-card-coaching">'
+    +'<div class="coaching-card-icon">&#129309;</div>'
+    +'<div class="coaching-card-title">Coaching</div>'
+    +'<div class="coaching-card-sub">'+(LANG==="de"?"Pers\u00f6nliche Begleitung":"Personal guidance")+'</div></a>'
+    +'</div></div>';
+  ov.style.display="flex";
+  document.body.style.overflow="hidden";
 }
 
 /* === UPSELL POPUP === */
