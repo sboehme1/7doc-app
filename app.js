@@ -21,8 +21,8 @@ var T = {
     prepOtgHint: "\u21b3 Wenn es eng wird: Nutze die 3 Schritte On-The-Go-Version bei jedem Tag.",
     disc: "Dieses Programm ist Training f\u00fcr Selbstf\u00fchrung, kein Ersatz f\u00fcr therapeutische Arbeit.",
     footerDisc: "Training f\u00fcr Selbstf\u00fchrung, kein Ersatz f\u00fcr therapeutische Arbeit.",
-    journeyBtn: "Verlauf",
-    journeyTitle: "Deine Reise",
+    journeyBtn: "Meine Reise",
+    journeyTitle: "Meine Reise",
     journeySub: "Ein Blick auf das, was du dir gegeben hast.",
     journeyMsg1: "Du hast dir diese Zeit genommen. Tag f\u00fcr Tag.",
     journeyMsg2: "Ver\u00e4nderung ist geschehen \u2013 so wie sie geschehen sollte. Es gibt hier keine Wertung, kein Gut oder Schlecht. Nur deine Reise, genau so wie sie ist.",
@@ -102,8 +102,8 @@ var T = {
     prepOtgHint: "\u21b3 If things get tight: Use the 3-step On-The-Go version on each day.",
     disc: "This program is self-leadership training, not a substitute for therapeutic work.",
     footerDisc: "Self-leadership training, not a substitute for therapeutic work.",
-    journeyBtn: "Journey",
-    journeyTitle: "Your Journey",
+    journeyBtn: "My Journey",
+    journeyTitle: "My Journey",
     journeySub: "A look at what you\u2019ve given yourself.",
     journeyMsg1: "You took this time. Day by day.",
     journeyMsg2: "Change has happened \u2013 exactly as it should. There is no judgment here, no good or bad. Only your journey, exactly as it is.",
@@ -861,7 +861,7 @@ function updNav(){
   var jb=document.getElementById("journey-always-btn");
   var jl=document.getElementById("journey-btn-label");
   if(jb){jb.className=curPage==="journey"?"journey-always-btn on-journey":"journey-always-btn";}
-  if(jl){jl.textContent=LANG==="de"?"Mein Fortschritt":"My Progress";}
+  if(jl){jl.textContent=LANG==="de"?"Meine Reise":"My Journey";}
 }
 function updProg(){
   var pr=getPr(),tot=0;for(var i=0;i<pr.length;i++)if(pr[i])tot++;

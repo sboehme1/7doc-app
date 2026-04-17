@@ -878,6 +878,24 @@ body {
 }
 .summary-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
+/* === EXPORT === */
+.export-wrap { text-align: center; margin-top: 1.5rem; }
+.export-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--sand-light);
+  color: var(--warm-black);
+  border: 1px solid var(--sand-dark);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+}
+.export-btn:hover { background: var(--sand); border-color: var(--gold); color: var(--warm-black); }
+
 /* === END SUMMARY PAGE === */
 .es-hero { text-align: center; padding: 2rem 0 1.5rem; }
 .es-hero-num { font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--terracotta); line-height: 1; }
