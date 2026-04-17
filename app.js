@@ -557,7 +557,7 @@ function renderEndSummary(maxDay){
     var st=getS(d.num);
     var prevSt=d.num>1?getS(d.num-1):null;
     var n=getN(d.num);
-    var numLabel=d.isBonus?"B"+(d.num-7):d.num;
+    var numLabel=d.num;
     var numCls=d.isBonus?"es-day-num es-bonus":"es-day-num";
 
     s+='<div class="es-day-card">';
@@ -588,7 +588,7 @@ function renderEndSummary(maxDay){
     /* Weitere Step-Notizfelder aus den Steps ermitteln */
     var esStepNotes=[];
     for(var sni=0;sni<d.steps.length;sni++){if(d.steps[sni].noteField){var snk=d.steps[sni].noteField.key;var snv=n[snk]||"";if(snv.trim()&&snk!=="step3note")esStepNotes.push({label:d.steps[sni].noteField.label,val:snv});}}
-    if(hasAnswers||esS3.trim()||esStepNotes.length>0){
+    if(true){
       s+='<div class="es-reflections">';
       for(var ri=0;ri<d.reflections.length;ri++){
         var ans=n["r"+ri]||"";
@@ -644,7 +644,7 @@ function renderJourney(){
   s+='<div class="journey-days">';
   for(var i=0;i<dd.length;i++){
     var d=dd[i],done=pr[i];
-    var numLabel=d.isBonus?"B"+(d.num-7):d.num;
+    var numLabel=d.num;
     var numCls=d.isBonus?"jdc-num bonus":"jdc-num";
     s+='<div class="journey-day-card'+(done?'':' locked')+'">';
     s+='<div class="jdc-header"><div class="'+numCls+'">'+numLabel+'</div><div class="jdc-info"><h4>'+d.title+'</h4><p>'+d.subtitle+'</p></div>';
@@ -704,7 +704,7 @@ function exportJourney(){
     var d=dd[i];
     var st=getS(d.num);
     var n=getN(d.num);
-    var dayLabel=d.isBonus?"Bonus "+(d.num-7):(LANG==="de"?"Tag ":"Day ")+d.num;
+    var dayLabel=(LANG==="de"?"Tag ":"Day ")+d.num;
     lines.push(dayLabel+" \u2013 "+d.title);
     lines.push("-".repeat(30));
     for(var qi=0;qi<4;qi++){
@@ -755,7 +755,7 @@ function exportJourney(){
 function renderDay(d){
   var n=getN(d.num),st=getS(d.num),pr=getPr(),done=pr[d.num-1],dd=days(),next=d.num<10?dd[d.num]:null;
   var s="";
-  s+='<div class="day-header"><div class="day-number">'+(d.isBonus?"B"+(d.num-7):d.num)+'</div>';
+  s+='<div class="day-header"><div class="day-number">'+d.num+'</div>';
   s+='<h1 class="day-title">'+d.title+'</h1><p class="day-subtitle">'+d.subtitle+'</p></div>';
   // Meta
   s+='<div class="meta-box"><div><div class="meta-label">'+(LANG==="de"?"Ziel":"Goal")+'</div><div class="meta-value">'+d.goal+'</div></div>';
@@ -887,7 +887,7 @@ function updNav(){
   var wc=curPage==="welcome"?"nav-btn active":"nav-btn";
   s+='<button class="'+wc+'" onclick="go(\'welcome\')">Start</button>';
   for(var i=0;i<dd.length;i++){var d=dd[i],cls="nav-btn";if(d.isBonus)cls+=" bonus-btn";if(curPage==="day"+d.num)cls+=" active";if(pr[i])cls+=" completed";
-  var lb=d.isBonus?"Bonus "+(d.num-7):(LANG==="de"?"Tag ":"Day ")+d.num;
+  var lb=(LANG==="de"?"Tag ":"Day ")+d.num;
   if(isDayLocked(d.num)){cls+=" locked";s+='<button class="'+cls+'" disabled>&#128274; '+lb+'</button>';}
   else{s+='<button class="'+cls+'" onclick="go(\'day'+d.num+'\')">'+lb+'</button>';}}
   s+='</div>';
