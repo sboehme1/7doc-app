@@ -640,6 +640,7 @@ function renderJourney(){
   /* Zusammenfassungs-Buttons wenn verfügbar */
   if(pr[9])s+=buildSummaryBtn(10);
   else if(pr[6])s+=buildSummaryBtn(7);
+  if(pr[6])s+='<button class="summary-btn" onclick="showCoachingMoment()" style="margin-top:0.5rem;">'+'<span>'+(LANG==="de"?"Was ist dein n\u00e4chster Schritt?":"What is your next step?")+'</span><span>&rarr;</span>'+'</button>';
   s+='<div class="journey-message"><p>'+t("journeyMsg1")+'</p><p>'+t("journeyMsg2")+'</p><p>'+t("journeyMsg3")+'</p></div>';
   s+='<div class="journey-days">';
   for(var i=0;i<dd.length;i++){
@@ -1138,7 +1139,11 @@ function showCoachingMoment(){
     +'<div class="coaching-card-icon">&#129309;</div>'
     +'<div class="coaching-card-title">Coaching</div>'
     +'<div class="coaching-card-sub">'+(LANG==="de"?"Pers\u00f6nliche Begleitung":"Personal guidance")+'</div></a>'
-    +'</div></div>';
+    +'</div>'
+    +'<div style="text-align:center;margin-top:1rem;">'
+    +'<button onclick="closeUpsellPopup()" style="background:none;border:none;font-size:0.78rem;color:#8A837B;text-decoration:underline;cursor:pointer;font-family:inherit;">'
+    +(LANG==="de"?"Ich entscheide mich sp\u00e4ter":"I\u2019ll decide later")
+    +'</button></div></div>';
   ov.style.display="flex";
   document.body.style.overflow="hidden";
 }
