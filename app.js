@@ -81,7 +81,8 @@ var T = {
     addCode: "\uD83D\uDD11 Weiteren Code eingeben",
     coachingBtn: "Pers\u00f6nliche Begleitung entdecken \u2192",
     exportBtn: "Reise exportieren",
-    exportFileHeader: "7DOC \u2013 Meine Reise"
+    exportFileHeader: "7DOC \u2013 Meine Reise",
+    headerJourneyBtn: "Meine Reise"
   },
   en: {
     sub: "A gentle return to yourself",
@@ -161,7 +162,8 @@ var T = {
     addCode: "\uD83D\uDD11 Enter another code",
     coachingBtn: "Discover personal coaching \u2192",
     exportBtn: "Export Journey",
-    exportFileHeader: "7DOC \u2013 My Journey"
+    exportFileHeader: "7DOC \u2013 My Journey",
+    headerJourneyBtn: "My Journey"
   }
 };
 
@@ -973,6 +975,7 @@ function setLang(l){
   document.getElementById("footer-disc").textContent=t("footerDisc");
   var fac=document.getElementById("footer-add-code");if(fac)fac.textContent=t("addCode");
   var cpl=document.getElementById("coaching-progress-link");if(cpl)cpl.textContent=t("coachingBtn");
+  var hjb=document.getElementById("header-journey-btn");if(hjb)hjb.textContent=t("headerJourneyBtn");
   /* Wenn noch nicht freigeschaltet, Gate-Screen neu rendern */
   if (!isUnlocked()) {
     showAccessGate();
