@@ -987,7 +987,7 @@ function cDay(num){var pr=getPr();if(pr[num-1])return;pr[num-1]=true;setPr(pr);
   if(num===7||num===10){var sb=document.getElementById("summ-btn-"+num);if(sb)sb.innerHTML=buildSummaryBtn(num);}
   updProg();updMot();updNav();
   /* Coaching-Moment nach Abschluss Tag 7 wenn Bonus-Tage noch gesperrt */
-  if(num===7 && isDayLocked(8)){setTimeout(showCoachingMoment,400);}
+  if(num===7){setTimeout(showCoachingMoment,400);}
 }
 
 var sT={};
