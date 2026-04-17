@@ -79,7 +79,9 @@ var T = {
     updateConfirm: "Jetzt aktualisieren",
     updateDismiss: "Nicht jetzt",
     addCode: "\uD83D\uDD11 Weiteren Code eingeben",
-    coachingBtn: "Pers\u00f6nliche Begleitung entdecken \u2192"
+    coachingBtn: "Pers\u00f6nliche Begleitung entdecken \u2192",
+    exportBtn: "Reise exportieren",
+    exportFileHeader: "7DOC \u2013 Meine Reise"
   },
   en: {
     sub: "A gentle return to yourself",
@@ -157,7 +159,9 @@ var T = {
     updateConfirm: "Update now",
     updateDismiss: "Not now",
     addCode: "\uD83D\uDD11 Enter another code",
-    coachingBtn: "Discover personal coaching \u2192"
+    coachingBtn: "Discover personal coaching \u2192",
+    exportBtn: "Export Journey",
+    exportFileHeader: "7DOC \u2013 My Journey"
   }
 };
 
@@ -580,6 +584,7 @@ function renderEndSummary(maxDay){
     s+='<a href="'+ucUrl+'" target="_blank" rel="noopener" class="upsell-card-btn">'+ucBtn+' &rarr;</a></div>';
   }
   s+='<div class="disclaimer">'+t("footerDisc")+'</div>';
+  s+='<div class="export-wrap"><button class="export-btn" onclick="exportJourney()">'+t("exportBtn")+'</button></div>';
   return s;
 }
 
@@ -641,7 +646,72 @@ function renderJourney(){
   }
   s+='</div>';
   s+='<div class="day-nav" style="margin-top:2rem;"><button class="day-nav-btn" onclick="go(\'welcome\')">&larr; Start</button></div>';
+  s+='<div class="export-wrap"><button class="export-btn" onclick="exportJourney()">'+t("exportBtn")+'</button></div>';
   return s;
+}
+
+function exportJourney(){
+  var dd=days(),pr=getPr();
+  var labDE=["Klarheit","Ruhe","Energie","Selbstvertrauen"];
+  var labEN=["Clarity","Calm","Energy","Self-Trust"];
+  var labels=LANG==="de"?labDE:labEN;
+  var keys=["a","b","c","d"];
+  var now=new Date();
+  var dateStr=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(now.getDate()).padStart(2,"0");
+  var lines=[];
+  lines.push(t("exportFileHeader")+", "+dateStr);
+  lines.push("=".repeat(40));
+  lines.push("");
+  for(var i=0;i<dd.length;i++){
+    if(!pr[i])continue;
+    var d=dd[i];
+    var st=getS(d.num);
+    var n=getN(d.num);
+    var dayLabel=d.isBonus?"Bonus "+(d.num-7):(LANG==="de"?"Tag ":"Day ")+d.num;
+    lines.push(dayLabel+" \u2013 "+d.title);
+    lines.push("-".repeat(30));
+    for(var qi=0;qi<4;qi++){
+      lines.push("  "+labels[qi]+": "+(st[keys[qi]]||5)+"/10");
+    }
+    var hasContent=false;
+    for(var ri=0;ri<d.reflections.length;ri++){
+      var ans=n["r"+ri]||"";
+      if(ans.trim()){
+        if(!hasContent){lines.push("");hasContent=true;}
+        lines.push("  "+d.reflections[ri]);
+        lines.push("  \u2192 "+ans.trim());
+      }
+    }
+    for(var si=0;si<d.steps.length;si++){
+      if(d.steps[si].noteField){
+        var snk=d.steps[si].noteField.key;
+        var snv=n[snk]||"";
+        if(snv.trim()){
+          if(!hasContent){lines.push("");hasContent=true;}
+          lines.push("  "+d.steps[si].noteField.label);
+          lines.push("  \u2192 "+snv.trim());
+        }
+      }
+    }
+    var s3=n["step3note"]||"";
+    if(s3.trim()){
+      if(!hasContent){lines.push("");}
+      lines.push("  "+(LANG==="de"?"Notizen":"Notes")+":");
+      lines.push("  \u2192 "+s3.trim());
+    }
+    lines.push("");
+  }
+  lines.push("=".repeat(40));
+  lines.push(LANG==="de"?"Exportiert mit 7 Days of Change":"Exported with 7 Days of Change");
+  var blob=new Blob([lines.join("\n")],{type:"text/plain;charset=utf-8"});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement("a");
+  a.href=url;
+  a.download=(LANG==="de"?"7doc-meine-reise-":"7doc-my-journey-")+dateStr+".txt";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 
