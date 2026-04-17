@@ -951,6 +951,19 @@ body {
 .es-reflect-q { font-size: 0.78rem; color: var(--warm-gray-light); margin-bottom: 0.35rem; font-style: italic; }
 .es-reflect-a { font-family: var(--font-accent); font-size: 1rem; color: var(--warm-black); line-height: 1.7; }
 
+.coaching-popup { background: #FAF8F3; border-radius: 16px; padding: 1.5rem; max-width: 340px; width: 100%; position: relative; }
+.coaching-close { position: absolute; top: 0.75rem; right: 0.75rem; background: transparent; border: none; font-size: 1.1rem; color: var(--warm-gray-light); cursor: pointer; line-height: 1; }
+.coaching-quote { font-family: var(--font-accent); font-style: italic; font-size: 0.85rem; color: var(--warm-gray); line-height: 1.7; text-align: center; margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--sand-dark); }
+.coaching-quote-author { display: block; font-size: 0.7rem; color: var(--gold); margin-top: 0.4rem; font-style: normal; letter-spacing: 0.06em; }
+.coaching-title { font-family: var(--font-display); font-size: 1.05rem; color: var(--warm-black); font-weight: 600; text-align: center; margin-bottom: 1.1rem; }
+.coaching-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.coaching-card { border-radius: 12px; padding: 1rem 0.85rem; text-align: center; cursor: pointer; text-decoration: none; display: block; }
+.coaching-card-bonus { background: var(--terracotta); color: #fff; }
+.coaching-card-coaching { background: var(--warm-black); color: #FAF0D4; }
+.coaching-card-icon { font-size: 1.3rem; margin-bottom: 0.4rem; }
+.coaching-card-title { font-size: 0.85rem; font-weight: 500; margin-bottom: 0.3rem; }
+.coaching-card-sub { font-size: 0.72rem; opacity: 0.85; line-height: 1.4; }
+
 .scroll-top { position: fixed; bottom: 20px; right: 20px; width: 40px; height: 40px; background: var(--terracotta); color: var(--white); border: none; border-radius: 50%; font-size: 1.1rem; cursor: pointer; box-shadow: 0 3px 12px rgba(196,112,75,0.4); opacity: 0; pointer-events: none; transition: all 0.3s ease; z-index: 200; }
 .scroll-top.visible { opacity: 1; pointer-events: all; }
 
