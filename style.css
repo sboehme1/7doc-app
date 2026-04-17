@@ -896,6 +896,11 @@ body {
 }
 .export-btn:hover { background: var(--sand); border-color: var(--gold); color: var(--warm-black); }
 
+/* === VALUE ARROWS === */
+.val-arrow { font-size: 0.65rem; font-weight: 600; margin-left: 3px; vertical-align: middle; letter-spacing: 0; }
+.val-arrow.up { color: #7A9E7E; }
+.val-arrow.dn { color: #C0614A; }
+
 /* === END SUMMARY PAGE === */
 .es-hero { text-align: center; padding: 2rem 0 1.5rem; }
 .es-hero-num { font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--terracotta); line-height: 1; }

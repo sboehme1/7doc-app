@@ -524,20 +524,18 @@ function renderEndSummary(maxDay){
     for(var qi=0;qi<4;qi++){
       var v=st[keys[qi]]||5;
       var pct=Math.round(v/10*100);
-      var dStr="",dCls="es-delta es-neutral";
+      var arrES='';
       if(prevSt){
         var pv=prevSt[keys[qi]]||5;
         var delta=v-pv;
-        if(delta>0){dStr="+"+delta+" \u2191";dCls="es-delta es-pos";}
-        else if(delta<0){dStr=delta+" \u2193";dCls="es-delta es-neg";}
-        else{dStr="=";dCls="es-delta es-neutral";}
+        if(delta>0)arrES='<span class="val-arrow up">+'+delta+' \u2191</span>';
+        else if(delta<0)arrES='<span class="val-arrow dn">'+delta+' \u2193</span>';
       }
       var dim=prevSt&&(v<(prevSt[keys[qi]]||5))?";opacity:0.5":"";
       s+='<div class="es-bar-row">';
       s+='<div class="es-bar-label">'+labels[qi]+'</div>';
       s+='<div class="es-bar-track"><div class="es-bar-fill" style="width:'+pct+'%;background:'+colors[qi]+dim+'"></div></div>';
-      s+='<div class="es-bar-val">'+v+'</div>';
-      if(dStr)s+='<div class="'+dCls+'">'+dStr+'</div>';
+      s+='<div class="es-bar-val">'+v+arrES+'</div>';
       s+='</div>';
     }
     s+='</div>';
@@ -614,18 +612,12 @@ function renderJourney(){
     s+='</div>';
     if(done){
       var st=getS(d.num);var keys=["a","b","c","d"];
+      var prevStJ=d.num>1?getS(d.num-1):null;
       s+='<div class="jdc-bars">';
       for(var qi=0;qi<4;qi++){var v=st[keys[qi]]||5;var pct=Math.round(v/10*100);
-        s+='<div class="jdc-bar-row"><div class="jdc-label">'+labels[qi]+'</div><div class="jdc-track"><div class="jdc-fill" style="width:'+pct+'%;background:'+colors[qi]+'"></div></div><div class="jdc-val">'+v+'</div></div>';}
+        var arrJ='';if(prevStJ){var dvJ=v-(prevStJ[keys[qi]]||5);if(dvJ>0)arrJ='<span class="val-arrow up">+'+dvJ+' \u2191</span>';else if(dvJ<0)arrJ='<span class="val-arrow dn">'+dvJ+' \u2193</span>';}
+        s+='<div class="jdc-bar-row"><div class="jdc-label">'+labels[qi]+'</div><div class="jdc-track"><div class="jdc-fill" style="width:'+pct+'%;background:'+colors[qi]+'"></div></div><div class="jdc-val">'+v+arrJ+'</div></div>';}
       s+='</div>';
-      /* Delta zum Vortag */
-      if(d.num>1){
-        var prevSt2=getS(d.num-1);var totalD=0;
-        for(var qd=0;qd<4;qd++){totalD+=(st[keys[qd]]||5)-(prevSt2[keys[qd]]||5);}
-        var dCls2=totalD>0?'jdc-delta-sum pos':totalD<0?'jdc-delta-sum neg':'jdc-delta-sum neu';
-        var dLbl2=totalD>0?'+'+totalD+' ↑':totalD<0?totalD+' ↓':'= '+(LANG==='de'?'gleich':'same');
-        s+='<div class="'+dCls2+'">'+(LANG==="de"?'Vs. Tag '+(d.num-1)+': ':'vs Day '+(d.num-1)+': ')+dLbl2+'</div>';
-      }
       /* Reflexionen + Schritt-3-Notizen (für alle abgeschlossenen Tage, auch Tag 1) */
       var jn=getN(d.num);var jHasAns=false;
       for(var jri=0;jri<d.reflections.length;jri++){if(jn['r'+jri]&&jn['r'+jri].trim().length>0){jHasAns=true;break;}}
