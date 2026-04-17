@@ -83,7 +83,10 @@ var T = {
     exportBtn: "Reise exportieren",
     exportFileHeader: "7DOC \u2013 Meine Reise",
     headerJourneyBtn: "Meine Reise",
-    insightGrew: "In diesen {n} Tagen ist deine {dim} am st\u00e4rksten gewachsen. Dein st\u00e4rkster Tag war Tag {day}. Das sind keine Zuf\u00e4lle \u2014 das sind Signale."
+    insightTitle: "Was deine Reise zeigt",
+    insightGrowth: function(dim,day){return "Deine "+dim+" ist in diesen Tagen am st\u00e4rksten gewachsen. Dein st\u00e4rkster Tag war Tag "+day+". Das sind keine Zuf\u00e4lle \u2014 das sind Signale.";},
+    insightEqual: "Du warst konstant \u2014 das ist auch eine Kraft.",
+    insightLink: "Pers\u00f6nliche Begleitung entdecken \u2192"
   },
   en: {
     sub: "A gentle return to yourself",
@@ -165,7 +168,10 @@ var T = {
     exportBtn: "Export Journey",
     exportFileHeader: "7DOC \u2013 My Journey",
     headerJourneyBtn: "My Journey",
-    insightGrew: "Over these {n} days, your {dim} grew the most. Your strongest day was Day {day}. These are not coincidences \u2014 they are signals."
+    insightTitle: "What your journey reveals",
+    insightGrowth: function(dim,day){return "Your "+dim+" grew the most over these days. Your strongest day was Day "+day+". These are not coincidences \u2014 they are signals.";},
+    insightEqual: "You stayed steady \u2014 that is a strength of its own.",
+    insightLink: "Discover personal guidance \u2192"
   }
 };
 
@@ -478,18 +484,18 @@ function buildSummaryBtn(num){
 function calcInsights(maxDay){
   var dd=days(),pr=getPr(),keys=["a","b","c","d"];
   var firstSt=null,lastSt=null,bestDay=1,bestDaySum=0;
-  var sums=[0,0,0,0];
   for(var i=0;i<maxDay;i++){
     if(!pr[i])continue;
     var d=dd[i],st=getS(d.num),daySum=0;
-    for(var qi=0;qi<4;qi++){var v=st[keys[qi]]||5;daySum+=v;sums[qi]+=v;}
+    for(var qi=0;qi<4;qi++){daySum+=(st[keys[qi]]||5);}
     if(!firstSt)firstSt=st;
     lastSt=st;
     if(daySum>bestDaySum){bestDaySum=daySum;bestDay=d.num;}
   }
-  if(!firstSt||!lastSt)return{grewIdx:0,bestDay:1};
-  var grewIdx=0,maxGrowth=-999;
+  if(!firstSt||!lastSt)return{equal:true};
+  var grewIdx=0,maxGrowth=0;
   for(var qi=0;qi<4;qi++){var g=(lastSt[keys[qi]]||5)-(firstSt[keys[qi]]||5);if(g>maxGrowth){maxGrowth=g;grewIdx=qi;}}
+  if(maxGrowth<=0)return{equal:true};
   return{grewIdx:grewIdx,bestDay:bestDay};
 }
 
@@ -522,8 +528,12 @@ function renderEndSummary(maxDay){
   /* Insight Block */
   var ins=calcInsights(maxDay);
   var insLabels=LANG==="de"?["Klarheit","Ruhe","Energie","Selbstvertrauen"]:["Clarity","Calm","Energy","Self-Trust"];
-  var insText=t("insightGrew").replace("{n}",maxDay).replace("{dim}",insLabels[ins.grewIdx]).replace("{day}",ins.bestDay);
-  s+='<div class="es-insight">'+insText+'</div>';
+  var insBody=ins.equal?t("insightEqual"):t("insightGrowth")(insLabels[ins.grewIdx],ins.bestDay);
+  s+='<div class="es-insight">';
+  s+='<div style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9A7B4F;margin-bottom:0.6rem;">'+t("insightTitle")+'</div>';
+  s+='<p style="margin:0 0 0.85rem;line-height:1.7;">'+insBody+'</p>';
+  s+='<a href="https://sashandventures.com" target="_blank" rel="noopener" style="font-size:0.8rem;color:#9A7B4F;text-decoration:none;border-bottom:1px solid rgba(154,123,79,0.35);padding-bottom:1px;">'+t("insightLink")+'</a>';
+  s+='</div>';
 
   /* Tag-Karten */
   s+='<div class="es-days">';
