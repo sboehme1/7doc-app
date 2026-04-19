@@ -788,7 +788,7 @@ function renderDay(d){
   s+='<div class="day-header"><div class="day-number">'+d.num+'</div>';
   var q=QUOTES[LANG]&&QUOTES[LANG][d.num-1];
   if(q){
-    s+='<div class="day-quote"><span class="day-quote-text">\u201e'+q.text+'\u201c</span>';
+    s+='<div class="day-quote" id="day-quote-el"><span class="day-quote-text">\u201e'+q.text+'\u201c</span>';
     if(q.author)s+='<span class="day-quote-author">\u2014 '+q.author+'</span>';
     s+='</div>';
   }
@@ -920,6 +920,7 @@ function go(p){
   else{var num=parseInt(p.replace("day",""));var dd=days();var d=null;for(var i=0;i<dd.length;i++){if(dd[i].num===num){d=dd[i];break;}}
   if(d)m.innerHTML='<div class="page active">'+renderDay(d)+'</div>';}
   updNav();window.scrollTo(0,0);
+  setTimeout(function(){var qEl=document.getElementById("day-quote-el");if(qEl)qEl.classList.add("quote-visible");},500);
   var pg=m.querySelector(".page");
   if(pg&&_prevPage){
     var dd2=days();
