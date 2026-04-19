@@ -12,7 +12,7 @@
    neu heruntergeladen.
 */
 
-var CACHE_NAME = "7doc-v53";
+var CACHE_NAME = "7doc-v54";
 
 /* Alle Dateien, die offline verfügbar sein sollen */
 var FILES_TO_CACHE = [
@@ -34,6 +34,7 @@ self.addEventListener("install", function(event) {
       return cache.addAll(FILES_TO_CACHE);
     })
   );
+  self.skipWaiting();
 });
 
 /* ACTIVATE: Wird ausgeführt wenn eine neue Version bereitsteht.

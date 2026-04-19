@@ -1490,6 +1490,9 @@ if ("serviceWorker" in navigator) {
   });
   /* Reload auslösen wenn neuer SW die Kontrolle übernimmt */
   navigator.serviceWorker.addEventListener("controllerchange", function() {
-    window.location.reload();
+    if(!sessionStorage.getItem("7doc_reloaded")){
+      sessionStorage.setItem("7doc_reloaded","1");
+      window.location.reload();
+    }
   });
 }
