@@ -968,6 +968,14 @@ function updProg(){
   var pr=getPr(),tot=0;for(var i=0;i<pr.length;i++)if(pr[i])tot++;
   var f=document.getElementById("progress-fill");if(f)f.style.width=Math.round(tot/10*100)+"%";
   var tx=document.getElementById("progress-text");if(tx)tx.textContent=tot+t("progText");
+  var streak=calcStreak();
+  var sc=document.getElementById("streak-card");
+  if(sc){
+    var sTitle=streak===1?(LANG==="de"?"1 Tag am Stück":"1 day in a row"):(LANG==="de"?streak+" Tage am Stück":streak+" days in a row");
+    var sSub=LANG==="de"?"Tippe für deinen Fortschritt":"Tap for your progress";
+    sc.innerHTML='<div class="streak-card-left"><span class="streak-card-fire">&#128293;</span><div><div class="streak-card-title">'+sTitle+'</div><div class="streak-card-sub">'+sSub+'</div></div></div><span class="streak-card-chevron">›</span>';
+    sc.style.display="flex";
+  }
   /* Upsell-Banner für CHANGE7-only Nutzer */
   var ub=document.getElementById("progress-upsell");
   if(ub){
