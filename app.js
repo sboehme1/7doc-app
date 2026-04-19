@@ -79,6 +79,16 @@ var T = {
     updateConfirm: "Jetzt aktualisieren",
     updateDismiss: "Nicht jetzt",
     addCode: "\uD83D\uDD11 Weiteren Code eingeben",
+    breathReady: "Bereit",
+    breathStart: "Starten",
+    breathStop: "Stoppen",
+    breathAgain: "Nochmal",
+    breathDone: "Gut gemacht",
+    breathCycles: "Zyklen",
+    breathLeft: "\u00fcbrig",
+    breathIn: "Einatmen",
+    breathHold: "Halten",
+    breathOut: "Ausatmen",
     coachingBtn: "Pers\u00f6nliche Begleitung entdecken \u2192",
     exportBtn: "Reise exportieren",
     exportFileHeader: "7DOC \u2013 Meine Reise",
@@ -164,6 +174,16 @@ var T = {
     updateConfirm: "Update now",
     updateDismiss: "Not now",
     addCode: "\uD83D\uDD11 Enter another code",
+    breathReady: "Ready",
+    breathStart: "Start",
+    breathStop: "Stop",
+    breathAgain: "Again",
+    breathDone: "Well done",
+    breathCycles: "cycles",
+    breathLeft: "left",
+    breathIn: "Inhale",
+    breathHold: "Hold",
+    breathOut: "Exhale",
     coachingBtn: "Discover personal coaching \u2192",
     exportBtn: "Export Journey",
     exportFileHeader: "7DOC \u2013 My Journey",
@@ -858,6 +878,19 @@ function renderDay(d){
     }
     s+='</div></div>';
   }
+  if(d.num===1){
+    s+='<div class="breath-timer-wrap">'
+      +'<div class="breath-stage">'
+      +'<div class="breath-ring-outer" id="bRingOuter"></div>'
+      +'<div class="breath-ring-inner" id="bRingInner"></div>'
+      +'<div class="breath-center-count" id="bCount">\u2014</div>'
+      +'</div>'
+      +'<div class="breath-phase" id="bPhase">'+t('breathReady')+'</div>'
+      +'<div class="breath-cycles" id="bCycles">5 '+t('breathCycles')+'</div>'
+      +'<div class="breath-done" id="bDone">\u2726 '+t('breathDone')+'</div>'
+      +'<button class="breath-btn" id="bBtn" onclick="startBreath()">'+t('breathStart')+'</button>'
+      +'</div>';
+  }
   // Collapsible science
   var sciId="sci"+d.num,benId="ben"+d.num;
   /* Notiz-Feld nach Schritt 3 */
@@ -1521,4 +1554,80 @@ if ("serviceWorker" in navigator) {
       window.location.reload();
     }
   });
+}
+
+function startBreath() {
+  var MAX = 5;
+  var phases = [
+    { name: t('breathIn')  || 'Einatmen', dur: 4, type: 'in'   },
+    { name: t('breathHold') || 'Halten',   dur: 4, type: 'hold' },
+    { name: t('breathOut') || 'Ausatmen', dur: 6, type: 'out'  }
+  ];
+  var outer   = document.getElementById('bRingOuter');
+  var inner   = document.getElementById('bRingInner');
+  var countEl = document.getElementById('bCount');
+  var phaseEl = document.getElementById('bPhase');
+  var cyclesEl= document.getElementById('bCycles');
+  var doneEl  = document.getElementById('bDone');
+  var btn     = document.getElementById('bBtn');
+  if(!outer) return;
+  if(btn._running) {
+    btn._running = false;
+    cancelAnimationFrame(btn._raf);
+    outer.style.transform='scale(1)'; outer.style.borderColor='#9A7B4F';
+    inner.style.transform='scale(1)'; inner.style.background='#9A7B4F22';
+    phaseEl.textContent=t('breathReady'); countEl.textContent='\u2014';
+    cyclesEl.textContent='5 '+t('breathCycles'); doneEl.style.display='none';
+    btn.textContent=t('breathStart'); return;
+  }
+  btn._running=true; btn._cycles=0; btn._phaseIdx=0; btn._start=null;
+  btn.textContent=t('breathStop'); doneEl.style.display='none';
+  cyclesEl.textContent=MAX+' '+t('breathCycles');
+  function ease(t){ return t<0.5?2*t*t:-1+(4-2*t)*t; }
+  function tick(ts){
+    if(!btn._running) return;
+    if(!btn._start) btn._start=ts;
+    var elapsed=(ts-btn._start)/1000;
+    var ph=phases[btn._phaseIdx];
+    var prog=Math.min(elapsed/ph.dur,1);
+    var e=ease(prog);
+    if(ph.type==='in'){
+      outer.style.transform='scale('+(1+e*0.28)+')';
+      outer.style.borderColor='#9A7B4F';
+      inner.style.transform='scale(1)';
+      inner.style.background='#9A7B4F22';
+    } else if(ph.type==='hold'){
+      outer.style.transform='scale(1.28)';
+      outer.style.borderColor='#C4704B';
+      inner.style.transform='scale('+(1+Math.sin(prog*Math.PI*2)*0.06)+')';
+      inner.style.background='#C4704B33';
+    } else {
+      outer.style.transform='scale('+(1.28-e*0.28)+')';
+      outer.style.borderColor=e>0.5?'#9A7B4F':'#C4704B';
+      inner.style.transform='scale('+(1-e*0.08)+')';
+      inner.style.background='#9A7B4F22';
+    }
+    countEl.textContent=Math.ceil(ph.dur-elapsed);
+    phaseEl.textContent=ph.name;
+    if(prog>=1){
+      btn._phaseIdx=(btn._phaseIdx+1)%phases.length;
+      if(btn._phaseIdx===0){
+        btn._cycles++;
+        var rem=MAX-btn._cycles;
+        if(btn._cycles>=MAX){
+          btn._running=false;
+          outer.style.transform='scale(1)'; outer.style.borderColor='#9A7B4F';
+          inner.style.transform='scale(1)'; inner.style.background='#9A7B4F22';
+          phaseEl.textContent=t('breathReady'); countEl.textContent='\u2713';
+          cyclesEl.textContent=''; doneEl.style.display='block';
+          btn.textContent=t('breathAgain'); btn._cycles=0; btn._phaseIdx=0; btn._start=null;
+          return;
+        }
+        cyclesEl.textContent=rem+' '+t('breathCycles')+' '+t('breathLeft');
+      }
+      btn._start=ts;
+    }
+    btn._raf=requestAnimationFrame(tick);
+  }
+  btn._raf=requestAnimationFrame(tick);
 }
