@@ -181,6 +181,7 @@ body {
 .streak-card-title { font-size: 0.78rem; font-weight: 600; color: var(--terracotta); line-height: 1.2; }
 .streak-card-sub { font-size: 0.68rem; color: var(--warm-gray-light); margin-top: 1px; }
 .streak-card-chevron { font-size: 0.85rem; color: var(--terracotta); font-weight: 600; }
+.streak-path-svg-wrap { padding: 0.4rem 0 0; cursor: pointer; }
 
 /* === JOURNEY BAR (immer sichtbar über der Nav) === */
 .journey-bar {
