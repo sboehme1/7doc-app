@@ -878,19 +878,6 @@ function renderDay(d){
     }
     s+='</div></div>';
   }
-  if(d.num===1){
-    s+='<div class="breath-timer-wrap">'
-      +'<div class="breath-stage">'
-      +'<div class="breath-ring-outer" id="bRingOuter"></div>'
-      +'<div class="breath-ring-inner" id="bRingInner"></div>'
-      +'<div class="breath-center-count" id="bCount">\u2014</div>'
-      +'</div>'
-      +'<div class="breath-phase" id="bPhase">'+t('breathReady')+'</div>'
-      +'<div class="breath-cycles" id="bCycles">5 '+t('breathCycles')+'</div>'
-      +'<div class="breath-done" id="bDone">\u2726 '+t('breathDone')+'</div>'
-      +'<button class="breath-btn" id="bBtn" onclick="startBreath()">'+t('breathStart')+'</button>'
-      +'</div>';
-  }
   // Collapsible science
   var sciId="sci"+d.num,benId="ben"+d.num;
   /* Notiz-Feld nach Schritt 3 */
