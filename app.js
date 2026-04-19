@@ -1560,30 +1560,36 @@ function openBreathPopup(){
   var ov=document.getElementById('breath-popup-overlay');
   if(!ov)return;
   ov.style.display='flex';
-  var btn=document.getElementById('bBtn');
-  if(btn&&btn._running){btn._running=false;cancelAnimationFrame(btn._raf);}
+  document.body.style.overflow='hidden';
   var isDE=LANG==='de';
-  document.getElementById('bpSub').textContent=isDE?'ATEM\u00dcBUNG \u00b7 TAG 1':'BREATHING \u00b7 DAY 1';
-  document.getElementById('bpTitle').textContent=isDE?'Ankommen & Atmen':'Arriving & Breathing';
-  document.getElementById('bChip1').textContent=isDE?'4s ein':'4s inhale';
-  document.getElementById('bChip2').textContent=isDE?'4s halten':'4s hold';
-  document.getElementById('bChip3').textContent=isDE?'6s aus':'6s exhale';
-  var phase=document.getElementById('bPhase');
-  var count=document.getElementById('bCount');
-  var cycles=document.getElementById('bCycles');
-  var done=document.getElementById('bDone');
-  if(btn){
-    var rem=btn._remaining!=null?btn._remaining:5;
-    if(phase)phase.textContent=isDE?'Bereit':'Ready';
-    if(count)count.textContent='\u2014';
-    if(cycles)cycles.textContent=rem+' '+(isDE?'Zyklen':'cycles');
-    if(done)done.style.display='none';
-    btn.textContent=btn._remaining&&btn._remaining<MAX?(isDE?'Weitermachen':'Continue'):(isDE?'Starten':'Start');
+  var bpSub=document.getElementById('bpSub');
+  var bpTitle=document.getElementById('bpTitle');
+  var bChip1=document.getElementById('bChip1');
+  var bChip2=document.getElementById('bChip2');
+  var bChip3=document.getElementById('bChip3');
+  var bPhase=document.getElementById('bPhase');
+  var bCycles=document.getElementById('bCycles');
+  var bDone=document.getElementById('bDone');
+  var bBtn=document.getElementById('bBtn');
+  if(bpSub)bpSub.textContent=isDE?'ATEM\u00dcBUNG \u00b7 TAG 1':'BREATHING \u00b7 DAY 1';
+  if(bpTitle)bpTitle.textContent=isDE?'Ankommen & Atmen':'Arriving & Breathing';
+  if(bChip1)bChip1.textContent=isDE?'4s ein':'4s inhale';
+  if(bChip2)bChip2.textContent=isDE?'4s halten':'4s hold';
+  if(bChip3)bChip3.textContent=isDE?'6s aus':'6s exhale';
+  if(bDone)bDone.style.display='none';
+  if(bBtn){
+    var rem=bBtn._remaining!=null?bBtn._remaining:5;
+    var resumed=rem<5&&rem>0;
+    if(bPhase)bPhase.textContent=isDE?'Bereit':'Ready';
+    if(bCycles)bCycles.textContent=rem+' '+(isDE?'Zyklen':'cycles');
+    bBtn.textContent=resumed?(isDE?'Weitermachen':'Continue'):(isDE?'Starten':'Start');
   }
 }
+
 function closeBreathPopup(){
   var ov=document.getElementById('breath-popup-overlay');
   if(ov)ov.style.display='none';
+  document.body.style.overflow='';
   var btn=document.getElementById('bBtn');
   if(btn&&btn._running){btn._running=false;cancelAnimationFrame(btn._raf);}
 }

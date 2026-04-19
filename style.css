@@ -1460,3 +1460,19 @@ body {
   font-family: inherit;
 }
 .breath-btn:hover { background: #9A7B4F11; }
+
+.breath-start-link {
+  display: inline-block;
+  margin-top: 1rem;
+  background: transparent;
+  border: 1.5px solid #9A7B4F;
+  color: #9A7B4F;
+  border-radius: 20px;
+  padding: 8px 22px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.breath-start-link:hover { background: #9A7B4F18; }
