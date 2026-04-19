@@ -1454,6 +1454,12 @@ function submitAddCode(){
 
 /* === INIT === */
 function initApp(){
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      closeBreathPopup();
+      closeMood();
+    }
+  });
   var gbEl=document.createElement("button");
   gbEl.className="grounding-btn";gbEl.id="grounding-btn";
   gbEl.innerHTML="&#127807;";
