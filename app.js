@@ -783,8 +783,6 @@ function renderDay(d){
     ?'<strong>Der grüne Button unten rechts ist dein Anker.</strong> Wenn es zu intensiv wird, du eine Pause brauchst oder einfach kurz durchatmen möchtest — tippe auf &#127807;. Die 5-Sinne-Übung bringt dich sofort zurück in den Moment.'
     :'<strong>The green button on the bottom right is your anchor.</strong> If things feel too intense, you need a pause, or simply want to breathe — tap &#127807;. The 5-senses exercise brings you back to the present moment instantly.')+'</div>';
   s+='</div>';
-  s+='<p style="font-size:0.82rem;color:var(--warm-gray);margin-top:0.5rem;">'+t("s1")+'</p>';
-  s+='<p style="font-size:0.82rem;color:var(--warm-gray);margin-top:0.25rem;">'+t("s3")+'</p>';
   s+='</div>';
   // Intro
   /* Intro: Absätze bei \n\n trennen */
@@ -1301,17 +1299,17 @@ function showGroundingPopup(){
   var sub=isDE?"5 Sinne · 2 Minuten · jetzt":"5 senses · 2 minutes · right now";
   var hint=isDE?"Du darfst jederzeit pausieren. Du bist in Sicherheit.":"You may pause at any time. You are safe.";
   var senses=isDE?[
-    ["&#128065;","Was siehst du gerade? Nenne 5 Dinge."],
-    ["&#128066;","Was hörst du? Nenne 4 Geräusche."],
-    ["&#128080;","Was spürst du körperlich? Nenne 3 Empfindungen."],
-    ["&#128079;","Was riechst du? Nenne 2 Düfte."],
-    ["&#128068;","Was schmeckst du? Nenne 1 Geschmack."]
+    ["&#128065;","Was siehst du gerade?<br><span style='font-size:0.78rem;color:var(--warm-gray-light);'>Nenne 5 Dinge.</span>"],
+    ["&#128066;","Was hörst du?<br><span style='font-size:0.78rem;color:var(--warm-gray-light);'>Nenne 4 Ger\u00e4usche.</span>"],
+    ["&#128080;","Was sp\u00fcrst du k\u00f6rperlich?<br><span style='font-size:0.78rem;color:var(--warm-gray-light);'>Nenne 3 Empfindungen.</span>"],
+    ["&#128079;","Was riechst du?<br><span style='font-size:0.78rem;color:var(--warm-gray-light);'>Nenne 2 D\u00fcfte.</span>"],
+    ["&#128068;","Was schmeckst du?<br><span style='font-size:0.78rem;color:var(--warm-gray-light);'>Nenne 1 Geschmack.</span>"]
   ]:[
-    ["&#128065;","What do you see right now? Name 5 things."],
-    ["&#128066;","What do you hear? Name 4 sounds."],
-    ["&#128080;","What do you feel physically? Name 3 sensations."],
-    ["&#128079;","What do you smell? Name 2 scents."],
-    ["&#128068;","What do you taste? Name 1 taste."]
+    ["&#128065;","What do you see right now?<br><span style='font-size:0.78rem;color:var(--warm-gray-light);'>Name 5 things.</span>"],
+    ["&#128066;","What do you hear?<br><span style='font-size:0.78rem;color:var(--warm-gray-light);'>Name 4 sounds.</span>"],
+    ["&#128080;","What do you feel physically?<br><span style='font-size:0.78rem;color:var(--warm-gray-light);'>Name 3 sensations.</span>"],
+    ["&#128079;","What do you smell?<br><span style='font-size:0.78rem;color:var(--warm-gray-light);'>Name 2 scents.</span>"],
+    ["&#128068;","What do you taste?<br><span style='font-size:0.78rem;color:var(--warm-gray-light);'>Name 1 taste.</span>"]
   ];
   var sensesHtml=senses.map(function(s){
     return '<div class="grounding-sense"><div class="grounding-sense-dot"></div>'+s[0]+' '+s[1]+'</div>';
