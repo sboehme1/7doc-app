@@ -912,6 +912,8 @@ function go(p){
   var pNum=parseInt(p.replace("day",""));
   if(!isNaN(pNum) && isDayLocked(pNum)) return;
   curPage=p;sessionStorage.setItem('7doc_lastPage',p);var m=document.getElementById("main-content");
+  var oldPage=m.querySelector(".page");
+  if(oldPage){oldPage.style.animation="page-fade-out 0.15s ease both";oldPage.style.pointerEvents="none";}
   if(p==="welcome"){m.innerHTML='<div class="page active">'+renderWelcome()+'</div>';}
   else if(p==="journey"){m.innerHTML='<div class="page active">'+renderJourney()+'</div>';}
   else if(p==="summary7"){m.innerHTML='<div class="page active">'+renderEndSummary(7)+'</div>';}
