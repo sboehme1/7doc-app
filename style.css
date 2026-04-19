@@ -148,14 +148,11 @@ body {
 /* === PROGRESS === */
 .progress-container {
   background: var(--sand-dark);
-  padding: 0.4rem 1.5rem;
+  padding: 0.6rem 1rem 0.8rem;
   position: relative;
 }
 .progress-bar-wrap {
-  background: var(--sand);
-  border-radius: 20px;
-  height: 7px;
-  overflow: hidden;
+  display: none;
 }
 .progress-bar-fill {
   background: linear-gradient(90deg, var(--terracotta), var(--terracotta-light));
@@ -180,6 +177,7 @@ body {
 .streak-card-sub { font-size: 0.68rem; color: var(--warm-gray-light); margin-top: 1px; }
 .streak-card-chevron { font-size: 0.85rem; color: var(--terracotta); font-weight: 600; }
 .streak-path-svg-wrap { padding: 0.4rem 0 0; cursor: pointer; }
+.streak-path-svg-wrap svg { display: block; margin: 0 auto; max-width: 480px; width: 100%; }
 
 /* === JOURNEY BAR (immer sichtbar über der Nav) === */
 .journey-bar {
