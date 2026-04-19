@@ -231,7 +231,7 @@ var DAYS = {
     onthego:[["Halt","Bleib kurz stehen oder setz dich aufrecht. Sp\u00fcr den Boden unter deinen F\u00fc\u00dfen."],["Atem","Atme tief durch die Nase ein (z\u00e4hl bis 4). Atme lang durch den Mund aus (z\u00e4hl bis 6). Wiederhole 3-mal."],["Ausklang","Lass den Atem frei flie\u00dfen. Sag dir leise: \u201eIch bin hier.\u201c Geh langsam in deinen Tag zur\u00fcck."]],
     steps:[
       {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus (Flugmodus). <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden, Blick ruhig nach vorn. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch.",tips:["Das ist dein Startsignal: Kontakt zum K\u00f6rper, Pr\u00e4senz im Moment."]},
-      {t:"Atmen (4/6-Rhythmus)",c:"<strong class='step-key'>Einatmen:</strong> Z\u00e4hle innerlich bis 4.<br><em>Fokus: K\u00fchle Luft an der Nasenspitze.</em><br><br><strong class='step-key'>Ausatmen:</strong> Z\u00e4hle innerlich bis 6.<br><em>Fokus: Warme Luft str\u00f6mt raus \u2013 Schultern fallen.</em><br><br><strong class='step-key'>Wiederhole</strong> diesen Takt in deinem Tempo so oft wie es sich gut anf\u00fchlt.",tips:["Gedanken auf Reisen?<br>Das ist v\u00f6llig okay.<br>Komm einfach sanft zur\u00fcck zum Z\u00e4hlen.","Rhythmus verloren?<br>Atme einmal tief durch.<br>Fang ganz entspannt wieder bei 4 an."],opt:"<strong>Vagus-Impuls</strong><br>Wenn du besonders viel Unruhe sp\u00fcrst:<ul><li>Atme tief ein</li><li>Setze einen winzigen schnellen Nach-Einatmer oben drauf</li><li>Halte kurz</li><li>Atme dann lang aus</li></ul>Das unterbricht die Stress-Reaktion direkt auf k\u00f6rperlicher Ebene. Das kannst du in jeder Situation einsetzen.",optLabel:"Alltagsimpuls"},
+      {t:"Atmen (4/6-Rhythmus)",c:"<strong class='step-key'>Einatmen:</strong> Z\u00e4hle innerlich bis 4.<br><em>Fokus: K\u00fchle Luft an der Nasenspitze.</em><br><br><strong class='step-key'>Ausatmen:</strong> Z\u00e4hle innerlich bis 6.<br><em>Fokus: Warme Luft str\u00f6mt raus \u2013 Schultern fallen.</em><br><br><strong class='step-key'>Wiederhole</strong> diesen Takt in deinem Tempo so oft wie es sich gut anf\u00fchlt.<br><br><button class='breath-start-link' onclick='openBreathPopup()'>&#127768; Atem\u00fcbung starten &rarr;</button>",tips:["Gedanken auf Reisen?<br>Das ist v\u00f6llig okay.<br>Komm einfach sanft zur\u00fcck zum Z\u00e4hlen.","Rhythmus verloren?<br>Atme einmal tief durch.<br>Fang ganz entspannt wieder bei 4 an."],opt:"<strong>Vagus-Impuls</strong><br>Wenn du besonders viel Unruhe sp\u00fcrst:<ul><li>Atme tief ein</li><li>Setze einen winzigen schnellen Nach-Einatmer oben drauf</li><li>Halte kurz</li><li>Atme dann lang aus</li></ul>Das unterbricht die Stress-Reaktion direkt auf k\u00f6rperlicher Ebene. Das kannst du in jeder Situation einsetzen.",optLabel:"Alltagsimpuls"},
       {t:"Zur\u00fcckkehren",c:"<strong class='step-key'>Loslassen:</strong> Z\u00e4hlen beenden \u2013 der Atem flie\u00dft wieder frei. <strong class='step-key'>Sp\u00fcren:</strong> Deinen K\u00f6rper wahrnehmen. <strong class='step-key'>\u00d6ffnen:</strong> Augen auf, der Blick wird wieder klar."}
     ],
     science:"Stress ist keine reine Kopfsache, sondern eine körperliche Reaktion. Indem du bewusst ausatmest, aktivierst du über den Vagusnerv den Parasympathikus \u2013 den Teil deines Nervensystems, der für Ruhe sorgt. Das signalisiert deinem Gehirn: \u201eEs ist sicher.\u201c",
@@ -352,7 +352,7 @@ var DAYS = {
     onthego:[["Pause","Stop for a moment or sit up straight. Feel the ground beneath your feet."],["Breath","Inhale through your nose (count to 4). Exhale slowly through your mouth (count to 6). Repeat 3 times."],["Closing","Let your breath flow freely. Say quietly: \u201cI am here.\u201d Return to your day."]],
     steps:[
       {t:"Presence",c:"<strong class='step-key'>Turn off</strong> distractions (flight mode). <strong class='step-key'>Sit up straight</strong>, both feet stable on the ground, gaze calmly forward. <strong class='step-key'>Feel</strong> the pressure of your hand on heart or belly for a few breaths.",tips:["This is your start signal: contact with the body, presence in the moment."]},
-      {t:"Breathing (4/6 Rhythm)",c:"<strong class='step-key'>Inhale:</strong> Count silently to 4. Focus: cool air at the tip of your nose.\n\n<strong class='step-key'>Exhale:</strong> Count silently to 6. Focus: warm air flows out – shoulders drop.\n\n<strong class='step-key'>Repeat</strong> at your own pace as often as feels good.",tips:["Thoughts drifting? That’s completely fine. Gently return to counting.","Lost your rhythm? Take one deep breath and calmly start again from 4."],opt:"Vagus Impulse: If you feel particularly restless – inhale deeply and add a tiny extra breath on top. Hold briefly. Then exhale long. This interrupts the stress response on a physical level."},
+      {t:"Breathing (4/6 Rhythm)",c:"<strong class='step-key'>Inhale:</strong> Count silently to 4. Focus: cool air at the tip of your nose.\n\n<strong class='step-key'>Exhale:</strong> Count silently to 6. Focus: warm air flows out – shoulders drop.\n\n<strong class='step-key'>Repeat</strong> at your own pace as often as feels good.<br><br><button class='breath-start-link' onclick='openBreathPopup()'>&#127768; Start breathing exercise &rarr;</button>",tips:["Thoughts drifting? That’s completely fine. Gently return to counting.","Lost your rhythm? Take one deep breath and calmly start again from 4."],opt:"Vagus Impulse: If you feel particularly restless – inhale deeply and add a tiny extra breath on top. Hold briefly. Then exhale long. This interrupts the stress response on a physical level."},
       {t:"Returning",c:"<strong class='step-key'>Release:</strong> Stop counting. The breath flows freely again.\n\n<strong class='step-key'>Sense:</strong> Become aware of your body.\n\n<strong class='step-key'>Open:</strong> Eyes open, vision becomes clear again."}
     ],
     science:"When you lengthen your exhale, you activate the parasympathetic nervous system through the vagus nerve \u2013 the part responsible for rest. This signals your brain: \u201cIt is safe.\u201d",
@@ -1556,37 +1556,74 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-function startBreath() {
-  var MAX = 5;
-  var phases = [
-    { name: t('breathIn')  || 'Einatmen', dur: 4, type: 'in'   },
-    { name: t('breathHold') || 'Halten',   dur: 4, type: 'hold' },
-    { name: t('breathOut') || 'Ausatmen', dur: 6, type: 'out'  }
-  ];
-  var outer   = document.getElementById('bRingOuter');
-  var inner   = document.getElementById('bRingInner');
-  var countEl = document.getElementById('bCount');
-  var phaseEl = document.getElementById('bPhase');
-  var cyclesEl= document.getElementById('bCycles');
-  var doneEl  = document.getElementById('bDone');
-  var btn     = document.getElementById('bBtn');
-  if(!outer) return;
-  if(btn._running) {
-    btn._running = false;
-    cancelAnimationFrame(btn._raf);
-    outer.style.transform='scale(1)'; outer.style.borderColor='#9A7B4F';
-    inner.style.transform='scale(1)'; inner.style.background='#9A7B4F22';
-    phaseEl.textContent=t('breathReady'); countEl.textContent='\u2014';
-    cyclesEl.textContent='5 '+t('breathCycles'); doneEl.style.display='none';
-    btn.textContent=t('breathStart'); return;
+function openBreathPopup(){
+  var ov=document.getElementById('breath-popup-overlay');
+  if(!ov)return;
+  ov.style.display='flex';
+  var btn=document.getElementById('bBtn');
+  if(btn&&btn._running){btn._running=false;cancelAnimationFrame(btn._raf);}
+  var isDE=LANG==='de';
+  document.getElementById('bpSub').textContent=isDE?'ATEM\u00dcBUNG \u00b7 TAG 1':'BREATHING \u00b7 DAY 1';
+  document.getElementById('bpTitle').textContent=isDE?'Ankommen & Atmen':'Arriving & Breathing';
+  document.getElementById('bChip1').textContent=isDE?'4s ein':'4s inhale';
+  document.getElementById('bChip2').textContent=isDE?'4s halten':'4s hold';
+  document.getElementById('bChip3').textContent=isDE?'6s aus':'6s exhale';
+  var phase=document.getElementById('bPhase');
+  var count=document.getElementById('bCount');
+  var cycles=document.getElementById('bCycles');
+  var done=document.getElementById('bDone');
+  if(btn){
+    var rem=btn._remaining!=null?btn._remaining:5;
+    if(phase)phase.textContent=isDE?'Bereit':'Ready';
+    if(count)count.textContent='\u2014';
+    if(cycles)cycles.textContent=rem+' '+(isDE?'Zyklen':'cycles');
+    if(done)done.style.display='none';
+    btn.textContent=isDE?'Starten':'Start';
   }
-  btn._running=true; btn._cycles=0; btn._phaseIdx=0; btn._start=null;
-  btn.textContent=t('breathStop'); doneEl.style.display='none';
-  cyclesEl.textContent=MAX+' '+t('breathCycles');
-  function ease(t){ return t<0.5?2*t*t:-1+(4-2*t)*t; }
+}
+function closeBreathPopup(){
+  var ov=document.getElementById('breath-popup-overlay');
+  if(ov)ov.style.display='none';
+  var btn=document.getElementById('bBtn');
+  if(btn&&btn._running){btn._running=false;cancelAnimationFrame(btn._raf);}
+}
+function startBreath(){
+  var MAX=5;
+  var isDE=LANG==='de';
+  var phases=[
+    {name:isDE?'Einatmen':'Inhale',  dur:4,type:'in'},
+    {name:isDE?'Halten':'Hold',      dur:4,type:'hold'},
+    {name:isDE?'Ausatmen':'Exhale',  dur:6,type:'out'}
+  ];
+  var outer=document.getElementById('bRingOuter');
+  var inner=document.getElementById('bRingInner');
+  var countEl=document.getElementById('bCount');
+  var phaseEl=document.getElementById('bPhase');
+  var cyclesEl=document.getElementById('bCycles');
+  var doneEl=document.getElementById('bDone');
+  var btn=document.getElementById('bBtn');
+  if(!outer||!btn)return;
+  if(btn._running){
+    btn._running=false;
+    cancelAnimationFrame(btn._raf);
+    outer.style.transform='scale(1)';outer.style.borderColor='#9A7B4F';
+    inner.style.transform='scale(1)';inner.style.background='#9A7B4F22';
+    var remLeft=btn._remaining!=null?btn._remaining:MAX;
+    if(phaseEl)phaseEl.textContent=isDE?'Bereit':'Ready';
+    if(countEl)countEl.textContent='\u2014';
+    if(cyclesEl)cyclesEl.textContent=remLeft+' '+(isDE?'Zyklen \u00fcbrig':'cycles left');
+    btn.textContent=isDE?'Weitermachen':'Continue';
+    return;
+  }
+  if(btn._remaining==null)btn._remaining=MAX;
+  btn._running=true;btn._phaseIdx=0;btn._start=null;
+  btn.textContent=isDE?'Stoppen':'Stop';
+  if(doneEl)doneEl.style.display='none';
+  if(cyclesEl)cyclesEl.textContent=btn._remaining+' '+(isDE?'Zyklen \u00fcbrig':'cycles left');
+  function ease(t){return t<0.5?2*t*t:-1+(4-2*t)*t;}
   function tick(ts){
-    if(!btn._running) return;
-    if(!btn._start) btn._start=ts;
+    if(!btn._running)return;
+    if(!btn._start)btn._start=ts;
     var elapsed=(ts-btn._start)/1000;
     var ph=phases[btn._phaseIdx];
     var prog=Math.min(elapsed/ph.dur,1);
@@ -1596,34 +1633,35 @@ function startBreath() {
       outer.style.borderColor='#9A7B4F';
       inner.style.transform='scale(1)';
       inner.style.background='#9A7B4F22';
-    } else if(ph.type==='hold'){
+    }else if(ph.type==='hold'){
       outer.style.transform='scale(1.28)';
       outer.style.borderColor='#C4704B';
       inner.style.transform='scale('+(1+Math.sin(prog*Math.PI*2)*0.06)+')';
       inner.style.background='#C4704B33';
-    } else {
+    }else{
       outer.style.transform='scale('+(1.28-e*0.28)+')';
       outer.style.borderColor=e>0.5?'#9A7B4F':'#C4704B';
       inner.style.transform='scale('+(1-e*0.08)+')';
       inner.style.background='#9A7B4F22';
     }
-    countEl.textContent=Math.ceil(ph.dur-elapsed);
-    phaseEl.textContent=ph.name;
+    if(countEl)countEl.textContent=Math.ceil(ph.dur-elapsed);
+    if(phaseEl)phaseEl.textContent=ph.name;
     if(prog>=1){
       btn._phaseIdx=(btn._phaseIdx+1)%phases.length;
       if(btn._phaseIdx===0){
-        btn._cycles++;
-        var rem=MAX-btn._cycles;
-        if(btn._cycles>=MAX){
-          btn._running=false;
-          outer.style.transform='scale(1)'; outer.style.borderColor='#9A7B4F';
-          inner.style.transform='scale(1)'; inner.style.background='#9A7B4F22';
-          phaseEl.textContent=t('breathReady'); countEl.textContent='\u2713';
-          cyclesEl.textContent=''; doneEl.style.display='block';
-          btn.textContent=t('breathAgain'); btn._cycles=0; btn._phaseIdx=0; btn._start=null;
+        btn._remaining--;
+        if(btn._remaining<=0){
+          btn._running=false;btn._remaining=null;
+          outer.style.transform='scale(1)';outer.style.borderColor='#9A7B4F';
+          inner.style.transform='scale(1)';inner.style.background='#9A7B4F22';
+          if(phaseEl)phaseEl.textContent=isDE?'Fertig':'Done';
+          if(countEl)countEl.textContent='\u2713';
+          if(cyclesEl)cyclesEl.textContent='';
+          if(doneEl)doneEl.style.display='block';
+          btn.textContent=isDE?'Nochmal':'Again';
           return;
         }
-        cyclesEl.textContent=rem+' '+t('breathCycles')+' '+t('breathLeft');
+        if(cyclesEl)cyclesEl.textContent=btn._remaining+' '+(isDE?'Zyklen \u00fcbrig':'cycles left');
       }
       btn._start=ts;
     }
