@@ -919,18 +919,20 @@ function calcStreak(){
 
 function renderProgressScreen(){
   var pr=getPr();
-  var doneCnt=0;for(var i=0;i<7;i++)if(pr[i])doneCnt++;
+  var totalDays=isDayLocked(8)?7:10;
+  var doneCnt=0;for(var i=0;i<totalDays;i++)if(pr[i])doneCnt++;
   var streak=calcStreak();
   var bestStreak=parseInt(localStorage.getItem("7doc_best_streak")||String(streak));
-  var allDone=true;for(var i=0;i<7;i++){if(!pr[i]){allDone=false;break;}}
+  var allDone=true;for(var i=0;i<totalDays;i++){if(!pr[i]){allDone=false;break;}}
   var runs=allDone?1:0;
-  var pct=Math.round(doneCnt/7*100);
-  var daysLeft=Math.max(0,7-doneCnt);
-  var nextDay=1;for(var i=0;i<7;i++){if(!pr[i]){nextDay=i+1;break;}}
+  var pct=Math.round(doneCnt/totalDays*100);
+  var daysLeft=Math.max(0,totalDays-doneCnt);
+  var nextDay=1;for(var i=0;i<totalDays;i++){if(!pr[i]){nextDay=i+1;break;}}
   var isDE=LANG==="de";
-  var dayKeys=isDE?["T1","T2","T3","T4","T5","T6","T7"]:["D1","D2","D3","D4","D5","D6","D7"];
+  var allKeys=isDE?["T1","T2","T3","T4","T5","T6","T7","T8","T9","T10"]:["D1","D2","D3","D4","D5","D6","D7","D8","D9","D10"];
+  var dayKeys=allKeys.slice(0,totalDays);
   var dayCircles="";
-  for(var i=0;i<7;i++){
+  for(var i=0;i<totalDays;i++){
     var dn=i+1,cls,lCls,icon;
     if(pr[i]){cls="ps-circle ps-done";lCls="ps-dlabel";icon="&#10003;";}
     else if(dn===doneCnt+1){cls="ps-circle ps-active";lCls="ps-dlabel ps-dlabel-active";icon=dn;}
@@ -938,7 +940,7 @@ function renderProgressScreen(){
     dayCircles+='<div class="ps-day"><div class="'+cls+'">'+icon+'</div><span class="'+lCls+'">'+dayKeys[i]+'</span></div>';
   }
   var quote=isDE?"\u201eDu baust keine Disziplin auf. Du baust eine Identit\u00e4t.\u201c":"\u201cYou don\u2019t build discipline. You build identity.\u201d";
-  var continueBtn=doneCnt<7
+  var continueBtn=doneCnt<totalDays
     ?'<button class="ps-btn" onclick="go(\'day'+nextDay+'\')">'+(isDE?"Weiter \u2014 Tag ":"Continue \u2014 Day ")+nextDay+'</button>'
     :'<button class="ps-btn" onclick="go(\'summary7\')">'+(isDE?"Zur Zusammenfassung \u2192":"See summary \u2192")+'</button>';
   var s='<div class="ps-wrap">';
@@ -948,7 +950,7 @@ function renderProgressScreen(){
   s+='<p class="ps-sub">'+(isDE?"Tage am St\u00fcck":"days in a row")+'</p>';
   s+='<div class="ps-days">'+dayCircles+'</div>';
   s+='<div class="ps-progress-wrap"><div class="ps-progress-bar"><div class="ps-progress-fill" id="ps-prog-fill" style="width:0%"></div></div>';
-  s+='<div class="ps-progress-label"><span>'+(isDE?"Tag 1":"Day 1")+'</span><span>'+doneCnt+' / 7 '+(isDE?"abgeschlossen":"complete")+'</span><span>'+(isDE?"Tag 7":"Day 7")+'</span></div>';
+  s+='<div class="ps-progress-label"><span>'+(isDE?"Tag 1":"Day 1")+'</span><span>'+doneCnt+' / '+totalDays+' '+(isDE?"abgeschlossen":"complete")+'</span><span>'+(isDE?"Tag ":"Day ")+totalDays+'</span></div>';
   s+='</div></div>';
   s+='<div class="ps-stats">';
   s+='<div class="ps-stat"><p class="ps-stat-val">'+pct+'%</p><p class="ps-stat-lbl">'+(isDE?"Abgeschlossen":"Completed")+'</p></div>';
