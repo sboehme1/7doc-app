@@ -919,7 +919,16 @@ function go(p){
   else if(p==="progress"){m.innerHTML='<div class="page active">'+renderProgressScreen()+'</div>';setTimeout(function(){var f=document.getElementById("ps-prog-fill");if(f)f.style.width=Math.round(0)+'%';var pr=getPr();var d=0;for(var i=0;i<7;i++)if(pr[i])d++;setTimeout(function(){if(f)f.style.width=Math.round(d/7*100)+'%';},100);},50);}
   else{var num=parseInt(p.replace("day",""));var dd=days();var d=null;for(var i=0;i<dd.length;i++){if(dd[i].num===num){d=dd[i];break;}}
   if(d)m.innerHTML='<div class="page active">'+renderDay(d)+'</div>';}
-  updNav();window.scrollTo(0,0);
+  updNav();
+  var scrollTarget=document.querySelector(".day-header");
+  if(scrollTarget&&p!=="welcome"&&p!=="journey"&&p!=="summary7"&&p!=="summary10"&&p!=="progress"){
+    setTimeout(function(){
+      var top=scrollTarget.getBoundingClientRect().top+window.scrollY-80;
+      window.scrollTo({top:Math.max(0,top),behavior:"smooth"});
+    },60);
+  } else {
+    window.scrollTo(0,0);
+  }
   setTimeout(function(){var qEl=document.getElementById("day-quote-el");if(qEl)qEl.classList.add("quote-visible");},500);
   var pg=m.querySelector(".page");
   if(pg&&_prevPage){
