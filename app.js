@@ -1011,7 +1011,7 @@ function updProg(){
       +'<line x1="0" y1="-8" x2="4" y2="-1" stroke="#2C2824" stroke-width="2" stroke-linecap="round"/>'
       +'</g>';
     var duBistHier='<text x="'+mp.x+'" y="'+(mp.y+14)+'" text-anchor="middle" font-size="8" fill="#C4704B" font-family="sans-serif" font-weight="700">'+(LANG==="de"?"Du bist hier":"You are here")+'</text>';
-    spEl.innerHTML='<div class="streak-path-svg-wrap"><svg viewBox="0 0 340 105" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">'
+    spEl.innerHTML='<div class="streak-path-svg-wrap"><svg viewBox="0 0 340 105" style="max-height:90px;" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">'
       +'<path d="'+pathD+'" fill="none" stroke="#D4CAB8" stroke-width="4" stroke-linecap="round"/>'
       +(done2>0?'<path d="'+donePath+'" fill="none" stroke="#C4704B" stroke-width="4" stroke-linecap="round"/>':'')
       +circles+manSvg+duBistHier

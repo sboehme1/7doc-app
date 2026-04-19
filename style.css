@@ -149,9 +149,7 @@ body {
 .progress-container {
   background: var(--sand-dark);
   padding: 0.4rem 1.5rem;
-  position: sticky;
-  top: 78px;
-  z-index: 90;
+  position: relative;
 }
 .progress-bar-wrap {
   background: var(--sand);
