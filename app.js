@@ -975,48 +975,53 @@ function updProg(){
     var pr2=getPr();
     var tD=isDayLocked(8)?7:10;
     var done2=0;for(var i=0;i<tD;i++)if(pr2[i])done2++;
-    var pts=[
-      {x:16,y:78},{x:58,y:53},{x:103,y:28},{x:148,y:53},{x:193,y:78},
-      {x:238,y:53},{x:283,y:28},{x:310,y:42},{x:322,y:60},{x:326,y:72}
-    ];
-    var usePts=pts.slice(0,tD);
-    var pathFull="M"+usePts.map(function(p){return p.x+","+p.y;}).join(" Q... ").replace(/ Q\.\.\. /g," L ");
-    var pathD="M"+usePts[0].x+","+usePts[0].y;
-    for(var i=1;i<usePts.length;i++){var mx=(usePts[i-1].x+usePts[i].x)/2;var my=(usePts[i-1].y+usePts[i].y)/2;pathD+=" Q"+usePts[i-1].x+","+usePts[i-1].y+" "+usePts[i].x+","+usePts[i].y;}
-    var donePath="M"+usePts[0].x+","+usePts[0].y;
-    var doneCount=Math.min(done2,usePts.length-1);
-    for(var i=1;i<=doneCount;i++){donePath+=" Q"+usePts[i-1].x+","+usePts[i-1].y+" "+usePts[i].x+","+usePts[i].y;}
-    var circles="";
-    for(var i=0;i<usePts.length;i++){
-      var p=usePts[i];var lbl=i+1;
-      if(i===tD-1){
-        circles+='<circle cx="'+p.x+'" cy="'+p.y+'" r="10" fill="#FAF0D4" stroke="#C9A96E" stroke-width="2.5"/>';
-        circles+='<text x="'+p.x+'" y="'+(p.y+3.5)+'" text-anchor="middle" font-size="8" fill="#9A7B4F" font-family="sans-serif" font-weight="700">'+lbl+'</text>';
-      } else if(pr2[i]){
-        circles+='<circle cx="'+p.x+'" cy="'+p.y+'" r="8" fill="#C4704B"/>';
-        circles+='<text x="'+p.x+'" y="'+(p.y+3.5)+'" text-anchor="middle" font-size="7" fill="#fff" font-family="sans-serif" font-weight="700">'+lbl+'</text>';
-      } else {
-        circles+='<circle cx="'+p.x+'" cy="'+p.y+'" r="8" fill="#FAF8F3" stroke="#D4CAB8" stroke-width="2"/>';
-        circles+='<text x="'+p.x+'" y="'+(p.y+3.5)+'" text-anchor="middle" font-size="7" fill="#B0A898" font-family="sans-serif">'+lbl+'</text>';
-      }
+  var pr2=getPr();
+  var tD=isDayLocked(8)?7:10;
+  var done2=0;for(var i=0;i<tD;i++)if(pr2[i])done2++;
+  var svgW=340;var svgH=80;
+  var padL=16;var padR=16;
+  var spacing=(svgW-padL-padR)/(tD-1);
+  var y=52;
+  var pts=[];
+  for(var i=0;i<tD;i++){pts.push({x:Math.round(padL+i*spacing),y:y});}
+  var pathD="M"+pts[0].x+","+pts[0].y;
+  for(var i=1;i<pts.length;i++){pathD+=" L"+pts[i].x+","+pts[i].y;}
+  var donePath="M"+pts[0].x+","+pts[0].y;
+  var doneEnd=Math.min(done2,pts.length-1);
+  for(var i=1;i<=doneEnd;i++){donePath+=" L"+pts[i].x+","+pts[i].y;}
+  var circles="";
+  for(var i=0;i<pts.length;i++){
+    var p=pts[i];var lbl=i+1;
+    if(i===tD-1){
+      circles+='<circle cx="'+p.x+'" cy="'+p.y+'" r="10" fill="#FAF0D4" stroke="#C9A96E" stroke-width="2.5"/>';
+      circles+='<text x="'+p.x+'" y="'+(p.y+3.5)+'" text-anchor="middle" font-size="8" fill="#9A7B4F" font-family="sans-serif" font-weight="700">'+lbl+'</text>';
+    } else if(pr2[i]){
+      circles+='<circle cx="'+p.x+'" cy="'+p.y+'" r="9" fill="#C4704B"/>';
+      circles+='<text x="'+p.x+'" y="'+(p.y+3.5)+'" text-anchor="middle" font-size="7" fill="#fff" font-family="sans-serif" font-weight="700">'+lbl+'</text>';
+    } else {
+      circles+='<circle cx="'+p.x+'" cy="'+p.y+'" r="9" fill="#FAF8F3" stroke="#D4CAB8" stroke-width="2"/>';
+      circles+='<text x="'+p.x+'" y="'+(p.y+3.5)+'" text-anchor="middle" font-size="7" fill="#B0A898" font-family="sans-serif">'+lbl+'</text>';
     }
-    var manIdx=Math.min(done2,usePts.length-1);
-    var mp=usePts[manIdx];
-    var manSvg='<g transform="translate('+mp.x+','+mp.y+')">'
-      +'<circle cx="0" cy="-24" r="6" fill="#2C2824"/>'
-      +'<line x1="0" y1="-18" x2="0" y2="-8" stroke="#2C2824" stroke-width="2.5" stroke-linecap="round"/>'
-      +'<line x1="0" y1="-15" x2="-5" y2="-10" stroke="#2C2824" stroke-width="2" stroke-linecap="round"/>'
-      +'<line x1="0" y1="-15" x2="5" y2="-10" stroke="#2C2824" stroke-width="2" stroke-linecap="round"/>'
-      +'<line x1="0" y1="-8" x2="-4" y2="-1" stroke="#2C2824" stroke-width="2" stroke-linecap="round"/>'
-      +'<line x1="0" y1="-8" x2="4" y2="-1" stroke="#2C2824" stroke-width="2" stroke-linecap="round"/>'
-      +'</g>';
-    var duBistHier='<text x="'+mp.x+'" y="'+(mp.y+14)+'" text-anchor="middle" font-size="8" fill="#C4704B" font-family="sans-serif" font-weight="700">'+(LANG==="de"?"Du bist hier":"You are here")+'</text>';
-    spEl.innerHTML='<div class="streak-path-svg-wrap"><svg viewBox="0 0 340 115" style="max-height:115px;" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">'
-      +'<path d="'+pathD+'" fill="none" stroke="#D4CAB8" stroke-width="4" stroke-linecap="round"/>'
-      +(done2>0?'<path d="'+donePath+'" fill="none" stroke="#C4704B" stroke-width="4" stroke-linecap="round"/>':'')
-      +circles+manSvg+duBistHier
-      +'</svg></div>';
-    spEl.style.display="block";
+  }
+  var manIdx=Math.min(done2,pts.length-1);
+  var mp=pts[manIdx];
+  var manSvg='<g transform="translate('+mp.x+','+mp.y+')">'
+    +'<circle cx="0" cy="-26" r="6" fill="#2C2824"/>'
+    +'<line x1="0" y1="-20" x2="0" y2="-10" stroke="#2C2824" stroke-width="2.5" stroke-linecap="round"/>'
+    +'<line x1="0" y1="-17" x2="-5" y2="-12" stroke="#2C2824" stroke-width="2" stroke-linecap="round"/>'
+    +'<line x1="0" y1="-17" x2="5" y2="-12" stroke="#2C2824" stroke-width="2" stroke-linecap="round"/>'
+    +'<line x1="0" y1="-10" x2="-4" y2="-3" stroke="#2C2824" stroke-width="2" stroke-linecap="round"/>'
+    +'<line x1="0" y1="-10" x2="4" y2="-3" stroke="#2C2824" stroke-width="2" stroke-linecap="round"/>'
+    +'</g>';
+  var labelX=Math.max(28,Math.min(mp.x,svgW-28));
+  var duBistHier='<text x="'+labelX+'" y="'+(mp.y+18)+'" text-anchor="middle" font-size="8" fill="#C4704B" font-family="sans-serif" font-weight="700" style="paint-order:stroke;" stroke="#E8E0D0" stroke-width="3" stroke-linejoin="round">'+(LANG==="de"?"Du bist hier":"You are here")+'</text>';
+  var duBistVorn='<text x="'+labelX+'" y="'+(mp.y+18)+'" text-anchor="middle" font-size="8" fill="#C4704B" font-family="sans-serif" font-weight="700">'+(LANG==="de"?"Du bist hier":"You are here")+'</text>';
+  spEl.innerHTML='<div class="streak-path-svg-wrap"><svg viewBox="0 0 340 80" style="max-height:80px;" xmlns="http://www.w3.org/2000/svg">'
+    +'<path d="'+pathD+'" fill="none" stroke="#D4CAB8" stroke-width="4" stroke-linecap="round"/>'
+    +(done2>0?'<path d="'+donePath+'" fill="none" stroke="#C4704B" stroke-width="4" stroke-linecap="round"/>':'')
+    +circles+manSvg+duBistHier+duBistVorn
+    +'</svg></div>';
+  spEl.style.display="block";
   }
   var streak=calcStreak();
   var sc=document.getElementById("streak-card");
