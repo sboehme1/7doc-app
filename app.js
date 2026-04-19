@@ -877,6 +877,7 @@ function go(p){
   else if(p==="journey"){m.innerHTML='<div class="page active">'+renderJourney()+'</div>';}
   else if(p==="summary7"){m.innerHTML='<div class="page active">'+renderEndSummary(7)+'</div>';}
   else if(p==="summary10"){m.innerHTML='<div class="page active">'+renderEndSummary(10)+'</div>';}
+  else if(p==="progress"){m.innerHTML='<div class="page active">'+renderProgressScreen()+'</div>';setTimeout(function(){var f=document.getElementById("ps-prog-fill");if(f)f.style.width=Math.round(0)+'%';var pr=getPr();var d=0;for(var i=0;i<7;i++)if(pr[i])d++;setTimeout(function(){if(f)f.style.width=Math.round(d/7*100)+'%';},100);},50);}
   else{var num=parseInt(p.replace("day",""));var dd=days();var d=null;for(var i=0;i<dd.length;i++){if(dd[i].num===num){d=dd[i];break;}}
   if(d)m.innerHTML='<div class="page active">'+renderDay(d)+'</div>';}
   updNav();window.scrollTo(0,0);
@@ -899,7 +900,71 @@ function updNav(){
   if(jb){jb.className=curPage==="journey"?"journey-always-btn on-journey":"journey-always-btn";}
   if(jl){jl.textContent=LANG==="de"?"Meine Reise":"My Journey";}
 }
+function calcStreak(){
+  var today=new Date();today.setHours(0,0,0,0);
+  var todayStr=today.toISOString().slice(0,10);
+  var last=localStorage.getItem("7doc_streak_date");
+  var streak=parseInt(localStorage.getItem("7doc_streak_count")||"0");
+  if(!last){localStorage.setItem("7doc_streak_date",todayStr);localStorage.setItem("7doc_streak_count","1");localStorage.setItem("7doc_best_streak","1");return 1;}
+  if(last===todayStr)return streak;
+  var lastDate=new Date(last);lastDate.setHours(0,0,0,0);
+  var diff=Math.round((today-lastDate)/(1000*60*60*24));
+  streak=(diff<=2)?streak+1:1;
+  var best=parseInt(localStorage.getItem("7doc_best_streak")||"0");
+  if(streak>best)localStorage.setItem("7doc_best_streak",String(streak));
+  localStorage.setItem("7doc_streak_date",todayStr);
+  localStorage.setItem("7doc_streak_count",String(streak));
+  return streak;
+}
+
+function renderProgressScreen(){
+  var pr=getPr();
+  var doneCnt=0;for(var i=0;i<7;i++)if(pr[i])doneCnt++;
+  var streak=calcStreak();
+  var bestStreak=parseInt(localStorage.getItem("7doc_best_streak")||String(streak));
+  var allDone=true;for(var i=0;i<7;i++){if(!pr[i]){allDone=false;break;}}
+  var runs=allDone?1:0;
+  var pct=Math.round(doneCnt/7*100);
+  var daysLeft=Math.max(0,7-doneCnt);
+  var nextDay=1;for(var i=0;i<7;i++){if(!pr[i]){nextDay=i+1;break;}}
+  var isDE=LANG==="de";
+  var dayKeys=isDE?["T1","T2","T3","T4","T5","T6","T7"]:["D1","D2","D3","D4","D5","D6","D7"];
+  var dayCircles="";
+  for(var i=0;i<7;i++){
+    var dn=i+1,cls,lCls,icon;
+    if(pr[i]){cls="ps-circle ps-done";lCls="ps-dlabel";icon="&#10003;";}
+    else if(dn===doneCnt+1){cls="ps-circle ps-active";lCls="ps-dlabel ps-dlabel-active";icon=dn;}
+    else{cls="ps-circle ps-todo";lCls="ps-dlabel";icon=dn;}
+    dayCircles+='<div class="ps-day"><div class="'+cls+'">'+icon+'</div><span class="'+lCls+'">'+dayKeys[i]+'</span></div>';
+  }
+  var quote=isDE?"\u201eDu baust keine Disziplin auf. Du baust eine Identit\u00e4t.\u201c":"\u201cYou don\u2019t build discipline. You build identity.\u201d";
+  var continueBtn=doneCnt<7
+    ?'<button class="ps-btn" onclick="go(\'day'+nextDay+'\')">'+(isDE?"Weiter \u2014 Tag ":"Continue \u2014 Day ")+nextDay+'</button>'
+    :'<button class="ps-btn" onclick="go(\'summary7\')">'+(isDE?"Zur Zusammenfassung \u2192":"See summary \u2192")+'</button>';
+  var s='<div class="ps-wrap">';
+  s+='<div class="ps-hero"><div class="ps-accent-bar"></div>';
+  s+='<p class="ps-label">'+(isDE?"Aktueller Streak":"Current Streak")+'</p>';
+  s+='<p class="ps-big">'+streak+'</p>';
+  s+='<p class="ps-sub">'+(isDE?"Tage am St\u00fcck":"days in a row")+'</p>';
+  s+='<div class="ps-days">'+dayCircles+'</div>';
+  s+='<div class="ps-progress-wrap"><div class="ps-progress-bar"><div class="ps-progress-fill" id="ps-prog-fill" style="width:0%"></div></div>';
+  s+='<div class="ps-progress-label"><span>'+(isDE?"Tag 1":"Day 1")+'</span><span>'+doneCnt+' / 7 '+(isDE?"abgeschlossen":"complete")+'</span><span>'+(isDE?"Tag 7":"Day 7")+'</span></div>';
+  s+='</div></div>';
+  s+='<div class="ps-stats">';
+  s+='<div class="ps-stat"><p class="ps-stat-val">'+pct+'%</p><p class="ps-stat-lbl">'+(isDE?"Abgeschlossen":"Completed")+'</p></div>';
+  s+='<div class="ps-stat"><p class="ps-stat-val">'+daysLeft+'</p><p class="ps-stat-lbl">'+(isDE?"Verbleibend":"Days left")+'</p></div>';
+  s+='<div class="ps-stat"><p class="ps-stat-val">'+bestStreak+'</p><p class="ps-stat-lbl">'+(isDE?"Bester Streak":"Best streak")+'</p></div>';
+  s+='<div class="ps-stat"><p class="ps-stat-val">'+runs+'</p><p class="ps-stat-lbl">'+(isDE?"Durchl\u00e4ufe":"Completed runs")+'</p></div>';
+  s+='</div>';
+  s+='<p class="ps-quote">'+quote+'</p>';
+  s+=continueBtn;
+  s+='</div>';
+  return s;
+}
+
 function updProg(){
+  var pb=document.getElementById("progress-bar-wrap")||document.querySelector(".progress-bar-wrap");
+  if(pb&&!pb.dataset.bound){pb.dataset.bound="1";pb.addEventListener("click",function(){go("progress");});}
   var pr=getPr(),tot=0;for(var i=0;i<pr.length;i++)if(pr[i])tot++;
   var f=document.getElementById("progress-fill");if(f)f.style.width=Math.round(tot/10*100)+"%";
   var tx=document.getElementById("progress-text");if(tx)tx.textContent=tot+t("progText");
