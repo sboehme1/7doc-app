@@ -1001,15 +1001,15 @@ body {
 
 .grounding-btn { position: fixed; bottom: 68px; right: 20px; width: 40px; height: 40px; background: var(--sand-light); border: 1.5px solid rgba(196,112,75,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; cursor: pointer; z-index: 190; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
 .grounding-btn.visible { opacity: 1; pointer-events: all; }
-.grounding-popup { background: var(--sand-light); border-radius: var(--radius-lg); padding: 1.5rem 1.25rem; max-width: 320px; width: 100%; position: relative; }
+.grounding-popup { background: var(--sand-light); border-radius: var(--radius-lg); padding: 1.75rem 1.5rem; max-width: 340px; width: 100%; position: relative; }
 .grounding-popup-title { font-family: var(--font-display); font-size: 1rem; color: var(--warm-black); font-weight: 600; margin-bottom: 0.25rem; }
-.grounding-popup-sub { font-size: 0.75rem; color: var(--warm-gray-light); margin-bottom: 1rem; font-style: italic; font-family: var(--font-accent); }
+.grounding-popup-sub { font-size: 0.75rem; color: var(--warm-gray-light); margin-bottom: 1.5rem; font-style: italic; font-family: var(--font-accent); }
 .grounding-sense-list { display: flex; flex-direction: column; gap: 0; }
-.grounding-sense { display: flex; align-items: center; gap: 10px; padding: 0.55rem 0; border-bottom: 0.5px solid var(--sand-dark); font-size: 0.88rem; color: var(--warm-gray); }
+.grounding-sense { display: flex; align-items: center; gap: 12px; padding: 0.85rem 0; border-bottom: 0.5px solid var(--sand-dark); font-size: 0.88rem; color: var(--warm-gray); line-height: 1.5; }
 .grounding-sense:last-child { border-bottom: none; }
-.grounding-sense-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--terracotta); flex-shrink: 0; }
+.grounding-sense-dot { display: none; }
 .grounding-close { position: absolute; top: 0.75rem; right: 0.75rem; background: transparent; border: none; font-size: 1.1rem; color: var(--warm-gray-light); cursor: pointer; }
-.grounding-hint { font-size: 0.72rem; color: var(--warm-gray-light); text-align: center; margin-top: 1rem; font-style: italic; font-family: var(--font-accent); }
+.grounding-hint { font-size: 0.72rem; color: var(--warm-gray-light); text-align: center; margin-top: 1.5rem; font-style: italic; font-family: var(--font-accent); padding-top: 0.75rem; border-top: 0.5px solid var(--sand-dark); }
 .grounding-welcome-hint { display: flex; align-items: flex-start; gap: 0.75rem; background: rgba(196,112,75,0.07); border: 1px solid rgba(196,112,75,0.18); border-radius: var(--radius-md); padding: 0.85rem 1rem; margin: 1rem 0; }
 .grounding-welcome-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
 .grounding-welcome-text { font-size: 0.82rem; color: var(--warm-gray); line-height: 1.6; }
