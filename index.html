@@ -76,6 +76,21 @@
   <div id="upsell-overlay" class="upsell-overlay" style="display:none;"></div>
   <div id="add-code-overlay" class="upsell-overlay" style="display:none;"></div>
 
+<div id="mood-overlay" onclick="if(event.target===this)closeMood();">
+  <div class="mood-popup">
+    <div class="mood-label" id="mood-label">Dein Check-In ✦</div>
+    <div class="mood-question" id="mood-question">Wie geht es dir gerade?</div>
+    <div class="mood-emojis">
+      <span class="mood-emoji" onclick="saveMood(1)">😔</span>
+      <span class="mood-emoji" onclick="saveMood(2)">😐</span>
+      <span class="mood-emoji" onclick="saveMood(3)">🙂</span>
+      <span class="mood-emoji" onclick="saveMood(4)">😊</span>
+      <span class="mood-emoji" onclick="saveMood(5)">✨</span>
+    </div>
+    <div class="mood-hint" id="mood-hint">Tippe ein Emoji — fertig.</div>
+    <button class="mood-skip" onclick="closeMood()" id="mood-skip">Überspringen</button>
+  </div>
+</div>
 <div id="breath-popup-overlay" onclick="if(event.target===this)closeBreathPopup();">
   <div class="breath-popup-b">
     <div class="bp-sub" id="bpSub">ATEMÜBUNG · TAG 1</div>

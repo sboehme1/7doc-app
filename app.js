@@ -1487,6 +1487,7 @@ function initApp(){
       checkCode();
     }
   });
+  showMoodIfNeeded();
 }
 document.addEventListener("DOMContentLoaded",initApp);
 
@@ -1661,4 +1662,33 @@ function startBreath(){
     btn._raf=requestAnimationFrame(tick);
   }
   btn._raf=requestAnimationFrame(tick);
+}
+
+function showMoodIfNeeded(){
+  var today=new Date().toISOString().slice(0,10);
+  var last=localStorage.getItem('7doc_mood_date');
+  if(last===today)return;
+  var ov=document.getElementById('mood-overlay');
+  if(ov)ov.style.display='flex';
+  var isDE=LANG==='de';
+  var lbl=document.getElementById('mood-label');
+  var q=document.getElementById('mood-question');
+  var hint=document.getElementById('mood-hint');
+  var skip=document.getElementById('mood-skip');
+  if(lbl)lbl.textContent=isDE?'Dein Check-In \u2726':'Your Check-In \u2726';
+  if(q)q.textContent=isDE?'Wie geht es dir gerade?':'How are you feeling right now?';
+  if(hint)hint.textContent=isDE?'Tippe ein Emoji \u2014 fertig.':'Tap an emoji \u2014 done.';
+  if(skip)skip.textContent=isDE?'\u00dcberspringen':'Skip';
+}
+function saveMood(val){
+  var today=new Date().toISOString().slice(0,10);
+  localStorage.setItem('7doc_mood_date',today);
+  localStorage.setItem('7doc_mood_'+today,val);
+  closeMood();
+}
+function closeMood(){
+  var ov=document.getElementById('mood-overlay');
+  if(ov)ov.style.display='none';
+  var today=new Date().toISOString().slice(0,10);
+  localStorage.setItem('7doc_mood_date',today);
 }

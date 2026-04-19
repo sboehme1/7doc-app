@@ -1476,3 +1476,71 @@ body {
   transition: background 0.2s;
 }
 .breath-start-link:hover { background: #9A7B4F18; }
+
+#mood-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44,40,36,0.55);
+  z-index: 9200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.mood-popup {
+  background: #FAF8F3;
+  border-radius: 20px;
+  border: 1.5px solid #ddd8d0;
+  padding: 28px 24px 22px;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.mood-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #9A7B4F;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.mood-question {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2C2824;
+  line-height: 1.4;
+}
+.mood-emojis {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.mood-emoji {
+  font-size: 28px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: all 0.15s;
+  line-height: 1;
+}
+.mood-emoji:hover {
+  background: #9A7B4F18;
+  transform: scale(1.15);
+}
+.mood-hint {
+  font-size: 11px;
+  color: #bbb;
+}
+.mood-skip {
+  font-size: 11px;
+  color: #bbb;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  padding: 4px;
+}
