@@ -1511,7 +1511,10 @@ if ("serviceWorker" in navigator) {
     });
   });
   /* Reload auslösen wenn neuer SW die Kontrolle übernimmt */
-  showUpdateToast();
+  if (!sessionStorage.getItem('7doc_update_shown')) {
+    sessionStorage.setItem('7doc_update_shown', '1');
+    showUpdateToast();
+  }
   navigator.serviceWorker.addEventListener("controllerchange", function() {
     if(!sessionStorage.getItem("7doc_reloaded")){
       sessionStorage.setItem("7doc_reloaded","1");
