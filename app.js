@@ -774,10 +774,16 @@ function renderDay(d){
     s+='</div></div></div>';
   }
   // Safety (right after on-the-go)
-  s+='<div class="safety-box"><h3>'+t("safety")+'</h3>';
-  s+='<div class="safety-item">&#9670; '+t("s1")+'</div>';
-  s+='<div class="safety-item">&#9670; '+t("s2")+'</div>';
-  s+='<div class="safety-item">&#9670; '+t("s3")+'</div></div>';
+  s+='<div class="info-section"><h2>'+t("safety")+'</h2>';
+  s+='<div class="grounding-welcome-hint">';
+  s+='<div class="grounding-welcome-icon">&#127807;</div>';
+  s+='<div class="grounding-welcome-text">'+(LANG==="de"
+    ?'<strong>Der grüne Button unten rechts ist dein Anker.</strong> Wenn es zu intensiv wird, du eine Pause brauchst oder einfach kurz durchatmen möchtest — tippe auf &#127807;. Die 5-Sinne-Übung bringt dich sofort zurück in den Moment.'
+    :'<strong>The green button on the bottom right is your anchor.</strong> If things feel too intense, you need a pause, or simply want to breathe — tap &#127807;. The 5-senses exercise brings you back to the present moment instantly.')+'</div>';
+  s+='</div>';
+  s+='<p style="font-size:0.82rem;color:var(--warm-gray);margin-top:0.5rem;">'+t("s1")+'</p>';
+  s+='<p style="font-size:0.82rem;color:var(--warm-gray);margin-top:0.25rem;">'+t("s3")+'</p>';
+  s+='</div>';
   // Intro
   /* Intro: Absätze bei \n\n trennen */
   var introParts=d.intro.split("\n\n");s+='<div class="day-intro">';
@@ -1276,6 +1282,40 @@ function showCoachingMoment(){
   document.body.style.overflow="hidden";
 }
 
+/* === GROUNDING POPUP === */
+function showGroundingPopup(){
+  var ov=document.getElementById("upsell-overlay");if(!ov)return;
+  var isDE=LANG==="de";
+  var title=isDE?"&#127807; Komm zurück zu dir":"&#127807; Come back to yourself";
+  var sub=isDE?"5 Sinne · 2 Minuten · jetzt":"5 senses · 2 minutes · right now";
+  var hint=isDE?"Du darfst jederzeit pausieren. Du bist in Sicherheit.":"You may pause at any time. You are safe.";
+  var senses=isDE?[
+    ["&#128065;","Was siehst du gerade? Nenne 5 Dinge."],
+    ["&#128066;","Was hörst du? Nenne 4 Geräusche."],
+    ["&#128080;","Was spürst du körperlich? Nenne 3 Empfindungen."],
+    ["&#128079;","Was riechst du? Nenne 2 Düfte."],
+    ["&#128068;","Was schmeckst du? Nenne 1 Geschmack."]
+  ]:[
+    ["&#128065;","What do you see right now? Name 5 things."],
+    ["&#128066;","What do you hear? Name 4 sounds."],
+    ["&#128080;","What do you feel physically? Name 3 sensations."],
+    ["&#128079;","What do you smell? Name 2 scents."],
+    ["&#128068;","What do you taste? Name 1 taste."]
+  ];
+  var sensesHtml=senses.map(function(s){
+    return '<div class="grounding-sense"><div class="grounding-sense-dot"></div>'+s[0]+' '+s[1]+'</div>';
+  }).join("");
+  ov.innerHTML='<div class="grounding-popup">'
+    +'<button class="grounding-close" onclick="closeUpsellPopup()">&#10005;</button>'
+    +'<div class="grounding-popup-title">'+title+'</div>'
+    +'<div class="grounding-popup-sub">'+sub+'</div>'
+    +'<div class="grounding-sense-list">'+sensesHtml+'</div>'
+    +'<div class="grounding-hint">'+hint+'</div>'
+    +'</div>';
+  ov.style.display="flex";
+  document.body.style.overflow="hidden";
+}
+
 /* === UPSELL POPUP === */
 function showUpsellPopup(){
   var ov=document.getElementById("upsell-overlay");
@@ -1340,6 +1380,16 @@ function submitAddCode(){
 
 /* === INIT === */
 function initApp(){
+  var gbEl=document.createElement("button");
+  gbEl.className="grounding-btn";gbEl.id="grounding-btn";
+  gbEl.innerHTML="&#127807;";
+  gbEl.setAttribute("aria-label","Grounding");
+  gbEl.onclick=showGroundingPopup;
+  document.body.appendChild(gbEl);
+  window.addEventListener("scroll",function(){
+    var gb=document.getElementById("grounding-btn");
+    if(gb){gb.className=window.scrollY>200?"grounding-btn visible":"grounding-btn";}
+  });
   document.getElementById("footer-disc").textContent=t("footerDisc");
   var fac=document.getElementById("footer-add-code");if(fac)fac.textContent=t("addCode");
   var cpl=document.getElementById("coaching-progress-link");if(cpl)cpl.textContent=t("coachingBtn");
