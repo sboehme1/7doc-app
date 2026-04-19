@@ -1578,7 +1578,7 @@ function openBreathPopup(){
     if(count)count.textContent='\u2014';
     if(cycles)cycles.textContent=rem+' '+(isDE?'Zyklen':'cycles');
     if(done)done.style.display='none';
-    btn.textContent=isDE?'Starten':'Start';
+    btn.textContent=btn._remaining&&btn._remaining<MAX?(isDE?'Weitermachen':'Continue'):(isDE?'Starten':'Start');
   }
 }
 function closeBreathPopup(){
@@ -1651,7 +1651,7 @@ function startBreath(){
       if(btn._phaseIdx===0){
         btn._remaining--;
         if(btn._remaining<=0){
-          btn._running=false;btn._remaining=null;
+          btn._running=false;
           outer.style.transform='scale(1)';outer.style.borderColor='#9A7B4F';
           inner.style.transform='scale(1)';inner.style.background='#9A7B4F22';
           if(phaseEl)phaseEl.textContent=isDE?'Fertig':'Done';
