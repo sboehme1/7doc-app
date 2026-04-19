@@ -1472,6 +1472,17 @@ document.addEventListener("DOMContentLoaded",initApp);
 
 /* === SERVICE WORKER REGISTRATION + UPDATE BANNER === */
 if ("serviceWorker" in navigator) {
+  function showUpdateToast() {
+    var toast = document.createElement('div');
+    toast.className = 'update-toast';
+    toast.innerHTML = '<span class="update-toast-icon">↻</span><span>Neue Version verfügbar — App wird aktualisiert.</span>';
+    document.body.appendChild(toast);
+    setTimeout(function(){ toast.classList.add('visible'); }, 100);
+    setTimeout(function(){
+      toast.classList.remove('visible');
+      setTimeout(function(){ toast.remove(); }, 400);
+    }, 4000);
+  }
   navigator.serviceWorker.register("./sw.js").then(function(reg) {
     reg.addEventListener("updatefound", function() {
       var newSW = reg.installing;
@@ -1500,6 +1511,7 @@ if ("serviceWorker" in navigator) {
     });
   });
   /* Reload auslösen wenn neuer SW die Kontrolle übernimmt */
+  showUpdateToast();
   navigator.serviceWorker.addEventListener("controllerchange", function() {
     if(!sessionStorage.getItem("7doc_reloaded")){
       sessionStorage.setItem("7doc_reloaded","1");

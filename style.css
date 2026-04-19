@@ -1366,3 +1366,32 @@ body {
   margin: 0;
 }
 .upsell-card-btn:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
+
+.update-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 12px;
+  right: 12px;
+  background: #2C2824;
+  color: #FAF8F3;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+.update-toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.update-toast-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
