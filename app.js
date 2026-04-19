@@ -175,6 +175,8 @@ var T = {
   }
 };
 
+var _prevPage=null;
+
 var DAYS = {
   de: [
     {num:1,title:"Ankommen & Atmen",subtitle:"Dein Startpunkt ist hier und jetzt",goal:"Bei dir einchecken & zur Ruhe kommen",time:"Ideal 20 Minuten",audio:"Audio zu Tag 1 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
@@ -887,6 +889,15 @@ function go(p){
   else{var num=parseInt(p.replace("day",""));var dd=days();var d=null;for(var i=0;i<dd.length;i++){if(dd[i].num===num){d=dd[i];break;}}
   if(d)m.innerHTML='<div class="page active">'+renderDay(d)+'</div>';}
   updNav();window.scrollTo(0,0);
+  var pg=m.querySelector(".page");
+  if(pg&&_prevPage){
+    var dd2=days();
+    var prevNum=parseInt(_prevPage.replace("day",""));
+    var curNum=parseInt(p.replace("day",""));
+    var goingBack=(!isNaN(prevNum)&&!isNaN(curNum)&&curNum<prevNum)||(p==="welcome"&&_prevPage!=="welcome");
+    if(goingBack)pg.classList.add("from-left");
+  }
+  _prevPage=p;
 }
 function updNav(){
   var nav=document.getElementById("nav-scroll"),pr=getPr(),dd=days(),s="";
