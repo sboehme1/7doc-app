@@ -177,6 +177,33 @@ var T = {
 
 var _prevPage=null;
 
+var QUOTES = {
+  de: [
+    {text:"Breathe. You are alive.",author:"Thich Nhat Hanh"},
+    {text:"Wer ein Warum hat, dem ist kein Wie zu schwer.",author:"Viktor Frankl"},
+    {text:"Viele warten auf die perfekten Bedingungen. Sie merken nicht, dass das Anfangen die perfekte Bedingung ist.",author:"Alex Hormozi"},
+    {text:"Ich bin nicht das, was mir passiert ist. Ich bin das, was ich entscheide zu werden.",author:"Carl Gustav Jung"},
+    {text:"Solange du das Unbewusste nicht bewusst machst, wird es dein Leben bestimmen \u2014 und du wirst es Schicksal nennen.",author:"Carl Gustav Jung"},
+    {text:"Auf dem Gipfel eines Berges ist man bereits am Fu\u00df des n\u00e4chsten.",author:null},
+    {text:"Hoffnung ist nicht die \u00dcberzeugung, dass etwas gut ausgeht, sondern die Gewissheit, dass etwas Sinn hat, egal wie es ausgeht.",author:"V\u00e1clav Havel"},
+    {text:"Wer in der Zukunft lebt, ist \u00e4ngstlich. Wer in der Vergangenheit lebt, ist deprimiert. Wer im Jetzt lebt, ist gl\u00fccklich.",author:null},
+    {text:"Alle wollen die Welt ver\u00e4ndern, aber keiner sich selbst.",author:"Leo Tolstoi"},
+    {text:"Die Magie, nach der du suchst, steckt in der Arbeit, der du ausweichst.",author:null}
+  ],
+  en: [
+    {text:"Breathe. You are alive.",author:"Thich Nhat Hanh"},
+    {text:"He who has a why can bear almost any how.",author:"Viktor Frankl"},
+    {text:"A lot of people wait for the perfect conditions to start. They don\u2019t realize that starting is the perfect condition.",author:"Alex Hormozi"},
+    {text:"I am not what happened to me. I am what I choose to become.",author:"Carl Gustav Jung"},
+    {text:"Until you make the unconscious conscious, it will direct your life and you will call it fate.",author:"Carl Gustav Jung"},
+    {text:"On top of a mountain is the bottom of the next.",author:null},
+    {text:"Hope is not the conviction that something will turn out well, but the certainty that something makes sense, regardless of how it turns out.",author:"V\u00e1clav Havel"},
+    {text:"If you live in the future you\u2019re anxious, if you live in the past you\u2019re depressed, if you live in the now you\u2019re happy.",author:null},
+    {text:"Everyone thinks of changing the world, but no one thinks of changing himself.",author:"Leo Tolstoy"},
+    {text:"The magic you are looking for is in the work you are avoiding.",author:null}
+  ]
+};
+
 var DAYS = {
   de: [
     {num:1,title:"Ankommen & Atmen",subtitle:"Dein Startpunkt ist hier und jetzt",goal:"Bei dir einchecken & zur Ruhe kommen",time:"Ideal 20 Minuten",audio:"Audio zu Tag 1 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
@@ -759,6 +786,12 @@ function renderDay(d){
   var n=getN(d.num),st=getS(d.num),pr=getPr(),done=pr[d.num-1],dd=days(),next=d.num<10?dd[d.num]:null;
   var s="";
   s+='<div class="day-header"><div class="day-number">'+d.num+'</div>';
+  var q=QUOTES[LANG]&&QUOTES[LANG][d.num-1];
+  if(q){
+    s+='<div class="day-quote"><span class="day-quote-text">\u201e'+q.text+'\u201c</span>';
+    if(q.author)s+='<span class="day-quote-author">\u2014 '+q.author+'</span>';
+    s+='</div>';
+  }
   s+='<h1 class="day-title">'+d.title+'</h1><p class="day-subtitle">'+d.subtitle+'</p></div>';
   // Meta
   s+='<div class="meta-box"><div><div class="meta-label">'+(LANG==="de"?"Ziel":"Goal")+'</div><div class="meta-value">'+d.goal+'</div></div>';
