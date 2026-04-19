@@ -76,6 +76,28 @@
   <div id="upsell-overlay" class="upsell-overlay" style="display:none;"></div>
   <div id="add-code-overlay" class="upsell-overlay" style="display:none;"></div>
 
+<div id="breath-popup-overlay" style="display:none;position:fixed;inset:0;background:rgba(44,40,36,0.55);z-index:9100;align-items:center;justify-content:center;padding:1rem;" onclick="if(event.target===this)closeBreathPopup();">
+  <div class="breath-popup-b">
+    <div class="bp-sub" id="bpSub">ATEMÜBUNG · TAG 1</div>
+    <div class="bp-title" id="bpTitle">Ankommen &amp; Atmen</div>
+    <div class="breath-stage">
+      <div class="breath-ring-outer" id="bRingOuter"></div>
+      <div class="breath-ring-inner" id="bRingInner"></div>
+      <div class="breath-center-count" id="bCount">—</div>
+    </div>
+    <div class="bp-chips">
+      <span class="bp-chip" id="bChip1">4s ein</span>
+      <span class="bp-chip" id="bChip2">4s halten</span>
+      <span class="bp-chip" id="bChip3">6s aus</span>
+    </div>
+    <div class="breath-phase" id="bPhase">Bereit</div>
+    <div class="breath-cycles" id="bCycles">5 Zyklen</div>
+    <div class="breath-done" id="bDone" style="display:none;">✦ Gut gemacht</div>
+    <button class="bp-btn-start" id="bBtn" onclick="startBreath()">Starten</button>
+    <button class="bp-btn-close" onclick="closeBreathPopup()">Schließen</button>
+  </div>
+</div>
+
   <div id="update-banner" style="display:none;">
     <p id="update-text"></p>
     <button id="update-confirm"></button>
