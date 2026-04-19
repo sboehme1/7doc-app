@@ -992,7 +992,7 @@ function updProg(){
   var circles="";
   for(var i=0;i<pts.length;i++){
     var p=pts[i];var lbl=i+1;
-    if(i===tD-1){
+    if(i===tD-1||(i===6&&tD===10)){
       circles+='<circle cx="'+p.x+'" cy="'+p.y+'" r="10" fill="#FAF0D4" stroke="#C9A96E" stroke-width="2.5"/>';
       circles+='<text x="'+p.x+'" y="'+(p.y+3.5)+'" text-anchor="middle" font-size="8" fill="#9A7B4F" font-family="sans-serif" font-weight="700">'+lbl+'</text>';
     } else if(pr2[i]){

@@ -169,7 +169,7 @@ body {
   margin-bottom: 8px;
   font-weight: 500;
 }
-.streak-card { display: flex; align-items: center; justify-content: space-between; background: rgba(196,112,75,0.08); border: 1px solid rgba(196,112,75,0.22); border-radius: 8px; padding: 0.45rem 0.75rem; margin-top: 0.5rem; cursor: pointer; transition: background 0.2s ease; }
+.streak-card { display: flex; align-items: center; justify-content: space-between; background: rgba(196,112,75,0.08); border: 1px solid rgba(196,112,75,0.22); border-radius: 8px; padding: 0.45rem 0.75rem; margin: 0.5rem auto 0; cursor: pointer; transition: background 0.2s ease; max-width: 480px; }
 .streak-card:hover { background: rgba(196,112,75,0.14); }
 .streak-card-left { display: flex; align-items: center; gap: 7px; }
 .streak-card-fire { font-size: 1rem; line-height: 1; }
