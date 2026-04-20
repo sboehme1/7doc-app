@@ -24,6 +24,40 @@
   --radius-lg: 20px;
 }
 
+body.dark-mode {
+  --sand: #2a2218;
+  --cream: #241E19;
+  --sand-dark: #332b24;
+  --warm-black: #332b24;
+  --warm-gray: #9a8a7a;
+  --warm-gray-light: #7a6a5a;
+  --gold: #C9A96E;
+  --terracotta: #C4704B;
+  --terracotta-light: #d4836a;
+  background: #2a2218;
+  color: #E8D5B0;
+}
+body.dark-mode .app-header { background: #241E19; }
+body.dark-mode .motivation-banner { background: #332b24; color: #E8D5B0; }
+body.dark-mode .progress-container { background: #332b24; }
+body.dark-mode .nav-container { background: #241E19; border-bottom-color: #4a3d30; }
+body.dark-mode .nav-btn { background: #2a2218; color: #9a8a7a; border-color: #4a3d30; }
+body.dark-mode .nav-btn.active { background: #C4704B; color: #FAF8F3; border-color: #C4704B; }
+body.dark-mode .main-content { background: #2a2218; }
+body.dark-mode .day-card,
+body.dark-mode .step-block,
+body.dark-mode .tip-block,
+body.dark-mode .opt-block,
+body.dark-mode .science-block,
+body.dark-mode .meta-box { background: #332b24; border-color: #4a3d30; color: #E8D5B0; }
+body.dark-mode .step3-note-textarea { background: #241E19; color: #E8D5B0; border-color: #4a3d30; }
+body.dark-mode .app-footer { background: #1C1510; color: #7a6a5a; }
+body.dark-mode .mood-popup,
+body.dark-mode .breath-popup-b { background: #332b24; border-color: #4a3d30; }
+body.dark-mode .mood-question,
+body.dark-mode .bp-title { color: #E8D5B0; }
+body.dark-mode .coaching-progress-link { color: #C9A96E; border-color: #C9A96E; }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
 body {
@@ -1620,4 +1654,18 @@ body {
   cursor: pointer;
   font-family: inherit;
   padding: 4px;
+}
+
+.dark-toggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  z-index: 10;
 }
