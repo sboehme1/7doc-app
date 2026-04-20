@@ -187,11 +187,12 @@ body {
 /* === LANGUAGE SWITCH (prominent, no flags) === */
 .lang-switch {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   margin-top: 0.6rem;
-  position: relative;
+  width: 100%;
 }
 .lang-toggle {
   display: flex;
