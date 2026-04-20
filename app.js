@@ -1792,15 +1792,32 @@ function downloadCertificate(){
   ctx.strokeStyle='#C9A96E';
   ctx.lineWidth=1;
   ctx.beginPath();ctx.moveTo(450,570);ctx.lineTo(750,570);ctx.stroke();
+  var sig=new Image();
+  sig.onload=function(){
+    var sigW=180,sigH=70;
+    var sigX=(1200-sigW)/2;
+    ctx.globalAlpha=0.75;
+    ctx.drawImage(sig,sigX,590,sigW,sigH);
+    ctx.globalAlpha=1.0;
+    var link=document.createElement('a');
+    link.download='7DOC-Zertifikat.png';
+    link.href=canvas.toDataURL('image/png');
+    link.click();
+    closeCert();
+  };
+  sig.onerror=function(){
+    var link=document.createElement('a');
+    link.download='7DOC-Zertifikat.png';
+    link.href=canvas.toDataURL('image/png');
+    link.click();
+    closeCert();
+  };
+  sig.src='img/signature.png';
+  return;
   var dateStr=new Date().toLocaleDateString(isDE?'de-DE':'en-GB',{year:'numeric',month:'long',day:'numeric'});
   ctx.fillStyle='#7a6a5a';
   ctx.font='15px sans-serif';
   ctx.fillText('Sascha Böhme · Sash & Ventures · '+dateStr,600,720);
-  var link=document.createElement('a');
-  link.download='7DOC-Zertifikat.png';
-  link.href=canvas.toDataURL('image/png');
-  link.click();
-  closeCert();
 }
 function toggleDarkMode(){
   var isDark=document.body.classList.toggle('dark-mode');
