@@ -77,6 +77,20 @@
   <div id="upsell-overlay" class="upsell-overlay" style="display:none;"></div>
   <div id="add-code-overlay" class="upsell-overlay" style="display:none;"></div>
 
+<div id="cert-overlay" onclick="if(event.target===this)closeCert();">
+  <div class="cert-popup">
+    <div class="cert-popup-head">
+      <div class="cert-popup-icon">✦</div>
+      <div class="cert-popup-title" id="cert-popup-title">Du hast es geschafft.</div>
+      <div class="cert-popup-sub" id="cert-popup-sub">10 TAGE · ABGESCHLOSSEN</div>
+    </div>
+    <div class="cert-popup-body">
+      <div class="cert-popup-msg" id="cert-popup-msg">Dein Zertifikat ist bereit. Lade es herunter und behalte es als Erinnerung.</div>
+      <button class="cert-popup-btn" id="cert-popup-btn" onclick="downloadCertificate()">⬇ Zertifikat herunterladen</button>
+      <button class="cert-popup-skip" onclick="closeCert()" id="cert-popup-skip">Später</button>
+    </div>
+  </div>
+</div>
 <div id="onboarding-overlay">
   <div class="onboarding-popup">
     <div class="onboarding-label">WILLKOMMEN ✦</div>

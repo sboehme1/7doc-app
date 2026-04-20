@@ -1796,3 +1796,79 @@ body {
   transition: background 0.2s;
 }
 .onboarding-btn:hover { background: #7a6240; }
+
+#cert-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44,40,36,0.65);
+  z-index: 9400;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.cert-popup {
+  background: #FAF8F3;
+  border-radius: 20px;
+  border: 1.5px solid #ddd8d0;
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+}
+.cert-popup-head {
+  background: #2C2824;
+  padding: 20px 20px 16px;
+  text-align: center;
+}
+.cert-popup-icon {
+  font-size: 22px;
+  color: #C9A96E;
+  margin-bottom: 6px;
+}
+.cert-popup-title {
+  color: #C9A96E;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.cert-popup-sub {
+  color: #9a8a7a;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+.cert-popup-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+.cert-popup-msg {
+  font-size: 13px;
+  color: #5a4a3a;
+  line-height: 1.6;
+}
+.cert-popup-btn {
+  background: #C9A96E;
+  color: #2C2824;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+.cert-popup-btn:hover { background: #b89458; }
+.cert-popup-skip {
+  font-size: 12px;
+  color: #bbb;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}

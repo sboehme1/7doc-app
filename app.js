@@ -1514,6 +1514,7 @@ function initApp(){
     }
   });
   showMoodIfNeeded();
+  showCertIfEarned();
 }
 document.addEventListener("DOMContentLoaded",initApp);
 
@@ -1719,6 +1720,88 @@ function closeMood(){
   localStorage.setItem('7doc_mood_date',today);
 }
 
+function showCertIfEarned(){
+  var pr=getPr();
+  var done=0;for(var i=0;i<pr.length;i++)if(pr[i])done++;
+  if(done<10)return;
+  var shown=localStorage.getItem('7doc_cert_shown');
+  if(shown)return;
+  var ov=document.getElementById('cert-overlay');
+  if(!ov)return;
+  var isDE=LANG==='de';
+  var t=document.getElementById('cert-popup-title');
+  var s=document.getElementById('cert-popup-sub');
+  var m=document.getElementById('cert-popup-msg');
+  var b=document.getElementById('cert-popup-btn');
+  var sk=document.getElementById('cert-popup-skip');
+  if(t)t.textContent=isDE?'Du hast es geschafft.':'You did it.';
+  if(s)s.textContent=isDE?'10 TAGE · ABGESCHLOSSEN':'10 DAYS · COMPLETED';
+  if(m)m.textContent=isDE?'Dein Zertifikat ist bereit. Lade es herunter und behalte es als Erinnerung.':'Your certificate is ready. Download it and keep it as a reminder.';
+  if(b)b.textContent=isDE?'⬇ Zertifikat herunterladen':'⬇ Download certificate';
+  if(sk)sk.textContent=isDE?'Später':'Later';
+  ov.style.display='flex';
+}
+function closeCert(){
+  var ov=document.getElementById('cert-overlay');
+  if(ov)ov.style.display='none';
+  localStorage.setItem('7doc_cert_shown','1');
+}
+function downloadCertificate(){
+  var name=localStorage.getItem('7doc_user_name')||'';
+  var isDE=LANG==='de';
+  var canvas=document.createElement('canvas');
+  canvas.width=1200;canvas.height=850;
+  var ctx=canvas.getContext('2d');
+  ctx.fillStyle='#FAF0E6';
+  ctx.fillRect(0,0,1200,850);
+  ctx.fillStyle='#C4704B';
+  ctx.fillRect(60,40,1080,6);
+  ctx.fillStyle='#C9A96E';
+  ctx.fillRect(60,46,1080,2);
+  ctx.fillStyle='#C4704B';
+  ctx.fillRect(60,802,1080,6);
+  ctx.fillStyle='#C9A96E';
+  ctx.fillRect(60,798,1080,2);
+  ctx.fillStyle='#9A7B4F';
+  ctx.font='bold 18px sans-serif';
+  ctx.letterSpacing='8px';
+  ctx.textAlign='center';
+  ctx.fillText('SASH & VENTURES',600,110);
+  ctx.fillStyle='#7a6a5a';
+  ctx.font='italic 22px serif';
+  ctx.fillText(isDE?'Hiermit wird bestätigt, dass':'This is to certify that',600,200);
+  ctx.fillStyle='#2C2824';
+  ctx.font='bold italic 58px serif';
+  ctx.fillText(name||'—',600,290);
+  ctx.fillStyle='#9a8a7a';
+  ctx.strokeStyle='#C9A96E';
+  ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(400,320);ctx.lineTo(800,320);ctx.stroke();
+  ctx.fillStyle='#7a6a5a';
+  ctx.font='italic 22px serif';
+  ctx.fillText(isDE?'erfolgreich abgeschlossen hat':'has successfully completed',600,370);
+  ctx.fillStyle='#C4704B';
+  ctx.font='bold 38px sans-serif';
+  ctx.fillText('7 Days of Change',600,440);
+  ctx.fillStyle='#9A7B4F';
+  ctx.font='22px serif';
+  ctx.fillText(isDE?'Heimkehr zu dir selbst':'A Gentle Return to Yourself',600,490);
+  ctx.fillStyle='#9a8a7a';
+  ctx.font='16px sans-serif';
+  ctx.fillText(isDE?'10 Tage · Self-Leadership-Programm':'10 Days · Self-Leadership Program',600,530);
+  ctx.strokeStyle='#C9A96E';
+  ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(450,570);ctx.lineTo(750,570);ctx.stroke();
+  var dateStr=new Date().toLocaleDateString(isDE?'de-DE':'en-GB',{year:'numeric',month:'long',day:'numeric'});
+  ctx.fillStyle='#7a6a5a';
+  ctx.font='15px sans-serif';
+  ctx.fillText('Sascha Böhme · Sash & Ventures · '+dateStr,600,720);
+  var link=document.createElement('a');
+  link.download='7DOC-Zertifikat.png';
+  link.href=canvas.toDataURL('image/png');
+  link.click();
+  closeCert();
+}
 function toggleDarkMode(){
   var isDark=document.body.classList.toggle('dark-mode');
   var dt=document.getElementById('dark-toggle');
