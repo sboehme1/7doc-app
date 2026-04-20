@@ -1797,12 +1797,12 @@ function downloadCertificate(){
   ctx.font='15px sans-serif';
   ctx.textAlign='center';
   ctx.fillText('Sascha Böhme · Sash & Ventures · '+dateStr,600,720);
-  var sig=new Image();
-  sig.onload=function(){
-    var sigW=300,sigH=110;
-    var sigX=(1200-sigW)/2;
-    ctx.globalAlpha=0.85;
-    ctx.drawImage(sig,sigX,600,sigW,sigH);
+  var tree=new Image();
+  tree.onload=function(){
+    var tW=320,tH=200;
+    var tX=(1200-tW)/2;
+    ctx.globalAlpha=0.12;
+    ctx.drawImage(tree,tX,570,tW,tH);
     ctx.globalAlpha=1.0;
     var dataUrl=canvas.toDataURL('image/png');
     var isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -1816,14 +1816,20 @@ function downloadCertificate(){
     }
     closeCert();
   };
-  sig.onerror=function(){
-    var link=document.createElement('a');
-    link.download='7DOC-Zertifikat.png';
-    link.href=canvas.toDataURL('image/png');
-    link.click();
+  tree.onerror=function(){
+    var dataUrl=canvas.toDataURL('image/png');
+    var isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if(isMobile){
+      window.open(dataUrl,'_blank');
+    } else {
+      var link=document.createElement('a');
+      link.download='7DOC-Zertifikat.png';
+      link.href=dataUrl;
+      link.click();
+    }
     closeCert();
   };
-  sig.src='img/signature.png';
+  tree.src='img/CertificatePIC.png';
   return;
   var dateStr=new Date().toLocaleDateString(isDE?'de-DE':'en-GB',{year:'numeric',month:'long',day:'numeric'});
   ctx.fillStyle='#7a6a5a';
