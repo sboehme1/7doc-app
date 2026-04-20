@@ -1804,10 +1804,16 @@ function downloadCertificate(){
     ctx.globalAlpha=0.85;
     ctx.drawImage(sig,sigX,600,sigW,sigH);
     ctx.globalAlpha=1.0;
-    var link=document.createElement('a');
-    link.download='7DOC-Zertifikat.png';
-    link.href=canvas.toDataURL('image/png');
-    link.click();
+    var dataUrl=canvas.toDataURL('image/png');
+    var isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if(isMobile){
+      window.open(dataUrl,'_blank');
+    } else {
+      var link=document.createElement('a');
+      link.download='7DOC-Zertifikat.png';
+      link.href=dataUrl;
+      link.click();
+    }
     closeCert();
   };
   sig.onerror=function(){
