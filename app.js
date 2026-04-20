@@ -1454,6 +1454,12 @@ function submitAddCode(){
 
 /* === INIT === */
 function initApp(){
+  var savedTheme=localStorage.getItem('7doc_theme');
+  if(savedTheme==='dark'){
+    document.body.classList.add('dark-mode');
+    var dt=document.getElementById('dark-toggle');
+    if(dt)dt.textContent='☀️';
+  }
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape'){
       closeBreathPopup();
@@ -1697,4 +1703,11 @@ function closeMood(){
   if(ov)ov.style.display='none';
   var today=new Date().toISOString().slice(0,10);
   localStorage.setItem('7doc_mood_date',today);
+}
+
+function toggleDarkMode(){
+  var isDark=document.body.classList.toggle('dark-mode');
+  var dt=document.getElementById('dark-toggle');
+  if(dt)dt.textContent=isDark?'☀️':'🌙';
+  localStorage.setItem('7doc_theme',isDark?'dark':'light');
 }
