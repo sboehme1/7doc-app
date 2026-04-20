@@ -113,6 +113,23 @@ body.dark-mode .mood-question,
 body.dark-mode .bp-title { color: #E8D5B0; }
 body.dark-mode .coaching-progress-link { color: #C9A96E; border-color: #C9A96E; }
 
+/* === DARK MODE — fehlende Hintergrundfarben === */
+body.dark-mode .onboarding-popup { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .cert-popup { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .cert-popup-body { background: #332b24 !important; }
+body.dark-mode .cert-popup-msg { color: #C8B89A !important; }
+body.dark-mode .coaching-popup { background: #332b24 !important; }
+body.dark-mode #update-banner { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .grounding-popup { background: #332b24 !important; }
+body.dark-mode .grounding-btn { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .step-tip p { background: #241E19 !important; border-color: #4a3d30 !important; }
+body.dark-mode .optional-box { background: #241E19 !important; border-color: #4a3d30 !important; }
+body.dark-mode .book-hint-card { background: #241E19 !important; border-color: #4a3d30 !important; }
+body.dark-mode .ps-active,
+body.dark-mode .ps-todo { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .collapsible.onthego .collapsible-toggle,
+body.dark-mode .collapsible.onthego .collapsible-body { background: #1d2a1a !important; color: #E8D5B0 !important; }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
 body {
