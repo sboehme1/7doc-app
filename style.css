@@ -37,10 +37,31 @@ body.dark-mode {
   background: #2a2218;
   color: #E8D5B0;
 }
-body.dark-mode * {
-  color: inherit;
+body.dark-mode *:not(.nav-btn.active):not(.bp-chip):not(.lang-opt.active):not(.mood-emoji):not(.journey-always-btn) {
+  color: #E8D5B0;
   border-color: #4a3d30;
 }
+body.dark-mode .app-header,
+body.dark-mode .nav-container,
+body.dark-mode .main-content,
+body.dark-mode .progress-container,
+body.dark-mode .app-footer,
+body.dark-mode .day-card,
+body.dark-mode .step-block,
+body.dark-mode .tip-block,
+body.dark-mode .opt-block,
+body.dark-mode .science-block,
+body.dark-mode .meta-box,
+body.dark-mode .streak-card,
+body.dark-mode .upsell-overlay { background-color: #2a2218; }
+body.dark-mode .step3-note-textarea,
+body.dark-mode .onboarding-input { background: #241E19; color: #E8D5B0; }
+body.dark-mode em { color: #B0A090 !important; }
+body.dark-mode a { color: #C9A96E !important; }
+body.dark-mode .nav-btn { background: #332b24 !important; color: #9a8a7a !important; }
+body.dark-mode .nav-btn.active { background: #C4704B !important; color: #FAF8F3 !important; }
+body.dark-mode .bp-chip { background: #1C1510 !important; color: #E8D5B0 !important; }
+body.dark-mode .day-number { color: #C9A96E !important; }
 body.dark-mode h1,
 body.dark-mode h2,
 body.dark-mode h3,
@@ -166,10 +187,11 @@ body {
 /* === LANGUAGE SWITCH (prominent, no flags) === */
 .lang-switch {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 8px;
+  align-items: center;
+  gap: 10px;
   margin-top: 0.6rem;
+  position: relative;
 }
 .lang-toggle {
   display: flex;
