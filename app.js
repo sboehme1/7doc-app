@@ -985,7 +985,7 @@ function calcStreak(){
   var todayStr=today.toISOString().slice(0,10);
   var last=localStorage.getItem("7doc_streak_date");
   var streak=parseInt(localStorage.getItem("7doc_streak_count")||"0");
-  if(!last){localStorage.setItem("7doc_streak_date",todayStr);localStorage.setItem("7doc_streak_count","1");localStorage.setItem("7doc_best_streak","1");return 1;}
+  if(!last){localStorage.setItem("7doc_streak_date",todayStr);localStorage.setItem("7doc_streak_count","0");return 0;}
   if(last===todayStr)return streak;
   var lastDate=new Date(last);lastDate.setHours(0,0,0,0);
   var diff=Math.round((today-lastDate)/(1000*60*60*24));
@@ -1025,7 +1025,7 @@ function renderProgressScreen(){
     :'<button class="ps-btn" onclick="go(\'summary7\')">'+(isDE?"Zur Zusammenfassung \u2192":"See summary \u2192")+'</button>';
   var s='<div class="ps-wrap">';
   s+='<div class="ps-hero"><div class="ps-accent-bar"></div>';
-  s+='<p class="ps-label">'+(isDE?"Aktueller Streak":"Current Streak")+'</p>';
+  s+='<p class="ps-label">'+(isDE?"Tage in Folge":"Days in a Row")+'</p>';
   s+='<p class="ps-big">'+streak+'</p>';
   s+='<p class="ps-sub">'+(isDE?"Tage am St\u00fcck":"days in a row")+'</p>';
   s+='<div class="ps-days">'+dayCircles+'</div>';
