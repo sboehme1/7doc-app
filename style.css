@@ -166,7 +166,9 @@ body {
 /* === LANGUAGE SWITCH (prominent, no flags) === */
 .lang-switch {
   display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 8px;
   margin-top: 0.6rem;
 }
 .lang-toggle {
@@ -1690,18 +1692,14 @@ body {
   padding: 4px;
 }
 
-.dark-toggle {
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
+.dark-toggle-inline {
   background: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
-  padding: 4px;
+  padding: 2px 6px;
   line-height: 1;
-  z-index: 10;
+  vertical-align: middle;
 }
 
 #onboarding-overlay {
