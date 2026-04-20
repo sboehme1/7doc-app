@@ -1454,6 +1454,20 @@ function submitAddCode(){
 
 /* === INIT === */
 function initApp(){
+  var userName=localStorage.getItem('7doc_user_name');
+  if(!userName){
+    var ov=document.getElementById('onboarding-overlay');
+    if(ov)ov.style.display='flex';
+    var isDE=LANG==='de';
+    var t1=document.getElementById('onboarding-title');
+    var s1=document.getElementById('onboarding-sub');
+    var b1=document.getElementById('onboarding-btn');
+    var p1=document.getElementById('onboarding-name');
+    if(t1)t1.textContent=isDE?'Wie darf ich dich nennen?':'What shall I call you?';
+    if(s1)s1.textContent=isDE?'Dein Name erscheint auf deinem Abschluss-Zertifikat.':'Your name will appear on your completion certificate.';
+    if(b1)b1.textContent=isDE?'Weiter →':'Continue →';
+    if(p1)p1.placeholder=isDE?'Dein Name':'Your name';
+  }
   var savedTheme=localStorage.getItem('7doc_theme');
   if(savedTheme==='dark'){
     document.body.classList.add('dark-mode');
@@ -1710,4 +1724,14 @@ function toggleDarkMode(){
   var dt=document.getElementById('dark-toggle');
   if(dt)dt.textContent=isDark?'☀️':'🌙';
   localStorage.setItem('7doc_theme',isDark?'dark':'light');
+}
+
+function saveOnboardingName(){
+  var inp=document.getElementById('onboarding-name');
+  var name=inp?inp.value.trim():'';
+  if(!name)name='Du';
+  localStorage.setItem('7doc_user_name',name);
+  var ov=document.getElementById('onboarding-overlay');
+  if(ov)ov.style.display='none';
+  showMoodIfNeeded();
 }

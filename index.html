@@ -77,6 +77,15 @@
   <div id="upsell-overlay" class="upsell-overlay" style="display:none;"></div>
   <div id="add-code-overlay" class="upsell-overlay" style="display:none;"></div>
 
+<div id="onboarding-overlay">
+  <div class="onboarding-popup">
+    <div class="onboarding-label">WILLKOMMEN ✦</div>
+    <div class="onboarding-title" id="onboarding-title">Wie darf ich dich nennen?</div>
+    <div class="onboarding-sub" id="onboarding-sub">Dein Name erscheint auf deinem Abschluss-Zertifikat.</div>
+    <input type="text" class="onboarding-input" id="onboarding-name" placeholder="Dein Name" maxlength="40">
+    <button class="onboarding-btn" id="onboarding-btn" onclick="saveOnboardingName()">Weiter →</button>
+  </div>
+</div>
 <div id="mood-overlay" onclick="if(event.target===this)closeMood();">
   <div class="mood-popup">
     <div class="mood-label" id="mood-label">Dein Check-In ✦</div>
