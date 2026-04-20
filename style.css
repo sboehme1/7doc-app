@@ -1124,7 +1124,8 @@ body {
 @media (max-width: 600px) {
   .app-header h1 { font-size: 1.1rem; }
   .app-header { padding: 0.8rem 1rem; }
-  .progress-container { top: 66px; padding: 0.4rem 1rem; }
+  .progress-container { padding: 0.4rem 1rem; }
+  .streak-card { display: flex !important; }
   .nav-container { top: 90px; }
   .main-content { padding: 1.2rem 0.8rem; }
   .logo-text { font-size: 1.9rem; }
