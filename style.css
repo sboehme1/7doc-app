@@ -124,6 +124,15 @@ body.dark-mode .prep-overview { background: #332b24 !important; border-color: #4
 body.dark-mode .step-note-textarea { background: #241E19 !important; color: #E8D5B0 !important; border-color: #4a3d30 !important; }
 body.dark-mode .export-btn { background: #332b24 !important; border-color: #4a3d30 !important; color: #C9A96E !important; }
 body.dark-mode .export-wrap { background: transparent !important; }
+body.dark-mode .step3-note { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .routine-sheet { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .routine-field textarea { background: #241E19 !important; color: #E8D5B0 !important; border-color: #4a3d30 !important; }
+body.dark-mode .collapsible.onthego .collapsible-toggle { background: #1d2a1a !important; color: #C5D1BB !important; border-color: #2d3d2a !important; }
+body.dark-mode .collapsible.onthego .collapsible-body { background: #1d2a1a !important; }
+body.dark-mode .collapsible.onthego .collapsible-body-inner p { color: #C5D1BB !important; }
+body.dark-mode .onthego-step p { color: #C8B89A !important; }
+body.dark-mode .state-item input[type="range"] { background: #5a4d3e !important; }
+body.dark-mode .state-item input[type="range"]::-webkit-slider-thumb { background: #C4704B !important; }
 
 /* Platzhalter für unbeantwortete Fragen / fehlende Notizen */
 .reflect-empty {
