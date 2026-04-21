@@ -1800,10 +1800,10 @@ function downloadCertificate(){
   ctx.fillText('Sascha Böhme · Sash & Ventures · '+dateStr,600,720);
   var tree=new Image();
   tree.onload=function(){
-    var tW=320,tH=200;
+    var tW=260,tH=310;
     var tX=(1200-tW)/2;
-    ctx.globalAlpha=0.12;
-    ctx.drawImage(tree,tX,570,tW,tH);
+    ctx.globalAlpha=0.22;
+    ctx.drawImage(tree,tX,540,tW,tH);
     ctx.globalAlpha=1.0;
     var dataUrl=canvas.toDataURL('image/png');
     var isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
