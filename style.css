@@ -133,6 +133,7 @@ body.dark-mode .collapsible.onthego .collapsible-body-inner p { color: #C5D1BB !
 body.dark-mode .onthego-step p { color: #C8B89A !important; }
 body.dark-mode .state-item input[type="range"] { background: #5a4d3e !important; }
 body.dark-mode .state-item input[type="range"]::-webkit-slider-thumb { background: #C4704B !important; }
+body.dark-mode .prep-otg-hint { background: #1d2a1a !important; border-left-color: #2d3d2a !important; color: #C5D1BB !important; }
 
 /* Platzhalter für unbeantwortete Fragen / fehlende Notizen */
 .reflect-empty {
