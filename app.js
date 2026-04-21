@@ -637,22 +637,22 @@ function renderEndSummary(maxDay){
     /* Weitere Step-Notizfelder aus den Steps ermitteln */
     var esStepNotes=[];
     for(var sni=0;sni<d.steps.length;sni++){if(d.steps[sni].noteField){var snk=d.steps[sni].noteField.key;var snv=n[snk]||"";if(snv.trim()&&snk!=="step3note")esStepNotes.push({label:d.steps[sni].noteField.label,val:snv});}}
-    if(true){
-      s+='<div class="es-reflections">';
-      for(var ri=0;ri<d.reflections.length;ri++){
-        var ans=n["r"+ri]||"";
-        if(!ans.trim())continue;
-        s+='<div class="es-reflect-item">';
-        s+='<div class="es-reflect-q">'+d.reflections[ri]+'</div>';
-        s+='<div class="es-reflect-a">'+ans+'</div>';
-        s+='</div>';
-      }
-      for(var sni2=0;sni2<esStepNotes.length;sni2++){
-        s+='<div class="es-reflect-item"><div class="es-reflect-q">'+esStepNotes[sni2].label+'</div><div class="es-reflect-a">'+esStepNotes[sni2].val+'</div></div>';
-      }
-      if(esS3.trim()){s+='<div class="es-reflect-item"><div class="es-reflect-q">'+(LANG==="de"?"Notizen:":"Notes:")+'</div><div class="es-reflect-a">'+esS3+'</div></div>';}
+    var esNoAns=LANG==='de'?'Diese Frage wurde nicht beantwortet.':'This question was not answered.';
+    var esNoNote=LANG==='de'?'Es wurden keine Notizen an diesem Tag geschrieben.':'No notes were written on this day.';
+    s+='<div class="es-reflections">';
+    for(var ri=0;ri<d.reflections.length;ri++){
+      var ans=n["r"+ri]||"";
+      var ansDisp=ans.trim()?ans:'<span class="reflect-empty">'+esNoAns+'</span>';
+      s+='<div class="es-reflect-item">';
+      s+='<div class="es-reflect-q">'+d.reflections[ri]+'</div>';
+      s+='<div class="es-reflect-a">'+ansDisp+'</div>';
       s+='</div>';
     }
+    for(var sni2=0;sni2<esStepNotes.length;sni2++){
+      s+='<div class="es-reflect-item"><div class="es-reflect-q">'+esStepNotes[sni2].label+'</div><div class="es-reflect-a">'+esStepNotes[sni2].val+'</div></div>';
+    }
+    s+='<div class="es-reflect-item"><div class="es-reflect-q">'+(LANG==="de"?"Notizen:":"Notes:")+'</div><div class="es-reflect-a">'+(esS3.trim()?esS3:'<span class="reflect-empty">'+esNoNote+'</span>')+'</div></div>';
+    s+='</div>';
     s+='</div>';
   }
   s+='</div>';
@@ -718,14 +718,15 @@ function renderJourney(){
       /* Weitere Step-Notizfelder (z.B. s2note in Tag 4) */
       var jStepNotes=[];
       for(var jsni=0;jsni<d.steps.length;jsni++){if(d.steps[jsni].noteField){var jsnk=d.steps[jsni].noteField.key;var jsnv=jn[jsnk]||'';if(jsnv.trim()&&jsnk!=='step3note')jStepNotes.push({label:d.steps[jsni].noteField.label,val:jsnv});}}
-      if(jHasAns||jS3.trim().length>0||jStepNotes.length>0){
-        s+='<div class="jdc-reflections">';
-        if(jHasAns){for(var jri=0;jri<d.reflections.length;jri++){var jans=jn['r'+jri]||'';if(!jans.trim())continue;
-          s+='<div class="jdc-reflect-item"><div class="jdc-reflect-q">'+d.reflections[jri]+'</div><div class="jdc-reflect-a">'+jans+'</div></div>';}}
-        for(var jsni2=0;jsni2<jStepNotes.length;jsni2++){s+='<div class="jdc-reflect-item"><div class="jdc-reflect-q">'+jStepNotes[jsni2].label+'</div><div class="jdc-reflect-a">'+jStepNotes[jsni2].val+'</div></div>';}
-        if(jS3.trim().length>0){s+='<div class="jdc-reflect-item"><div class="jdc-reflect-q">'+(LANG==="de"?'Notizen:':'Notes:')+'</div><div class="jdc-reflect-a">'+jS3+'</div></div>';}
-        s+='</div>';
-      }
+      s+='<div class="jdc-reflections">';
+      var jNoAns=LANG==='de'?'Diese Frage wurde nicht beantwortet.':'This question was not answered.';
+      var jNoNote=LANG==='de'?'Es wurden keine Notizen an diesem Tag geschrieben.':'No notes were written on this day.';
+      for(var jri=0;jri<d.reflections.length;jri++){var jans=jn['r'+jri]||'';
+        var jansDisp=jans.trim()?jans:'<span class="reflect-empty">'+jNoAns+'</span>';
+        s+='<div class="jdc-reflect-item"><div class="jdc-reflect-q">'+d.reflections[jri]+'</div><div class="jdc-reflect-a">'+jansDisp+'</div></div>';}
+      for(var jsni2=0;jsni2<jStepNotes.length;jsni2++){s+='<div class="jdc-reflect-item"><div class="jdc-reflect-q">'+jStepNotes[jsni2].label+'</div><div class="jdc-reflect-a">'+jStepNotes[jsni2].val+'</div></div>';}
+      s+='<div class="jdc-reflect-item"><div class="jdc-reflect-q">'+(LANG==="de"?'Notizen:':'Notes:')+'</div><div class="jdc-reflect-a">'+(jS3.trim()?jS3:'<span class="reflect-empty">'+jNoNote+'</span>')+'</div></div>';
+      s+='</div>';
     } else {
       s+='<div style="font-size:0.8rem;color:var(--warm-gray-light);font-style:italic;">'+t("journeyLocked")+'</div>';
     }
