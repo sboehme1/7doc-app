@@ -864,7 +864,7 @@ function renderDay(d){
       }
     }
     if(step.tips){for(var ti=0;ti<step.tips.length;ti++){s+='<div class="step-tip"><p><strong style="color:#c0845a">&rarr;</strong> '+step.tips[ti]+'</p></div>';}}
-    if(step.opt){s+='<div class="optional-box"><span class="optional-tag">'+(step.optLabel||t("optional"))+'</span><div class="opt-body">'+step.opt+'</div></div>';}
+    if(step.opt){var optHtml=step.opt.replace(/\n\n/g,'</p><p>');s+='<div class="optional-box"><span class="optional-tag">'+(step.optLabel||t("optional"))+'</span><div class="opt-body"><p>'+optHtml+'</p></div></div>';}
     if(step.box){s+='<div class="step-box"><p>'+step.box+'</p></div>';}
     if(step.noteField){
       var nfKey=step.noteField.key;
