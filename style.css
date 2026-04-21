@@ -112,6 +112,16 @@ body.dark-mode .breath-popup-b { background: #332b24; border-color: #4a3d30; }
 body.dark-mode .mood-question,
 body.dark-mode .bp-title { color: #E8D5B0; }
 body.dark-mode .coaching-progress-link { color: #C9A96E; border-color: #C9A96E; }
+body.dark-mode .step-section { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .step-header { border-bottom-color: #4a3d30 !important; }
+body.dark-mode .step-instruction { border-bottom-color: #4a3d30 !important; }
+body.dark-mode .journey-day-card { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .es-day-card { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .info-card { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .day-overview-item { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .routine-sheet { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .prep-overview { background: #332b24 !important; border-color: #4a3d30 !important; }
+body.dark-mode .step-note-textarea { background: #241E19 !important; color: #E8D5B0 !important; border-color: #4a3d30 !important; }
 
 /* Platzhalter für unbeantwortete Fragen / fehlende Notizen */
 .reflect-empty {
