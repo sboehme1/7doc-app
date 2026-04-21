@@ -1086,13 +1086,14 @@ function updProg(){
   }
   var manIdx=Math.min(done2,pts.length-1);
   var mp=pts[manIdx];
+  var manCol=document.body.classList.contains('dark-mode')?'#FAF8F3':'#2C2824';
   var manSvg='<g transform="translate('+mp.x+','+mp.y+')">'
-    +'<circle cx="0" cy="-26" r="6" fill="#2C2824"/>'
-    +'<line x1="0" y1="-20" x2="0" y2="-10" stroke="#2C2824" stroke-width="2.5" stroke-linecap="round"/>'
-    +'<line x1="0" y1="-17" x2="-5" y2="-12" stroke="#2C2824" stroke-width="2" stroke-linecap="round"/>'
-    +'<line x1="0" y1="-17" x2="5" y2="-12" stroke="#2C2824" stroke-width="2" stroke-linecap="round"/>'
-    +'<line x1="0" y1="-10" x2="-4" y2="-3" stroke="#2C2824" stroke-width="2" stroke-linecap="round"/>'
-    +'<line x1="0" y1="-10" x2="4" y2="-3" stroke="#2C2824" stroke-width="2" stroke-linecap="round"/>'
+    +'<circle cx="0" cy="-26" r="6" fill="'+manCol+'"/>'
+    +'<line x1="0" y1="-20" x2="0" y2="-10" stroke="'+manCol+'" stroke-width="2.5" stroke-linecap="round"/>'
+    +'<line x1="0" y1="-17" x2="-5" y2="-12" stroke="'+manCol+'" stroke-width="2" stroke-linecap="round"/>'
+    +'<line x1="0" y1="-17" x2="5" y2="-12" stroke="'+manCol+'" stroke-width="2" stroke-linecap="round"/>'
+    +'<line x1="0" y1="-10" x2="-4" y2="-3" stroke="'+manCol+'" stroke-width="2" stroke-linecap="round"/>'
+    +'<line x1="0" y1="-10" x2="4" y2="-3" stroke="'+manCol+'" stroke-width="2" stroke-linecap="round"/>'
     +'</g>';
   var labelX=Math.max(28,Math.min(mp.x,svgW-28));
   var duBistHier='<text x="'+labelX+'" y="'+(mp.y+18)+'" text-anchor="middle" font-size="8" fill="#C4704B" font-family="sans-serif" font-weight="700" style="paint-order:stroke;" stroke="#E8E0D0" stroke-width="3" stroke-linejoin="round">'+(LANG==="de"?"Du bist hier":"You are here")+'</text>';

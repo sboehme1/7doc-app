@@ -122,6 +122,8 @@ body.dark-mode .day-overview-item { background: #332b24 !important; border-color
 body.dark-mode .routine-sheet { background: #332b24 !important; border-color: #4a3d30 !important; }
 body.dark-mode .prep-overview { background: #332b24 !important; border-color: #4a3d30 !important; }
 body.dark-mode .step-note-textarea { background: #241E19 !important; color: #E8D5B0 !important; border-color: #4a3d30 !important; }
+body.dark-mode .export-btn { background: #332b24 !important; border-color: #4a3d30 !important; color: #C9A96E !important; }
+body.dark-mode .export-wrap { background: transparent !important; }
 
 /* Platzhalter für unbeantwortete Fragen / fehlende Notizen */
 .reflect-empty {
