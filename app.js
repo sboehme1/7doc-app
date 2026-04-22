@@ -746,28 +746,58 @@ function exportJourney(){
   var keys=["a","b","c","d"];
   var now=new Date();
   var dateStr=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(now.getDate()).padStart(2,"0");
-  var lines=[];
-  lines.push(t("exportFileHeader")+", "+dateStr);
-  lines.push("=".repeat(40));
-  lines.push("");
+  var doc=new window.jspdf.jsPDF({orientation:"portrait",unit:"mm",format:"a4"});
+  var pageW=210,margin=20,contentW=pageW-margin*2,y=margin;
+  function checkPage(need){if(y+need>285){doc.addPage();y=margin;}}
+  doc.setFillColor(44,40,36);
+  doc.rect(0,0,210,28,"F");
+  doc.setTextColor(201,169,110);
+  doc.setFontSize(16);
+  doc.setFont("helvetica","bold");
+  doc.text("7 Days of Change",margin,12);
+  doc.setFontSize(9);
+  doc.setFont("helvetica","normal");
+  doc.setTextColor(154,138,122);
+  doc.text(LANG==="de"?"Heimkehr zu dir selbst":"A Gentle Return to Yourself",margin,19);
+  doc.text(dateStr,pageW-margin,19,{align:"right"});
+  y=36;
   for(var i=0;i<dd.length;i++){
     if(!pr[i])continue;
     var d=dd[i];
     var st=getS(d.num);
     var n=getN(d.num);
-    var dayLabel=(LANG==="de"?"Tag ":"Day ")+d.num;
-    lines.push(dayLabel+" \u2013 "+d.title);
-    lines.push("-".repeat(30));
-    for(var qi=0;qi<4;qi++){
-      lines.push("  "+labels[qi]+": "+(st[keys[qi]]||5)+"/10");
-    }
+    checkPage(20);
+    doc.setFillColor(245,240,232);
+    doc.rect(margin,y,contentW,8,"F");
+    doc.setTextColor(44,40,36);
+    doc.setFontSize(11);
+    doc.setFont("helvetica","bold");
+    doc.text((LANG==="de"?"Tag ":"Day ")+d.num+" – "+d.title,margin+3,y+5.5);
+    y+=12;
+    doc.setFontSize(8);
+    doc.setFont("helvetica","normal");
+    doc.setTextColor(92,86,80);
+    var valLine=labels.map(function(l,qi){return l+": "+(st[keys[qi]]||5)+"/10";}).join("   ");
+    doc.text(valLine,margin,y);
+    y+=6;
     var hasContent=false;
     for(var ri=0;ri<d.reflections.length;ri++){
       var ans=n["r"+ri]||"";
       if(ans.trim()){
-        if(!hasContent){lines.push("");hasContent=true;}
-        lines.push("  "+d.reflections[ri]);
-        lines.push("  \u2192 "+ans.trim());
+        checkPage(14);
+        if(!hasContent){y+=2;hasContent=true;}
+        doc.setFontSize(8);
+        doc.setFont("helvetica","bold");
+        doc.setTextColor(92,86,80);
+        var qLines=doc.splitTextToSize(d.reflections[ri],contentW-4);
+        doc.text(qLines,margin,y);
+        y+=qLines.length*4+1;
+        doc.setFont("helvetica","normal");
+        doc.setTextColor(44,40,36);
+        doc.setFontSize(9);
+        var aLines=doc.splitTextToSize("→ "+ans.trim(),contentW-4);
+        doc.text(aLines,margin,y);
+        y+=aLines.length*4.5+3;
       }
     }
     for(var si=0;si<d.steps.length;si++){
@@ -775,31 +805,46 @@ function exportJourney(){
         var snk=d.steps[si].noteField.key;
         var snv=n[snk]||"";
         if(snv.trim()){
-          if(!hasContent){lines.push("");hasContent=true;}
-          lines.push("  "+d.steps[si].noteField.label);
-          lines.push("  \u2192 "+snv.trim());
+          checkPage(14);
+          doc.setFontSize(8);
+          doc.setFont("helvetica","bold");
+          doc.setTextColor(92,86,80);
+          doc.text(d.steps[si].noteField.label,margin,y);
+          y+=4;
+          doc.setFont("helvetica","normal");
+          doc.setTextColor(44,40,36);
+          doc.setFontSize(9);
+          var nLines=doc.splitTextToSize("→ "+snv.trim(),contentW-4);
+          doc.text(nLines,margin,y);
+          y+=nLines.length*4.5+3;
         }
       }
     }
     var s3=n["step3note"]||"";
     if(s3.trim()){
-      if(!hasContent){lines.push("");}
-      lines.push("  "+(LANG==="de"?"Notizen":"Notes")+":");
-      lines.push("  \u2192 "+s3.trim());
+      checkPage(14);
+      doc.setFontSize(8);
+      doc.setFont("helvetica","bold");
+      doc.setTextColor(92,86,80);
+      doc.text(LANG==="de"?"Notizen":"Notes",margin,y);
+      y+=4;
+      doc.setFont("helvetica","normal");
+      doc.setTextColor(44,40,36);
+      doc.setFontSize(9);
+      var s3Lines=doc.splitTextToSize("→ "+s3.trim(),contentW-4);
+      doc.text(s3Lines,margin,y);
+      y+=s3Lines.length*4.5+3;
     }
-    lines.push("");
+    y+=4;
+    doc.setDrawColor(220,213,205);
+    doc.line(margin,y,margin+contentW,y);
+    y+=6;
   }
-  lines.push("=".repeat(40));
-  lines.push(LANG==="de"?"Exportiert mit 7 Days of Change":"Exported with 7 Days of Change");
-  var blob=new Blob([lines.join("\n")],{type:"text/plain;charset=utf-8"});
-  var url=URL.createObjectURL(blob);
-  var a=document.createElement("a");
-  a.href=url;
-  a.download=(LANG==="de"?"7doc-meine-reise-":"7doc-my-journey-")+dateStr+".txt";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  checkPage(10);
+  doc.setFontSize(7);
+  doc.setTextColor(154,138,122);
+  doc.text(LANG==="de"?"Exportiert mit 7 Days of Change – sashandventures.com":"Exported with 7 Days of Change – sashandventures.com",pageW/2,y,{align:"center"});
+  doc.save((LANG==="de"?"7doc-meine-reise-":"7doc-my-journey-")+dateStr+".pdf");
 }
 
 
@@ -1237,7 +1282,7 @@ function setLang(l){
 /* Hash-Konstanten für Freischalt-Logik */
 var HASH_CHANGE7  = "5c3ea39b0514cfe6ce5be98daa069f400454a4e9446bcf86766c63a79fb3ff19";
 var HASH_CHANGE10 = "4ab4bdc3c6a493bb635efce952ae9ef124750fdf99bf79f2cf499a7b85317a08";
-var HASH_HEIMKEHR = "de3b69c1ddc599d5a9c256fc16d29e76ea67453aef203a0e44f52865b04473e5";
+var HASH_HEIMKEHR = "510f5fb94ea8f0049b0667c6a37bdbefe2cd12179db71fcd6ebe09b17b4fa988";
 var HASH_7DOC     = "13c256b1f86a9487b721efbcf02ed3c5142eb41894abac6fdb9f559fcbf50833";
 
 var VALID_HASHES = [
