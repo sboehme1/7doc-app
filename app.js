@@ -886,7 +886,7 @@ function renderDay(d){
   s+='<div><div class="meta-label">Material</div><div class="meta-value">'+d.material+'</div></div>';
   s+='<div><div class="meta-label">'+(LANG==="de"?"📖 Im Buch":"📖 In the book")+'</div><div class="meta-value">'+(LANG==="de"?"Seite ":"Page ")+d.bookPage+'</div></div></div>';
   // Audio
-  s+='<div class="audio-box"><div class="audio-icon">&#127911;</div><div class="audio-box-text"><p>'+t("audioText")+d.num+' &ndash; 3 min</p><p>'+t("audioHint")+'</p></div></div>';
+  s+='<div class="audio-player" id="ap-'+d.num+'"><audio id="audio-el-'+d.num+'" src="./audio/'+LANG+'/audio-tag-'+d.num+'.mp3" preload="none"></audio><button class="ap-play-btn" id="ap-play-'+d.num+'" onclick="audioToggle('+d.num+')" aria-label="Play">&#9654;</button><div class="ap-body"><div class="ap-title">'+(LANG==="de"?"Mini Audio · Tag ":"Mini Audio · Day ")+d.num+' · 3 min</div><div class="ap-progress" id="ap-prog-'+d.num+'" onclick="audioSeek(event,'+d.num+')"><div class="ap-progress-fill" id="ap-fill-'+d.num+'"></div></div><div class="ap-time" id="ap-time-'+d.num+'">0:00</div></div></div>';
   // On-the-go (collapsible!)
   if(d.onthego){
     var otgId="otg"+d.num;
@@ -990,6 +990,58 @@ function renderDay(d){
   s+='</div>';
   s+='<div class="disclaimer">'+t("footerDisc")+'</div>';
   return s;
+}
+
+/* === AUDIO PLAYER LOGIC === */
+var _audioActive=null;
+function fmtTime(s){if(isNaN(s)||s===0)return"0:00";var m=Math.floor(s/60);var sec=Math.floor(s%60);return m+":"+(sec<10?"0":"")+sec;}
+function initAudioPlayer(num){
+  var el=document.getElementById("audio-el-"+num);
+  if(!el)return;
+  el.addEventListener("timeupdate",function(){
+    var fill=document.getElementById("ap-fill-"+num);
+    var time=document.getElementById("ap-time-"+num);
+    if(fill&&el.duration)fill.style.width=(el.currentTime/el.duration*100)+"%";
+    if(time)time.textContent=fmtTime(el.currentTime)+(el.duration?" / "+fmtTime(el.duration):"");
+  });
+  el.addEventListener("ended",function(){
+    var btn=document.getElementById("ap-play-"+num);
+    if(btn){btn.innerHTML="&#9654;";btn.classList.remove("playing");}
+    _audioActive=null;
+  });
+  el.addEventListener("error",function(){
+    var player=document.getElementById("ap-"+num);
+    if(player)player.innerHTML='<div class="audio-icon">&#127911;</div><div class="ap-body"><div class="ap-title">'+(LANG==="de"?"Mini Audio · Tag ":"Mini Audio · Day ")+num+' · 3 min</div><p class="ap-error">'+(LANG==="de"?"Audio folgt bald.":"Audio coming soon.")+'</p></div>';
+  });
+}
+function audioToggle(num){
+  var el=document.getElementById("audio-el-"+num);
+  var btn=document.getElementById("ap-play-"+num);
+  if(!el||!btn)return;
+  if(_audioActive&&_audioActive.num!==num){
+    _audioActive.el.pause();
+    var ob=document.getElementById("ap-play-"+_audioActive.num);
+    if(ob){ob.innerHTML="&#9654;";ob.classList.remove("playing");}
+  }
+  if(el.paused){
+    el.play().catch(function(){});
+    btn.innerHTML="&#9646;&#9646;";
+    btn.classList.add("playing");
+    _audioActive={el:el,num:num};
+  }else{
+    el.pause();
+    btn.innerHTML="&#9654;";
+    btn.classList.remove("playing");
+    _audioActive=null;
+  }
+}
+function audioSeek(event,num){
+  var el=document.getElementById("audio-el-"+num);
+  var bar=document.getElementById("ap-prog-"+num);
+  if(!el||!bar||!el.duration)return;
+  var rect=bar.getBoundingClientRect();
+  var pct=Math.max(0,Math.min(1,(event.clientX-rect.left)/rect.width));
+  el.currentTime=pct*el.duration;
 }
 
 /* === NAV === */
