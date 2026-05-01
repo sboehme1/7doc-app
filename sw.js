@@ -1,4 +1,4 @@
-/* Service Worker für 7 Days of Change
+﻿/* Service Worker für 7 Days of Change
    =====================================
    Dieser "unsichtbare Assistent" speichert alle App-Dateien
    auf dem Gerät, damit die App auch offline funktioniert.
@@ -12,7 +12,7 @@
    neu heruntergeladen.
 */
 
-var CACHE_NAME = "7doc-v66";
+var CACHE_NAME = "7doc-v67";
 
 /* Alle Dateien, die offline verfügbar sein sollen */
 var FILES_TO_CACHE = [

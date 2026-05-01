@@ -1,4 +1,4 @@
-/* 7 Days of Change - App v2 - Bilingual DE/EN */
+﻿/* 7 Days of Change - App v2 - Bilingual DE/EN */
 history.scrollRestoration = 'manual';
 var LANG = "de";
 
@@ -227,6 +227,7 @@ var QUOTES = {
 var DAYS = {
   de: [
     {num:1,title:"Ankommen & Atmen",subtitle:"Dein Startpunkt ist hier und jetzt",goal:"Bei dir einchecken & zur Ruhe kommen",time:"Ideal 20 Minuten",audio:"Audio zu Tag 1 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    bookPage:8,
     intro:"Alles ist laut, alles ist schnell. Wir sind es gewohnt, st\u00e4ndig auf irgendetwas zu reagieren.\n\nDoch um dich selbst wieder zu sp\u00fcren, darfst du heute kurz anhalten. Dieser erste Tag ist deine Erlaubnis, f\u00fcr einen Moment nichts zu leisten und nichts zu \u201eerreichen\u201c.\n\nEs gibt jetzt keinen anderen Ort, an dem du dringender gebraucht wirst, als bei dir selbst. Du darfst einfach hier sein und atmen.",
     onthego:[["Halt","Bleib kurz stehen oder setz dich aufrecht. Sp\u00fcr den Boden unter deinen F\u00fc\u00dfen."],["Atem","Atme tief durch die Nase ein (z\u00e4hl bis 4). Atme lang durch den Mund aus (z\u00e4hl bis 6). Wiederhole 3-mal."],["Ausklang","Lass den Atem frei flie\u00dfen. Sag dir leise: \u201eIch bin hier.\u201c Geh langsam in deinen Tag zur\u00fcck."]],
     steps:[
@@ -239,6 +240,7 @@ var DAYS = {
     reflections:["Wie f\u00fchlt sich mein K\u00f6rper nach dem Atmen an?","Was habe ich wahrgenommen, als ich zur Ruhe kam?"]},
 
     {num:2,title:"Werte & Richtung",subtitle:"Dein innerer Kompass",goal:"Dich innerlich ausrichten & deinen Kompass finden",time:"Ideal 20 Minuten",audio:"Audio zu Tag 2 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    bookPage:12,
     intro:"Wer keinen eigenen Kurs hat, treibt oft dahin, wo andere ihn haben wollen. Deshalb richten wir heute deinen inneren Kompass neu aus.\n\nDie Ruhe von gestern bildet das Fundament. Denn erst wenn der Lärm im Kopf leiser wird, kannst du deine eigene Richtung wieder klar erkennen.",
     onthego:[["Reset","Ver\u00e4ndere bewusst etwas im Au\u00dfen: Wechsle den Raum oder \u00e4ndere deine Haltung. Stell dich aufrecht hin, Blick nach vorn."],["Kompass","W\u00e4hle ein Wert-Wort f\u00fcr den Tag (z.B. Klarheit, Ruhe, Mut). Sprich: \u201eHeute f\u00fchre ich mit [Wert].\u201c"],["Im Tag","Wenn Druck auftaucht, frag dich: \u201eWas st\u00e4rkt meinen Wert jetzt?\u201c"]],
     steps:[
@@ -251,6 +253,7 @@ var DAYS = {
     reflections:["Welches Wert-Wort hat sich heute gezeigt?","Welche 1\u20133 Handlungen beweisen meinen Wert?","Welche konkrete Handlung setze ich noch heute um?"]},
 
     {num:3,title:"Aktivierung",subtitle:"Energie lenken",goal:"K\u00f6rper aktivieren, Kopf ausrichten, Schritt setzen",time:"Ideal 20 Minuten",audio:"Audio zu Tag 3 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    bookPage:18,
     intro:"Die Ruhe aus Tag 1 und dein Wert aus Tag 2 bilden deine Basis. Doch Ver\u00e4nderung passiert erst, wenn du dich bewegst.\n\nWir bleiben oft im Kopf stecken \u2013 planen, gr\u00fcbeln und zweifeln statt einfach den ersten Schritt zu machen. Heute durchbrichst du dieses Z\u00f6gern.\n\nEs geht nicht um gro\u00dfe Leistung, sondern um eine sp\u00fcrbare Ausrichtung. Du beginnst mit einer einzigen, klaren Handlung, die dir beweist: Ich kann meine Richtung selbst bestimmen.",
     onthego:[["Ansto\u00df","Steh auf, Power-Pose f\u00fcr 10 Sekunden (Arme hoch, Brust offen). Geh ein paar Schritte."],["Kleine Tat","10 Kniebeugen, 10 Wand-Liegest\u00fctze, 20 Sekunden Wandsitz, oder 5 Zeilen schreiben."],["Im Tag","Frag dich: \u201eWas kann ich jetzt tun, um meine Energie zu aktivieren?\u201c"]],
     steps:[
@@ -263,6 +266,7 @@ var DAYS = {
     reflections:["Welche Aktivierung habe ich gew\u00e4hlt?","Wie hat sich mein K\u00f6rper danach angef\u00fchlt?","Welche drei gr\u00f6\u00dferen Aktivierungen lege ich bereit?"]},
 
     {num:4,title:"Gedanken & Geschichten",subtitle:"Deine Worte f\u00e4rben deine Sicht",goal:"Deine inneren Geschichten erkennen & neu w\u00e4hlen",time:"Ideal 20 Minuten",audio:"Audio zu Tag 4 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    bookPage:24,
     intro:"Du hast Ruhe gefunden, dich ausgerichtet und bist ins Tun gekommen. Heute \u00fcbst du den entscheidenden Schritt zur\u00fcck: wahrnehmen, was gedacht wird, ohne dich damit zu identifizieren.",
     onthego:[["Bemerken","Achte auf den Moment, in dem dein Fokus eng wird oder dein Kopf S\u00e4tze in Dauerschleife abspielt. Stoppe dort."],["Enttarnen","Setze den Gedanken in Anf\u00fchrungszeichen. Aus \u201eDas schaffe ich nicht\u201c wird: \u201eIch habe den Gedanken: Das schaffe ich nicht.\u201c"],["Umschalten","Reibe deine Handfl\u00e4chen kr\u00e4ftig aneinander. Lege sie auf die Oberschenkel. Frage: \u201eWas ist hier und jetzt greifbar?\u201c"]],
     steps:[
@@ -275,6 +279,7 @@ var DAYS = {
     reflections:["Was war die Kamera-Perspektive (nur Fakten)?","Was war die Geschichte meines Kopfes?","Wie lautet mein neuer, hilfreicher Satz?"]},
 
     {num:5,title:"Verbundenheit",subtitle:"Gemeinsamen Takt finden",goal:"Vom Ich zum Wir \u2013 erleben, wie echte N\u00e4he stabilisiert",time:"Ideal 20 Minuten",audio:"Audio zu Tag 5 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    bookPage:30,
     intro:"Du hast Ruhe gefunden, dich ausgerichtet, bist ins Tun gekommen und hast gelernt, deine Gedanken zu beobachten. Heute gehst du einen entscheidenden Schritt weiter \u2013 von \u201eIch\u201c zu \u201eWir\u201c.\n\nWir sind biologisch nicht daf\u00fcr gemacht, alles allein zu tragen. Echte St\u00e4rke entsteht oft erst im Austausch. Heute \u00f6ffnest du ganz bewusst den Raum f\u00fcr Kontakt.",
     onthego:[["Signal","W\u00e4hle eine Person, die dir guttut. Schreibe ihr jetzt: \u201eIch musste gerade an dich denken und w\u00fcnsche dir einen sch\u00f6nen Tag.\u201c"],["Vor Ort","Mach ein ehrliches Kompliment oder schenke eine kurze Ber\u00fchrung an der Schulter mit Blickkontakt."],["Resonanz","Sp\u00fcr nach, wie sich das Absenden anf\u00fchlt. Du hast eine T\u00fcr ge\u00f6ffnet."]],
     steps:[
@@ -287,6 +292,7 @@ var DAYS = {
     reflections:["Welche Verbindungs-Handlung habe ich gew\u00e4hlt?","Wie hat sich mein K\u00f6rper dabei angef\u00fchlt?","Welche Person tut meinem Nervensystem besonders gut?"]},
 
     {num:6,title:"Hebel im System",subtitle:"Gestalte dein Umfeld",goal:"Gestalte dein Umfeld, damit Ver\u00e4nderung flie\u00dfen kann",time:"Ideal 20 Minuten",audio:"Audio zu Tag 6 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    bookPage:37,
     intro:"Heute wechseln wir die Perspektive: Wir schauen nicht in dich, sondern um dich herum.\n\nOft glauben wir, wir m\u00fcssten uns nur mehr anstrengen oder disziplinierter sein. Doch meistens liegt die Bremse nicht in deinem Willen, sondern in deinem Umfeld.\n\nHeute h\u00f6rst du auf, gegen den Strom zu schwimmen, und beginnst, die Bedingungen so zu ver\u00e4ndern, dass sie dich aktiv unterst\u00fctzen.",
     onthego:[["Scan","Bio: Was kostet k\u00f6rperlich Kraft? Psycho: Was ist zu viel f\u00fcr deinen Kopf? Sozial: Sp\u00fcrst du Druck?"],["Hebel","Ver\u00e4ndere eine konkrete Sache. Nimm wahr, wie die Handlung auf dich zur\u00fcckwirkt."],["Innehalten","Atme tief ein und bewusst aus. Nimm den Raum um dich wahr."]],
     steps:[
@@ -299,6 +305,7 @@ var DAYS = {
     reflections:["Bio: Was ist mir aufgefallen? Welcher Hebel?","Psycho: Was ist mir aufgefallen? Welcher Hebel?","Sozial: Was ist mir aufgefallen? Welcher Hebel?","Was kann ich heute schon ver\u00e4ndern?"]},
 
     {num:7,title:"Bewahren & Beginnen",subtitle:"Entscheide, was dich begleitet",goal:"W\u00e4hle die eine Sache, die ab heute fest zu dir geh\u00f6rt",time:"Ideal 20 Minuten",audio:"Audio zu Tag 7 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    bookPage:47,
     intro:"Hinter dir liegen sechs Tage, in denen du dich auf dich selbst eingelassen hast. Vielleicht gab es Momente, in denen alles leicht wirkte \u2013 und andere, in denen du Widerstand oder M\u00fcdigkeit sp\u00fcrtest. Das ist nicht nur okay, das ist notwendig. Echte Ver\u00e4nderung braucht diese Reibung.\n\nHeute f\u00fcgen wir nichts Neues mehr hinzu. Wir wechseln vom Suchen zum Finden. Filtere die wenigen Goldst\u00fccke heraus, die in deinen echten Alltag passen \u2013 und lass den Rest ohne schlechtes Gewissen los.",
     onthego:null,
     steps:[
@@ -311,6 +318,7 @@ var DAYS = {
     reflections:["Mein erstes Werkzeug (Titel + Satz):","Mein zweites Werkzeug (Titel + Satz):","Wie f\u00fchlt es sich an, diesen Weg gegangen zu sein?"]},
 
     {num:8,title:"Grenzen & Energie",subtitle:"H\u00fcte deine Mitte",isBonus:true,goal:"Ein ehrliches \u201eNein\u201c finden und ein klares \u201eJa\u201c, das st\u00e4rkt",time:"Ideal 20 Minuten",audio:"Audio zu Tag 8 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    bookPage:6,
     intro:"Manchmal verschwimmen die Konturen so stark, dass man kaum sp\u00fcrt, wo die Erwartungen anderer aufh\u00f6ren und man selbst anf\u00e4ngt. Alles str\u00f6mt ungefiltert hindurch und die Energie flie\u00dft einfach nach au\u00dfen ab.\n\nEine Grenze ist keine Mauer. Sie ist eine notwendige Zeichnung deiner selbst \u2013 sie macht sichtbar, wo dein Raum liegt und wo der des anderen beginnt.\n\nHeute nimmst du den Schl\u00fcssel zu deinem inneren Raum wieder selbst in die Hand.",
     onthego:null,
     steps:[
@@ -323,6 +331,7 @@ var DAYS = {
     reflections:["Welche Situation habe ich erkannt?","Wovor hat mich der Reflex abgeschirmt?","Mein neuer Satz f\u00fcr bewusstere Wahl:"]},
 
     {num:9,title:"Dein Wort an dich",subtitle:"Wie du dir selbst Raum gibst",isBonus:true,goal:"Wahrnehmen, was einengt, und Worte finden, die befreien",time:"Ideal 20 Minuten",audio:"Audio zu Tag 9 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    bookPage:15,
     intro:"Oft bewegen wir uns durch den Tag, als s\u00e4\u00dfen wir auf dem Beifahrersitz unseres eigenen Lebens. Ein inneres Radio l\u00e4uft ununterbrochen: \u201eIch muss das noch erledigen\u201c, \u201eDa habe ich eh keine Wahl\u201c, \u201eIch bin einfach zu unorganisiert\u201c.\n\nDiese S\u00e4tze klingen harmlos, aber sie wirken wie unsichtbare W\u00e4nde. Heute dr\u00fccken wir die Pause-Taste. Wir schauen, wie du mit dir selbst sprichst \u2013 und verwandeln den strengen Richter in einen g\u00fctigen Freund.",
     onthego:null,
     steps:[
@@ -335,6 +344,7 @@ var DAYS = {
     reflections:["Welche strengen S\u00e4tze habe ich erkannt?","Wie lautet mein neuer Leitsatz?","Wo mache ich ihn sichtbar?"]},
 
     {num:10,title:"Identit\u00e4t & Disziplin",subtitle:"Vom Werden zum Sein",isBonus:true,goal:"Verankere Ver\u00e4nderung in deiner Identit\u00e4t",time:"Ideal 20 Minuten",audio:"Audio zu Tag 10 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
+    bookPage:21,
     intro:"Motivation ist ein launischer Begleiter. Sie ist laut und voller Tatendrang, wenn wir aufbrechen. Sie wird still, sobald der Alltag grau wird oder die Müdigkeit einsetzt.\n\nHeute sorgen wir dafür, dass Veränderung auch dann in Bewegung bleibt, wenn der erste Schwung verflogen ist. Das Prinzip: Wir trennen das Entscheiden vom Handeln. Du triffst deine Wahl jetzt – in einem Moment der Ruhe.",
     onthego:null,
     steps:[
@@ -348,6 +358,7 @@ var DAYS = {
   ],
   en: [
     {num:1,title:"Arriving & Breathing",subtitle:"Your starting point is here and now",goal:"Check in with yourself & settle",time:"Ideally 20 minutes",audio:"Day 1 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    bookPage:8,
     intro:"Everything is loud, everything is fast. We are used to constantly reacting.\n\nBut to feel yourself again, today you may pause. This first day is your permission not to perform or “achieve” anything.\n\nThere is no place right now where you are more urgently needed than by yourself. You may simply be here and breathe.",
     onthego:[["Pause","Stop for a moment or sit up straight. Feel the ground beneath your feet."],["Breath","Inhale through your nose (count to 4). Exhale slowly through your mouth (count to 6). Repeat 3 times."],["Closing","Let your breath flow freely. Say quietly: \u201cI am here.\u201d Return to your day."]],
     steps:[
@@ -360,6 +371,7 @@ var DAYS = {
     reflections:["How does my body feel after the breathing?","What did I notice when I settled?"]},
 
     {num:2,title:"Values & Direction",subtitle:"Your inner compass",goal:"Align yourself internally & find your compass",time:"Ideally 20 minutes",audio:"Day 2 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    bookPage:12,
     intro:"Without a course of your own, you often drift where others want you. Today we realign your inner compass.\n\nYesterday’s calm forms the foundation. Because only when the noise in your head quiets down can you see your own direction clearly again.",
     onthego:[["Reset","Change something in your environment: switch rooms or change your posture. Stand tall, gaze forward."],["Compass","Choose a value word for the day (e.g. Clarity, Calm, Courage). Say: \u201cToday I lead with [Value].\u201d"],["In your day","When pressure arises, ask: \u201cWhat strengthens my value now?\u201d"]],
     steps:[
@@ -372,6 +384,7 @@ var DAYS = {
     reflections:["Which value word showed up today?","Which 1\u20133 actions prove my value?","Which concrete action will I take today?"]},
 
     {num:3,title:"Activation",subtitle:"Directing energy",goal:"Activate body, align mind, take the step",time:"Ideally 20 minutes",audio:"Day 3 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    bookPage:18,
     intro:"The calm from Day 1 and your value from Day 2 form your foundation. Yet change only happens when you move.\n\nWe often get stuck in our heads – planning, worrying, doubting instead of simply taking the first step. Today you break through that hesitation.\n\nThis isn’t about great performance, but about a tangible alignment. You begin with one single clear action that proves: I can set my own direction.",
     onthego:[["Kick-off","Stand up, Power Pose for 10 seconds (arms up, chest open). Take a few steps."],["Small act","10 squats, 10 wall push-ups, 20 seconds wall sit, or write 5 lines."],["In your day","Ask yourself: \u201cWhat can I do right now to activate my energy?\u201d"]],
     steps:[
@@ -384,6 +397,7 @@ var DAYS = {
     reflections:["Which activation did I choose?","How did my body feel afterwards?","Which three larger activations am I preparing?"]},
 
     {num:4,title:"Thoughts & Stories",subtitle:"Your words color your view",goal:"Recognize your inner stories & choose new ones",time:"Ideally 20 minutes",audio:"Day 4 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    bookPage:24,
     intro:"You\u2019ve found calm, aligned yourself, and taken action. Today you practice the crucial step back: observing what is being thought without identifying with it.",
     onthego:[["Notice","Watch for the moment your focus narrows or your mind plays sentences on repeat. Stop there."],["Unmask","Put the thought in quotes. \u201cI can\u2019t do this\u201d becomes: \u201cI have the thought: I can\u2019t do this.\u201d"],["Switch","Rub your palms together vigorously. Place them on your thighs. Ask: \u201cWhat is tangible here and now?\u201d"]],
     steps:[
@@ -396,6 +410,7 @@ var DAYS = {
     reflections:["What was the camera view (facts only)?","What was my mind\u2019s story?","What is my new, helpful sentence?"]},
 
     {num:5,title:"Connection",subtitle:"Finding a shared rhythm",goal:"From I to We \u2013 experience how real closeness stabilizes",time:"Ideally 20 minutes",audio:"Day 5 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    bookPage:30,
     intro:"You’ve found calm, aligned yourself, taken action, and learned to observe your thoughts. Today you take a decisive step further – from “I” to “We.”\n\nWe are not biologically built to carry everything alone. True strength often emerges in exchange. Today you consciously open the space for contact.",
     onthego:[["Signal","Choose someone who is good for you. Text them now: \u201cI was just thinking of you and wish you a wonderful day.\u201d"],["In person","Give a sincere compliment or a brief touch on the shoulder with eye contact."],["Resonance","Notice how sending or giving feels. You\u2019ve opened a door."]],
     steps:[
@@ -408,6 +423,7 @@ var DAYS = {
     reflections:["Which connection action did I choose?","How did my body feel during it?","Which person is especially good for my nervous system?"]},
 
     {num:6,title:"System Levers",subtitle:"Shape your environment",goal:"Shape your environment so change can flow",time:"Ideally 20 minutes",audio:"Day 6 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    bookPage:37,
     intro:"Today we shift perspective: We look not inside you but around you.\n\nWe often think we just need to try harder or be more disciplined. But most of the time the brake isn’t in your willpower – it’s in your environment.\n\nToday you stop swimming against the current and start changing the conditions so they actively support you.",
     onthego:[["Scan","Bio: What costs physical energy? Psycho: What\u2019s too much for your mind? Social: Do you feel pressure?"],["Lever","Change one concrete thing. Notice how that action reflects back on you."],["Pause","Breathe in deeply and out consciously. Notice the space around you."]],
     steps:[
@@ -420,6 +436,7 @@ var DAYS = {
     reflections:["Bio: What did I notice? Which lever?","Psycho: What did I notice? Which lever?","Social: What did I notice? Which lever?","What can I change today?"]},
 
     {num:7,title:"Keeping & Beginning",subtitle:"Decide what stays with you",goal:"Choose the one thing that belongs to you from today",time:"Ideally 20 minutes",audio:"Day 7 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    bookPage:47,
     intro:"Six days are behind you – days in which you engaged with yourself. Perhaps there were moments when everything felt clear and light, and others when you felt resistance or tiredness. That is not just okay – it is necessary. Real change needs this friction.\n\nToday we add nothing new. We switch from searching to finding. Filter out the few gold pieces that fit your real daily life – and let the rest go without guilt.",
     onthego:null,
     steps:[
@@ -432,6 +449,7 @@ var DAYS = {
     reflections:["My first tool (title + sentence):","My second tool (title + sentence):","How does it feel to have walked this path?"]},
 
     {num:8,title:"Boundaries & Energy",subtitle:"Guard your center",isBonus:true,goal:"Find an honest \u201cno\u201d that protects and a clear \u201cyes\u201d that strengthens",time:"Ideally 20 minutes",audio:"Day 8 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    bookPage:6,
     intro:"Sometimes the lines blur so much you can barely feel where others\u2019 expectations end and you begin. Today you take back the key to your inner space.",
     onthego:null,
     steps:[
@@ -444,6 +462,7 @@ var DAYS = {
     reflections:["Which situation did I recognize?","What did the reflex shield me from?","My new sentence for more conscious choices:"]},
 
     {num:9,title:"Your Word to Yourself",subtitle:"How to give yourself space again",isBonus:true,goal:"Notice what constricts, and find words that free",time:"Ideally 20 minutes",audio:"Day 9 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    bookPage:15,
     intro:"Often we move through the day as if sitting in the passenger seat. Today we press pause. We transform the strict judge into a kind friend.",
     onthego:null,
     steps:[
@@ -456,6 +475,7 @@ var DAYS = {
     reflections:["Which harsh sentences did I recognize?","What is my new guiding sentence?","Where am I making it visible?"]},
 
     {num:10,title:"Identity & Discipline",subtitle:"From becoming to being",isBonus:true,goal:"Anchor change in your identity",time:"Ideally 20 minutes",audio:"Day 10 audio (3 min)",material:"Daily Routine Sheet, note app, water & timer",
+    bookPage:21,
     intro:"Motivation is a fickle companion. It is loud and full of energy when we set out. It grows quiet as soon as daily life turns grey or tiredness sets in.\n\nToday we make sure that change stays in motion even when that first surge has faded. The principle: we separate deciding from acting. You make your choice now – in a moment of calm and clarity.",
     onthego:null,
     steps:[
@@ -863,7 +883,8 @@ function renderDay(d){
   s+='<div class="meta-box"><div><div class="meta-label">'+(LANG==="de"?"Ziel":"Goal")+'</div><div class="meta-value">'+d.goal+'</div></div>';
   s+='<div><div class="meta-label">'+("de"===LANG?"Zeit":"Time")+'</div><div class="meta-value">'+d.time+'</div></div>';
   s+='<div><div class="meta-label">Start</div><div class="meta-value">'+d.audio+'</div></div>';
-  s+='<div><div class="meta-label">Material</div><div class="meta-value">'+d.material+'</div></div></div>';
+  s+='<div><div class="meta-label">Material</div><div class="meta-value">'+d.material+'</div></div>';
+  s+='<div><div class="meta-label">'+(LANG==="de"?"📖 Im Buch":"📖 In the book")+'</div><div class="meta-value">'+(LANG==="de"?"Seite ":"Page ")+d.bookPage+'</div></div></div>';
   // Audio
   s+='<div class="audio-box"><div class="audio-icon">&#127911;</div><div class="audio-box-text"><p>'+t("audioText")+d.num+' &ndash; 3 min</p><p>'+t("audioHint")+'</p></div></div>';
   // On-the-go (collapsible!)
