@@ -1059,7 +1059,7 @@ function go(p){
   else if(p==="summary10"){m.innerHTML='<div class="page active">'+renderEndSummary(10)+'</div>';}
   else if(p==="progress"){m.innerHTML='<div class="page active">'+renderProgressScreen()+'</div>';setTimeout(function(){var f=document.getElementById("ps-prog-fill");if(f)f.style.width=Math.round(0)+'%';var pr=getPr();var d=0;for(var i=0;i<7;i++)if(pr[i])d++;setTimeout(function(){if(f)f.style.width=Math.round(d/7*100)+'%';},100);},50);}
   else{var num=parseInt(p.replace("day",""));var dd=days();var d=null;for(var i=0;i<dd.length;i++){if(dd[i].num===num){d=dd[i];break;}}
-  if(d)m.innerHTML='<div class="page active">'+renderDay(d)+'</div>';}
+  if(d)m.innerHTML='<div class="page active">'+renderDay(d)+'</div>';if(d)setTimeout(function(){initAudioPlayer(d.num);},50);if(_audioActive&&!d){_audioActive.el.pause();_audioActive=null;}}
   updNav();
   var scrollTarget=document.querySelector(".day-header");
   if(scrollTarget&&p!=="welcome"&&p!=="journey"&&p!=="summary7"&&p!=="summary10"&&p!=="progress"){
