@@ -982,7 +982,7 @@ function renderDay(d){
     s+='<div id="summ-btn-'+d.num+'">'+(done?buildSummaryBtn(d.num):'')+'</div>';
   }
   // Coaching CTA
-  s+='<div class="day-coaching-cta"><a href="https://sashandventures.com" target="_blank" rel="noopener" class="day-coaching-link">'+t("coachingBtn")+'</a></div>';
+  s+='<div class="day-coaching-cta"><p class="day-coaching-quote">“Dein Weg, persönlich begleitet.”</p><p class="day-coaching-sub">1:1 Coaching mit Sascha</p><a href="https://sashandventures.com" target="_blank" rel="noopener" class="day-coaching-link">'+t("coachingBtn")+'</a></div>';
   // Nav
   s+='<div class="day-nav">';
   if(d.num>1)s+='<button class="day-nav-btn" onclick="go(\'day'+(d.num-1)+'\')">&larr; '+(LANG==="de"?"Tag ":"Day ")+(d.num-1)+'</button>';
