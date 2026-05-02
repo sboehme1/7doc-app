@@ -920,7 +920,7 @@ function renderDay(d){
   // Steps (structured instructions!)
   for(var si=0;si<d.steps.length;si++){
     var step=d.steps[si];
-    s+='<div class="step-section"><div class="step-header"><span class="step-badge">'+t("stepLabel")+' '+(si+1)+'</span><h3>'+step.t+'</h3></div>';
+    s+='<div class="step-section"><div class="step-header"><span class="step-badge">'+(si+1)+'</span><h3>'+step.t+'</h3></div>';
     s+='<div class="step-body">';
     // Split content into instruction lines by sentence endings
     var sentences=step.c.split(". ");
@@ -928,7 +928,7 @@ function renderDay(d){
       var txt=sentences[pi];
       if(pi<sentences.length-1)txt+=".";
       if(txt.trim().length>0){
-        s+='<div class="step-instruction"><span class="inst-marker">&#9656;</span><p>'+txt.trim()+'</p></div>';
+        s+='<div class="step-instruction"><span class="inst-marker"></span><p>'+txt.trim()+'</p></div>';
       }
     }
     if(step.tips){for(var ti=0;ti<step.tips.length;ti++){s+='<div class="step-tip"><p><strong style="color:#c0845a">&rarr;</strong> '+step.tips[ti]+'</p></div>';}}
