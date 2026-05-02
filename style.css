@@ -680,11 +680,17 @@ body {
 
 /* === DAY INTRO === */
 .day-intro {
-  font-family: var(--font-accent); font-size: 1rem; line-height: 1.8;
-  color: var(--warm-gray); margin-bottom: 1.5rem; padding: 1.3rem;
-  background: var(--cream); border-radius: var(--radius-md);
-  border-left: 4px solid var(--terracotta-light);
+  font-family: var(--font-accent); font-size: 0.9rem; line-height: 1.8;
+  color: #2C2824; margin-bottom: 1.5rem; padding: 1.2rem 1.3rem;
+  background: #FAF8F3; border-radius: var(--radius-md);
+  border: 1px solid #E8DDD0;
 }
+.day-intro-label {
+  font-size: 0.65rem; letter-spacing: 0.12em; color: #C4704B;
+  text-transform: uppercase; margin-bottom: 0.8rem; display: block;
+}
+.day-intro p:last-child { color: #C4704B; font-style: italic; }
+body.dark-mode .day-intro { background: #2C2824; border-color: #4a3d30; color: #E8D5B0; }
 
 /* === PREPARATION (numbered, clearer) === */
 .prep-box {

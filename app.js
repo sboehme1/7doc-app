@@ -228,7 +228,7 @@ var DAYS = {
   de: [
     {num:1,title:"Ankommen & Atmen",subtitle:"Dein Startpunkt ist hier und jetzt",goal:"Bei dir einchecken & zur Ruhe kommen",time:"Ideal 20 Minuten",audio:"Audio zu Tag 1 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
     bookPage:8,
-    intro:"Alles ist laut, alles ist schnell. Wir sind es gewohnt, st\u00e4ndig auf irgendetwas zu reagieren.\n\nDoch um dich selbst wieder zu sp\u00fcren, darfst du heute kurz anhalten. Dieser erste Tag ist deine Erlaubnis, f\u00fcr einen Moment nichts zu leisten und nichts zu \u201eerreichen\u201c.\n\nEs gibt jetzt keinen anderen Ort, an dem du dringender gebraucht wirst, als bei dir selbst. Du darfst einfach hier sein und atmen.",
+    intro:"Stress ist keine reine Kopfsache \u2013 er ist eine k\u00f6rperliche Reaktion. Dein Herz schl\u00e4gt schneller, die Muskeln spannen sich an. Denken hilft hier wenig, Atmen schon.\n\nWenn du das Ausatmen verl\u00e4ngerst, sendest du \u00fcber den Vagusnerv ein Signal an dein Gehirn: Es ist sicher. Puls und Blutdruck sinken messbar.\n\nHier fangen wir heute an.",
     onthego:[["Halt","Bleib kurz stehen oder setz dich aufrecht. Sp\u00fcr den Boden unter deinen F\u00fc\u00dfen."],["Atem","Atme tief durch die Nase ein (z\u00e4hl bis 4). Atme lang durch den Mund aus (z\u00e4hl bis 6). Wiederhole 3-mal."],["Ausklang","Lass den Atem frei flie\u00dfen. Sag dir leise: \u201eIch bin hier.\u201c Geh langsam in deinen Tag zur\u00fcck."]],
     steps:[
       {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus (Flugmodus). <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden, Blick ruhig nach vorn. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch.",tips:["Das ist dein Startsignal: Kontakt zum K\u00f6rper, Pr\u00e4senz im Moment."]},
@@ -241,7 +241,7 @@ var DAYS = {
 
     {num:2,title:"Werte & Richtung",subtitle:"Dein innerer Kompass",goal:"Dich innerlich ausrichten & deinen Kompass finden",time:"Ideal 20 Minuten",audio:"Audio zu Tag 2 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
     bookPage:12,
-    intro:"Wer keinen eigenen Kurs hat, treibt oft dahin, wo andere ihn haben wollen. Deshalb richten wir heute deinen inneren Kompass neu aus.\n\nDie Ruhe von gestern bildet das Fundament. Denn erst wenn der Lärm im Kopf leiser wird, kannst du deine eigene Richtung wieder klar erkennen.",
+    intro:"Oft orientieren wir uns an Zielen, die gar nicht unsere eigenen sind – sie kommen von außen: Erwartungen, Vergleiche, Rollenbilder. Das kostet Energie, weil wir gegen unsere innere Ausrichtung handeln.\n\nWenn du einen Wert findest, der wirklich in dir Resonanz erzeugt, musst du dich nicht mehr antreiben.",
     onthego:[["Reset","Ver\u00e4ndere bewusst etwas im Au\u00dfen: Wechsle den Raum oder \u00e4ndere deine Haltung. Stell dich aufrecht hin, Blick nach vorn."],["Kompass","W\u00e4hle ein Wert-Wort f\u00fcr den Tag (z.B. Klarheit, Ruhe, Mut). Sprich: \u201eHeute f\u00fchre ich mit [Wert].\u201c"],["Im Tag","Wenn Druck auftaucht, frag dich: \u201eWas st\u00e4rkt meinen Wert jetzt?\u201c"]],
     steps:[
       {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Setz</strong> dich aufrecht hin, beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
@@ -254,7 +254,7 @@ var DAYS = {
 
     {num:3,title:"Aktivierung",subtitle:"Energie lenken",goal:"K\u00f6rper aktivieren, Kopf ausrichten, Schritt setzen",time:"Ideal 20 Minuten",audio:"Audio zu Tag 3 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
     bookPage:18,
-    intro:"Die Ruhe aus Tag 1 und dein Wert aus Tag 2 bilden deine Basis. Doch Ver\u00e4nderung passiert erst, wenn du dich bewegst.\n\nWir bleiben oft im Kopf stecken \u2013 planen, gr\u00fcbeln und zweifeln statt einfach den ersten Schritt zu machen. Heute durchbrichst du dieses Z\u00f6gern.\n\nEs geht nicht um gro\u00dfe Leistung, sondern um eine sp\u00fcrbare Ausrichtung. Du beginnst mit einer einzigen, klaren Handlung, die dir beweist: Ich kann meine Richtung selbst bestimmen.",
+    intro:"Wir verbringen oft viel Zeit im Wartezimmer unserer eigenen Pl\u00e4ne. Planen, gr\u00fcbeln, zweifeln \u2013 statt einfach zu beginnen.\n\nHeute dreht sich das Prinzip um: Du nutzt deinen K\u00f6rper, um deinen Geist zu \u00fcberzeugen.",
     onthego:[["Ansto\u00df","Steh auf, Power-Pose f\u00fcr 10 Sekunden (Arme hoch, Brust offen). Geh ein paar Schritte."],["Kleine Tat","10 Kniebeugen, 10 Wand-Liegest\u00fctze, 20 Sekunden Wandsitz, oder 5 Zeilen schreiben."],["Im Tag","Frag dich: \u201eWas kann ich jetzt tun, um meine Energie zu aktivieren?\u201c"]],
     steps:[
       {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Setz</strong> dich aufrecht hin, beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
@@ -267,7 +267,7 @@ var DAYS = {
 
     {num:4,title:"Gedanken & Geschichten",subtitle:"Deine Worte f\u00e4rben deine Sicht",goal:"Deine inneren Geschichten erkennen & neu w\u00e4hlen",time:"Ideal 20 Minuten",audio:"Audio zu Tag 4 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
     bookPage:24,
-    intro:"Du hast Ruhe gefunden, dich ausgerichtet und bist ins Tun gekommen. Heute \u00fcbst du den entscheidenden Schritt zur\u00fcck: wahrnehmen, was gedacht wird, ohne dich damit zu identifizieren.",
+    intro:"Wir leiden oft weniger an den Dingen selbst als an der Bedeutung, die wir ihnen geben. Dein Gehirn f\u00fcllt Informationsl\u00fccken blitzschnell mit Annahmen \u2013 meist negative, um dich zu sch\u00fctzen.\n\nDas blo\u00dfe Wissen darum reicht selten. Heute kommt der zweite Schritt: die Geschichte aktiv umschreiben.",
     onthego:[["Bemerken","Achte auf den Moment, in dem dein Fokus eng wird oder dein Kopf S\u00e4tze in Dauerschleife abspielt. Stoppe dort."],["Enttarnen","Setze den Gedanken in Anf\u00fchrungszeichen. Aus \u201eDas schaffe ich nicht\u201c wird: \u201eIch habe den Gedanken: Das schaffe ich nicht.\u201c"],["Umschalten","Reibe deine Handfl\u00e4chen kr\u00e4ftig aneinander. Lege sie auf die Oberschenkel. Frage: \u201eWas ist hier und jetzt greifbar?\u201c"]],
     steps:[
       {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe am Boden, Blick nach vorn. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch."},
@@ -280,7 +280,7 @@ var DAYS = {
 
     {num:5,title:"Verbundenheit",subtitle:"Gemeinsamen Takt finden",goal:"Vom Ich zum Wir \u2013 erleben, wie echte N\u00e4he stabilisiert",time:"Ideal 20 Minuten",audio:"Audio zu Tag 5 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
     bookPage:30,
-    intro:"Du hast Ruhe gefunden, dich ausgerichtet, bist ins Tun gekommen und hast gelernt, deine Gedanken zu beobachten. Heute gehst du einen entscheidenden Schritt weiter \u2013 von \u201eIch\u201c zu \u201eWir\u201c.\n\nWir sind biologisch nicht daf\u00fcr gemacht, alles allein zu tragen. Echte St\u00e4rke entsteht oft erst im Austausch. Heute \u00f6ffnest du ganz bewusst den Raum f\u00fcr Kontakt.",
+    intro:"H\u00e4ngt man mehrere Pendeluhren nebeneinander, passiert etwas Erstaunliches: Erst schwingen sie wild durcheinander \u2013 doch nach kurzer Zeit finden sie von selbst in denselben Takt. Weil das weniger Kraft kostet als das Durcheinander.\n\nMenschen funktionieren \u00e4hnlich. Heute machst du diese Erfahrung ganz bewusst.",
     onthego:[["Signal","W\u00e4hle eine Person, die dir guttut. Schreibe ihr jetzt: \u201eIch musste gerade an dich denken und w\u00fcnsche dir einen sch\u00f6nen Tag.\u201c"],["Vor Ort","Mach ein ehrliches Kompliment oder schenke eine kurze Ber\u00fchrung an der Schulter mit Blickkontakt."],["Resonanz","Sp\u00fcr nach, wie sich das Absenden anf\u00fchlt. Du hast eine T\u00fcr ge\u00f6ffnet."]],
     steps:[
       {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
@@ -293,7 +293,7 @@ var DAYS = {
 
     {num:6,title:"Hebel im System",subtitle:"Gestalte dein Umfeld",goal:"Gestalte dein Umfeld, damit Ver\u00e4nderung flie\u00dfen kann",time:"Ideal 20 Minuten",audio:"Audio zu Tag 6 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
     bookPage:37,
-    intro:"Heute wechseln wir die Perspektive: Wir schauen nicht in dich, sondern um dich herum.\n\nOft glauben wir, wir m\u00fcssten uns nur mehr anstrengen oder disziplinierter sein. Doch meistens liegt die Bremse nicht in deinem Willen, sondern in deinem Umfeld.\n\nHeute h\u00f6rst du auf, gegen den Strom zu schwimmen, und beginnst, die Bedingungen so zu ver\u00e4ndern, dass sie dich aktiv unterst\u00fctzen.",
+    intro:"Oft glauben wir, wir m\u00fcssten einfach disziplinierter sein. Doch die Bremse liegt meistens nicht im Willen \u2013 sondern im Umfeld.\n\nHeute schauen wir nicht in dich hinein, sondern um dich herum. K\u00f6rper, Gedanken, Verbindungen \u2013 drei Bereiche, die sich gegenseitig beeinflussen. Ein kleiner Hebel an der richtigen Stelle kann alles ver\u00e4ndern.",
     onthego:[["Scan","Bio: Was kostet k\u00f6rperlich Kraft? Psycho: Was ist zu viel f\u00fcr deinen Kopf? Sozial: Sp\u00fcrst du Druck?"],["Hebel","Ver\u00e4ndere eine konkrete Sache. Nimm wahr, wie die Handlung auf dich zur\u00fcckwirkt."],["Innehalten","Atme tief ein und bewusst aus. Nimm den Raum um dich wahr."]],
     steps:[
       {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
@@ -306,7 +306,7 @@ var DAYS = {
 
     {num:7,title:"Bewahren & Beginnen",subtitle:"Entscheide, was dich begleitet",goal:"W\u00e4hle die eine Sache, die ab heute fest zu dir geh\u00f6rt",time:"Ideal 20 Minuten",audio:"Audio zu Tag 7 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
     bookPage:47,
-    intro:"Hinter dir liegen sechs Tage, in denen du dich auf dich selbst eingelassen hast. Vielleicht gab es Momente, in denen alles leicht wirkte \u2013 und andere, in denen du Widerstand oder M\u00fcdigkeit sp\u00fcrtest. Das ist nicht nur okay, das ist notwendig. Echte Ver\u00e4nderung braucht diese Reibung.\n\nHeute f\u00fcgen wir nichts Neues mehr hinzu. Wir wechseln vom Suchen zum Finden. Filtere die wenigen Goldst\u00fccke heraus, die in deinen echten Alltag passen \u2013 und lass den Rest ohne schlechtes Gewissen los.",
+    intro:"Hinter dir liegen sechs Tage, in denen du dich auf dich selbst eingelassen hast. Wahrscheinlich verlief diese Woche nicht linear \u2013 es gab leichte Momente und solche, in denen du Widerstand oder M\u00fcdigkeit gesp\u00fcrt hast.\n\nDas ist nicht nur okay. Das ist notwendig. Echte Ver\u00e4nderung braucht diese Reibung.",
     onthego:null,
     steps:[
       {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
@@ -319,7 +319,7 @@ var DAYS = {
 
     {num:8,title:"Grenzen & Energie",subtitle:"H\u00fcte deine Mitte",isBonus:true,goal:"Ein ehrliches \u201eNein\u201c finden und ein klares \u201eJa\u201c, das st\u00e4rkt",time:"Ideal 20 Minuten",audio:"Audio zu Tag 8 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
     bookPage:6,
-    intro:"Manchmal verschwimmen die Konturen so stark, dass man kaum sp\u00fcrt, wo die Erwartungen anderer aufh\u00f6ren und man selbst anf\u00e4ngt. Alles str\u00f6mt ungefiltert hindurch und die Energie flie\u00dft einfach nach au\u00dfen ab.\n\nEine Grenze ist keine Mauer. Sie ist eine notwendige Zeichnung deiner selbst \u2013 sie macht sichtbar, wo dein Raum liegt und wo der des anderen beginnt.\n\nHeute nimmst du den Schl\u00fcssel zu deinem inneren Raum wieder selbst in die Hand.",
+    intro:"Hinter jedem schnellen \u201eJa\u201c und jedem reflexartigen \u201eNein\u201c verbirgt sich meist ein alter Sicherheitsmechanismus. Dein Nervensystem hat irgendwann abgespeichert: Anpassung sichert Zugeh\u00f6rigkeit, R\u00fcckzug bewahrt vor \u00dcberforderung.\n\nDiese Reaktionen laufen oft schneller ab, als unser Verstand hinterherkommt. Heute unterbrechen wir den Autopiloten.",
     onthego:null,
     steps:[
       {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
@@ -332,7 +332,7 @@ var DAYS = {
 
     {num:9,title:"Dein Wort an dich",subtitle:"Wie du dir selbst Raum gibst",isBonus:true,goal:"Wahrnehmen, was einengt, und Worte finden, die befreien",time:"Ideal 20 Minuten",audio:"Audio zu Tag 9 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
     bookPage:15,
-    intro:"Oft bewegen wir uns durch den Tag, als s\u00e4\u00dfen wir auf dem Beifahrersitz unseres eigenen Lebens. Ein inneres Radio l\u00e4uft ununterbrochen: \u201eIch muss das noch erledigen\u201c, \u201eDa habe ich eh keine Wahl\u201c, \u201eIch bin einfach zu unorganisiert\u201c.\n\nDiese S\u00e4tze klingen harmlos, aber sie wirken wie unsichtbare W\u00e4nde. Heute dr\u00fccken wir die Pause-Taste. Wir schauen, wie du mit dir selbst sprichst \u2013 und verwandeln den strengen Richter in einen g\u00fctigen Freund.",
+    intro:"Oft bewegen wir uns durch den Tag, als s\u00e4\u00dfen wir auf dem Beifahrersitz unseres eigenen Lebens. Ein inneres Radio l\u00e4uft ununterbrochen: \u201eIch muss das noch erledigen\u201c, \u201eDa habe ich eh keine Wahl\u201c, \u201eIch bin einfach zu unorganisiert.\u201c\n\nDiese S\u00e4tze klingen harmlos, aber sie wirken wie unsichtbare W\u00e4nde. Heute dr\u00fccken wir die Pause-Taste \u2013 und schreiben sie um.",
     onthego:null,
     steps:[
       {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
@@ -345,7 +345,7 @@ var DAYS = {
 
     {num:10,title:"Identit\u00e4t & Disziplin",subtitle:"Vom Werden zum Sein",isBonus:true,goal:"Verankere Ver\u00e4nderung in deiner Identit\u00e4t",time:"Ideal 20 Minuten",audio:"Audio zu Tag 10 (3 Min)",material:"Daily Routine Sheet, Notiz-App, Wasser & Timer",
     bookPage:21,
-    intro:"Motivation ist ein launischer Begleiter. Sie ist laut und voller Tatendrang, wenn wir aufbrechen. Sie wird still, sobald der Alltag grau wird oder die Müdigkeit einsetzt.\n\nHeute sorgen wir dafür, dass Veränderung auch dann in Bewegung bleibt, wenn der erste Schwung verflogen ist. Das Prinzip: Wir trennen das Entscheiden vom Handeln. Du triffst deine Wahl jetzt – in einem Moment der Ruhe.",
+    intro:"Motivation ist ein launischer Begleiter. Sie ist laut und voller Tatendrang, wenn wir aufbrechen. Sie wird still, sobald der Alltag grau wird oder die Müdigkeit einsetzt.\n\nDisziplin ist nicht der harte Drill, der dich gegen deinen Willen antreibt. Wahre Disziplin ist etwas viel Sanfteres – die Loyalität zu dir selbst.",
     onthego:null,
     steps:[
       {t:"Pr\u00e4senz",c:"<strong class='step-key'>Schalte</strong> St\u00f6rungen aus. <strong class='step-key'>Aufrechte Haltung</strong> \u2013 beide F\u00fc\u00dfe stabil am Boden. <strong class='step-key'>Sp\u00fcre</strong> den Druck deiner Hand auf Herz oder Bauch. Das ist dein Startsignal."},
@@ -908,7 +908,7 @@ function renderDay(d){
   s+='</div>';
   // Intro
   /* Intro: Absätze bei \n\n trennen */
-  var introParts=d.intro.split("\n\n");s+='<div class="day-intro">';
+  var introParts=d.intro.split("\n\n");s+='<div class="day-intro"><span class="day-intro-label">'+(LANG==="de"?"Warum heute":"Why today")+'</span>';
   for(var ip=0;ip<introParts.length;ip++){if(introParts[ip].trim().length>0)s+='<p>'+introParts[ip].trim()+'</p>';}
   s+='</div>';
   // Prep (numbered!)
