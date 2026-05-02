@@ -104,7 +104,9 @@ body.dark-mode .step-block,
 body.dark-mode .tip-block,
 body.dark-mode .opt-block,
 body.dark-mode .science-block,
-body.dark-mode .meta-box { background: #332b24; border-color: #4a3d30; color: #E8D5B0; }
+body.dark-mode .meta-box { background: #2C2824; border-color: #4a3d30; }
+body.dark-mode .meta-row { border-bottom-color: #4a3d30; }
+body.dark-mode .meta-value { color: #F5F0E8; }
 body.dark-mode .step3-note-textarea { background: #241E19; color: #E8D5B0; border-color: #4a3d30; }
 body.dark-mode .app-footer { background: #1C1510; color: #7a6a5a; }
 body.dark-mode .mood-popup,
@@ -507,9 +509,12 @@ body {
 .day-subtitle { font-family: var(--font-accent); font-style: italic; font-size: 0.95rem; color: var(--warm-gray); margin-top: 0.2rem; }
 
 /* === META === */
-.meta-box { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; background: var(--warm-black); color: var(--sand); border-radius: var(--radius-md); padding: 1.3rem; margin-bottom: 1.5rem; }
-.meta-label { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--warm-gray-light); }
-.meta-value { font-family: var(--font-accent); font-size: 0.88rem; color: var(--sand); }
+.meta-box { background: #FAF8F3; border: 1px solid #E8DDD0; border-radius: var(--radius-md); padding: 1.2rem 1.3rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0; }
+.meta-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.6rem 0; border-bottom: 0.5px solid #E8DDD0; }
+.meta-row:last-child { border-bottom: none; }
+.meta-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #8A837B; flex-shrink: 0; }
+.meta-label-book { color: #C4704B; }
+.meta-value { font-family: var(--font-accent); font-size: 0.88rem; color: #2C2824; text-align: right; max-width: 60%; }
 
 /* === AUDIO PLAYER === */
 .audio-player {

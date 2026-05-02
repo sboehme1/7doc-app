@@ -880,11 +880,13 @@ function renderDay(d){
   }
   s+='<h1 class="day-title">'+d.title+'</h1><p class="day-subtitle">'+d.subtitle+'</p></div>';
   // Meta
-  s+='<div class="meta-box"><div><div class="meta-label">'+(LANG==="de"?"Ziel":"Goal")+'</div><div class="meta-value">'+d.goal+'</div></div>';
-  s+='<div><div class="meta-label">'+("de"===LANG?"Zeit":"Time")+'</div><div class="meta-value">'+d.time+'</div></div>';
-  s+='<div><div class="meta-label">Start</div><div class="meta-value">'+d.audio+'</div></div>';
-  s+='<div><div class="meta-label">Material</div><div class="meta-value">'+d.material+'</div></div>';
-  s+='<div><div class="meta-label">'+(LANG==="de"?"📖 Im Buch":"📖 In the book")+'</div><div class="meta-value">'+(LANG==="de"?"Seite ":"Page ")+d.bookPage+'</div></div></div>';
+  s+='<div class="meta-box">';
+  s+='<div class="meta-row"><span class="meta-label">'+(LANG==="de"?"Ziel":"Goal")+'</span><span class="meta-value">'+d.goal+'</span></div>';
+  s+='<div class="meta-row"><span class="meta-label">'+(LANG==="de"?"Zeit":"Time")+'</span><span class="meta-value">'+d.time+'</span></div>';
+  s+='<div class="meta-row"><span class="meta-label">Start</span><span class="meta-value">'+d.audio+'</span></div>';
+  s+='<div class="meta-row"><span class="meta-label">Material</span><span class="meta-value">'+d.material+'</span></div>';
+  s+='<div class="meta-row"><span class="meta-label meta-label-book">'+(LANG==="de"?"📖 Im Buch":"📖 In the book")+'</span><span class="meta-value">'+(LANG==="de"?"Seite ":"Page ")+d.bookPage+'</span></div>';
+  s+='</div>';
   // Audio
   s+='<div class="audio-player" id="ap-'+d.num+'"><audio id="audio-el-'+d.num+'" src="./audio/'+LANG+'/audio-tag-'+d.num+'-'+LANG+'.mp3" preload="none"></audio><button class="ap-play-btn" id="ap-play-'+d.num+'" onclick="audioToggle('+d.num+')" aria-label="Play">&#9654;</button><div class="ap-body"><div class="ap-title">'+(LANG==="de"?"Mini Audio · Tag ":"Mini Audio · Day ")+d.num+' · 3 min</div><div class="ap-progress" id="ap-prog-'+d.num+'" onclick="audioSeek(event,'+d.num+')"><div class="ap-progress-fill" id="ap-fill-'+d.num+'"></div></div><div class="ap-time" id="ap-time-'+d.num+'">0:00</div></div></div>';
   // On-the-go (collapsible!)
