@@ -32,7 +32,7 @@ var T = {
     prep: "Vorbereitung",
     prep1: "W\u00e4hle einen Ort, an dem du dich sicher und pr\u00e4sent f\u00fchlst.",
     prep2: "Lies den Ablauf einmal ganz durch.",
-    prep3: "Sag dir: \u201eIch schenke mir diesen Moment.\u201c",
+    prep3: "Sag dir: \u201eIch gebe mir heute meine volle Aufmerksamkeit.\u201c",
     tight: "Falls es heute eng wird",
     tightSub: "3 Schritte f\u00fcr unterwegs",
     safety: "Safety Box (gilt immer)",
@@ -127,7 +127,7 @@ var T = {
     prep: "Preparation",
     prep1: "Choose a place where you feel safe and present.",
     prep2: "Read through the steps once for clarity.",
-    prep3: "Say to yourself: \u201cI give myself this moment.\u201d",
+    prep3: "Say to yourself: \u201cToday I give myself my full attention.\u201d",
     tight: "If things get tight today",
     tightSub: "3 Steps for on-the-go",
     safety: "Safety Box (always applies)",
@@ -913,9 +913,9 @@ function renderDay(d){
   s+='</div>';
   // Prep (numbered!)
   s+='<div class="prep-box"><h3>'+t("prep")+'</h3>';
-  s+='<div class="prep-step"><div class="prep-num">1</div><p>'+t("prep1")+'</p></div>';
-  s+='<div class="prep-step"><div class="prep-num">2</div><p>'+t("prep2")+'</p></div>';
-  s+='<div class="prep-step"><div class="prep-num">3</div><p>'+t("prep3")+'</p></div>';
+  s+='<div class="prep-step"><span class="prep-marker">✦</span><p>'+t("prep1")+'</p></div>';
+  s+='<div class="prep-step"><span class="prep-marker">✦</span><p>'+t("prep2")+'</p></div>';
+  s+='<div class="prep-step"><span class="prep-marker">✦</span><p>'+t("prep3")+'</p></div>';
   s+='</div>';
   // Steps (structured instructions!)
   for(var si=0;si<d.steps.length;si++){
