@@ -981,6 +981,8 @@ function renderDay(d){
   if(d.num===7||d.num===10){
     s+='<div id="summ-btn-'+d.num+'">'+(done?buildSummaryBtn(d.num):'')+'</div>';
   }
+  // Coaching CTA
+  s+='<div class="day-coaching-cta"><a href="https://sashandventures.com" target="_blank" rel="noopener" class="day-coaching-link">'+t("coachingBtn")+'</a></div>';
   // Nav
   s+='<div class="day-nav">';
   if(d.num>1)s+='<button class="day-nav-btn" onclick="go(\'day'+(d.num-1)+'\')">&larr; '+(LANG==="de"?"Tag ":"Day ")+(d.num-1)+'</button>';
