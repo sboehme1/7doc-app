@@ -936,6 +936,15 @@ function renderDay(d){
     for(var pi=0;pi<paragraphs.length;pi++){
       var txt=paragraphs[pi].trim();
       if(txt.length>0){
+        if(d.num===2){
+          var sv=localStorage.getItem('7doc_daily_value')||'';
+          var placeholder=LANG==='de'?'[Diesen Wert]':'[this value]';
+          if(sv){
+            txt=txt.replace(placeholder,'<strong style="color:#C4704B;">'+sv+'</strong>');
+          } else {
+            txt=txt.replace(placeholder,'<button class="inline-value-btn" onclick="openValueWheel()">'+(LANG==='de'?'Wert wählen →':'Choose value →')+'</button>');
+          }
+        }
         s+='<div class="step-instruction"><p>'+txt+'</p></div>';
       }
     }
