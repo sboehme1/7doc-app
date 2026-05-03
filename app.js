@@ -878,6 +878,22 @@ function renderDay(d){
     s+='</div>';
   }
   s+='<h1 class="day-title">'+d.title+'</h1><p class="day-subtitle">'+d.subtitle+'</p></div>';
+  // Werte-Banner — nur Tag 2
+  if(d.num===2){
+    var savedValue=localStorage.getItem('7doc_daily_value')||'';
+    var isDE=LANG==='de';
+    s+='<div class="value-banner" id="value-banner">';
+    s+='<div class="value-banner-top"><div class="value-banner-line"></div><span class="value-banner-gem">✦</span><div class="value-banner-line"></div></div>';
+    s+='<span class="value-banner-label">'+(isDE?'Mein Wert heute':'My value today')+'</span>';
+    if(savedValue){
+      s+='<div class="value-banner-value" id="value-display">'+savedValue+'</div>';
+      s+='<button class="value-banner-change" onclick="openValueWheel()">'+(isDE?'Ändern':'Change')+'</button>';
+    } else {
+      s+='<div class="value-banner-value" id="value-display">'+(isDE?'Noch nicht gewählt':'Not yet chosen')+'</div>';
+      s+='<button class="value-banner-choose" onclick="openValueWheel()">'+(isDE?'Wert wählen →':'Choose value →')+'</button>';
+    }
+    s+='</div>';
+  }
   // Meta
   s+='<div class="meta-box">';
   s+='<div class="meta-row"><span class="meta-label">'+(LANG==="de"?"Ziel":"Goal")+'</span><span class="meta-value">'+d.goal+'</span></div>';
@@ -1568,6 +1584,45 @@ function submitAddCode(){
 
 /* Add to Home Screen Hinweis — erscheint einmalig nach 30 Sekunden
    wenn die App nicht als PWA installiert ist */
+/* === WERTE-RAD TAG 2 === */
+var VALUE_WORDS_DE=['Klarheit','Ruhe','Mut','Vertrauen','Verbindung','Fokus','Offenheit','Stärke','Geduld','Leichtigkeit','Präsenz','Dankbarkeit','Ehrlichkeit','Mitgefühl','Energie'];
+var VALUE_WORDS_EN=['Clarity','Calm','Courage','Trust','Connection','Focus','Openness','Strength','Patience','Ease','Presence','Gratitude','Honesty','Compassion','Energy'];
+
+function openValueWheel(){
+  var isDE=LANG==='de';
+  var words=isDE?VALUE_WORDS_DE:VALUE_WORDS_EN;
+  var saved=localStorage.getItem('7doc_daily_value')||'';
+  var ov=document.createElement('div');
+  ov.id='value-wheel-overlay';
+  ov.innerHTML='<div class="vw-popup">'
+    +'<div class="vw-title">'+(isDE?'Wähle deinen Wert für heute':'Choose your value for today')+'</div>'
+    +'<div class="vw-subtitle">'+(isDE?'Tippe auf ein Wort.':'Tap a word.')+'</div>'
+    +'<div class="vw-grid">'
+    +words.map(function(w){return '<button class="vw-word'+(w===saved?' selected':'')+'" onclick="selectValue(\''+w+'\')">' +w+'</button>';}).join('')
+    +'</div>'
+    +'<button class="vw-close" onclick="closeValueWheel()">'+(isDE?'Schließen':'Close')+'</button>'
+    +'</div>';
+  document.body.appendChild(ov);
+  setTimeout(function(){ov.classList.add('visible');},30);
+}
+
+function selectValue(word){
+  localStorage.setItem('7doc_daily_value',word);
+  var isDE=LANG==='de';
+  var disp=document.getElementById('value-display');
+  if(disp)disp.textContent=word;
+  var chooseBtns=document.querySelectorAll('.value-banner-choose,.value-banner-change');
+  chooseBtns.forEach(function(b){b.className='value-banner-change';b.textContent=isDE?'Ändern':'Change';b.onclick=openValueWheel;});
+  var wds=document.querySelectorAll('.vw-word');
+  wds.forEach(function(b){b.classList.toggle('selected',b.textContent===word);});
+  setTimeout(closeValueWheel,400);
+}
+
+function closeValueWheel(){
+  var ov=document.getElementById('value-wheel-overlay');
+  if(ov){ov.classList.remove('visible');setTimeout(function(){ov.remove();},300);}
+}
+
 function checkInstallHint(){
   if(localStorage.getItem("7doc_install_hint_shown")) return;
   var isStandalone=window.matchMedia("(display-mode: standalone)").matches||window.navigator.standalone;
