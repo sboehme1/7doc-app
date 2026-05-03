@@ -117,7 +117,8 @@ body.dark-mode .coaching-progress-link { color: #C9A96E; border-color: #C9A96E; 
 body.dark-mode .step-section { background: #2C2824 !important; border-color: #4a3d30 !important; }
 body.dark-mode .step-header { border-bottom-color: #4a3d30 !important; }
 body.dark-mode .step-instruction { border-bottom-color: #4a3d30 !important; }
-body.dark-mode .step-tip p { background: rgba(196,112,75,0.1) !important; border-color: #C4704B !important; color: #D4896A !important; }
+body.dark-mode .step-tip { border-top-color: #4a3d30 !important; }
+body.dark-mode .step-tip p { background: none !important; border-left: none !important; color: #D4896A !important; }
 body.dark-mode .journey-day-card { background: #332b24 !important; border-color: #4a3d30 !important; }
 body.dark-mode .es-day-card { background: #332b24 !important; border-color: #4a3d30 !important; }
 body.dark-mode .info-card { background: #332b24 !important; border-color: #4a3d30 !important; }
@@ -161,7 +162,8 @@ body.dark-mode .coaching-popup { background: #332b24 !important; }
 body.dark-mode #update-banner { background: #332b24 !important; border-color: #4a3d30 !important; }
 body.dark-mode .grounding-popup { background: #332b24 !important; }
 body.dark-mode .grounding-btn { background: #332b24 !important; border-color: #4a3d30 !important; }
-body.dark-mode .step-tip p { background: #241E19 !important; border-color: #4a3d30 !important; }
+body.dark-mode .step-tip { border-top-color: #4a3d30 !important; }
+body.dark-mode .step-tip p { background: none !important; border-left: none !important; color: #D4896A !important; }
 body.dark-mode .optional-box { background: #241E19 !important; border-color: #4a3d30 !important; }
 body.dark-mode .book-hint-card { background: #241E19 !important; border-color: #4a3d30 !important; }
 body.dark-mode .ps-active,
@@ -726,6 +728,20 @@ body.dark-mode .day-intro { background: #2C2824; border-color: #4a3d30; color: #
   line-height: 1.5;
 }
 
+.routine-sheet-hint {
+  text-align: center;
+  margin: -0.25rem 0 1rem;
+}
+.routine-sheet-link {
+  font-size: 0.8rem;
+  color: #C4704B;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.85;
+  letter-spacing: 0.02em;
+}
+.routine-sheet-link:hover { opacity: 1; }
+
 /* === STEPS (structured instructions!) === */
 .step-section {
   margin-bottom: 2rem;
@@ -789,19 +805,21 @@ body.dark-mode .day-intro { background: #2C2824; border-color: #4a3d30; color: #
 
 /* === TIPS === */
 .step-tip {
-  margin: 0;
-  font-size: 0.88rem;
+  margin: 0.8rem 0 0;
+  border-top: 1px solid #e0c4b0;
+  padding-top: 0.65rem;
 }
 .step-tip p {
-  background: #FDF3EC;
-  border-left: 2px solid #C4704B;
+  background: none;
+  border-left: none;
   border-radius: 0;
-  padding: 0.7rem 1.2rem;
+  padding: 0;
   margin-bottom: 0;
-  font-size: 0.83rem;
+  font-size: 0.93rem;
   font-weight: 400;
-  color: #7a4a2a;
+  color: #5a3e2b;
   font-style: italic;
+  line-height: 1.6;
 }
 .step-tip p:last-child { margin-bottom: 0; }
 .step-tip strong { color: #c0845a; font-weight: 700; }

@@ -12,7 +12,7 @@
    neu heruntergeladen.
 */
 
-var CACHE_NAME = "7doc-v78";
+var CACHE_NAME = "7doc-v81";
 
 /* Alle Dateien, die offline verfügbar sein sollen */
 var FILES_TO_CACHE = [
@@ -23,7 +23,9 @@ var FILES_TO_CACHE = [
   "./manifest.json",
   "./img/logo.png",
   "./img/flag-de.svg",
-  "./img/flag-en.svg"
+  "./img/flag-en.svg",
+  "./Daily_Routine_Sheet__DE__V1.pdf",
+  "./Daily_Routine_Sheet__EN__V1.pdf"
 ];
 
 /* INSTALL: Wird einmalig beim ersten Besuch ausgeführt.
