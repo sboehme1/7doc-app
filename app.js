@@ -878,20 +878,14 @@ function renderDay(d){
     s+='</div>';
   }
   s+='<h1 class="day-title">'+d.title+'</h1><p class="day-subtitle">'+d.subtitle+'</p></div>';
-  // Werte-Banner — nur Tag 2
   if(d.num===2){
     var savedValue=localStorage.getItem('7doc_daily_value')||'';
     var isDE=LANG==='de';
     s+='<div class="value-banner" id="value-banner">';
     s+='<div class="value-banner-top"><div class="value-banner-line"></div><span class="value-banner-gem">✦</span><div class="value-banner-line"></div></div>';
     s+='<span class="value-banner-label">'+(isDE?'Mein Wert heute':'My value today')+'</span>';
-    if(savedValue){
-      s+='<div class="value-banner-value" id="value-display">'+savedValue+'</div>';
-      s+='<button class="value-banner-change" onclick="openValueWheel()">'+(isDE?'Ändern':'Change')+'</button>';
-    } else {
-      s+='<div class="value-banner-value" id="value-display">'+(isDE?'Noch nicht gewählt':'Not yet chosen')+'</div>';
-      s+='<button class="value-banner-choose" onclick="openValueWheel()">'+(isDE?'Wert wählen →':'Choose value →')+'</button>';
-    }
+    s+='<div class="value-banner-value" id="value-display">'+(savedValue||(isDE?'Noch nicht gewählt':'Not yet chosen'))+'</div>';
+    s+='<button class="value-banner-btn" onclick="openValueWheel()">'+(savedValue?(isDE?'Ändern':'Change'):(isDE?'Wert wählen →':'Choose value →'))+'</button>';
     s+='</div>';
   }
   // Meta
@@ -1596,9 +1590,10 @@ function openValueWheel(){
   ov.id='value-wheel-overlay';
   ov.innerHTML='<div class="vw-popup">'
     +'<div class="vw-title">'+(isDE?'Wähle deinen Wert für heute':'Choose your value for today')+'</div>'
-    +'<div class="vw-subtitle">'+(isDE?'Tippe auf ein Wort.':'Tap a word.')+'</div>'
+    +'<div class="vw-sub">'+(isDE?'Tippe auf ein Wort.':'Tap a word.')+'</div>'
+    +'<div class="vw-selected" id="vw-selected-display">'+(saved||'—')+'</div>'
     +'<div class="vw-grid">'
-    +words.map(function(w){return '<button class="vw-word'+(w===saved?' selected':'')+'" onclick="selectValue(\''+w+'\')">' +w+'</button>';}).join('')
+    +words.map(function(w){return '<div class="vw-card'+(w===saved?' selected':'')+'" onclick="selectValue(\''+w+'\')">'+w+'</div>';}).join('')
     +'</div>'
     +'<button class="vw-close" onclick="closeValueWheel()">'+(isDE?'Schließen':'Close')+'</button>'
     +'</div>';
@@ -1611,11 +1606,12 @@ function selectValue(word){
   var isDE=LANG==='de';
   var disp=document.getElementById('value-display');
   if(disp)disp.textContent=word;
-  var chooseBtns=document.querySelectorAll('.value-banner-choose,.value-banner-change');
-  chooseBtns.forEach(function(b){b.className='value-banner-change';b.textContent=isDE?'Ändern':'Change';b.onclick=openValueWheel;});
-  var wds=document.querySelectorAll('.vw-word');
-  wds.forEach(function(b){b.classList.toggle('selected',b.textContent===word);});
-  setTimeout(closeValueWheel,400);
+  var btn=document.querySelector('.value-banner-btn');
+  if(btn)btn.textContent=isDE?'Ändern':'Change';
+  var selDisp=document.getElementById('vw-selected-display');
+  if(selDisp)selDisp.textContent=word;
+  document.querySelectorAll('.vw-card').forEach(function(c){c.classList.toggle('selected',c.textContent===word);});
+  setTimeout(closeValueWheel,500);
 }
 
 function closeValueWheel(){

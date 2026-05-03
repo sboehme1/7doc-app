@@ -2220,13 +2220,13 @@ body.dark-mode .install-step-text em { background: #4a3d30; color: #e8ddd0; }
   margin-bottom: 0.3rem;
 }
 .value-banner-value {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #C4704B;
   font-family: var(--font-display);
   margin-bottom: 0.4rem;
 }
-.value-banner-choose, .value-banner-change {
+.value-banner-btn {
   background: none;
   border: none;
   font-size: 0.78rem;
@@ -2236,7 +2236,7 @@ body.dark-mode .install-step-text em { background: #4a3d30; color: #e8ddd0; }
   text-underline-offset: 3px;
   padding: 0;
 }
-.value-banner-choose:hover, .value-banner-change:hover { color: #C4704B; }
+.value-banner-btn:hover { color: #C4704B; }
 
 /* === WERTE-RAD POPUP === */
 #value-wheel-overlay {
@@ -2266,35 +2266,44 @@ body.dark-mode .install-step-text em { background: #4a3d30; color: #e8ddd0; }
   font-weight: 700;
   color: #2C2824;
   text-align: center;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
   font-family: var(--font-display);
 }
-.vw-subtitle {
+.vw-sub {
   font-size: 0.78rem;
   color: #8A837B;
   text-align: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.vw-selected {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #C4704B;
+  font-family: var(--font-display);
+  text-align: center;
+  min-height: 2rem;
+  margin-bottom: 1rem;
 }
 .vw-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-  margin-bottom: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45rem;
+  margin-bottom: 1rem;
 }
-.vw-word {
+.vw-card {
   background: #f0ebe4;
-  border: 0.5px solid #e0c4b0;
-  border-radius: 20px;
-  padding: 0.4rem 0.9rem;
-  font-size: 0.88rem;
+  border: 0.5px solid #e8ddd0;
+  border-radius: 8px;
+  padding: 0.55rem 0.3rem;
+  font-size: 0.82rem;
   color: #3a2e26;
   cursor: pointer;
+  text-align: center;
   transition: all 0.15s;
   font-family: var(--font-sans);
 }
-.vw-word:hover { background: #fdf0e8; border-color: #C4704B; color: #C4704B; }
-.vw-word.selected { background: #C4704B; border-color: #C4704B; color: white; font-weight: 600; }
+.vw-card:hover { background: #fdf0e8; border-color: #C4704B; color: #C4704B; }
+.vw-card.selected { background: #C4704B; border-color: #C4704B; color: white; font-weight: 600; }
 .vw-close {
   display: block;
   width: 100%;
@@ -2305,10 +2314,12 @@ body.dark-mode .install-step-text em { background: #4a3d30; color: #e8ddd0; }
   font-size: 0.85rem;
   color: #8A837B;
   cursor: pointer;
+  font-family: var(--font-sans);
 }
 .vw-close:hover { border-color: #C4704B; color: #C4704B; }
-body.dark-mode .vw-popup { background: #2C2824; }
-body.dark-mode .vw-word { background: #3a2e26; border-color: #4a3d30; color: #e8ddd0; }
-body.dark-mode .vw-word.selected { background: #C4704B; color: white; }
+body.dark-mode .vw-popup,
 body.dark-mode .value-banner { background: #2C2824; border-color: #4a3d30; }
-body.dark-mode .value-banner-value { color: #D4896A; }
+body.dark-mode .vw-card { background: #3a2e26; border-color: #4a3d30; color: #e8ddd0; }
+body.dark-mode .vw-card.selected { background: #C4704B; color: white; }
+body.dark-mode .value-banner-value,
+body.dark-mode .vw-selected { color: #D4896A; }
