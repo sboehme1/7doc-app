@@ -138,7 +138,11 @@ body.dark-mode .collapsible.onthego .collapsible-body-inner p { color: #C5D1BB !
 body.dark-mode .onthego-step p { color: #C8B89A !important; }
 body.dark-mode .state-item input[type="range"] { background: #5a4d3e !important; }
 body.dark-mode .state-item input[type="range"]::-webkit-slider-thumb { background: #C4704B !important; }
-body.dark-mode .prep-otg-hint { background: #1d2a1a !important; border-left-color: #2d3d2a !important; color: #C5D1BB !important; }
+body.dark-mode .prep-otg-hint-new { background: #3d2218 !important; color: #D4896A !important; }
+body.dark-mode .prep-icon-item { background: #2C2824 !important; border-color: #4a3d30 !important; }
+body.dark-mode .prep-icon-item.accent { background: #3a2218 !important; border-color: #6a3d20 !important; }
+body.dark-mode .prep-icon-name { color: #c9b8a8 !important; }
+body.dark-mode .prep-icon-item.accent .prep-icon-name { color: #D4896A !important; }
 body.dark-mode .day-compare { background: #332b24 !important; border-color: #4a3d30 !important; }
 body.dark-mode .dc-neutral { background: #241E19 !important; color: #9a8a7a !important; }
 body.dark-mode .dc-pos { background: #1d2a1a !important; color: #C5D1BB !important; }
@@ -459,9 +463,12 @@ body {
 
 /* === WELCOME === */
 .welcome-hero { text-align: center; padding: 2.5rem 0 1.5rem; }
-.logo-text { font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; color: var(--warm-black); line-height: 1.15; }
-.logo-accent { display: block; font-size: 0.95rem; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terracotta); }
-.tagline { font-family: var(--font-accent); font-style: italic; font-size: 1.05rem; color: var(--warm-gray); margin-top: 0.8rem; }
+.logo-eyebrow { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.25rem; }
+.logo-headline { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--warm-black); line-height: 1; }
+.logo-rule { display: flex; align-items: center; gap: 10px; margin: 0.9rem auto; max-width: 180px; }
+.logo-rule-line { flex: 1; height: 0.5px; background: var(--terracotta); opacity: 0.4; }
+.logo-rule-gem { color: var(--terracotta); font-size: 11px; opacity: 0.7; }
+.tagline { font-family: var(--font-accent); font-style: italic; font-size: 1.05rem; color: var(--warm-gray); margin-top: 0; }
 .welcome-intro { background: var(--cream); border-radius: var(--radius-lg); padding: 1.8rem; margin: 1.5rem 0; border-left: 4px solid var(--terracotta); }
 .welcome-intro p { margin-bottom: 0.8rem; color: var(--warm-gray); }
 .welcome-intro p:last-child { margin-bottom: 0; }
@@ -967,47 +974,56 @@ body.dark-mode .day-intro { background: #2C2824; border-color: #4a3d30; color: #
   color: var(--warm-gray-light);
   margin-bottom: 0.7rem;
 }
-.prep-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-bottom: 0.9rem;
+.prep-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  margin-bottom: 0.85rem;
 }
-.prep-tag {
-  background: var(--sand);
-  border-radius: 20px;
-  padding: 0.35rem 0.85rem;
-  font-size: 0.84rem;
-  font-weight: 500;
-  color: var(--warm-black);
-  border: 1.5px solid var(--sand-dark);
+.prep-icon-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
+  gap: 6px;
+  padding: 0.85rem 0.5rem;
+  background: #FAF8F3;
+  border-radius: 8px;
+  border: 0.5px solid #eee4d8;
 }
-.prep-tag.highlight {
-  background: var(--cream);
-  border-color: var(--terracotta-light);
-  color: var(--terracotta-dark);
+.prep-icon-item.accent {
+  background: #fdf0e8;
+  border-color: #ddb090;
+}
+.prep-icon-emoji {
+  font-size: 22px;
+  line-height: 1;
+  display: block;
+}
+.prep-icon-name {
+  font-size: 11.5px;
+  color: #5a4a3a;
+  text-align: center;
+  line-height: 1.3;
+}
+.prep-icon-item.accent .prep-icon-name {
+  color: #7a3e1e;
   font-weight: 600;
 }
-.prep-otg-hint {
-  margin-top: 0.8rem;
+.prep-otg-hint-new {
   padding: 0.75rem 1rem;
-  background: linear-gradient(135deg, var(--sage-light), #D8E3CF);
+  background: #f5ede7;
   border-radius: var(--radius-sm);
   font-size: 0.87rem;
-  color: var(--warm-gray);
-  border-left: 3px solid var(--sage);
+  color: #7a3e1e;
+  font-style: italic;
 }
 /* === WELCOME LOGO === */
 .welcome-logo {
   display: block;
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 1.2rem;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 1.4rem;
   object-fit: contain;
-  opacity: 0.9;
 }
 
 /* === FOOTER LOGO === */
