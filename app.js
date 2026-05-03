@@ -411,7 +411,7 @@ var DAYS = {
 
     {num:5,title:"Connection",subtitle:"Finding a shared rhythm",goal:"From I to We \u2013 experience how real closeness stabilizes",time:"Ideally 20 minutes",audio:"Day 5 audio (4 min)",material:"Daily Routine Sheet, water & timer",
     bookPage:30,
-    intro:”When you hang several pendulum clocks side by side, something remarkable happens: at first they swing wildly out of sync – but after a short while they find the same rhythm on their own. Because that takes less energy than the chaos.\n\nPeople work in a similar way. Today you experience this consciously.”,
+    intro:"When you hang several pendulum clocks side by side, something remarkable happens: at first they swing wildly out of sync – but after a short while they find the same rhythm on their own. Because that takes less energy than the chaos.\n\nPeople work in a similar way. Today you experience this consciously.",
     onthego:[["Signal","Choose someone who is good for you. Text them now: \u201cI was just thinking of you and wish you a wonderful day.\u201d"],["In person","Give a sincere compliment or a brief touch on the shoulder with eye contact."],["Resonance","Notice how sending or giving feels. You\u2019ve opened a door."]],
     steps:[
       {t:"Presence",c:"<strong class='step-key'>Turn off</strong> distractions. <strong class='step-key'>Upright posture,</strong> hand on heart or belly."},
