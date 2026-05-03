@@ -885,6 +885,7 @@ function renderDay(d){
   s+='<div class="meta-row"><span class="meta-label">'+(LANG==="de"?"Zeit":"Time")+'</span><span class="meta-value">'+d.time+'</span></div>';
   s+='<div class="meta-row"><span class="meta-label">Start</span><span class="meta-value">'+d.audio+'</span></div>';
   s+='<div class="meta-row"><span class="meta-label">Material</span><span class="meta-value">'+d.material+'</span></div>';
+  s+='<div class="meta-row"><span class="meta-label" style="color:#C4704B;">📄 Routine Sheet</span><span class="meta-value"><a class="meta-pdf-link" href="./Daily_Routine_Sheet__'+(LANG==="de"?"DE":"EN")+'__V1.pdf" target="_blank" rel="noopener">'+(LANG==="de"?"PDF ↓":"PDF ↓")+'</a></span></div>';
   s+='<div class="meta-row"><span class="meta-label meta-label-book">'+(LANG==="de"?"📖 Im Buch":"📖 In the book")+'</span><span class="meta-value">'+(LANG==="de"?"Seite ":"Page ")+d.bookPage+'</span></div>';
   s+='</div>';
   // Audio
@@ -916,9 +917,7 @@ function renderDay(d){
   s+='<div class="prep-step"><span class="prep-marker">✦</span><p>'+t("prep1")+'</p></div>';
   s+='<div class="prep-step"><span class="prep-marker">✦</span><p>'+t("prep2")+'</p></div>';
   s+='<div class="prep-step"><span class="prep-marker">✦</span><p>'+t("prep3")+'</p></div>';
-  s+='</div>';
-  s+='<div class="routine-sheet-hint"><a class="routine-sheet-link" href="./Daily_Routine_Sheet__'+(LANG==='de'?'DE':'EN')+'__V1.pdf" target="_blank" rel="noopener">↓ Daily Routine Sheet (PDF)</a></div>';
-  // Steps (structured instructions!)
+  s+='</div>';  // Steps (structured instructions!)
   for(var si=0;si<d.steps.length;si++){
     var step=d.steps[si];
     s+='<div class="step-section"><div class="step-header"><span class="step-badge">'+(si+1)+'</span><h3>'+step.t+'</h3></div>';
@@ -932,7 +931,7 @@ function renderDay(d){
         s+='<div class="step-instruction"><span class="inst-marker"></span><p>'+txt.trim()+'</p></div>';
       }
     }
-    if(step.tips){for(var ti=0;ti<step.tips.length;ti++){s+='<div class="step-tip"><p><strong style="color:#c0845a">&rarr;</strong> '+step.tips[ti]+'</p></div>';}}
+    if(step.tips){s+='<div class="step-tips-group"><div class="step-tips-rule"><div class="step-tips-line"></div><span class="step-tips-gem">✦</span><div class="step-tips-line"></div></div>';for(var ti=0;ti<step.tips.length;ti++){s+='<div class="step-tip"><p>'+step.tips[ti]+'</p></div>';}s+='</div>';}
     if(step.opt){var optHtml=step.opt.replace(/\n\n/g,'</p><p>');s+='<div class="optional-box"><span class="optional-tag">'+(step.optLabel||t("optional"))+'</span><div class="opt-body"><p>'+optHtml+'</p></div></div>';}
     if(step.box){s+='<div class="step-box"><p>'+step.box+'</p></div>';}
     if(step.noteField){
