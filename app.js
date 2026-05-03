@@ -1620,6 +1620,8 @@ function selectValue(word){
   var selDisp=document.getElementById('vw-selected-display');
   if(selDisp)selDisp.textContent=word;
   document.querySelectorAll('.vw-card').forEach(function(c){c.classList.toggle('selected',c.textContent===word);});
+  var inlineBtn=document.querySelector('.inline-value-btn');
+  if(inlineBtn){var strong=document.createElement('strong');strong.style.color='#C4704B';strong.textContent=word;inlineBtn.parentNode.replaceChild(strong,inlineBtn);}
   setTimeout(closeValueWheel,500);
 }
 
