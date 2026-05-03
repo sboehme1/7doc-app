@@ -1821,6 +1821,7 @@ function startBreath(){
   btn.textContent=isDE?'Stoppen':'Stop';
   if(doneEl)doneEl.style.display='none';
   if(cyclesEl)cyclesEl.textContent=btn._remaining+' '+(isDE?'Zyklen \u00fcbrig':'cycles left');
+  function vibrate(pattern){if(navigator.vibrate)navigator.vibrate(pattern);}
   function ease(t){return t<0.5?2*t*t:-1+(4-2*t)*t;}
   function tick(ts){
     if(!btn._running)return;
@@ -1848,6 +1849,10 @@ function startBreath(){
     if(countEl)countEl.textContent=Math.ceil(ph.dur-elapsed);
     if(phaseEl)phaseEl.textContent=ph.name;
     if(prog>=1){
+      var nextPhase=phases[(btn._phaseIdx+1)%phases.length];
+      if(nextPhase.type==='in') vibrate([80]);
+      else if(nextPhase.type==='hold') vibrate([40,30,40]);
+      else if(nextPhase.type==='out') vibrate([200]);
       btn._phaseIdx=(btn._phaseIdx+1)%phases.length;
       if(btn._phaseIdx===0){
         btn._remaining--;
