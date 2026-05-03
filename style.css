@@ -2065,53 +2065,130 @@ body.dark-mode .day-intro { background: #2C2824; border-color: #4a3d30; color: #
   font-family: inherit;
 }
 
-/* === INSTALL HINT BANNER === */
-#install-hint-banner {
+/* === INSTALL HINT POPUP === */
+#install-hint-overlay {
   position: fixed;
-  bottom: -120px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 2rem);
-  max-width: 480px;
-  background: var(--white);
-  border: 1px solid #e0c4b0;
-  border-radius: 14px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  inset: 0;
+  background: rgba(0,0,0,0.45);
   z-index: 9000;
-  transition: bottom 0.4s cubic-bezier(0.34,1.56,0.64,1);
-  padding: 1rem;
-}
-#install-hint-banner.visible { bottom: 5rem; }
-.install-hint-inner {
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
-.install-hint-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
-.install-hint-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-.install-hint-text strong {
-  font-size: 0.88rem;
-  color: var(--warm-black);
-  font-weight: 600;
-}
-.install-hint-text span {
-  font-size: 0.8rem;
-  color: var(--warm-gray);
-  line-height: 1.5;
+#install-hint-overlay.visible { opacity: 1; pointer-events: all; }
+.install-hint-popup {
+  background: #FAF8F3;
+  border-radius: 18px;
+  padding: 1.5rem;
+  max-width: 340px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  position: relative;
 }
 .install-hint-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   background: none;
   border: none;
-  color: var(--warm-gray-light);
-  font-size: 1rem;
+  font-size: 1.1rem;
+  color: #999;
   cursor: pointer;
-  padding: 0;
-  flex-shrink: 0;
   line-height: 1;
+  padding: 0;
 }
-body.dark-mode #install-hint-banner { background: #2C2824; border-color: #4a3d30; }
+.install-hint-icon { font-size: 2rem; text-align: center; margin-bottom: 0.5rem; }
+.install-hint-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2C2824;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+.install-hint-sub {
+  font-size: 0.78rem;
+  color: #6a5a50;
+  text-align: center;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+.install-hint-toggle {
+  display: flex;
+  gap: 6px;
+  background: #2C2824;
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 1.25rem;
+}
+.install-os-btn {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+  color: #a89880;
+}
+.install-os-btn.active {
+  background: #FAF8F3;
+  color: #C4704B;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.install-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.install-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.install-step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #C4704B;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.install-step-text {
+  font-size: 0.85rem;
+  color: #2C2824;
+  line-height: 1.5;
+}
+.install-step-text em {
+  font-style: normal;
+  background: #e8ddd0;
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.8rem;
+  color: #2C2824;
+  font-weight: 600;
+}
+.install-hint-footer {
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  color: #6a5a50;
+  text-align: center;
+  font-style: italic;
+  padding-top: 1rem;
+  border-top: 0.5px solid #e8ddd0;
+}
+body.dark-mode .install-hint-popup { background: #2C2824; }
+body.dark-mode .install-hint-title { color: #FAF8F3; }
+body.dark-mode .install-step-text { color: #e8ddd0; }
+body.dark-mode .install-step-text em { background: #4a3d30; color: #e8ddd0; }

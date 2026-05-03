@@ -1576,23 +1576,58 @@ function checkInstallHint(){
   setTimeout(function(){
     var lang=localStorage.getItem("7doc_lang")||"de";
     var isDE=lang==="de";
-    var banner=document.createElement("div");
-    banner.id="install-hint-banner";
-    banner.innerHTML='<div class="install-hint-inner">'
-      +'<div class="install-hint-icon">📲</div>'
-      +'<div class="install-hint-text">'
-      +'<strong>'+(isDE?"App zum Homescreen hinzufügen":"Add app to Home Screen")+'</strong>'
-      +'<span>'+(isDE?"Tippe auf Teilen → \"Zum Home-Bildschirm\" für die beste Erfahrung & Push-Erinnerungen.":"Tap Share → \"Add to Home Screen\" for the best experience & push reminders.")+'</span>'
-      +'</div>'
+    var popup=document.createElement("div");
+    popup.id="install-hint-overlay";
+    popup.innerHTML='<div class="install-hint-popup">'
       +'<button class="install-hint-close" onclick="dismissInstallHint()">✕</button>'
+      +'<div class="install-hint-icon">📲</div>'
+      +'<div class="install-hint-title">'+(isDE?"App zum Homescreen hinzufügen":"Add App to Home Screen")+'</div>'
+      +'<div class="install-hint-sub">'+(isDE?"Für die beste Erfahrung — und damit Erinnerungen funktionieren.":"For the best experience — and so reminders work.")+'</div>'
+      +'<div class="install-hint-toggle">'
+      +'<button class="install-os-btn active" id="iob-ios" onclick="switchInstallOS(\'ios\')">'+(isDE?"iPhone / iPad":"iPhone / iPad")+'</button>'
+      +'<button class="install-os-btn" id="iob-android" onclick="switchInstallOS(\'android\')">'+(isDE?"Android":"Android")+'</button>'
+      +'</div>'
+      +'<div class="install-steps" id="install-steps-ios">'
+      +(isDE?
+        '<div class="install-step"><div class="install-step-num">1</div><div class="install-step-text">Öffne diese Seite in <em>Safari</em> (nicht Chrome)</div></div>'
+        +'<div class="install-step"><div class="install-step-num">2</div><div class="install-step-text">Tippe auf das Teilen-Symbol <em>□↑</em> unten in der Leiste</div></div>'
+        +'<div class="install-step"><div class="install-step-num">3</div><div class="install-step-text">Wähle <em>„Zum Home-Bildschirm"</em></div></div>'
+        +'<div class="install-step"><div class="install-step-num">4</div><div class="install-step-text">Tippe oben rechts auf <em>„Hinzufügen"</em> — fertig ✓</div></div>'
+      :
+        '<div class="install-step"><div class="install-step-num">1</div><div class="install-step-text">Open this page in <em>Safari</em> (not Chrome)</div></div>'
+        +'<div class="install-step"><div class="install-step-num">2</div><div class="install-step-text">Tap the Share icon <em>□↑</em> at the bottom</div></div>'
+        +'<div class="install-step"><div class="install-step-num">3</div><div class="install-step-text">Select <em>"Add to Home Screen"</em></div></div>'
+        +'<div class="install-step"><div class="install-step-num">4</div><div class="install-step-text">Tap <em>"Add"</em> in the top right — done ✓</div></div>'
+      )
+      +'</div>'
+      +'<div class="install-steps" id="install-steps-android" style="display:none;">'
+      +(isDE?
+        '<div class="install-step"><div class="install-step-num">1</div><div class="install-step-text">Öffne diese Seite in <em>Chrome</em></div></div>'
+        +'<div class="install-step"><div class="install-step-num">2</div><div class="install-step-text">Tippe auf die drei Punkte <em>⋮</em> oben rechts</div></div>'
+        +'<div class="install-step"><div class="install-step-num">3</div><div class="install-step-text">Tippe <em>„Zum Startbildschirm hinzufügen"</em></div></div>'
+        +'<div class="install-step"><div class="install-step-num">4</div><div class="install-step-text">Tippe <em>„Hinzufügen"</em> — fertig ✓</div></div>'
+      :
+        '<div class="install-step"><div class="install-step-num">1</div><div class="install-step-text">Open this page in <em>Chrome</em></div></div>'
+        +'<div class="install-step"><div class="install-step-num">2</div><div class="install-step-text">Tap the three dots <em>⋮</em> in the top right</div></div>'
+        +'<div class="install-step"><div class="install-step-num">3</div><div class="install-step-text">Tap <em>"Add to Home screen"</em></div></div>'
+        +'<div class="install-step"><div class="install-step-num">4</div><div class="install-step-text">Tap <em>"Add"</em> — done ✓</div></div>'
+      )
+      +'</div>'
+      +'<div class="install-hint-footer">'+(isDE?"Danach erscheint das App-Icon auf deinem Homescreen.":"The app icon will then appear on your home screen.")+'</div>'
       +'</div>';
-    document.body.appendChild(banner);
-    setTimeout(function(){banner.classList.add("visible");},100);
+    document.body.appendChild(popup);
+    setTimeout(function(){popup.classList.add("visible");},100);
     localStorage.setItem("7doc_install_hint_shown","1");
   },30000);
 }
+function switchInstallOS(os){
+  document.getElementById("install-steps-ios").style.display=os==="ios"?"flex":"none";
+  document.getElementById("install-steps-android").style.display=os==="android"?"flex":"none";
+  document.getElementById("iob-ios").classList.toggle("active",os==="ios");
+  document.getElementById("iob-android").classList.toggle("active",os==="android");
+}
 function dismissInstallHint(){
-  var b=document.getElementById("install-hint-banner");
+  var b=document.getElementById("install-hint-overlay");
   if(b){b.classList.remove("visible");setTimeout(function(){b.remove();},400);}
 }
 
