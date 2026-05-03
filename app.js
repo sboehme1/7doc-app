@@ -509,23 +509,22 @@ function renderWelcome(){
   +'</div>';
   s+='<div class="welcome-hero">';
   s+='<img src="img/logo.png" alt="Sash and Ventures" class="welcome-logo">';
-  s+='<div class="logo-text"><span class="logo-accent">7 Days of</span>Change</div>';
+  s+='<div class="logo-eyebrow">7 Days of</div>';
+  s+='<div class="logo-headline">Change</div>';
+  s+='<div class="logo-rule"><div class="logo-rule-line"></div><span class="logo-rule-gem">✦</span><div class="logo-rule-line"></div></div>';
   s+='<p class="tagline">'+t("sub")+'</p></div>';
   s+='<div class="welcome-intro"><p>'+t("welc1")+'</p><p>'+t("welc2")+'</p><p>'+t("welc3")+'</p></div>';
   /* "Dein Tag im Überblick" direkt nach dem Intro */
   s+='<div class="info-section"><h2>'+t("dayOverview")+'</h2>';
-  var itemsDE=["&#127911; Mini Audio","&#128221; Praxis-Notizen","&#127807; Ausklang","&#9998; Stift","&#128196; Papier","&#128241; Notiz-App","&#128167; Wasser","&#9201; Timer","&#9992;&#65039; Flugmodus"];
-  var itemsEN=["&#127911; Mini Audio","&#128221; Practice Notes","&#127807; Closing","&#9998; Pen","&#128196; Paper","&#128241; Note App","&#128167; Water","&#9201; Timer","&#9992;&#65039; Flight Mode"];
-  var items=LANG==="de"?itemsDE:itemsEN;
+  var gridDE=[{i:"🎧",n:"Mini Audio",a:true},{i:"📝",n:"Praxis-Notizen",a:true},{i:"🌿",n:"Ausklang",a:true},{i:"✏️",n:"Stift & Papier",a:false},{i:"💧",n:"Wasser",a:false},{i:"✈️",n:"Timer & Flugmodus",a:false}];
+  var gridEN=[{i:"🎧",n:"Mini Audio",a:true},{i:"📝",n:"Practice Notes",a:true},{i:"🌿",n:"Closing",a:true},{i:"✏️",n:"Pen & Paper",a:false},{i:"💧",n:"Water",a:false},{i:"✈️",n:"Timer & Flight Mode",a:false}];
+  var grid=LANG==="de"?gridDE:gridEN;
   s+='<div class="prep-overview">';
   s+='<div class="prep-overview-label">'+t("prepOverviewLabel")+'</div>';
-  s+='<div class="prep-tags">';
-  s+='<span class="prep-tag highlight">'+items[0]+'</span>';
-  s+='<span class="prep-tag highlight">'+items[1]+'</span>';
-  s+='<span class="prep-tag highlight">'+items[2]+'</span>';
-  for(var pi=3;pi<items.length;pi++){s+='<span class="prep-tag">'+items[pi]+'</span>';}
+  s+='<div class="prep-icon-grid">';
+  for(var gi=0;gi<grid.length;gi++){s+='<div class="prep-icon-item'+(grid[gi].a?' accent':'')+'"><span class="prep-icon-emoji">'+grid[gi].i+'</span><span class="prep-icon-name">'+grid[gi].n+'</span></div>';}
   s+='</div>';
-  s+='<div class="prep-otg-hint">'+t("prepOtgHint")+'</div>';
+  s+='<div class="prep-otg-hint-new">'+t("prepOtgHint")+'</div>';
   s+='</div></div>';
   s+='<button class="start-btn" tabindex="-1" onclick="go(\'day1\')">'+t("start")+' &rarr;</button>';
   s+='<div class="info-section"><h2>'+t("the7days")+'</h2><div class="days-overview">';
@@ -885,7 +884,7 @@ function renderDay(d){
   s+='<div class="meta-row"><span class="meta-label">'+(LANG==="de"?"Zeit":"Time")+'</span><span class="meta-value">'+d.time+'</span></div>';
   s+='<div class="meta-row"><span class="meta-label">Start</span><span class="meta-value">'+d.audio+'</span></div>';
   s+='<div class="meta-row"><span class="meta-label">Material</span><span class="meta-value">'+d.material+'</span></div>';
-  s+='<div class="meta-row"><span class="meta-label" style="color:#C4704B;">📄 Routine Sheet</span><span class="meta-value"><a class="meta-pdf-link" href="./Daily_Routine_Sheet__'+(LANG==="de"?"DE":"EN")+'__V1.pdf" target="_blank" rel="noopener">'+(LANG==="de"?"PDF ↓":"PDF ↓")+'</a></span></div>';
+  s+='<div class="meta-row"><span class="meta-label" style="color:#C4704B;">📄 Routine Sheet</span><span class="meta-value"><a class="meta-pdf-link" href="./Daily%20Routine%20Sheet%20-%20'+(LANG==="de"?"DE":"EN")+'.pdf" target="_blank" rel="noopener">PDF ↓</a></span></div>';
   s+='<div class="meta-row"><span class="meta-label meta-label-book">'+(LANG==="de"?"📖 Im Buch":"📖 In the book")+'</span><span class="meta-value">'+(LANG==="de"?"Seite ":"Page ")+d.bookPage+'</span></div>';
   s+='</div>';
   // Audio
@@ -1568,6 +1567,35 @@ function submitAddCode(){
   });
 }
 
+/* Add to Home Screen Hinweis — erscheint einmalig nach 30 Sekunden
+   wenn die App nicht als PWA installiert ist */
+function checkInstallHint(){
+  if(localStorage.getItem("7doc_install_hint_shown")) return;
+  var isStandalone=window.matchMedia("(display-mode: standalone)").matches||window.navigator.standalone;
+  if(isStandalone) return;
+  setTimeout(function(){
+    var lang=localStorage.getItem("7doc_lang")||"de";
+    var isDE=lang==="de";
+    var banner=document.createElement("div");
+    banner.id="install-hint-banner";
+    banner.innerHTML='<div class="install-hint-inner">'
+      +'<div class="install-hint-icon">📲</div>'
+      +'<div class="install-hint-text">'
+      +'<strong>'+(isDE?"App zum Homescreen hinzufügen":"Add app to Home Screen")+'</strong>'
+      +'<span>'+(isDE?"Tippe auf Teilen → \"Zum Home-Bildschirm\" für die beste Erfahrung & Push-Erinnerungen.":"Tap Share → \"Add to Home Screen\" for the best experience & push reminders.")+'</span>'
+      +'</div>'
+      +'<button class="install-hint-close" onclick="dismissInstallHint()">✕</button>'
+      +'</div>';
+    document.body.appendChild(banner);
+    setTimeout(function(){banner.classList.add("visible");},100);
+    localStorage.setItem("7doc_install_hint_shown","1");
+  },30000);
+}
+function dismissInstallHint(){
+  var b=document.getElementById("install-hint-banner");
+  if(b){b.classList.remove("visible");setTimeout(function(){b.remove();},400);}
+}
+
 /* === INIT === */
 function initApp(){
   var userName=localStorage.getItem('7doc_user_name');
@@ -1633,6 +1661,7 @@ function initApp(){
   showCertIfEarned();
 }
 document.addEventListener("DOMContentLoaded",initApp);
+document.addEventListener("DOMContentLoaded",checkInstallHint);
 
 /* === SERVICE WORKER REGISTRATION + UPDATE BANNER === */
 if ("serviceWorker" in navigator) {
