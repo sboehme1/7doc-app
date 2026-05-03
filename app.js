@@ -921,13 +921,12 @@ function renderDay(d){
     var step=d.steps[si];
     s+='<div class="step-section"><div class="step-header"><span class="step-badge">'+(si+1)+'</span><h3>'+step.t+'</h3></div>';
     s+='<div class="step-body">';
-    // Split content into instruction lines by sentence endings
-    var sentences=step.c.split(". ");
-    for(var pi=0;pi<sentences.length;pi++){
-      var txt=sentences[pi];
-      if(pi<sentences.length-1)txt+=".";
-      if(txt.trim().length>0){
-        s+='<div class="step-instruction"><span class="inst-marker"></span><p>'+txt.trim()+'</p></div>';
+    // Split content into paragraphs by double newline
+    var paragraphs=step.c.split("\n\n");
+    for(var pi=0;pi<paragraphs.length;pi++){
+      var txt=paragraphs[pi].trim();
+      if(txt.length>0){
+        s+='<div class="step-instruction"><p>'+txt+'</p></div>';
       }
     }
     if(step.tips){s+='<div class="step-tips-group"><div class="step-tips-rule"><div class="step-tips-line"></div><span class="step-tips-gem">✦</span><div class="step-tips-line"></div></div>';for(var ti=0;ti<step.tips.length;ti++){s+='<div class="step-tip"><p>'+step.tips[ti]+'</p></div>';}s+='</div>';}
