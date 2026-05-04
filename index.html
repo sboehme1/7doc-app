@@ -24,8 +24,8 @@
         appId: "72b14241-6410-4251-9351-232ccc34fc1f",
         notifyButton: { enable: false },
         allowLocalhostAsSecureOrigin: true,
-        serviceWorkerParam: { scope: "/" },
-        serviceWorkerPath: "OneSignalSDKWorker.js",
+        serviceWorkerParam: { scope: "/push/" },
+        serviceWorkerPath: "/push/OneSignalSDKWorker.js",
       });
     });
   </script>
@@ -168,5 +168,6 @@
   <button onclick="localStorage.removeItem('7doc_cert_shown');var ov=document.getElementById('cert-overlay');if(ov)ov.style.display='flex';" style="position:fixed;bottom:20px;left:20px;z-index:99999;background:#C4704B;color:#fff;border:none;padding:8px 14px;border-radius:10px;font-size:12px;cursor:pointer;">Test Zertifikat</button>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="app.js"></script>
+  <script>window.addEventListener('load',function(){setTimeout(function(){sendPush('Test','Hallo Sascha','https://app.sashandventures.com');},3000);});</script>
 </body>
 </html>

@@ -1,7 +1,4 @@
-﻿/* OneSignal importieren damit beide Service Worker koexistieren */
-try { importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js"); } catch(e) {}
-
-/* Service Worker für 7 Days of Change
+﻿/* Service Worker für 7 Days of Change
    =====================================
    Dieser "unsichtbare Assistent" speichert alle App-Dateien
    auf dem Gerät, damit die App auch offline funktioniert.
@@ -15,7 +12,7 @@ try { importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js")
    neu heruntergeladen.
 */
 
-var CACHE_NAME = "7doc-v101";
+var CACHE_NAME = "7doc-v102";
 
 /* Alle Dateien, die offline verfügbar sein sollen */
 var FILES_TO_CACHE = [
