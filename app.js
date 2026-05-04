@@ -1326,7 +1326,7 @@ function sendPush(title,message,url){
   var de=LANG==='de';
   var restKey=localStorage.getItem('7doc_os_key')||'';
   if(!restKey)return;
-  var body={app_id:'72b14241-6410-4251-9351-232ccc34fc1f',included_segments:['Total Subscriptions'],headings:{en:title,de:title},contents:{en:message,de:message},url:url||'https://app.sashandventures.com'};
+  var body={app_id:'72b14241-6410-4251-9351-232ccc34fc1f',included_segments:['Subscribed Users'],headings:{en:title,de:title},contents:{en:message,de:message},url:url||'https://app.sashandventures.com'};
   fetch('https://onesignal.com/api/v1/notifications',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Basic '+restKey},body:JSON.stringify(body)}).catch(function(){});
 }
 

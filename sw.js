@@ -12,7 +12,9 @@
    neu heruntergeladen.
 */
 
-var CACHE_NAME = "7doc-v103";
+importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
+
+var CACHE_NAME = "7doc-v104";
 
 /* Alle Dateien, die offline verfügbar sein sollen */
 var FILES_TO_CACHE = [
