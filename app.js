@@ -1352,6 +1352,7 @@ function setLang(l){
   document.getElementById("footer-disc").textContent=t("footerDisc");
   var fac=document.getElementById("footer-add-code");if(fac)fac.textContent=t("addCode");
   var frl=document.getElementById("footer-restart-label");if(frl)frl.textContent=LANG==="de"?"Programm neu beginnen":"Start over";
+  var frw=document.getElementById("footer-restart-warning");if(frw)frw.textContent=LANG==="de"?"Alle Einträge, Notizen und dein Fortschritt werden dabei gelöscht.":"All entries, notes and your progress will be deleted.";
   var cpl=document.getElementById("coaching-progress-link");if(cpl)cpl.textContent=t("coachingBtn");
   var hjb=document.getElementById("header-journey-btn");if(hjb)hjb.textContent=t("headerJourneyBtn");
   /* Wenn noch nicht freigeschaltet, Gate-Screen neu rendern */
@@ -1744,6 +1745,7 @@ function initApp(){
   document.getElementById("footer-disc").textContent=t("footerDisc");
   var fac=document.getElementById("footer-add-code");if(fac)fac.textContent=t("addCode");
   var frl=document.getElementById("footer-restart-label");if(frl)frl.textContent=LANG==="de"?"Programm neu beginnen":"Start over";
+  var frw=document.getElementById("footer-restart-warning");if(frw)frw.textContent=LANG==="de"?"Alle Einträge, Notizen und dein Fortschritt werden dabei gelöscht.":"All entries, notes and your progress will be deleted.";
   var cpl=document.getElementById("coaching-progress-link");if(cpl)cpl.textContent=t("coachingBtn");
 
   /* Pruefen ob Zugang bereits freigeschaltet ist */
