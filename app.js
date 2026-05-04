@@ -1351,6 +1351,7 @@ function setLang(l){
   document.getElementById("header-sub").textContent=t("sub");
   document.getElementById("footer-disc").textContent=t("footerDisc");
   var fac=document.getElementById("footer-add-code");if(fac)fac.textContent=t("addCode");
+  var frl=document.getElementById("footer-restart-label");if(frl)frl.textContent=LANG==="de"?"Programm neu beginnen":"Start over";
   var cpl=document.getElementById("coaching-progress-link");if(cpl)cpl.textContent=t("coachingBtn");
   var hjb=document.getElementById("header-journey-btn");if(hjb)hjb.textContent=t("headerJourneyBtn");
   /* Wenn noch nicht freigeschaltet, Gate-Screen neu rendern */
@@ -1610,6 +1611,16 @@ function openValueWheel(){
   setTimeout(function(){ov.classList.add('visible');},30);
 }
 
+function confirmRestart(){
+  var isDE=LANG==='de';
+  var msg=isDE?'Möchtest du wirklich neu beginnen? Dein Fortschritt wird zurückgesetzt.':'Do you want to start over? Your progress will be reset.';
+  if(!confirm(msg)) return;
+  localStorage.removeItem('7doc_daily_value');
+  localStorage.removeItem('7doc_best_streak');
+  setPr(new Array(10).fill(false));
+  go('welcome');
+}
+
 function selectValue(word){
   localStorage.setItem('7doc_daily_value',word);
   var isDE=LANG==='de';
@@ -1732,6 +1743,7 @@ function initApp(){
   });
   document.getElementById("footer-disc").textContent=t("footerDisc");
   var fac=document.getElementById("footer-add-code");if(fac)fac.textContent=t("addCode");
+  var frl=document.getElementById("footer-restart-label");if(frl)frl.textContent=LANG==="de"?"Programm neu beginnen":"Start over";
   var cpl=document.getElementById("coaching-progress-link");if(cpl)cpl.textContent=t("coachingBtn");
 
   /* Pruefen ob Zugang bereits freigeschaltet ist */
