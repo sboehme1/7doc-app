@@ -1322,7 +1322,47 @@ function buildDayCompare(num){
 }
 
 /* === INTERACTIONS === */
+function sendPush(title,message,url){
+  var de=LANG==='de';
+  var restKey=localStorage.getItem('7doc_os_key')||'';
+  if(!restKey)return;
+  var body={app_id:'72b14241-6410-4251-9351-232ccc34fc1f',included_segments:['Total Subscriptions'],headings:{en:title,de:title},contents:{en:message,de:message},url:url||'https://app.sashandventures.com'};
+  fetch('https://onesignal.com/api/v1/notifications',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Basic '+restKey},body:JSON.stringify(body)}).catch(function(){});
+}
+
+function scheduleDailyReminder(){
+  if(localStorage.getItem('7doc_daily_reminder_set'))return;
+  var pr=getPr();
+  var nextDay=1;for(var i=0;i<10;i++){if(!pr[i]){nextDay=i+1;break;}}
+  var isDE=LANG==='de';
+  var title='7 Days of Change';
+  var msg=isDE?'Tag '+nextDay+' wartet auf dich. 20 Minuten für dich heute?':'Day '+nextDay+' is waiting for you. 20 minutes for yourself today?';
+  sendPush(title,msg);
+  localStorage.setItem('7doc_daily_reminder_set','1');
+  localStorage.setItem('7doc_last_active',Date.now().toString());
+}
+
+function checkReengagement(){
+  var last=parseInt(localStorage.getItem('7doc_last_active')||'0');
+  if(!last)return;
+  var daysSince=(Date.now()-last)/(1000*60*60*24);
+  if(daysSince>=2&&!localStorage.getItem('7doc_reeng_sent')){
+    var isDE=LANG==='de';
+    sendPush('7 Days of Change',isDE?'Du warst kurz weg. Dein Platz ist noch da.':'You were away for a bit. Your place is still here.');
+    localStorage.setItem('7doc_reeng_sent','1');
+  }
+}
+
 function cDay(num){var pr=getPr();if(pr[num-1])return;pr[num-1]=true;setPr(pr);
+  localStorage.setItem('7doc_last_active',Date.now().toString());
+  localStorage.removeItem('7doc_daily_reminder_set');
+  localStorage.removeItem('7doc_reeng_sent');
+  var isDE=LANG==='de';
+  /* Szenario ④ — Abschluss Tag 7 oder 10 */
+  if(num===7){setTimeout(function(){sendPush('7 Days of Change',isDE?'Du hast es geschafft. 7 Tage. Das ist kein kleines Ding.':'You did it. 7 days. That is no small thing.','https://app.sashandventures.com');},1000);}
+  if(num===10){setTimeout(function(){sendPush('7 Days of Change',isDE?'10 Tage. Vollständig. Dein Zertifikat wartet.':'10 days. Complete. Your certificate is waiting.','https://app.sashandventures.com');},1000);}
+  /* Szenario ⑤ — Coaching-Upsell einmalig nach Tag 5 */
+  if(num===5&&!localStorage.getItem('7doc_coaching_push_sent')){setTimeout(function(){sendPush('7 Days of Change',isDE?'Möchtest du tiefer gehen? Persönliche Begleitung ist möglich.':'Want to go deeper? Personal coaching is available.','https://sashandventures.com');localStorage.setItem('7doc_coaching_push_sent','1');},2000);}
   var b=document.getElementById("cb"+num);if(b){b.className="complete-btn done";b.innerHTML="&#10003; "+(LANG==="de"?"Tag ":"Day ")+num+t("completed");}
   var m=document.getElementById("cm"+num);if(m)m.className="completion-msg show";
   var dc=document.getElementById("dc"+num);if(dc)dc.innerHTML=buildDayCompare(num);
@@ -1612,6 +1652,9 @@ function openValueWheel(){
   setTimeout(function(){ov.classList.add('visible');},30);
 }
 
+/* OneSignal REST API Key — wird lokal gespeichert, nie im Code */
+function initOSKey(key){if(key)localStorage.setItem('7doc_os_key',key);}
+
 function confirmRestart(){
   var isDE=LANG==='de';
   var msg=isDE?'Möchtest du wirklich neu beginnen? Dein Fortschritt wird zurückgesetzt.':'Do you want to start over? Your progress will be reset.';
@@ -1772,6 +1815,8 @@ function initApp(){
 }
 document.addEventListener("DOMContentLoaded",initApp);
 document.addEventListener("DOMContentLoaded",checkInstallHint);
+document.addEventListener("DOMContentLoaded",scheduleDailyReminder);
+document.addEventListener("DOMContentLoaded",checkReengagement);
 
 /* === SERVICE WORKER REGISTRATION + UPDATE BANNER === */
 if ("serviceWorker" in navigator) {
