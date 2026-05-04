@@ -77,11 +77,15 @@
   <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">&#8593;</button>
 
   <footer class="app-footer">
-    <div class="footer-logo">
+    <div class="footer-logo" onclick="_osKeyTap()">
       <img src="img/logo.png" alt="Sash and Ventures" class="footer-logo-img">
     </div>
     <p>&copy; 2026 Sascha B&ouml;hme &middot; <a href="https://sashandventures.com" target="_blank" rel="noopener">sashandventures.com</a></p>
     <p style="margin-top:6px;font-size:0.73rem;" id="footer-disc"></p>
+    <div id="os-key-form" style="display:none;margin-top:1rem;">
+      <input id="os-key-input" type="password" placeholder="OneSignal REST API Key" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;font-size:13px;margin-bottom:6px;">
+      <button onclick="var k=document.getElementById('os-key-input').value;if(k){localStorage.setItem('7doc_os_key',k);document.getElementById('os-key-form').style.display='none';alert('Gespeichert!');}" style="background:#C4704B;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;">Speichern</button>
+    </div>
     <p style="margin-top:8px;"><a href="#" id="footer-add-code" onclick="showAddCodeModal();return false;" style="color:#c0845a;font-size:0.85rem;text-decoration:underline;cursor:pointer;"></a></p>
     <div class="footer-restart-wrap">
       <div class="footer-restart-rule"><div class="footer-restart-line"></div><span class="footer-restart-gem">✦</span><div class="footer-restart-line"></div></div>

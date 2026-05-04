@@ -1655,6 +1655,16 @@ function openValueWheel(){
 /* OneSignal REST API Key — wird lokal gespeichert, nie im Code */
 function initOSKey(key){if(key)localStorage.setItem('7doc_os_key',key);}
 
+var _osKeyTaps=0;
+function _osKeyTap(){
+  _osKeyTaps++;
+  if(_osKeyTaps>=7){
+    _osKeyTaps=0;
+    var f=document.getElementById('os-key-form');
+    if(f)f.style.display=f.style.display==='none'?'block':'none';
+  }
+}
+
 function confirmRestart(){
   var isDE=LANG==='de';
   var msg=isDE?'Möchtest du wirklich neu beginnen? Dein Fortschritt wird zurückgesetzt.':'Do you want to start over? Your progress will be reset.';
