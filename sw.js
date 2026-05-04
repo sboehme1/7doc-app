@@ -12,7 +12,7 @@
    neu heruntergeladen.
 */
 
-var CACHE_NAME = "7doc-v102";
+var CACHE_NAME = "7doc-v103";
 
 /* Alle Dateien, die offline verfügbar sein sollen */
 var FILES_TO_CACHE = [
@@ -69,16 +69,15 @@ self.addEventListener("message", function(event) {
    Schaut zuerst im Cache nach — nur wenn nichts da ist,
    wird aus dem Internet geladen. */
 self.addEventListener("fetch", function(event) {
+  /* POST-Requests und OneSignal-API nie cachen */
+  if(event.request.method !== "GET") return;
+  if(event.request.url.indexOf("onesignal.com") > -1) return;
   event.respondWith(
     caches.match(event.request).then(function(cached) {
       if (cached) {
-        /* Treffer im Cache — sofort liefern */
         return cached;
       }
-      /* Nicht im Cache — aus dem Internet holen
-         und für nächstes Mal im Cache speichern */
       return fetch(event.request).then(function(response) {
-        /* Nur gültige Antworten cachen */
         if (!response || response.status !== 200) {
           return response;
         }
