@@ -25,6 +25,13 @@
         notifyButton: { enable: false },
         allowLocalhostAsSecureOrigin: true,
       });
+      const subId = OneSignal.User.PushSubscription.id;
+      if (subId) localStorage.setItem('7doc_os_sub_id', subId);
+      OneSignal.User.PushSubscription.addEventListener('change', function(event) {
+        if (event.current && event.current.id) {
+          localStorage.setItem('7doc_os_sub_id', event.current.id);
+        }
+      });
     });
   </script>
 </head>
