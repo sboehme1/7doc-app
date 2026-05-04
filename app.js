@@ -709,6 +709,7 @@ function renderJourney(){
   if(pr[9])s+=buildSummaryBtn(10);
   else if(pr[6])s+=buildSummaryBtn(7);
   if(pr[6])s+='<button class="summary-btn" onclick="showCoachingMoment()" style="margin-top:0.5rem;">'+'<span>'+(LANG==="de"?"Was ist dein n\u00e4chster Schritt?":"What is your next step?")+'</span><span>&rarr;</span>'+'</button>';
+  if(pr[9])s+='<button class="cert-download-btn" onclick="downloadCertificate()">\u2b07 '+(LANG==="de"?"Zertifikat herunterladen":"Download Certificate")+'</button>';
   s+='<div class="journey-message"><p>'+t("journeyMsg1")+'</p><p>'+t("journeyMsg2")+'</p><p>'+t("journeyMsg3")+'</p></div>';
   s+='<div class="journey-days">';
   for(var i=0;i<dd.length;i++){
@@ -1360,7 +1361,20 @@ function cDay(num){var pr=getPr();if(pr[num-1])return;pr[num-1]=true;setPr(pr);
   var isDE=LANG==='de';
   /* Szenario ④ — Abschluss Tag 7 oder 10 */
   if(num===7){setTimeout(function(){sendPush('7 Days of Change',isDE?'Du hast es geschafft. 7 Tage. Das ist kein kleines Ding.':'You did it. 7 days. That is no small thing.','https://app.sashandventures.com');},1000);}
-  if(num===10){setTimeout(function(){sendPush('7 Days of Change',isDE?'10 Tage. Vollständig. Dein Zertifikat wartet.':'10 days. Complete. Your certificate is waiting.','https://app.sashandventures.com');},1000);}
+  if(num===10){
+    setTimeout(function(){sendPush('7 Days of Change',isDE?'10 Tage. Vollständig. Dein Zertifikat wartet.':'10 days. Complete. Your certificate is waiting.','https://app.sashandventures.com');},1000);
+    setTimeout(function(){
+      var ov=document.getElementById('cert-overlay');
+      if(ov){
+        document.getElementById('cert-popup-title').textContent=isDE?'Du hast es geschafft.':'You did it.';
+        document.getElementById('cert-popup-sub').textContent=isDE?'10 TAGE · VOLLSTÄNDIG':'10 DAYS · COMPLETE';
+        document.getElementById('cert-popup-msg').textContent=isDE?'Dein Zertifikat ist bereit. Und deine vollständige Zusammenfassung wartet auf dich.':'Your certificate is ready. And your full summary is waiting for you.';
+        var skipBtn=document.getElementById('cert-popup-skip');
+        if(skipBtn){skipBtn.textContent=isDE?'Zur Zusammenfassung →':'See summary →';skipBtn.onclick=function(){closeCert();go('summary10');};}
+        ov.style.display='flex';
+      }
+    },800);
+  }
   /* Szenario ⑤ — Coaching-Upsell einmalig nach Tag 5 */
   if(num===5&&!localStorage.getItem('7doc_coaching_push_sent')){setTimeout(function(){sendPush('7 Days of Change',isDE?'Möchtest du tiefer gehen? Persönliche Begleitung ist möglich.':'Want to go deeper? Personal coaching is available.','https://sashandventures.com');localStorage.setItem('7doc_coaching_push_sent','1');},2000);}
   var b=document.getElementById("cb"+num);if(b){b.className="complete-btn done";b.innerHTML="&#10003; "+(LANG==="de"?"Tag ":"Day ")+num+t("completed");}
@@ -1671,6 +1685,10 @@ function confirmRestart(){
   if(!confirm(msg)) return;
   localStorage.removeItem('7doc_daily_value');
   localStorage.removeItem('7doc_best_streak');
+  localStorage.removeItem('7doc_coaching_push_sent');
+  localStorage.removeItem('7doc_daily_reminder_set');
+  localStorage.removeItem('7doc_reeng_sent');
+  localStorage.removeItem('7doc_last_active');
   setPr(new Array(10).fill(false));
   go('welcome');
 }

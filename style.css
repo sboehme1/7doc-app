@@ -2385,3 +2385,20 @@ body.dark-mode .vw-selected { color: #D4896A; }
   letter-spacing: 0.01em;
   line-height: 1.5;
 }
+.cert-download-btn {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.85rem 1rem;
+  background: #C4704B;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s;
+}
+.cert-download-btn:hover { opacity: 0.88; }
