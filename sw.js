@@ -14,7 +14,7 @@
 
 importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
 
-var CACHE_NAME = "7doc-v110";
+var CACHE_NAME = "7doc-v111";
 
 /* Alle Dateien, die offline verfügbar sein sollen */
 var FILES_TO_CACHE = [
@@ -74,6 +74,7 @@ self.addEventListener("fetch", function(event) {
   /* POST-Requests und OneSignal-API nie cachen */
   if(event.request.method !== "GET") return;
   if(event.request.url.indexOf("onesignal.com") > -1) return;
+  if(event.request.url.startsWith("chrome-extension://")) return;
   event.respondWith(
     caches.match(event.request).then(function(cached) {
       if (cached) {
