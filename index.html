@@ -24,6 +24,7 @@
         appId: "72b14241-6410-4251-9351-232ccc34fc1f",
         notifyButton: { enable: false },
         allowLocalhostAsSecureOrigin: true,
+        serviceWorkerPath: "sw.js",
       });
       const subId = OneSignal.User.PushSubscription.id;
       if (subId) localStorage.setItem('7doc_os_sub_id', subId);
