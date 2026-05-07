@@ -1340,7 +1340,7 @@ function sendPush(title,message,url){
   }
   fetch('https://onesignal.com/api/v1/notifications', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Authorization': 'Basic ' + restKey },
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Key ' + restKey },
     body: JSON.stringify(body)
   }).catch(function() {});
 }
