@@ -1873,7 +1873,7 @@ if ("serviceWorker" in navigator) {
       setTimeout(function(){ toast.remove(); }, 400);
     }, 4000);
   }
-  navigator.serviceWorker.register("./sw.js").then(function(reg) {
+  navigator.serviceWorker.register("./OneSignalSDKWorker.js").then(function(reg) {
     reg.addEventListener("updatefound", function() {
       var newSW = reg.installing;
       if (!newSW) return;
