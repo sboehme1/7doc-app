@@ -14,7 +14,7 @@
    neu heruntergeladen.
 */
 
-var CACHE_NAME = "7doc-v113";
+var CACHE_NAME = "7doc-v114";
 
 /* Alle Dateien, die offline verfügbar sein sollen */
 var FILES_TO_CACHE = [
