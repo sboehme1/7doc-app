@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<title>App aktualisieren · 7 Days of Change</title>
+<style>
+:root{color-scheme:light dark;--bg:#faf8f3;--surface:#fff;--ink:#2c2824;--muted:#625e58;--accent:#a6533c;--on-accent:#fff;--line:#8c8276;--soft:#eaf0e4}
+@media(prefers-color-scheme:dark){:root{--bg:#24211e;--surface:#302b27;--ink:#f0eee5;--muted:#d3cfc5;--accent:#e5ac8f;--on-accent:#24211e;--line:#aa9d8f;--soft:#343e2d}}
+*{box-sizing:border-box}body{margin:0;padding:32px 20px;background:var(--bg);color:var(--ink);font:17px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:620px;margin:6vh auto;padding:clamp(24px,5vw,40px);background:var(--surface);border:1px solid var(--line);border-radius:24px}header{font-size:.8rem;letter-spacing:.12em;color:var(--muted)}h1{font:400 clamp(2rem,6vw,3rem)/1.15 Georgia,serif;margin:24px 0}p{margin:16px 0;color:var(--muted)}.note{padding:18px;background:var(--soft);color:var(--ink);border-radius:14px}button,a{font:inherit;min-height:48px;border-radius:12px;padding:12px 18px}button{background:var(--accent);color:var(--on-accent);border:0;cursor:pointer}button:disabled{cursor:wait}a{color:var(--ink);display:inline-flex;align-items:center}button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}#status{min-height:58px;font-weight:550;color:var(--ink)}small{display:block;color:var(--muted);font-size:.875rem;margin-top:24px}
+</style>
+</head>
+<body><main>
+<header>7 DAYS OF CHANGE</header>
+<h1>Deine App auf dem aktuellen Stand.</h1>
+<p>Hier kannst du eine bereitliegende Aktualisierung übernehmen. Öffne diese Seite im selben normalen Browser, in dem du die App bisher nutzt.</p>
+<p class="note">Speichere aktuelle Eingaben in anderen App-Tabs, bevor du aktualisierst. Deine gespeicherten Einträge bleiben auf diesem Gerät erhalten.</p>
+<p id="status" role="status" aria-live="polite">Die Aktualisierung wird geprüft …</p>
+<div class="actions"><button id="update" type="button" disabled>Bitte warten …</button><a id="open-app" href="./">Zur App</a></div>
+<small>Diese Seite entfernt keine persönlichen Browserdaten. Wenn die App wieder geöffnet ist, findest du die Versionsnummer unter Einstellungen oder im Footer.</small>
+<noscript><p>Aktiviere JavaScript, um das Update zu prüfen.</p></noscript>
+</main>
+<script>
+(() => {
+ 'use strict';
+ const button=document.getElementById('update'),status=document.getElementById('status');
+ const base=new URL('./',location.href);
+ let registration=null,applying=false,activationTimer=null;
+ const watched=new WeakSet();
+ document.getElementById('open-app').href=base.href;
+ function showWaiting(){if(applying)return;status.textContent='Eine Aktualisierung ist bereit. Mit einem Tippen kannst du sie übernehmen.';button.textContent='Jetzt aktualisieren';button.disabled=false;}
+ function inspect(){
+  if(applying)return;
+  if(registration.waiting){showWaiting();return;}
+  const worker=registration.installing;
+  if(worker){
+   status.textContent='Die neue Version wird auf diesem Gerät vorbereitet …';button.disabled=true;
+   if(!watched.has(worker)){watched.add(worker);worker.addEventListener('statechange',()=>{
+    if(worker.state==='redundant'){status.textContent='Die Vorbereitung wurde unterbrochen. Prüfe deine Internetverbindung und versuche es erneut.';button.textContent='Erneut prüfen';button.disabled=false;}
+    else inspect();
+   });}
+   return;
+  }
+  button.textContent='Erneut prüfen';button.disabled=false;
+  status.textContent='Es wartet gerade kein Update. Öffne die App und prüfe dort die Versionsnummer. Bei alter Ansicht schließe weitere App-Tabs und versuche es erneut.';
+ }
+ async function check(){
+  button.disabled=true;status.textContent='Die Aktualisierung wird geprüft …';
+  try{
+   if(!window.isSecureContext||!('serviceWorker' in navigator))throw new Error('unsupported');
+   registration=await navigator.serviceWorker.register(new URL('OneSignalSDKWorker.js',base).href,{scope:base.pathname,updateViaCache:'none'});
+   registration.addEventListener('updatefound',inspect);
+   if(registration.waiting){showWaiting();return;}
+   await registration.update();inspect();
+  }catch{
+   status.textContent='Die Prüfung konnte gerade nicht abgeschlossen werden. Öffne diese Seite online unter deiner App-Adresse und versuche es erneut.';button.textContent='Erneut prüfen';button.disabled=false;
+  }
+ }
+ button.addEventListener('click',()=>{
+  if(!registration?.waiting){check();return;}
+  applying=true;button.disabled=true;button.textContent='Wird aktualisiert …';status.textContent='Die neue Version wird übernommen. Anschließend öffnet sich die App.';
+  activationTimer=setTimeout(()=>{applying=false;button.disabled=false;button.textContent='Erneut prüfen';status.textContent='Die Aktualisierung braucht noch einen Moment. Schließe weitere App-Tabs und öffne die App erneut.';},20000);
+  try{registration.waiting.postMessage({type:'SKIP_WAITING'});}catch{clearTimeout(activationTimer);applying=false;button.disabled=false;button.textContent='Erneut prüfen';status.textContent='Die Aktualisierung wurde noch nicht übernommen. Prüfe erneut.';}
+ });
+ if('serviceWorker' in navigator)navigator.serviceWorker.addEventListener('controllerchange',()=>{
+  if(applying){clearTimeout(activationTimer);location.replace(base.href);}
+  else if(registration)inspect();
+ });
+ check();
+})();
+</script>
+</body></html>
