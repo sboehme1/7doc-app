@@ -1,10 +1,10 @@
 /* Keep this URL for existing installations. Push is deliberately inactive.
    Run `node scripts/update-cache.cjs` before uploading a changed version. */
 'use strict';
-const CACHE_NAME = '7doc-shell-c2af0bc2b1dc81';
+const CACHE_NAME = '7doc-shell-f813b7b6693882';
 const MEDIA_CACHE = '7doc-media-v2';
 const SHELL = [
-  './', './index.html', './style.css', './core.js', './content.js', './interactions.js', './app.js', './manifest.json',
+  './', './index.html', './style.css', './mobile.css', './core.js', './content.js', './interactions.js', './app.js', './manifest.json',
   './img/logo.png', './img/icon-192.png', './img/icon-512.png', './img/icon-maskable.png', './img/apple-touch-icon.png',
   './Daily%20Routine%20Sheet%20-%20DE.pdf', './Daily%20Routine%20Sheet%20-%20EN.pdf'
 ];
