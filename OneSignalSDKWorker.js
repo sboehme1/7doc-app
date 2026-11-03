@@ -1,17 +1,17 @@
 /* Keep this URL for existing installations. Push is deliberately inactive.
    Run `node scripts/update-cache.cjs` before uploading a changed version. */
 'use strict';
-const CACHE_NAME = '7doc-shell-f813b7b6693882';
+const CACHE_NAME = '7doc-shell-89c1285413c10a';
 const MEDIA_CACHE = '7doc-media-v2';
 const SHELL = [
-  './', './index.html', './style.css', './mobile.css', './core.js', './content.js', './interactions.js', './app.js', './manifest.json',
+  './', './index.html', './style.css', './mobile.css', './core.js', './content.js', './interactions.js', './updates.js', './app.js', './manifest.json',
   './img/logo.png', './img/icon-192.png', './img/icon-512.png', './img/icon-maskable.png', './img/apple-touch-icon.png',
   './Daily%20Routine%20Sheet%20-%20DE.pdf', './Daily%20Routine%20Sheet%20-%20EN.pdf'
 ];
 const shellURLs = new Set(SHELL.map(path => new URL(path, self.location.href).href));
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(SHELL.map(path => new Request(new URL(path,self.location.href),{cache:'reload'})))));
-  // Updating users decide when to activate; the first installation activates normally.
+  // Automatic activation is coordinated across all open views; the first installation activates normally.
 });
 self.addEventListener('activate', event => {
   event.waitUntil((async () => {
@@ -20,7 +20,45 @@ self.addEventListener('activate', event => {
     await self.clients.claim();
   })());
 });
-self.addEventListener('message', event => { if (event.data?.type === 'SKIP_WAITING') self.skipWaiting(); });
+// All open app windows must be idle and frozen before automatic activation.
+// Unknown/older windows do not acknowledge, so the update waits for them to close.
+let updateAttempt=null,updateSequence=0;
+async function requestAutomaticUpdate(){
+  if(updateAttempt)return;
+  const scope=new URL('./',self.location.href);
+  const appPaths=new Set([scope.pathname,new URL('./index.html',scope).pathname]);
+  let windows;
+  try{windows=(await self.clients.matchAll({type:'window',includeUncontrolled:true})).filter(client=>{const url=new URL(client.url);return url.origin===scope.origin&&appPaths.has(url.pathname);});}
+  catch{return;}
+  if(!windows.length)return;
+  let resolve;
+  const answer=new Promise(r=>{resolve=r;});
+  const attempt={requestId:CACHE_NAME+':'+(++updateSequence)+':'+Date.now(),windows,expected:new Set(windows.map(client=>client.id)),ready:new Set(),resolve};
+  updateAttempt=attempt;
+  const timer=setTimeout(()=>resolve(false),5000);
+  try{
+    for(const client of windows)client.postMessage({type:'7DOC_PREPARE_UPDATE',requestId:attempt.requestId,build:CACHE_NAME});
+    const allReady=await answer;
+    if(allReady)await self.skipWaiting();
+    else for(const client of windows){try{client.postMessage({type:'7DOC_ABORT_UPDATE',requestId:attempt.requestId});}catch{}}
+  }catch{
+    for(const client of windows){try{client.postMessage({type:'7DOC_ABORT_UPDATE',requestId:attempt.requestId});}catch{}}
+  }finally{clearTimeout(timer);if(updateAttempt===attempt)updateAttempt=null;}
+}
+self.addEventListener('message',event=>{
+  const data=event.data;
+  // Compatibility for the explicit update button shipped before automatic updates.
+  if(data?.type==='SKIP_WAITING'){self.skipWaiting();return;}
+  if(data?.type==='7DOC_REQUEST_UPDATE'&&event.source?.id){event.waitUntil(requestAutomaticUpdate());return;}
+  if(data?.type==='7DOC_UPDATE_READY'){
+    const attempt=updateAttempt;
+    if(!attempt||data.requestId!==attempt.requestId||data.build!==CACHE_NAME||!attempt.expected.has(event.source?.id))return;
+    if(data.ready!==true){attempt.resolve(false);return;}
+    attempt.ready.add(event.source.id);
+    if(attempt.ready.size===attempt.expected.size)attempt.resolve(true);
+  }
+});
+
 // A cached index.html may have followed the host's redirect to ./.
 // Navigation requests can reject that response's redirect flag on reload.
 function navigationResponse(response) {

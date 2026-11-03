@@ -2518,3 +2518,9 @@ body{font-size:17px}.app-header{min-height:88px;padding-top:20px;padding-bottom:
 /* Keep the writing area usable when the on-screen keyboard reduces the viewport. */
 .keyboard-open .session-support { position:static; }
 @media(max-height:500px) { .session-support { position:static; } }
+
+/* Automatic update notice and one-time release dialog. */
+.update-notice>span { display:flex; align-items:flex-start; gap:10px; line-height:1.6; }
+.update-notice>span .icon { width:20px; height:20px; flex-shrink:0; margin-top:3px; }
+.release-note>.eyebrow { display:block; margin-bottom:16px; }
+.release-note>.button { display:flex; width:100%; margin-top:24px; justify-content:center; text-align:center; }
